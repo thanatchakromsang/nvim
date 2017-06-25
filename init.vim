@@ -34,7 +34,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'	
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
@@ -47,6 +47,9 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/deoplete.nvim'
+Plug 'easymotion/vim-easymotion'
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -87,6 +90,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
+Plug 'jvanja/vim-bootstrap4-snippets'
 
 
 " javascript
@@ -103,7 +107,6 @@ Plug 'arnaud-lb/vim-php-namespace'
 "" Python Bundle
 Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-
 
 "*****************************************************************************
 "*****************************************************************************
@@ -199,7 +202,7 @@ else
   let g:indentLine_enabled = 1
   let g:indentLine_concealcursor = 'inc'
   let g:indentLine_conceallevel = 2
-  let g:indentLine_char = '¦'
+  let g:indentLine_char = '│'
   let g:indentLine_faster = 1
 
   
@@ -455,6 +458,27 @@ vnoremap K :m '<-2<CR>gv=gv
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
 
+"" Emmet
+let g:user_emmet_expandabbr_key='<C-e>'
+
+"" Easytion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
@@ -475,7 +499,8 @@ augroup END
 
 
 " php
-
+" use html,css snippets inside php
+autocmd filetype php set filetype=php.html
 
 " python
 " vim-python
@@ -507,6 +532,16 @@ let g:airline#extensions#virtualenv#enabled = 1
 " Default highlight is better than polyglot
 let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
+
+" deoplete (neovim asynchronous completion)
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+set completeopt+=noinsert
+
+" Emmet
+" enable just for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 
 "*****************************************************************************
