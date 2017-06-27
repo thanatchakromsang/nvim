@@ -536,12 +536,11 @@ let python_highlight_all = 1
 " deoplete (neovim asynchronous completion)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-set completeopt+=noinsert
 
 " Emmet
 " enable just for html/css
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,php.html EmmetInstall
 
 
 "*****************************************************************************
