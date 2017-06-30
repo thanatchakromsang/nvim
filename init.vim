@@ -536,6 +536,7 @@ let python_highlight_all = 1
 " deoplete (neovim asynchronous completion)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let b:deoplete_ignore_sources = ['buffer']
 
 " Emmet
 " enable just for html/css
