@@ -199,12 +199,11 @@ else
   let g:CSApprox_loaded = 1
 
   " IndentLine
-  let g:indentLine_enabled = 1
+  let g:indentLine_enabled = 0
   let g:indentLine_concealcursor = 'inc'
   let g:indentLine_conceallevel = 2
   let g:indentLine_char = '│'
   let g:indentLine_faster = 1
-
   
 endif
 
@@ -478,6 +477,9 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" IndentLines
+map <Leader>\ :IndentLinesToggle<CR>
 
 "*****************************************************************************
 "" Custom configs
