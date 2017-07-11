@@ -283,7 +283,9 @@ let g:vimshell_prompt =  '$ '
 
 " terminal emulation
 if g:vim_bootstrap_editor == 'nvim'
-  nnoremap <silent> <leader>sh :terminal<CR>
+  "nnoremap <silent> <leader>sh :terminal<CR>
+  "testing vimshell instead of terminal
+  nnoremap <silent> <leader>sh :VimShellCreate<CR>
 else
   nnoremap <silent> <leader>sh :VimShellCreate<CR>
 endif
