@@ -34,7 +34,9 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'	
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
@@ -50,6 +52,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
+
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -180,6 +183,7 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
+set relativenumber             " Show relative line numbers
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
