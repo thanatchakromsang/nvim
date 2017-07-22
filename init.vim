@@ -472,11 +472,11 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap s <Plug>(easymotion-overwin-f)
+nmap se <Plug>(easymotion-overwin-f)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-overwin-f2)
+nmap se <Plug>(easymotion-overwin-f2)
 
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
@@ -505,11 +505,6 @@ augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
 augroup END
-
-
-" php
-" use html,css snippets inside php
-autocmd filetype php set filetype=php.html
 
 " python
 " vim-python
@@ -550,7 +545,7 @@ let b:deoplete_ignore_sources = ['buffer']
 " Emmet
 " enable just for html/css
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php.html EmmetInstall
+autocmd FileType html,css EmmetInstall
 
 
 "*****************************************************************************
