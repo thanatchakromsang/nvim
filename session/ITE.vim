@@ -1,6 +1,6 @@
 " ~/.config/nvim/session/ITE.vim:
 " Vim session script.
-" Created by session.vim 2.13.1 on 04 July 2017 at 18:01:38.
+" Created by session.vim 2.13.1 on 22 July 2017 at 22:06:45.
 " Open this file in Vim and run :source % to restore your session.
 
 if exists('g:syntax_on') != 1 | syntax on | endif
@@ -16,16 +16,17 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/
+cd ~/Github/ite.kmitl.ac.th
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +121 ite.kmitl.ac.th/login.php
-badd +11 ite.kmitl.ac.th/assets/common/php/signIn.php
+badd +105 index.php
+badd +78 setting.php
+badd +117 login.php
 argglobal
 silent! argdel *
-edit ite.kmitl.ac.th/login.php
+edit login.php
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -41,12 +42,50 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 64 - ((5 * winheight(0) + 19) / 39)
+let s:l = 159 - ((30 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-64
-normal! 067|
+159
+normal! 0
+tabedit index.php
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winminwidth=1 winheight=1 winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 105 - ((1 * winheight(0) + 20) / 40)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+105
+normal! 0
+tabnew
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winminwidth=1 winheight=1 winwidth=1
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
 "   silent exe 'bwipe ' . s:wipebuf
