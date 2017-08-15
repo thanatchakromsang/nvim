@@ -52,7 +52,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/deoplete.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
-
+Plug 'epilande/vim-react-snippets'
+Plug 'epilande/vim-es2015-snippets'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'

@@ -1,6 +1,6 @@
-" ~/.config/nvim/session/ITE.vim:
+" ~/.config/nvim/session/default.vim:
 " Vim session script.
-" Created by session.vim 2.13.1 on 08 August 2017 at 18:55:42.
+" Created by session.vim 2.13.1 on 08 August 2017 at 18:55:35.
 " Open this file in Vim and run :source % to restore your session.
 
 if exists('g:syntax_on') != 1 | syntax on | endif
