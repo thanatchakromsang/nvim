@@ -1,59 +1,6 @@
 " ~/.config/nvim/session/ITE.vim:
 " Vim session script.
 " Created by session.vim 2.13.1 on 08 August 2017 at 18:55:42.
-" Open this file in Vim and run :source % to restore your session.
-
-if exists('g:syntax_on') != 1 | syntax on | endif
-if exists('g:did_load_filetypes') != 1 | filetype on | endif
-if exists('g:did_load_ftplugin') != 1 | filetype plugin on | endif
-if exists('g:did_indent_on') != 1 | filetype indent on | endif
-if &background != 'dark'
-	set background=dark
-endif
-if !exists('g:colors_name') || g:colors_name != 'molokai' | colorscheme molokai | endif
-call setqflist([])
-let SessionLoad = 1
-let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
-let v:this_session=expand("<sfile>:p")
-silent only
-cd ~/Github
-if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
-  let s:wipebuf = bufnr('%')
-endif
-set shortmess=aoO
-badd +3 ite.kmitl.ac.th/setting.php
-badd +166 ite.kmitl.ac.th/assets/common/css/style.css
-badd +1 ite.kmitl.ac.th/component/footer.php
-badd +40 ite.kmitl.ac.th/component/navbar.php
-badd +84 ite.kmitl.ac.th/assets/common/js/settingChange.js
-badd +23 ite.kmitl.ac.th/assets/common/js/settingModal.js
-badd +23 ite.kmitl.ac.th/assets/common/php/changePassword.php
-badd +41 ite.kmitl.ac.th/assets/common/php/changeProfile.php
-argglobal
-silent! argdel *
-edit ite.kmitl.ac.th/setting.php
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=1 winminwidth=1 winheight=1 winwidth=1
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let s:l = 97 - ((13 * winheight(0) + 22) / 44)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-97
-normal! 067|
-tabedit ite.kmitl.ac.th/assets/common/js/settingChange.js
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -76,13 +23,21 @@ normal! zt
 84
 normal! 055|
 tabedit ite.kmitl.ac.th/component/navbar.php
+let s:l = 105 - ((1 * winheight(0) + 20) / 40)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+105
+normal! 0
+tabnew
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winminwidth=1 winheight=1 winwidth=1
 argglobal
-setlocal fdm=manual
+enew
+
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
