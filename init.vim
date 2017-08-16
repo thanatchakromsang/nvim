@@ -52,6 +52,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 Plug 'w0rp/ale'
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -102,7 +103,6 @@ Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 Plug 'epilande/vim-react-snippets'
 Plug 'epilande/vim-es2015-snippets'
-
 
 " php
 "" PHP Bundle
@@ -493,7 +493,7 @@ let g:jsx_ext_required = 0
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
 " python
