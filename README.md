@@ -7,9 +7,7 @@ __This is my unix environment configuration__
 Nvim will automatically install plugin with __:PlugInstall__ but you have to manually update plugin after awile with __:PlugUpdate__
   
 ```
-  su
-  
-  pacman -S curl git git-flow neovim tmux zsh ttf-hack termite
+  pacman -S curl git git-flow neovim tmux zsh termite
   
   cd ~
   
@@ -23,7 +21,9 @@ Nvim will automatically install plugin with __:PlugInstall__ but you have to man
 
   ln -s ~/.dotfiles/fonts ~/.fonts
   
-  ls -s ~/.dotfiles/termite-config ~/.config/termite/config
+  mkdir ~/.config/termite/
+  
+  ln -s ~/.dotfiles/termite-config ~/.config/termite/config
   
   fc-cache ~/.fonts
 ```
