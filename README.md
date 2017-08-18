@@ -8,7 +8,6 @@ Install dependencies, package
 
 ```
   sudo pacman -S curl git git-flow neovim tmux zsh termite
-  
 ```
 
 
