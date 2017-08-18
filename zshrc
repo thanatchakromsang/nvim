@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 #Change default editor to VIM
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # some more ls aliasesalias ll='ls -alF'
