@@ -7,9 +7,7 @@ __This is my unix environment configuration__
 Install dependencies, package
 
 ```
-
   sudo pacman -S curl git git-flow neovim tmux zsh termite
-  
   
 ```
 
@@ -17,7 +15,6 @@ Install dependencies, package
 Nvim will automatically install plugin with __:PlugInstall__ but you have to manually update plugin after awile with __:PlugUpdate__
   
 ```
- 
   cd ~
   
   git clone https://github.com/thanatchakromsang/dotfiles.git ~/.dotfiles
