@@ -21,6 +21,8 @@ Nvim will automatically install plugin with __:PlugInstall__ but you have to man
   ln -s ~/.dotfiles/gitconfig ~/.gitconfig
   
   ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
+  
+  ln -s ~/.dotfiles/colors ~/.config/nvim/colors
 
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
