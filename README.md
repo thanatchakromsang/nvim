@@ -1,6 +1,6 @@
 # Thanatcha's Dotfiles
 
-__Nvim + Tmux + Zsh__
+__Nvim + Tmux + Zsh + Termite Terminal__
 
 __This is my unix environment configuration__
 
@@ -9,7 +9,7 @@ Nvim will automatically install plugin with __:PlugInstall__ but you have to man
 ```
   su
   
-  pacman -S curl git git-flow neovim tmux zsh ttf-hack
+  pacman -S curl git git-flow neovim tmux zsh ttf-hack termite
   
   cd ~
   
@@ -22,6 +22,8 @@ Nvim will automatically install plugin with __:PlugInstall__ but you have to man
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
   ln -s ~/.dotfiles/fonts ~/.fonts
+  
+  ls -s ~/.dotfiles/termite-config ~/.config/termite/config
   
   fc-cache ~/.fonts
 ```
