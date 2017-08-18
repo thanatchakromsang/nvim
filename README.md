@@ -39,7 +39,7 @@ __Setting up oh my ZSH__
   
   rm ~/.zshrc
   
-  ln -s ~/.vim/zshrc ~/.zshrc
+  ln -s ~/.dotfiles/zshrc ~/.zshrc
   
   chsh -s /bin/zsh 
 ```
