@@ -47,11 +47,11 @@ Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-Plug 'sheerun/vim-polyglot'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim'
+Plug 'sheerun/vim-polyglot'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -98,10 +98,12 @@ Plug 'mattn/emmet-vim'
 
 " javascript
 "" Javascript Bundle
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 Plug 'epilande/vim-react-snippets'
 Plug 'epilande/vim-es2015-snippets'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " php
 "" PHP Bundle
@@ -181,7 +183,8 @@ set relativenumber             " Show relative line numbers
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-  colorscheme Tomorrow-Night-Eighties
+    set background=dark
+    colorscheme solarized
 endif
 
 set mousemodel=popup
@@ -233,7 +236,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'solarized'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -476,10 +479,10 @@ autocmd Filetype html setlocal ts=4 sw=4 expandtab
 
 
 " javascript
-let g:javascript_enable_domhtmlcss = 1
+" let g:javascript_enable_domhtmlcss = 1
+let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
-
 
 " vim-javascript
 augroup vimrc-javascript
