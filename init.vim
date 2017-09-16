@@ -98,7 +98,6 @@ Plug 'mattn/emmet-vim'
 
 " javascript
 "" Javascript Bundle
-Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 Plug 'epilande/vim-react-snippets'
@@ -483,6 +482,7 @@ let g:javascript_enable_domhtmlcss = 1
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
+
 
 " vim-javascript
 augroup vimrc-javascript
