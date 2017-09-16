@@ -4,13 +4,16 @@ __Nvim + Tmux + Zsh + Termite Terminal__
 
 __This is my unix environment configuration__
 
+Install dependencies, package
+
+```
+  sudo pacman -S curl git git-flow neovim tmux zsh termite
+```
+
+
 Nvim will automatically install plugin with __:PlugInstall__ but you have to manually update plugin after awile with __:PlugUpdate__
   
 ```
-  su
-  
-  pacman -S curl git git-flow neovim tmux zsh ttf-hack termite
-  
   cd ~
   
   git clone https://github.com/thanatchakromsang/dotfiles.git ~/.dotfiles
@@ -18,12 +21,16 @@ Nvim will automatically install plugin with __:PlugInstall__ but you have to man
   ln -s ~/.dotfiles/gitconfig ~/.gitconfig
   
   ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
+  
+  ln -s ~/.dotfiles/colors ~/.config/nvim/colors
 
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
   ln -s ~/.dotfiles/fonts ~/.fonts
   
-  ls -s ~/.dotfiles/termite-config ~/.config/termite/config
+  mkdir ~/.config/termite/
+  
+  ln -s ~/.dotfiles/termite-config ~/.config/termite/config
   
   fc-cache ~/.fonts
 ```
@@ -39,7 +46,7 @@ __Setting up oh my ZSH__
   
   rm ~/.zshrc
   
-  ln -s ~/.vim/zshrc ~/.zshrc
+  ln -s ~/.dotfiles/zshrc ~/.zshrc
   
   chsh -s /bin/zsh 
 ```

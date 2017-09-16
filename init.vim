@@ -447,8 +447,9 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "" Emmet
 let g:user_emmet_expandabbr_key='<C-e>'
 
-"" Easytion
+"" Easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1 " Case insensitive
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
@@ -457,9 +458,6 @@ nmap se <Plug>(easymotion-overwin-f)
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
 nmap se <Plug>(easymotion-overwin-f2)
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
@@ -474,12 +472,11 @@ map <Leader>\ :IndentLinesToggle<CR>
 
 " html
 " for html files, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=4 sw=4 expandtab
 
 
 " javascript
 let g:javascript_enable_domhtmlcss = 1
-let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
@@ -487,7 +484,7 @@ let g:jsx_ext_required = 0
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=79
 augroup END
 
 " python
