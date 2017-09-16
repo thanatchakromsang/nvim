@@ -7,9 +7,14 @@ __This is my unix environment configuration__
 Install dependencies, package
 
 ```
-  sudo pacman -S curl git git-flow neovim tmux zsh termite
+  sudo pacman -S curl git git-flow neovim tmux zsh termite pip ctags
 ```
-
+Upgrade Neovim
+```
+  sudo pip install jedi
+  sudo pip2 install --user --upgrade neovim
+  sudo pip3 install --user --upgrade neovim
+```
 
 Nvim will automatically install plugin with __:PlugInstall__ but you have to manually update plugin after awile with __:PlugUpdate__
   
