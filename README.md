@@ -12,7 +12,6 @@ Install dependencies, package
 Upgrade Neovim
 ```
   sudo pip install jedi
-  sudo pip2 install --user --upgrade neovim
   sudo pip3 install --user --upgrade neovim
 ```
 
@@ -24,6 +23,8 @@ Nvim will automatically install plugin with __:PlugInstall__ but you have to man
   git clone https://github.com/thanatchakromsang/dotfiles.git ~/.dotfiles
   
   ln -s ~/.dotfiles/gitconfig ~/.gitconfig
+  
+  mkdir ~/.config/nvim
   
   ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
   
@@ -71,3 +72,4 @@ then you need to reload plugin
 ```
   source ~/.zshrc
 ```
+if reload plugin error change .zshrc path to /home/{pc-name}/.oh-my-zsh
