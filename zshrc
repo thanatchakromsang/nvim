@@ -6,9 +6,9 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 #Change default path for ANDROID_HOME environment variable
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+#export ANDROID_HOME=$HOME/Android/Sdk
+#export PATH=$PATH:$ANDROID_HOME/tools
+#export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # some more ls aliasesalias ll='ls -alF'
 alias la='ls -A'
@@ -16,7 +16,7 @@ alias l='ls -CF'
 alias tmux='tmux -2'
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/thanatcha/.oh-my-zsh
+  export ZSH=/home/thanatchaya/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
