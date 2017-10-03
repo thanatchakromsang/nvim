@@ -204,8 +204,8 @@ else
   let g:indentLine_enabled = 0
   let g:indentLine_concealcursor = 'inc'
   let g:indentLine_conceallevel = 2
-  let g:indentLine_char = '│'
-  let g:indentLine_faster = 1
+  let g:indentLine_char = '¦'
+  let g:indentLine_leadingSpaceChar = '·'
 
 endif
 
@@ -456,18 +456,18 @@ let g:EasyMotion_smartcase = 1 " Case insensitive
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap se <Plug>(easymotion-overwin-f)
+nmap <Leader><Leader>s <Plug>(easymotion-overwin-f)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap se <Plug>(easymotion-overwin-f2)
+nmap <Leader><Leader>s <Plug>(easymotion-overwin-f2)
 
 " JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
 
 " IndentLines
-map <Leader>\ :IndentLinesToggle<CR>
+map <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
 
 "*****************************************************************************
 "" Custom configs
