@@ -81,6 +81,7 @@ endif
 Plug 'honza/vim-snippets'
 
 "" Color
+Plug 'dracula/vim'
 Plug 'tomasr/molokai'
 Plug 'chriskempson/base16-vim'
 
@@ -183,9 +184,7 @@ set relativenumber             " Show relative line numbers
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-    set background=dark
-    let g:solarized_termtrans = 1 " This gets rid of the grey background
-    colorscheme solarized
+    colorscheme dracula
 endif
 
 set mousemodel=popup
@@ -237,7 +236,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'dracula'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -477,7 +476,6 @@ map <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
 " html
 " for html files, 2 spaces
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
-
 
 " javascript
 " let g:javascript_enable_domhtmlcss = 1

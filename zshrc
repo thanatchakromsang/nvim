@@ -14,6 +14,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 alias la='ls -A'
 alias l='ls -CF'
 alias tmux='tmux -2'
+alias vi='nvim'
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/thanatchaya/.oh-my-zsh
