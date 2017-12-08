@@ -184,6 +184,7 @@ set relativenumber             " Show relative line numbers
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
     set background=dark
+    let g:solarized_termtrans = 1 " This gets rid of the grey background
     colorscheme solarized
 endif
 
