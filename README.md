@@ -73,3 +73,11 @@ then you need to reload plugin
   source ~/.zshrc
 ```
 if reload plugin error change .zshrc path to /home/{pc-name}/.oh-my-zsh
+
+__Tidy your os__
+
+change npm path to no use no sudo instead
+
+```
+  npm config set prefix ~/.local
+```
