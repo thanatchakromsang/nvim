@@ -181,6 +181,7 @@ syntax on
 set ruler
 set number
 set relativenumber             " Show relative line numbers
+set cursorline                 " Highlight current line
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
