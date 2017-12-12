@@ -7,15 +7,15 @@ __This is my universal dotfiles for every unix machine (MacOS, Archlinux)__
 Install dependencies, package
 
 ```
-  sudo pacman -S curl git git-flow neovim tmux zsh termite pip ctags
+  sudo pacman -S curl git git-flow tmux zsh termite pip3 ctags
   
   yaourt visual-studio-code
 ```
 Upgrade Neovim
 ```
-  sudo pip install jedi
-  
   sudo pip3 install --user --upgrade neovim
+  
+  sudo pip3 install jedi
 ```
 
 Nvim will automatically install plugin with __:PlugInstall__ but you have to manually update plugin after awile with __:PlugUpdate__
