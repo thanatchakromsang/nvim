@@ -8,10 +8,13 @@ Install dependencies, package
 
 ```
   sudo pacman -S curl git git-flow neovim tmux zsh termite pip ctags
+  
+  yaourt visual-studio-code
 ```
 Upgrade Neovim
 ```
   sudo pip install jedi
+  
   sudo pip3 install --user --upgrade neovim
 ```
 
