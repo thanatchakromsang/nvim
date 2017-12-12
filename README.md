@@ -4,7 +4,7 @@ __Nvim + Tmux + Zsh + Termite + VSCode__
 
 __This is my universal dotfiles for every unix machine (MacOS, Archlinux)__
 
-Install dependencies, package
+Install dependencies, package (MacOS use brew instead)
 
 ```
   sudo pacman -S curl git git-flow tmux zsh termite pip3 ctags
