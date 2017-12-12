@@ -50,7 +50,7 @@ Setup vscode settings, keybinding, snippets
 
   ln -s ~/.dotfiles/Code/keybindings.json/ ~/.config/Code/User/keybindings.json
 
-  ln -s ~/.dotfiles/Code/snippets/ ~/.config/Code/User/snippets
+  ln -s ~/.dotfiles/Code/snippets ~/.config/Code/User/snippets
 
 ```
 
