@@ -4,18 +4,18 @@ __Nvim + Tmux + Zsh + Termite + VSCode__
 
 __This is my universal dotfiles for every unix machine (MacOS, Archlinux)__
 
-Install dependencies, package
+Install dependencies, package (MacOS use brew instead)
 
 ```
-  sudo pacman -S curl git git-flow neovim tmux zsh termite pip ctags
+  sudo pacman -S curl git git-flow tmux zsh termite pip3 ctags
   
   yaourt visual-studio-code
 ```
 Upgrade Neovim
 ```
-  sudo pip install jedi
-  
   sudo pip3 install --user --upgrade neovim
+  
+  sudo pip3 install jedi
 ```
 
 Nvim will automatically install plugin with __:PlugInstall__ but you have to manually update plugin after awile with __:PlugUpdate__
@@ -50,7 +50,7 @@ Setup vscode settings, keybinding, snippets
 
   ln -s ~/.dotfiles/Code/keybindings.json/ ~/.config/Code/User/keybindings.json
 
-  ln -s ~/.dotfiles/Code/snippets/ ~/.config/Code/User/snippets
+  ln -s ~/.dotfiles/Code/snippets ~/.config/Code/User/snippets
 
 ```
 
