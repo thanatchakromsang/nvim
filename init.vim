@@ -174,6 +174,9 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
+" set python3 as an interpreter
+let g:pymode_python = 'python3'
+
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
