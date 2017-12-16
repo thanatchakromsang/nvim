@@ -129,8 +129,8 @@ label-occupied = %index%
 label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-underline= ${colors.alert}
 label-urgent-background = ${colors.background-alt}
+label-urgent-underline= ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = %index%
@@ -180,6 +180,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-underline= ${module/bspwm.label-urgent-underline}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/xbacklight]
