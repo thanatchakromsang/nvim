@@ -7,14 +7,14 @@ __This is my universal dotfiles for every unix machine (MacOS, Archlinux)__
 Install dependencies, package (MacOS use brew instead)
 
 ```
-  sudo pacman -S curl git git-flow tmux zsh termite pip3 ctags
-  
-  yaourt visual-studio-code
+  sudo pacman -S curl git tmux zsh termite python-pip neovim ctags
+
+  yaourt -S visual-studio-code
 ```
 Upgrade Neovim
 ```
   sudo pip3 install --user --upgrade neovim
-  
+
   sudo pip3 install jedi
 ```
 
