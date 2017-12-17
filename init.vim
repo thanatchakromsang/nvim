@@ -194,7 +194,7 @@ endif
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Hack\ 12
+set gfn=Hack:12
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
