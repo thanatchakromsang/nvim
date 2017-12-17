@@ -22,7 +22,7 @@ case "$1" in
     reboot)
         systemctl reboot
         ;;
-    shutdown)
+    poweroff)
         systemctl poweroff
         ;;
     *)
