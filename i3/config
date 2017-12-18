@@ -270,8 +270,8 @@ client.placeholder              $bg     $bg      $bg     $bg
 #############################
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer 3
+gaps inner 9
+gaps outer 6
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>

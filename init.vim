@@ -105,6 +105,7 @@ Plug 'leshill/vim-json'
 Plug 'epilande/vim-react-snippets'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'skywind3000/asyncrun.vim'
 
 " php
 "" PHP Bundle
@@ -194,7 +195,7 @@ endif
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set guifont=meslo:h12
+set guifont=MesloLGM\sNerd\sFont\sMono:h12
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -488,6 +489,9 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
+" js formatter
+autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
@@ -525,6 +529,10 @@ autocmd FileType javascript,html,css EmmetInstall
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new fil
+
 
 "*****************************************************************************
 "*****************************************************************************
