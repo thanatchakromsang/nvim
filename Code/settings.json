@@ -2,8 +2,8 @@
   // editor configs
   "editor.lineNumbers": "relative",
   "editor.snippetSuggestions": "top",
-  "editor.fontSize": 18,
-  "editor.fontFamily": "Meslo LGM Nerd Font Mono",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "MesloLGM Nerd Font Mono",
   "editor.tabSize": 2,
   "keyboard.dispatch": "keyCode",
   "workbench.colorTheme": "Dracula",
@@ -27,7 +27,7 @@
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
   "editor.formatOnSave": true,
   // Enable/disable default JavaScript formatter (For Prettier)
-  "javascript.format.enable": true,
+  "javascript.format.enable": false,
   // Use 'prettier-eslint' instead of 'prettier'. Other settings will only be fallbacks in case they could not be inferred from eslint rules.
   "prettier.eslintIntegration": true,
   //vscode-spotify
