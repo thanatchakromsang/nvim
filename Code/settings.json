@@ -3,7 +3,7 @@
   "editor.lineNumbers": "relative",
   "editor.snippetSuggestions": "top",
   "editor.fontSize": 18,
-  "editor.fontFamily": "hack",
+  "editor.fontFamily": "Meslo LGM Nerd Font Mono",
   "editor.tabSize": 2,
   "keyboard.dispatch": "keyCode",
   "workbench.colorTheme": "Dracula",
@@ -47,5 +47,5 @@
     "suppressNoRepositoryWarning": false,
     "suppressUpdateNotice": true,
     "suppressWelcomeNotice": true
-  },
+  }
 }

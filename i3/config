@@ -170,8 +170,6 @@ exec --no-startup-id termite --name __scratchpad --title Scratchpad
 ### Applications binding ###
 ###########################s
 
-bindsym $mod+F2 exec chromium
-bindsym $mod+F3 exec thunar
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi ,drun,run -show combi -modi"
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym $mod+p exec --no-startup-id rofi-pass
