@@ -217,13 +217,13 @@ for_window [class="^Simplescreenrecorder$"] floating enable
 for_window [class="^Wine$"] floating enable
 # for_window [class="Pamac_manager" instance="pamac_manager"] floating enable
 for_window [class="Chrome"] border pixel 2
+for_window [instance="__scratchpad"] floating enable
 
 ##############################
 ### Autostart applications ###
 ##############################
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
 
 # Sound system
 exec --no-startup-id pulseaudio
@@ -236,6 +236,7 @@ exec --no-startup-id dunst
 exec --no-startup-id compton
 
 # Terminal
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
 exec --no-startup-id termite --name __config --title 'Configuration' -e 'nvim .dotfiles/i3/config' &
 exec --no-startup-id termite --name __run --title 'Run Task' &
 exec --no-startup-id termite --name __show --title 'Miscellaneous' &
