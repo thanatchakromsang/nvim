@@ -27,6 +27,8 @@ height = 27
 background = ${xrdb:color0:#000}
 foreground = ${xrdb:color7:#ccfffff}
 
+fixed-center = true
+
 line-size = 3
 line-color = #f00
 
@@ -37,19 +39,20 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 1
+module-margin-right = 2
 
 font-0 = FontAwesome:pixelsize=11;1
-font-1 = Noto Sans:size=8;1
+font-1 = DejaVu:size=8;1
 font-2 = icons\-in\-terminal:pixelsize=11;1
 font-3 = Material Icons:style=Regular:size=11;1
 
 modules-left = i3
 modules-center = date
-modules-right = volume xbacklight battery temperature wireless-network powermenu
+modules-right = wireless-network volume xbacklight battery temperature powermenu
 
 tray-position = right
 tray-padding = 2
+
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -211,9 +214,11 @@ label-disconnected-foreground = #66
 type = internal/date
 interval = 5
 
+date = %a %b %d,
 time = %H:%M
 
-label =  %time%
+format = <label>
+label =  %date% %time%
 
 [module/battery]
 type = internal/battery
@@ -239,18 +244,26 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 ; Framerate in milliseconds
-animation-charging-framerate = 750
+animation-charging-framerate = 500
 
 [module/temperature]
 type = internal/temperature
+interval = 5
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 80
 
-format = <label>
-format-warn =  <label-warn>
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
 
 label = %temperature%
 label-warn = %temperature%
+label-warn-foreground = #e4b226
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 
 [module/powermenu]
 type = custom/menu
@@ -261,7 +274,7 @@ format-spacing = 1
 
 label-open = 
 label-open-foreground = #ff79c6
-label-close =  cancel
+label-close = cancel
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -273,10 +286,10 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = reboot --no-wall
+menu-1-1-exec = reboot
 
 menu-2-0 = power off
-menu-2-0-exec = poweroff --no-wall
+menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
