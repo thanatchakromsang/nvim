@@ -7,7 +7,7 @@ __This is my universal dotfiles for every unix machine (MacOS, Archlinux)__
 Install dependencies, package (MacOS use brew instead)
 
 ```
-  sudo pacman -S curl git tmux zsh termite python-pip neovim ctags
+  sudo pacman -S curl git tmux zsh termite python-pip python-neovim ctags
 
   yaourt -S visual-studio-code
 ```
