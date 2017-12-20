@@ -34,10 +34,10 @@ rofi.color-window: argb:c82d303b, #7c8389, #1d1f21
 rofi.color-normal: argb:3c1d1f21, #c4cbd4, argb:96404552, #ff79c6, #f9f9f9
 rofi.color-urgent: argb:2c1d1f21, #ff5555, argb:e54b5160, #ff5555, #f9f9f9
 rofi.color-active: argb:2c1d1f21, #ff79c6, argb:e44b5160, #ff79c6, #f9f9f9
-rofi.width: 40
+rofi.width: 30
 rofi.lines: 8
 rofi.columns: 1
-rofi.font: Noto Sans 12
+rofi.font: DejaVu 12
 rofi.bw: 0
 rofi.padding: 20
 rofi.eh: 1
