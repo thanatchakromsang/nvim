@@ -98,7 +98,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -367,7 +367,8 @@ mode "move" {
 ### Dual monitor setup ###
 ##########################
 
-# exec_always xrandr | grep 'HDMI1 connected' && xrandr --fb 3840x1080 --output HDMI1 --mode 1360x768 --scale-from 1920x1080 --panning 1920x1080+1920+0
-# exec xrandr --newmode "1920x1080_60.02" 172.86 1920 2040 2248 2576 1080 1081 1084 1118 -HSync +Vsync
-# exec xrandr --addmode HDMI1 1920x1080_60.0
-# exec_always xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
+# exec xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
+# exec xrandr --fb 3840x1080 --output HDMI1 --mode 1360x768 --scale-from 1920x1080 --panning 1920x1080+1920+0
+exec xrandr --newmode "1920x1080_60.02"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+exec xrandr --addmode HDMI1 1920x1080_60.02
+
