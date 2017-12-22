@@ -1,5 +1,3 @@
-" vim-bootstrap 3340bde
-
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
@@ -33,13 +31,18 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 Plug 'airblade/vim-gitgutter'
+
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
@@ -52,6 +55,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim'
 Plug 'sheerun/vim-polyglot'
+Plug 'chrisbra/NrrwRgn'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -99,13 +103,12 @@ Plug 'mattn/emmet-vim'
 
 " javascript
 "" Javascript Bundle
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
 Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 Plug 'epilande/vim-react-snippets'
-Plug 'epilande/vim-es2015-snippets'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'skywind3000/asyncrun.vim'
+Plug 'moll/vim-node'
 
 " php
 "" PHP Bundle
@@ -114,7 +117,8 @@ Plug 'arnaud-lb/vim-php-namespace'
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi'
+Plug 'zchee/deoplete-jedi'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 "*****************************************************************************
@@ -206,7 +210,8 @@ else
   let g:CSApprox_loaded = 1
 
   " IndentLine
-  let g:indentLine_enabled = 0
+  let g:indentLine_enabled = 1
+  let g:indentLine_leadingSpaceEnabled = 1
   let g:indentLine_concealcursor = 'inc'
   let g:indentLine_conceallevel = 2
   let g:indentLine_char = '¦'
@@ -469,11 +474,11 @@ nmap <Leader><Leader>s <Plug>(easymotion-overwin-f)
 nmap <Leader><Leader>s <Plug>(easymotion-overwin-f2)
 
 " JK motions: Line motions
-map <Leader><Leader>j <Plug>(easymotion-j)
-map <Leader><Leader>k <Plug>(easymotion-k)
+nmap <Leader><Leader>j <Plug>(easymotion-j)
+nmap <Leader><Leader>k <Plug>(easymotion-k)
 
-" IndentLines
-map <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
+" " IndentLines
+" nmap <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
 
 "*****************************************************************************
 "" Custom configs
@@ -484,13 +489,7 @@ map <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
 
 " javascript
-" let g:javascript_enable_domhtmlcss = 1
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
-
-" js formatter
-autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
 
 " vim-javascript
 augroup vimrc-javascript
@@ -512,7 +511,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
+let g:polyglot_disabled = ['python', 'javascript']
 let python_highlight_all = 1
 
 " deoplete (neovim asynchronous completion)
@@ -531,7 +530,11 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new fil
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
+" ALE Code formatter
+let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_fix_on_save = 1
 
 
 "*****************************************************************************
