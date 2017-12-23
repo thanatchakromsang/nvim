@@ -50,8 +50,8 @@ modules-left = i3
 modules-center = date
 modules-right = wireless-network volume xbacklight battery temperature powermenu
 
-tray-position = right
-tray-padding = 2
+; tray-position = right
+; tray-padding = 2
 
 ;tray-transparent = true
 ;tray-background = #0063ff
