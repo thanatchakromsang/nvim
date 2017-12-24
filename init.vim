@@ -56,6 +56,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
+Plug 'ervandew/supertab'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -100,7 +101,6 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
-
 " javascript
 "" Javascript Bundle
 Plug 'othree/yajs.vim'
@@ -123,6 +123,11 @@ Plug 'arnaud-lb/vim-php-namespace'
 Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+
+" markdown
+" Markdown Bundle
+
+Plug 'suan/vim-instant-markdown'
 
 "*****************************************************************************
 "*****************************************************************************
@@ -206,7 +211,7 @@ set guifont=MesloLGM\sNerd\sFont\sMono:h12
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=meslo:h12
+    set guifont=MesloLGM\sNerd\sFont\sMono:h12
     set transparency=7
   endif
 else
