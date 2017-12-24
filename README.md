@@ -29,10 +29,8 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 <details>
 <summary>MacOS</summary>
   
-  ```
-  sudo pip3 install --user --upgrade neovim
-
-  sudo pip3 install jedi
+```
+  No detail
 ```
 </details>
 
@@ -108,7 +106,6 @@ Change global npm path per user
 
 ```
   npm config set prefix ~/.local
-
 ```
 </details>
 
@@ -116,6 +113,7 @@ Change global npm path per user
 
 <details>
 <summary>Vim</summary>
+  
 Commands | Descriptions
 --- | ---
 `:cd <path>` | Open path */path*
@@ -171,6 +169,7 @@ Commands | Descriptions
 
 <details>
 <summary>Zsh</summary>
+  
 alias | Descriptions
 --- | ---
 `la` | `ls -A`
@@ -181,6 +180,7 @@ alias | Descriptions
 
 <details>
 <summary>tmux</summary>
+  
 Commands | Descriptions
 --- | ---
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd>| Navigate via split panels
@@ -190,6 +190,7 @@ Commands | Descriptions
 
 <details>
 <summary>i3wm</summary>
+  
 Commands | Descriptions
 --- | ---
 <kbd>mod</kbd> + <kbd>enter</kbd> | Enter terminal
