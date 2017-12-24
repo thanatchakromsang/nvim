@@ -57,6 +57,7 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 
 <details>
 <summary>Setting up oh my ZSH</summary>
+
 ```
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -66,13 +67,16 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 
   chsh -s /bin/zsh
 ```
+
 Install Zsh Plugin
+
 
 ```
   cd ~/.oh-my-zsh/custom/plugins
 
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 ```
+
 Reload Zsh Plugin
 
 ```
@@ -82,6 +86,7 @@ Reload Zsh Plugin
 
 <details>
 <summary>Fonts, Terminal</summary>
+
 ```
   mkdir ~/.config/termite/
 
