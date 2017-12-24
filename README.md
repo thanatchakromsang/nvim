@@ -28,8 +28,11 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 
 <details>
 <summary>MacOS</summary>
-```
-  Need detail
+  
+  ```
+  sudo pip3 install --user --upgrade neovim
+
+  sudo pip3 install jedi
 ```
 </details>
 
@@ -40,7 +43,6 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 
   ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ```
-
 <details>
 <summary>Neovim, Zsh, tmux</summary>
 
@@ -69,7 +71,6 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 ```
 
 Install Zsh Plugin
-
 
 ```
   cd ~/.oh-my-zsh/custom/plugins
@@ -104,6 +105,7 @@ Reload Zsh Plugin
 <summary>NPM</summary>
 
 Change global npm path per user
+
 ```
   npm config set prefix ~/.local
 
