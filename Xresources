@@ -42,5 +42,5 @@ rofi.bw: 0
 rofi.padding: 20
 rofi.eh: 1
 rofi.hide-scrollbar: true
-/* rofi.window-format: {w} {c} - {t} */
-rofi.window-format: window {w} {c} {t}
+/* rofi.window-format: window {w} {c} {t} */
+rofi.window-format: {c} {t}
