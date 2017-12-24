@@ -53,7 +53,7 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
 
@@ -109,6 +109,9 @@ Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 Plug 'epilande/vim-react-snippets'
 Plug 'moll/vim-node'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'ternjs/tern_for_vim'
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " php
 "" PHP Bundle
@@ -399,7 +402,7 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<C-x>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
@@ -483,6 +486,9 @@ nmap <Leader><Leader>k <Plug>(easymotion-k)
 " NrrwRgn (default)
 " nmap <Leader>nr :NR<CR>
 
+" Use tab to select completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
@@ -522,8 +528,14 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let b:deoplete_ignore_sources = ['buffer']
 
-" Emmet
+let g:deoplete#sources#ternjs#case_insensitive = 1
+" Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+
+
 " enable just for html/css
+" Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType javascript,html,css EmmetInstall
 
@@ -533,7 +545,9 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
+let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:ale_lint_on_text_changed = 0
 
 " ALE Code formatter
 let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf']}
