@@ -480,6 +480,9 @@ nmap <Leader><Leader>k <Plug>(easymotion-k)
 " " IndentLines
 " nmap <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
 
+" NrrwRgn (default)
+" nmap <Leader>nr :NR<CR>
+
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
@@ -536,6 +539,8 @@ let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf']}
 let g:ale_fix_on_save = 1
 
+" NrrwRgn
+let g:nrrw_topbot_leftright = 'botright'
 
 "*****************************************************************************
 "*****************************************************************************
