@@ -15,7 +15,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 alias la='ls -A'
 alias l='ls -CF'
 alias tmux='tmux -2'
-alias vim='nvim'
+
+# Fix character remnent in remote server
+export TERM=linux
 
 # Path to your oh-my-zsh installation.
   export ZSH=$HOME/.oh-my-zsh
