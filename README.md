@@ -158,7 +158,7 @@ Commands | Descriptions
 <kbd>gg</kbd> | Move to first line in file
 <kbd>Shift</kbd> + <kbd>g</kbd> | Move to last line in file
 <kbd>,</kbd><kbd>space</kbd> | Clean search highlight
-<kbd>Ctrl</kbd> + <kbd>x</kbd> | Expand UltiSnips
+<kbd>tab</kbd> | Expand UltiSnips
 <kbd>tab</kbd> | Jump forward after trigger UltiSnips
 <kbd>Ctrl</kbd> + <kbd>b</kbd> | Jump backward after trigger UltiSnips
 <kbd>,</kbd><kbd>,</kbd><kbd>s</kbd> | Easymotion by characters
