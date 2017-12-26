@@ -17,7 +17,9 @@ alias l='ls -CF'
 alias tmux='tmux -2'
 
 # Fix character remnent in remote server
-export TERM=linux
+if [[ -n $SSH_CONNECTION ]] ; then
+    export TERM=xterm
+fi
 
 # Path to your oh-my-zsh installation.
   export ZSH=$HOME/.oh-my-zsh
