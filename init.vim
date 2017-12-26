@@ -56,7 +56,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -161,6 +161,7 @@ set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
+set splitbelow
 
 "" Map leader to ,
 let mapleader=','
@@ -407,7 +408,7 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 
 " snippets
-let g:UltiSnipsExpandTrigger="<C-x>"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
@@ -488,12 +489,6 @@ nmap <Leader><Leader>k <Plug>(easymotion-k)
 " " IndentLines
 " nmap <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
 
-" NrrwRgn (default)
-" nmap <Leader>nr :NR<CR>
-
-" Use tab to select completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
@@ -552,7 +547,7 @@ let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 'never'
 
 " ALE Code formatter
 let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf']}
@@ -560,6 +555,9 @@ let g:ale_fix_on_save = 1
 
 " NrrwRgn
 let g:nrrw_topbot_leftright = 'botright'
+
+" close tip window after close
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 "*****************************************************************************
 "*****************************************************************************
