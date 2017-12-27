@@ -56,6 +56,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
+Plug 'christoomey/vim-tmux-navigator'
 " Plug 'ervandew/supertab'
 
 if isdirectory('/usr/local/opt/fzf')
@@ -352,7 +353,7 @@ set autoread
 "*****************************************************************************
 
 "" Split
-noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>b :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Git
@@ -404,8 +405,8 @@ if executable('rg')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF -m<CR>
+nnoremap <silent> <Leader>B :Buffers<CR>
+nnoremap <silent> <Leader>e :FZF -m<CR>
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -476,15 +477,15 @@ let g:EasyMotion_smartcase = 1 " Case insensitive
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap <Leader><Leader>s <Plug>(easymotion-overwin-f)
+" nmap <Leader>s <Plug>(easymotion-overwin-f)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap <Leader><Leader>s <Plug>(easymotion-overwin-f2)
+nmap s <Plug>(easymotion-overwin-f2)
 
 " JK motions: Line motions
-nmap <Leader><Leader>j <Plug>(easymotion-j)
-nmap <Leader><Leader>k <Plug>(easymotion-k)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
 
 " " IndentLines
 " nmap <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
@@ -577,8 +578,8 @@ if !exists('g:airline_symbols')
 endif
 
 if exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
   let g:airline_left_sep = ''
   let g:airline_left_alt_sep = ''
   let g:airline_right_sep = ''
