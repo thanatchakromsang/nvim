@@ -14,7 +14,6 @@ export EDITOR="$VISUAL"
 # some more ls aliasesalias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias tmux='tmux -2'
 
 # Fix character remnent in remote server
 if [[ -n $SSH_CONNECTION ]] ; then
