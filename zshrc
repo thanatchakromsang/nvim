@@ -17,7 +17,7 @@ alias l='ls -CF'
 
 # Fix character remnent in remote server
 if [[ -n $SSH_CONNECTION ]] ; then
-    export TERM=xterm
+    export TERM=xterm-256color
 fi
 
 # Path to your oh-my-zsh installation.
