@@ -201,7 +201,10 @@ set cursorline                 " Highlight current line
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-    colorscheme dracula
+    color dracula
+    " Override autocomplete colorscheme
+    hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE guifg=#f8f8f2 guibg=#646e96 gui=NONE
+    hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold guifg=#282a36 guibg=#50fa7b gui=NONE
 endif
 
 set mousemodel=popup
@@ -514,7 +517,6 @@ augroup vimrc-python
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
-
 
 " Syntax highlight
 " Default highlight is better than polyglot
