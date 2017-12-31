@@ -51,11 +51,8 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 
   ln -s ~/.dotfiles/colors ~/.config/nvim/colors
 
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
   ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
-  tmux source ~/.tmux.conf
 ```
 </details>
 
@@ -190,6 +187,7 @@ Commands | Descriptions
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>v</kbd> | Split vertical
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>b</kbd> | Split horizontal
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>c</kbd> | Create a new window
+<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>k</kbd> | Kill current window
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>w</kbd> | Choose window from a list
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>,</kbd> | Rename the current window
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>Ctrl</kbd><kbd>s</kbd> | Save session

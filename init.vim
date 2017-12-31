@@ -57,7 +57,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'ervandew/supertab'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -127,7 +126,6 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " markdown
 " Markdown Bundle
-
 Plug 'suan/vim-instant-markdown'
 
 "*****************************************************************************
@@ -142,7 +140,6 @@ call plug#end()
 
 " Required:
 filetype plugin indent on
-
 
 "*****************************************************************************
 "" Basic Setup
@@ -200,6 +197,7 @@ set ruler
 set number
 set relativenumber             " Show relative line numbers
 set cursorline                 " Highlight current line
+" set cursorcolumn               " Highlight column
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
@@ -261,6 +259,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#virtualenv#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_powerline_fonts = 1
 
@@ -516,8 +515,6 @@ augroup vimrc-python
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
 
-" vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
 
 " Syntax highlight
 " Default highlight is better than polyglot

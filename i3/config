@@ -208,6 +208,7 @@ assign [class="Chromium" instance="crx_lidmfcddemdgmpphkkmmfgfgnkcmdhbn"] $ws4
 assign [class="Chromium" instance="crx_hcfcmgpnmpinpidjdgejehjchlbglpde"] $ws9
 assign [class="Chromium" instance="crx_celnaknmndcdcjcagffhbhciignkeokb"] $ws4
 assign [class="Chromium" instance="crx_hhfiljfkackbfbokpmngfpjffnlmjljd"] $ws5
+assign [class="Chromium" instance="crx_dldepjmdjhebnigpngjochkdkajcfilo"] $ws5
 assign [class="Chromium" instance="crx_bojccfnmcnekjgjhcaklmcgofnngpjcl"] $ws5
 assign [class="Chromium" instance="crx_menkifleemblimdogmoihpfopnplikde"] $ws4
 assign [class="Chromium" instance="crx_comkdlimbkhemidbbpchhepidbmjpnhh"] $ws7
@@ -370,6 +371,13 @@ mode "move" {
 
 # exec xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
 # exec xrandr --fb 3840x1080 --output HDMI1 --mode 1360x768 --scale-from 1920x1080 --panning 1920x1080+1920+0
-exec xrandr --newmode "1920x1080_60.02"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-exec xrandr --addmode HDMI1 1920x1080_60.02
+
+# Samsung
+# exec xrandr --newmode "1920x1080_60.02"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+# exec xrandr --addmode HDMI1 1920x1080_60.02
+
+# Project room
+exec_always xrandr --fb 3840x1080 --output HDMI1 --mode 1600x900 --scale-from 1920x1080 --panning 1920x1080+1920+0
+# exec xrandr --newmode "1920x1080" 118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
+# exec xrandr --addmode HDMI1 1920x1080
 
