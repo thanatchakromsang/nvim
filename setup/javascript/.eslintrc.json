@@ -1,0 +1,41 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": ["airbnb-base"],
+  "plugins": ["react", "jsx-a11y", "import"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-uses-react": "error", //Prevent React to be incorrectly marked as unused
+    "react/jsx-uses-vars": "error", //Prevent variables used in JSX to be incorrectly marked as unused
+    "react/style-prop-object": 1, //Require that the value of the prop style be an object or a variable that is an object.
+    "class-methods-use-this": [
+      "error",
+      {
+        "exceptMethods": [
+          "componentDidMount",
+          "componentDidUpdate",
+          "componentWillMount",
+          "componentWillReceiveProps",
+          "componentWillUnmount",
+          "componentWillUpdate",
+          "render",
+          "shouldComponentUpdate"
+        ]
+      }
+    ],
+    "no-use-before-define": [
+      "error",
+      { "functions": true, "classes": true, "variables": false }
+    ],
+    "arrow-body-style": 0
+  }
+}

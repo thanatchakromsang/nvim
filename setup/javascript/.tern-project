@@ -1,0 +1,15 @@
+{
+  "plugins": {
+    "es_modules": {},
+    "node": {},
+    "baseURL": "./",
+    "paths": {}
+  },
+  "libs": [
+    "ecma5",
+    "ecma6",
+    "browser",
+    "jquery"
+  ],
+  "ecmaVersion": 6
+}
