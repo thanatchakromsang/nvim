@@ -153,6 +153,7 @@ Commands | Descriptions
 <kbd>></kbd> | indent to right
 <kbd><</kbd> | indent to left
 <kbd>g</kbd><kbd>c</kbd> | Comment or uncomment lines that {motion} moves over
+<kbd>g</kbd><kbd>f</kbd> | Open file under cursor (absolute path or relative)
 <kbd>Y</kbd><kbd>Y</kbd> | Copy to clipboard
 <kbd>,</kbd><kbd>p</kbd> | Paste
 <kbd>Ctrl</kbd> + <kbd>e</kbd> | Activate Emmet plugin
@@ -162,10 +163,17 @@ Commands | Descriptions
 <kbd>tab</kbd> | Expand UltiSnips
 <kbd>tab</kbd> | Jump forward after trigger UltiSnips
 <kbd>Ctrl</kbd> + <kbd>b</kbd> | Jump backward after trigger UltiSnips
-<kbd>,</kbd><kbd>,</kbd><kbd>s</kbd> | Easymotion by characters
-<kbd>,</kbd><kbd>,</kbd><kbd>j</kbd> | Easymotion line lower
-<kbd>,</kbd><kbd>,</kbd><kbd>k</kbd> | Easymotion line upper
+<kbd>s</kbd> | Easymotion by characters
+<kbd>,</kbd><kbd>j</kbd> | Easymotion line lower
+<kbd>,</kbd><kbd>k</kbd> | Easymotion line upper
 <kbd>,</kbd><kbd>n</kbd><kbd>r</kbd> | Narrow region line
+<kbd>U</kbd> | Convert selected text to uppercase
+<kbd>u</kbd> | Convert selected text to lowercase
+<kbd>~</kbd> | Invert case of selected text
+<kbd>q</kbd><kbd>X</kbd> | Start recording a macro (X = key to assign macro to)
+<kbd>q</kbd> | Stop recording a macro
+<kbd>@</kbd><kbd>X</kbd> | Playback a macro (X = key to assign macro to)
+<kbd>@</kbd><kbd>@</kbd> | Replay previously played macro
 </details>
 
 <details>
