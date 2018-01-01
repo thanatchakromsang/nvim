@@ -220,15 +220,17 @@ if has("gui_running")
 else
   let g:CSApprox_loaded = 1
 
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_leadingSpaceEnabled = 1
-  let g:indentLine_concealcursor = 'inc'
-  let g:indentLine_conceallevel = 2
-  let g:indentLine_char = '¦'
-  let g:indentLine_leadingSpaceChar = '·'
-
 endif
+
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+let g:indentLine_char = '¦'
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_fileTypeExclude = ['nerdtree']
+autocmd FileType help,nerdtree IndentLinesToggle
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
