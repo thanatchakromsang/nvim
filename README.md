@@ -123,18 +123,18 @@ Commands | Descriptions
 <kbd>,</kbd><kbd>.</kbd> | Set path working directory
 <kbd>,</kbd><kbd>w</kbd> or <kbd>,</kbd><kbd>x</kbd> | Next buffer navigate
 <kbd>,</kbd><kbd>q</kbd> or <kbd>,</kbd><kbd>z</kbd> | previous buffer navigate
-<kbd>shift</kbd><kbd>t</kbd> | Create a tab
+<kbd>T</kbd> | Create a tab
 <kbd>tab</kbd> | next tab navigate
-<kbd>shift</kbd> + <kbd>tab</kbd> | previous tab navigate
+<kbd>Shift</kbd> + <kbd>tab</kbd> | previous tab navigate
 <kbd>,</kbd><kbd>e</kbd> | Find and open files
 <kbd>,</kbd><kbd>t</kbd><kbd>e</kbd> | Find and open files in new tab
-<kbd>,</kbd><kbd>b</kbd> | Find file on buffer (open file)
+<kbd>,</kbd><kbd>B</kbd> | Find file on buffer (open file)
 <kbd>,</kbd><kbd>c</kbd> | Close active buffer (close file)
 <kbd>F2</kbd>  | Open tree navigate in actual opened file
 <kbd>F3</kbd>  | Open/Close tree navigate files
 <kbd>F4</kbd> | List all class and method, support for python and php using ctags
 <kbd>,</kbd><kbd>v</kbd> | Split vertical
-<kbd>,</kbd><kbd>h</kbd> | Split horizontal
+<kbd>,</kbd><kbd>b</kbd> | Split horizontal
 <kbd>,</kbd><kbd>f</kbd> | Search in the project
 <kbd>,</kbd><kbd>o</kbd> | Open github file/line (website), if used git in **github**
 <kbd>,</kbd><kbd>s</kbd><kbd>h</kbd> | Open terminal inside vim
@@ -158,7 +158,7 @@ Commands | Descriptions
 <kbd>,</kbd><kbd>p</kbd> | Paste
 <kbd>Ctrl</kbd> + <kbd>e</kbd> | Activate Emmet plugin
 <kbd>gg</kbd> | Move to first line in file
-<kbd>Shift</kbd> + <kbd>g</kbd> | Move to last line in file
+<kbd>G</kbd> | Move to last line in file
 <kbd>,</kbd><kbd>space</kbd> | Clean search highlight
 <kbd>tab</kbd> | Expand UltiSnips
 <kbd>tab</kbd> | Jump forward after trigger UltiSnips
@@ -174,6 +174,9 @@ Commands | Descriptions
 <kbd>q</kbd> | Stop recording a macro
 <kbd>@</kbd><kbd>X</kbd> | Playback a macro (X = key to assign macro to)
 <kbd>@</kbd><kbd>@</kbd> | Replay previously played macro
+<kbd>Ctrl</kbd> + <kbd>x</kbd><kbd>f</kbd> | Completion filenames from current directory
+<kbd>Ctrl</kbd> + <kbd>n</kbd> | Completion insert next matching word
+<kbd>Ctrl</kbd> + <kbd>p</kbd> | Completion insert previous matching word
 </details>
 
 <details>
@@ -184,6 +187,7 @@ alias | Descriptions
 `la` | `ls -A`
 `l` | `ls -CF`
 `vim` | `nvim`
+`ssh@venture` | Connect to venture server
 </details>
 
 <details>
