@@ -1,10 +1,15 @@
-Xft.dpi: 120
-Xft.autonhint: 0
-Xtf.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+###################
+### Xft Setting ###
+###################
+
+Xft.dpi:                120
+Xft.autonhint:          0
+Xtf.lcdfilter:          lcddefault
+Xft.hintstyle:          hintfull
+Xft.hinting:            1
+Xft.antialias:          1
+Xft.rgba:               rgb
+Xft.font:               monospace:size=12
 
 ##################################
 ### Dracula Xresources palette ###
@@ -28,6 +33,20 @@ Xft.rgba: rgb
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
+
+######################
+### URXVT settings ###
+######################
+
+URxvt.background:           [80]#000000
+URxvt.depth:		        32
+URxvt.font:                 xtf:monospace:size=12
+URxvt.scrollBar:	        false
+URxvt.cursorColor:	        white
+URxvt.intensityStyles:	    false
+URxvt.matcher.button:	    1
+URxvt.resize-font.smaller:	C-Down
+URxvt.resize-font.bigger:	C-Up
 
 ##########################
 ### Rofi configuration ###

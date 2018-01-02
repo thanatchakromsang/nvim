@@ -213,6 +213,7 @@ assign [class="Chromium" instance="crx_bojccfnmcnekjgjhcaklmcgofnngpjcl"] $ws5
 assign [class="Chromium" instance="crx_menkifleemblimdogmoihpfopnplikde"] $ws4
 assign [class="Chromium" instance="crx_comkdlimbkhemidbbpchhepidbmjpnhh"] $ws7
 assign [class="Chromium" instance="crx_egddcdhcadfhcbheacnhikllgjokeico"] $ws8
+assign [class="Chromium" instance="crx_fmojlbenmflpealcagngfcmmhahopoah"] $ws9
 
 # make floating apps
 for_window [class="^Simplescreenrecorder$"] floating enable
