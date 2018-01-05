@@ -3,7 +3,7 @@
 #audible_bell = false
 clickable_url = true
 #dynamic_title = true
-font = MesloLGM Nerd Font Mono 12
+font = MesloLGM Nerd Font Mono 9
 #fullscreen = true
 #geometry = 640x480
 # icon_name = terminal
@@ -53,7 +53,7 @@ scrollback_lines = 10000
 foreground      = #f8f8f2
 foreground_bold = #f8f8f2
 cursor          = #f8f8f2
-background      = #282a36
+background      = #0e1111
 
 # black
 color0  = #000000
