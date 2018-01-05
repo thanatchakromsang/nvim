@@ -58,6 +58,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
 
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -112,6 +113,7 @@ Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'ternjs/tern_for_vim'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'styled-components/vim-styled-components'
 
 " php
 "" PHP Bundle
@@ -210,7 +212,7 @@ endif
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set guifont=MesloLGM\sNerd\sFont\sMono:h12
+set guifont=MesloLGM\sNerd\sFont\sMono:h9
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -525,15 +527,18 @@ augroup END
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python', 'javascript']
+let g:polyglot_disabled = ['python', 'javascript', 'css']
 let python_highlight_all = 1
 
 " deoplete (neovim asynchronous completion)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_refresh_always = 0
 let b:deoplete_ignore_sources = ['buffer']
 
 let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#jedi#show_docstring = 1
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
