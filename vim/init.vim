@@ -587,12 +587,12 @@ if !exists('g:airline_symbols')
 endif
 
 if exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
+  " let g:airline#extensions#tabline#left_sep = ''
+  " let g:airline#extensions#tabline#left_alt_sep = ''
+  " let g:airline_left_sep = ''
+  " let g:airline_left_alt_sep = ''
+  " let g:airline_right_sep = ''
+  " let g:airline_right_alt_sep = ''
   let g:airline_symbols.branch = ''
   let g:airline_symbols.readonly = ''
   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
@@ -606,8 +606,8 @@ if exists('g:airline_powerline_fonts')
   let g:airline_symbols.paste     = '∥'
   let g:airline_symbols.whitespace = 'Ξ'
 else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
+  " let g:airline#extensions#tabline#left_sep = ''
+  " let g:airline#extensions#tabline#left_alt_sep = ''
 
 endif
 
