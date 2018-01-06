@@ -15,6 +15,7 @@ export EDITOR="$VISUAL"
 alias la='ls -A'
 alias l='ls -CF'
 alias ssh@venture='ssh venture@159.89.193.207'
+alias scratchpad='termite --name __scratchpad --title Scratchpad'
 
 # Fix character remnent in remote server
 if [[ -n $SSH_CONNECTION ]] ; then
