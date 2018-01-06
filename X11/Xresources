@@ -56,12 +56,11 @@ rofi.color-normal: argb:3c1d1f21, #c4cbd4, argb:96404552, #ff79c6, #f9f9f9
 rofi.color-urgent: argb:2c1d1f21, #ff5555, argb:e54b5160, #ff5555, #f9f9f9
 rofi.color-active: argb:2c1d1f21, #ff79c6, argb:e44b5160, #ff79c6, #f9f9f9
 rofi.width: 30
-rofi.lines: 8
+rofi.lines: 10
 rofi.columns: 1
 rofi.font: DejaVu 12
 rofi.bw: 0
 rofi.padding: 20
 rofi.eh: 1
 rofi.hide-scrollbar: true
-/* rofi.window-format: window {w} {c} {t} */
-rofi.window-format: {c} {t}
+rofi.window-format: [{w}] - {c} {t}

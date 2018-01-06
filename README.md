@@ -62,6 +62,8 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 ```
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+  curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
+
   rm ~/.zshrc
 
   ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
