@@ -28,7 +28,7 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 
 <details>
 <summary>MacOS</summary>
-  
+
 ```
   No detail
 ```
@@ -39,7 +39,7 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 ```
   git clone https://github.com/thanatchakromsang/dotfiles.git ~/.dotfiles
 
-  ln -s ~/.dotfiles/gitconfig ~/.gitconfig
+  ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
 ```
 <details>
 <summary>Neovim, Zsh, tmux</summary>
@@ -47,11 +47,11 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 ```
   mkdir ~/.config/nvim
 
-  ln -s ~/.dotfiles/init.vim ~/.config/nvim/init.vim
+  ln -s ~/.dotfiles/vim/init.vim ~/.config/nvim/init.vim
 
-  ln -s ~/.dotfiles/colors ~/.config/nvim/colors
+  ln -s ~/.dotfiles/vim/colors ~/.config/nvim/colors
 
-  ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+  ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 ```
 </details>
@@ -64,7 +64,7 @@ Neovim will automatically install plugin with __:PlugInstall__ but you have to m
 
   rm ~/.zshrc
 
-  ln -s ~/.dotfiles/zshrc ~/.zshrc
+  ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 
   chsh -s /bin/zsh
 ```
@@ -114,7 +114,7 @@ Change global npm path per user
 
 <details>
 <summary>Vim</summary>
-  
+
 Commands | Descriptions
 --- | ---
 `:cd <path>` | Open path */path*
@@ -181,7 +181,7 @@ Commands | Descriptions
 
 <details>
 <summary>Zsh</summary>
-  
+
 alias | Descriptions
 --- | ---
 `la` | `ls -A`
@@ -192,7 +192,7 @@ alias | Descriptions
 
 <details>
 <summary>tmux</summary>
-  
+
 Commands | Descriptions
 --- | ---
 <kbd>Ctrl</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd>| Navigate via split panels
@@ -209,7 +209,7 @@ Commands | Descriptions
 
 <details>
 <summary>i3wm</summary>
-  
+
 Commands | Descriptions
 --- | ---
 <kbd>mod</kbd> + <kbd>enter</kbd> | Enter terminal
