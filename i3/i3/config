@@ -164,7 +164,7 @@ bindsym $mod+x scratchpad show
 
 ## put terminal into scratchpad
 for_window [instance="__scratchpad"] move scratchpad
-exec --no-startup-id termite --name __scratchpad --title Scratchpad
+## exec --no-startup-id termite --name __scratchpad --title Scratchpad
 
 ############################
 ### Applications binding ###
