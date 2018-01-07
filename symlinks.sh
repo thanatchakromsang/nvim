@@ -11,34 +11,35 @@
 #=============
 
 dotfiles=~/.dotfiles
-log=~/.install_progress.log.txt
 
 #=============
 # Delete existing dotfiles and folders
 #=============
 
 echo "#=================================#"
-echo "# Welcome to thanatcha's dotfiles #"
+echo "# welcome to thanatcha's dotfiles #"
 echo "#=================================#"
-echo "# [1] delete existing symlink     #"
+echo "# delete existing symlink (t)     #"
 echo "#=================================#"
-echo -n "# Answer 'y'es or 'n'o : "
+echo "# (t) = terminal (g) = graphical  #"
+echo "#=================================#"
+echo -n "# answer 'y'es or 'n'o : "
 
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
-    sudo rm -rf ~/.tmux.confg > /dev/null 2>&1
+    sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
     sudo rm -rf ~/.zshrc > /dev/null 2>&1
     sudo rm -rf ~/.gitconfig > /dev/null 2>&1
     sudo rm -rf ~/.config/nvim > /dev/null 2>&1
-    echo "Finished [1]!"
+    echo "# remove symlink terminal complete"
 else
-    echo "Aborted [1]!"
+    echo "# aborted remove symlink terminal"
 fi
 
 echo "#=================================#"
-echo "# [2] delete existing i3 symlink  #"
+echo "# delete existing symlink (g)     #"
 echo "#=================================#"
-echo -n "# Answer 'y'es or 'n'o "
+echo -n "# answer 'y'es or 'n'o : "
 
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
@@ -48,15 +49,15 @@ if [[ "$REPLY" == "y" ]]; then
     sudo rm -rf ~/.config/termite > /dev/null 2>&1
     sudo rm -rf ~/.config/compton.conf > /dev/null 2>&1
     sudo rm -rf ~/.config/polybar > /dev/null 2>&1
-    echo "Finished [2]!"
+    echo "# remove symlink graphical complete"
 else
-    echo "Aborted [2]!"
+    echo "# aborted remove symlink graphical"
 fi
 
 echo "#=================================#"
-echo "# [3] mkdir and create symlink    #"
+echo "#  mkdir and create symlink (t)   #"
 echo "#=================================#"
-echo -n "# Answer 'y'es or 'n'o "
+echo -n "# answer 'y'es or 'n'o : "
 
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
@@ -66,15 +67,15 @@ if [[ "$REPLY" == "y" ]]; then
 
     mkdir ~/.config/nvim
     ln -sf $dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-    echo "Finished [3]!"
+    echo "# symlink terminal complete"
 else
-    echo "Aborted [3]!"
+    echo "# aborted symlink terminal"
 fi
 
 echo "#=================================#"
-echo "# [4] mkdir and create symlink i3 #"
+echo "# mkdir and create symlink (g)    #"
 echo "#=================================#"
-echo -n "# Answer 'y'es or 'n'o "
+echo -n "# answer 'y'es or 'n'o "
 
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
@@ -87,34 +88,35 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/termite ~/.config
     i3-msg restart
     xrdb -merge ~/.Xresources
-    echo "Finished [4]!"
+    echo "# symlink graphical complete"
 else
-    echo "Aborted [4]!"
+    echo "# aborted symlink graphical"
 fi
 
 echo "#=================================#"
-echo "# [5] Set zsh as a default shell  #"
+echo "# set zsh as a default shell      #"
 echo "#=================================#"
-echo -n "# Answer 'y'es or 'n'o "
+echo -n "# answer 'y'es or 'n'o "
 
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
     chsh -s /bin/zsh
-    echo "Finished [5]!"
+    ln -sf $dotfiles/zsh/themes ~/.oh-my-zsh/custom
+    echo "# setup zsh complete"
 else
-    echo "Aborted [5]!"
+    echo "# aborted zsh setup"
 fi
 
 echo "#=================================#"
-echo "# [6] Install terminal font       #"
+echo "# install terminal fonts          #"
 echo "#=================================#"
 echo -n "# Answer 'y'es or 'n'o "
 
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
     fc-cache ~/.fonts
-    echo "Finished [6]!"
+    echo "# setup fonts complete"
 else
-    echo "Aborted [6]!"
+    echo "# aborted fonts setup"
 fi
 
