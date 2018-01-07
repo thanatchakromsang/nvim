@@ -434,8 +434,8 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-if has('xsel')
-  set clipboard=xsel
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
 endif
 
 noremap YY "+y<CR>
