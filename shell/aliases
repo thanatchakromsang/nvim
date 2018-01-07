@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# build-in commands and core utilities
+alias f1='fg %1'
+alias f2='fg %2'
+alias f3='fg %3'
+alias f4='fg %4'
+alias f5='fg %5'
+alias df='df -h'
+alias f=fg
+alias j=jobs
+alias la='ls -A'
+alias l='ls -CF'
+alias l1='ls -1'
+alias ls='ls -Fh'
+
+# editors
+alias v='nvim'
+
+# dotfiles
+alias dotfiles='cd ~/.dotfiles'
+
+# other
+alias r='ranger'
+
+if [ "$PACKAGE_MANAGER" = pacman ]; then
+  alias u="sudo pacman --sync --refresh --sysupgrade"
+fi
+
+# ssh
+alias ssh@venture='ssh venture@159.89.193.207'
