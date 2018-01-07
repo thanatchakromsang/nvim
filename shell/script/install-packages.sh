@@ -1,15 +1,13 @@
 #!/bin/sh
 
-# script path
 dotfiles=~/.dotfiles
 
 echo "#=================================#"
-echo "# welcome to thanatcha's dotfiles #"
+echo "# welcome to packages installer   #"
 echo "#=================================#"
-echo "# install package                 #"
-echo "#=================================#"
-
-echo -n "# answer 'y'es or 'n'o : "
+echo
+echo "install packages"
+echo -n "answer 'y'es or 'n'o : "
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
     if [[ -x "/usr/bin/apt-get" ]]; then
@@ -18,12 +16,13 @@ if [[ "$REPLY" == "y" ]]; then
         source $dotfiles/shell/script/arch-installer.sh
     else
         echo "no installer for your os :("
+        echo
         exit 0
     fi
 
-    source $SCRIPT/oh-my-zsh-installer.sh
+    source $dotfiles/shell/script/oh-my-zsh-installer.sh
 
 else
-    echo "# aborted package setup"
+    echo "aborted packages installer"
     exit 0
 fi

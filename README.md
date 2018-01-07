@@ -7,98 +7,13 @@ My universal dotfiles for every linux machine
 - i3wm configs (polybar, dunst, compton, xresources)
 - etc.
 
-## __Install dependencies__
-
-<details>
-<summary>Archlinux</summary>
-
-Install necessary packages
-```
-  sudo pacman -S curl git tmux zsh termite python-pip python-neovim ctags
-```
-Upgrade Neovim
-```
-  sudo pip3 install --user --upgrade neovim
-
-  sudo pip3 install jedi
-```
-
-Neovim will automatically install plugin with __:PlugInstall__ but you have to manually update plugin after awile with __:PlugUpdate__
-</details>
-
-<details>
-<summary>MacOS</summary>
+## __Installation__
 
 ```
-  No detail
+    sudo pacman -S git
+
+    git clone https://github.com/thanatchakromsang/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./installer.sh
 ```
-</details>
-
-## Symlink configurations
-
-```
-  git clone https://github.com/thanatchakromsang/dotfiles.git ~/.dotfiles
-
-  ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
-```
-<details>
-<summary>Neovim, Zsh, tmux</summary>
-
-```
-  mkdir ~/.config/nvim
-
-  ln -s ~/.dotfiles/vim/init.vim ~/.config/nvim/init.vim
-
-  ln -s ~/.dotfiles/vim/colors ~/.config/nvim/colors
-
-  ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
-
-```
-</details>
-
-<details>
-<summary>Setting up oh my ZSH</summary>
-
-```
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-  curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-
-  rm ~/.zshrc
-
-  ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-
-  chsh -s /bin/zsh
-```
-
-Install Zsh Plugin
-
-```
-  cd ~/.oh-my-zsh/custom/plugins
-
-  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-```
-
-Reload Zsh Plugin
-
-```
-  source ~/.zshrc
-```
-</details>
-
-<details>
-<summary>Fonts, Terminal</summary>
-
-```
-  mkdir ~/.config/termite/
-
-  ln -s ~/.dotfiles/fonts ~/.fonts
-
-  ln -s ~/.dotfiles/termite/config ~/.config/termite/config
-
-  fc-cache ~/.fonts
-```
-</details>
 
 ## Miscellaneous config
 
