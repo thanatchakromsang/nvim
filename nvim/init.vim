@@ -57,7 +57,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
-
+Plug 'ap/vim-buftabline'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -207,6 +207,11 @@ if !exists('g:not_finish_vimplug')
     " Override autocomplete colorscheme
     hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE guifg=#f8f8f2 guibg=#646e96 gui=NONE
     hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold guifg=#282a36 guibg=#50fa7b gui=NONE
+    "BufTabLine
+    hi BufTabLineActive ctermfg=15 ctermbg=236 cterm=bold
+    hi BufTabLineCurrent ctermfg=16 ctermbg=141 cterm=bold
+    hi BufTabLineFill ctermfg=NONE ctermbg=233
+    hi BufTabLineHidden ctermfg=15 ctermbg=233
 endif
 
 set mousemodel=popup
@@ -381,11 +386,6 @@ nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
-"" Tabs
-" nnoremap <Tab> gt
-" nnoremap <S-Tab> gT
-" nnoremap <silent> <S-t> :tabnew<CR>
-
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
@@ -414,7 +414,7 @@ if executable('rg')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <TAB> :Buffers<CR>
+nnoremap <silent> <S-t> :Buffers<CR>
 nnoremap <silent> <Leader>e :FZF -m<CR>
 
 "gsnippets
@@ -450,9 +450,9 @@ endif
 
 "" Buffer nav
 noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
+noremap <S-Tab> :bp<CR>
 noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
+noremap <Tab> :bn<CR>
 
 "" Close buffer
 noremap <leader>c :bd<CR>
@@ -568,6 +568,9 @@ let g:nrrw_topbot_leftright = 'botright'
 
 " close tip window after close
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" BufTabline
+let g:buftabline_numbers = 2
 
 "*****************************************************************************
 "*****************************************************************************
