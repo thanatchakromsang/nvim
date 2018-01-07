@@ -1,20 +1,6 @@
 #!/bin/sh
-################################################################################
-#
-#             NOTES: For this to work you must have cloned the github
-#                    repo to your home folder as ~/.dotfiles/
-#
-################################################################################
-
-#=============
-#  Variable
-#=============
 
 dotfiles=~/.dotfiles
-
-#=============
-# Delete existing dotfiles and folders
-#=============
 
 echo "#=================================#"
 echo "# welcome to dotfiles symlinks    #"
