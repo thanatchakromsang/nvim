@@ -33,6 +33,7 @@ if [[ "$REPLY" == "y" ]]; then
     sudo rm -rf ~/.config/termite > /dev/null 2>&1
     sudo rm -rf ~/.config/compton.conf > /dev/null 2>&1
     sudo rm -rf ~/.config/polybar > /dev/null 2>&1
+    sudo rm -rf ~/.fonts > /dev/null 2>&1
     echo "remove symlink graphical complete"
     echo
 else
@@ -64,7 +65,7 @@ echo -n "answer 'y'es or 'n'o : "
 read REPLY
 if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/xorg/Xresources ~/.Xresources
-    ln -sf $dotfiles/fonts ~
+    ln -sf $dotfiles/fonts ~/.fonts
     ln -sf $dotfiles/i3/compton/compton.conf ~/.config/compton.conf
     ln -sf $dotfiles/i3/i3/ ~/.config
     ln -sf $dotfiles/i3/dunst/dunstrc ~/.config
@@ -86,6 +87,7 @@ read REPLY
 if [[ "$REPLY" == "y" ]]; then
     chsh -s /bin/zsh
     ln -sf $dotfiles/zsh/themes ~/.oh-my-zsh/custom
+    source $dotfiles/zsh/zshrc
     echo "setup zsh complete"
     echo
 else

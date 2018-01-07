@@ -212,7 +212,7 @@ endif
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set guifont=MesloLGM\sNerd\sFont\sMono:h9
+set guifont=MesloLGM\sNerd\sFont\sMono:h12
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -264,9 +264,9 @@ endif
 let g:airline_theme = 'dracula'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
+let g:airline#extensions#nrrwrgn#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_powerline_fonts = 1
 
@@ -382,9 +382,9 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+" nnoremap <Tab> gt
+" nnoremap <S-Tab> gT
+" nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -414,7 +414,7 @@ if executable('rg')
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <Leader>B :Buffers<CR>
+nnoremap <silent> <TAB> :Buffers<CR>
 nnoremap <silent> <Leader>e :FZF -m<CR>
 
 "gsnippets
@@ -587,12 +587,12 @@ if !exists('g:airline_symbols')
 endif
 
 if exists('g:airline_powerline_fonts')
-  " let g:airline#extensions#tabline#left_sep = ''
-  " let g:airline#extensions#tabline#left_alt_sep = ''
-  " let g:airline_left_sep = ''
-  " let g:airline_left_alt_sep = ''
-  " let g:airline_right_sep = ''
-  " let g:airline_right_alt_sep = ''
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
   let g:airline_symbols.branch = ''
   let g:airline_symbols.readonly = ''
   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
@@ -606,9 +606,17 @@ if exists('g:airline_powerline_fonts')
   let g:airline_symbols.paste     = '∥'
   let g:airline_symbols.whitespace = 'Ξ'
 else
-  " let g:airline#extensions#tabline#left_sep = ''
-  " let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
 
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
 endif
 
 "*****************************************************************************
