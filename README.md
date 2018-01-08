@@ -36,23 +36,19 @@ Commands | Descriptions
 --- | ---
 `:cd <path>` | Open path */path*
 <kbd>Ctrl</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd> | Navigate via split panels
-<kbd>Ctrl</kbd> + <kbd>w</kbd><kbd>w</kbd> | Alternative navigate vim split panels
+<kbd>Ctrl</kbd><kbd>w</kbd><kbd>w</kbd> | Alternative navigate vim split panels
 <kbd>,</kbd><kbd>.</kbd> | Set path working directory
-<kbd>,</kbd><kbd>w</kbd> or <kbd>,</kbd><kbd>x</kbd> | Next buffer navigate
-<kbd>,</kbd><kbd>q</kbd> or <kbd>,</kbd><kbd>z</kbd> | previous buffer navigate
-> <kbd>T</kbd> | Create a tab
-> <kbd>tab</kbd> | next tab navigate
-> <kbd>Shift</kbd> + <kbd>tab</kbd> | previous tab navigate
+<kbd>Tab</kbd> or <kbd>,</kbd><kbd>x</kbd> | Next buffer navigate
+<kbd>Shift</kbd><kbd>Tab</kbd> or <kbd>,</kbd><kbd>z</kbd> | previous buffer navigate
 <kbd>,</kbd><kbd>e</kbd> | Find and open files
-<kbd>,</kbd><kbd>t</kbd><kbd>e</kbd> | Find and open files in new tab
-<kbd>Tab</kbd> | Find file on buffer (open file)
 <kbd>,</kbd><kbd>c</kbd> | Close active buffer (close file)
-<kbd>F2</kbd>  | Open tree navigate in actual opened file
-<kbd>F3</kbd>  | Open/Close tree navigate files
+<kbd>T</kbd> | Find file on buffer (open file)
+<kbd>F2</kbd> | Open tree navigate in actual opened file
+<kbd>F3</kbd> | Open/Close tree navigate files
 <kbd>F4</kbd> | List all class and method, support for python and php using ctags
 <kbd>,</kbd><kbd>v</kbd> | Split vertical
 <kbd>,</kbd><kbd>b</kbd> | Split horizontal
-<kbd>,</kbd><kbd>f</kbd> | Search in the project
+<kbd>,</kbd><kbd>f</kbd> | Search by pattern
 <kbd>,</kbd><kbd>o</kbd> | Open github file/line (website), if used git in **github**
 <kbd>,</kbd><kbd>s</kbd><kbd>h</kbd> | Open terminal inside vim
 <kbd>,</kbd><kbd>g</kbd><kbd>a</kbd> | Execute *git add* on current file
@@ -73,16 +69,13 @@ Commands | Descriptions
 <kbd>g</kbd><kbd>f</kbd> | Open file under cursor (absolute path or relative)
 <kbd>Y</kbd><kbd>Y</kbd> | Copy to clipboard
 <kbd>,</kbd><kbd>p</kbd> | Paste
-<kbd>Ctrl</kbd> + <kbd>e</kbd> | Activate Emmet plugin
-<kbd>gg</kbd> | Move to first line in file
+<kbd>Ctrl</kbd><kbd>e</kbd> | Activate Emmet plugin
+<kbd>g</kbd><kbd>g</kbd> | Move to first line in file
 <kbd>G</kbd> | Move to last line in file
 <kbd>,</kbd><kbd>space</kbd> | Clean search highlight
 <kbd>tab</kbd> | Expand UltiSnips
 <kbd>tab</kbd> | Jump forward after trigger UltiSnips
-<kbd>Ctrl</kbd> + <kbd>b</kbd> | Jump backward after trigger UltiSnips
-<kbd>s</kbd> | Easymotion by characters
-<kbd>,</kbd><kbd>j</kbd> | Easymotion line lower
-<kbd>,</kbd><kbd>k</kbd> | Easymotion line upper
+<kbd>Ctrl</kbd><kbd>b</kbd> | Jump backward after trigger UltiSnips
 <kbd>,</kbd><kbd>n</kbd><kbd>r</kbd> | Narrow region line
 <kbd>U</kbd> | Convert selected text to uppercase
 <kbd>u</kbd> | Convert selected text to lowercase
@@ -91,9 +84,13 @@ Commands | Descriptions
 <kbd>q</kbd> | Stop recording a macro
 <kbd>@</kbd><kbd>X</kbd> | Playback a macro (X = key to assign macro to)
 <kbd>@</kbd><kbd>@</kbd> | Replay previously played macro
-<kbd>Ctrl</kbd> + <kbd>x</kbd><kbd>f</kbd> | Completion filenames from current directory
-<kbd>Ctrl</kbd> + <kbd>n</kbd> | Completion insert next matching word
-<kbd>Ctrl</kbd> + <kbd>p</kbd> | Completion insert previous matching word
+<kbd>Ctrl</kbd><kbd>n</kbd> | Completion insert next matching word
+<kbd>Ctrl</kbd><kbd>p</kbd> | Completion insert previous matching word
+<kbd>/</kbd> | Easymotion search forward
+<kbd>?</kbd> | Easymotion search backward
+<kbd>g</kbd><kbd>/</kbd> | Easymotion search stay
+<kbd>,</kbd><kbd>n</kbd> | Cycle through error
+<kbd>,</kbd><kbd>w</kbd><kbd>w</kbd> | Open vimwiki
 </details>
 
 <details>
