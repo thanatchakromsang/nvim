@@ -44,8 +44,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-scripts/grep.vim'
-Plug 'vim-scripts/CSApprox'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
@@ -54,10 +52,16 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/denite.nvim'
+" Plug 'chemzqm/denite-extra'
+" Plug 'Shougo/denite.nvim'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
+Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch.vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -75,21 +79,11 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
-if v:version >= 703
-  Plug 'Shougo/vimshell.vim'
-endif
-
-if v:version >= 704
-  "" Snippets
-  Plug 'SirVer/ultisnips'
-endif
-
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'dracula/vim'
-Plug 'tomasr/molokai'
-Plug 'chriskempson/base16-vim'
 
 "*****************************************************************************
 "" Custom bundles
@@ -118,7 +112,6 @@ Plug 'styled-components/vim-styled-components'
 " php
 "" PHP Bundle
 Plug 'arnaud-lb/vim-php-namespace'
-
 
 " python
 "" Python Bundle
@@ -171,7 +164,7 @@ set hidden
 
 "" Searching
 set hlsearch
-set incsearch
+" set incsearch
 set ignorecase
 set smartcase
 
@@ -199,7 +192,7 @@ set ruler
 set number
 set relativenumber             " Show relative line numbers
 set cursorline                 " Highlight current line
-" set cursorcolumn               " Highlight column
+set title
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
@@ -219,16 +212,6 @@ set t_Co=256
 set guioptions=egmrti
 set guifont=MesloLGM\sNerd\sFont\sMono:h12
 
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=MesloLGM\sNerd\sFont\sMono:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
-
-endif
-
 " IndentLine
 let g:indentLine_enabled = 1
 let g:indentLine_leadingSpaceEnabled = 1
@@ -239,9 +222,12 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_fileTypeExclude = ['nerdtree']
 autocmd FileType help,nerdtree IndentLinesToggle
 
+" Divider
+set fillchars=""
+
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
-set scrolloff=3
+set scrolloff=5
 
 "" Status bar
 set laststatus=2
@@ -250,30 +236,43 @@ set laststatus=2
 set modeline
 set modelines=10
 
-set title
-set titleold="Terminal"
-set titlestring=%F
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+let g:airline_section_c = '%F'
+let g:airline_section_z ="%l:%c"
 
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
+let g:airline#extensions#default#layout = [
+      \ [ 'a', 'b', 'c' ],
+      \ [ 'x', 'z', 'error', 'warning' ]
+      \ ]
 
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
+let g:webdevicons_enable_airline_statusline = 0
+
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ '' : 'V',
+  \ 's'  : 'S',
+  \ 'S'  : 'S',
+  \ '' : 'S',
+  \ }
 
 " vim-airline
 let g:airline_theme = 'dracula'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#nrrwrgn#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_powerline_fonts = 1
+
+" Vim better whitespace
+hi ExtraWhitespace ctermbg=9
 
 "*****************************************************************************
 "" Abbreviations
@@ -297,13 +296,14 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let NERDTreeQuitOnOpen = 1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 40
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -311,16 +311,9 @@ let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
-" vimshell.vim
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_prompt =  '$ '
-
 " terminal emulation
-if g:vim_bootstrap_editor == 'nvim'
-  nnoremap <silent> <leader>sh :terminal<CR>
-else
-  nnoremap <silent> <leader>sh :VimShellCreate<CR>
-endif
+nnoremap <silent> <leader>sh :terminal<CR>
+
 "*****************************************************************************
 "" Functions
 "*****************************************************************************
@@ -367,18 +360,18 @@ set autoread
 "*****************************************************************************
 
 "" Split
-noremap <Leader>b :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <leader>b :<C-u>split<CR>
+noremap <leader>v :<C-u>vsplit<CR>
 
 "" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
+noremap <leader>ga :Gwrite<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gsh :Gpush<CR>
+noremap <leader>gll :Gpull<CR>
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>gd :Gvdiff<CR>
+noremap <leader>gr :Gremove<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
@@ -390,10 +383,7 @@ nnoremap <leader>sc :CloseSession<CR>
 nnoremap <leader>. :lcd %:p:h<CR>
 
 "" Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-"" Opens a tab edit command with the path of the currently edited file filled
-noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 "" fzf.vim
 set wildmode=list:longest,list:full
@@ -417,7 +407,7 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <S-t> :Buffers<CR>
 nnoremap <silent> <Leader>e :FZF -m<CR>
 
-"gsnippets
+" ultisnippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
@@ -457,9 +447,6 @@ noremap <Tab> :bn<CR>
 "" Close buffer
 noremap <leader>c :bd<CR>
 
-"" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
-
 "" Switching windows
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -480,24 +467,28 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "" Emmet
 let g:user_emmet_expandabbr_key='<C-e>'
 
-"" Easymotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_smartcase = 1 " Case insensitive
+"" incsearch
 
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-" nmap <Leader>s <Plug>(easymotion-overwin-f)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-overwin-f2)
+" map /  <Plug>(incsearch-forward)
+" map ?  <Plug>(incsearch-backward)
+" map g/ <Plug>(incsearch-stay)
 
-" JK motions: Line motions
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
-" " IndentLines
-" nmap <Leader>\ :IndentLinesToggle<CR>:LeadingSpaceToggle<CR>
+"" incsearch-easymotion
+map /  <Plug>(incsearch-easymotion-/)
+map ?  <Plug>(incsearch-easymotion-?)
+map g/ <Plug>(incsearch-easymotion-stay)
+
+"" ALE
+" cycle through location list
+nmap <silent> <leader>n <Plug>(ale_next_wrap)
 
 "*****************************************************************************
 "" Custom configs
@@ -535,7 +526,6 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_refresh_always = 0
 let b:deoplete_ignore_sources = ['buffer']
-
 let g:deoplete#sources#ternjs#case_insensitive = 1
 let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#jedi#show_docstring = 1
@@ -564,13 +554,14 @@ let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf']}
 let g:ale_fix_on_save = 1
 
 " NrrwRgn
-let g:nrrw_topbot_leftright = 'botright'
+" let g:nrrw_topbot_leftright = 'botright'
 
 " close tip window after close
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " BufTabline
 let g:buftabline_numbers = 2
+let g:buftabline_indicators = 1
 
 "*****************************************************************************
 "*****************************************************************************
@@ -590,36 +581,20 @@ if !exists('g:airline_symbols')
 endif
 
 if exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
   let g:airline_left_sep = ''
   let g:airline_left_alt_sep = ''
   let g:airline_right_sep = ''
   let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
   let g:airline#extensions#readonly#symbol   = '⊘'
   let g:airline#extensions#linecolumn#prefix = '¶'
   let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr    = '␊'
   let g:airline_symbols.branch    = '⎇'
   let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
-  let g:airline_symbols.paste     = '∥'
   let g:airline_symbols.whitespace = 'Ξ'
-else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
 endif
 
 "*****************************************************************************

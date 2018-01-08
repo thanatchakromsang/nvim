@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 PACMAN_TERMINAL="curl tmux zsh neovim python-pip python-neovim ctags htop npm docker"
 PACMAN_GRAPHICAL="dunst compton rofi termite"
 YAOURT_TERMINAL=""

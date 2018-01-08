@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "install oh my zsh"
 echo -n "answer 'y'es or 'n'o : "
