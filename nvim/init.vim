@@ -52,9 +52,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ryanoasis/vim-devicons'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/denite.nvim'
-" Plug 'chemzqm/denite-extra'
-" Plug 'Shougo/denite.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/NrrwRgn'
@@ -62,6 +59,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch.vim'
+Plug 'vimwiki/vimwiki'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -237,7 +235,7 @@ set modeline
 set modelines=10
 
 
-let g:airline_section_c = '%F'
+" let g:airline_section_c = '%F'
 let g:airline_section_z ="%l:%c"
 
 let g:airline#extensions#default#layout = [
@@ -560,8 +558,18 @@ let g:ale_fix_on_save = 1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " BufTabline
-let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
+
+" Vimwiki
+let g:work_wiki = {}
+let g:work_wiki.path = '~/.vimwiki/todo.wiki'
+let g:work_wiki.path_html = '~/.viwiki/todo.html'
+
+" let g:play_wiki = {}
+" let g:play_wiki.path = '~/.play/todo.wiki'
+" let g:play_wiki.path_html = '~/.play/todo.html'
+
+let g:vimwiki_list = [g:work_wiki]
 
 "*****************************************************************************
 "*****************************************************************************
@@ -581,10 +589,10 @@ if !exists('g:airline_symbols')
 endif
 
 if exists('g:airline_powerline_fonts')
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
   let g:airline#extensions#readonly#symbol   = '⊘'
   let g:airline#extensions#linecolumn#prefix = '¶'
