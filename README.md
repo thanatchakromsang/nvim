@@ -32,20 +32,24 @@ Change global npm path per user
 <details>
 <summary>Vim</summary>
 
+#### Normal mode
 Commands | Descriptions
 --- | ---
 `:cd <path>` | Open path */path*
 <kbd>Ctrl</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd> | Navigate via split panels
+<kbd>w</kbd> | Go to next word *
+<kbd>e</kbd> | Go to end of word *
+<kbd>b</kbd> | Go back word
 <kbd>Ctrl</kbd><kbd>w</kbd><kbd>w</kbd> | Alternative navigate vim split panels
 <kbd>,</kbd><kbd>.</kbd> | Set path working directory
-<kbd>Tab</kbd> or <kbd>,</kbd><kbd>x</kbd> | Next buffer navigate
+<kbd>Tab</kbd> or <kbd>,</kbd><kbd>x</kbd> | Next buffer navigate (Normal mode)
 <kbd>Shift</kbd><kbd>Tab</kbd> or <kbd>,</kbd><kbd>z</kbd> | previous buffer navigate
 <kbd>,</kbd><kbd>e</kbd> | Find and open files
 <kbd>,</kbd><kbd>c</kbd> | Close active buffer (close file)
-<kbd>T</kbd> | Find file on buffer (open file)
-<kbd>F2</kbd> | Open tree navigate in actual opened file
-<kbd>F3</kbd> | Open/Close tree navigate files
-<kbd>F4</kbd> | List all class and method, support for python and php using ctags
+<kbd>T</kbd> | Open list of all buffer
+<kbd>F2</kbd> | Open current file directory in NERDTree
+<kbd>F3</kbd> | Toggle NERDTree
+<kbd>F4</kbd> | List all class and method, support for python using ctags
 <kbd>,</kbd><kbd>v</kbd> | Split vertical
 <kbd>,</kbd><kbd>b</kbd> | Split horizontal
 <kbd>,</kbd><kbd>f</kbd> | Search by pattern
@@ -63,34 +67,47 @@ Commands | Descriptions
 <kbd>,</kbd><kbd>s</kbd><kbd>s</kbd> | Save Session
 <kbd>,</kbd><kbd>s</kbd><kbd>d</kbd> | Delete Session
 <kbd>,</kbd><kbd>s</kbd><kbd>c</kbd> | Close Session
-<kbd>></kbd> | indent to right
-<kbd><</kbd> | indent to left
 <kbd>g</kbd><kbd>c</kbd> | Comment or uncomment lines that {motion} moves over
 <kbd>g</kbd><kbd>f</kbd> | Open file under cursor (absolute path or relative)
 <kbd>Y</kbd><kbd>Y</kbd> | Copy to clipboard
 <kbd>,</kbd><kbd>p</kbd> | Paste
-<kbd>Ctrl</kbd><kbd>e</kbd> | Activate Emmet plugin
 <kbd>g</kbd><kbd>g</kbd> | Move to first line in file
 <kbd>G</kbd> | Move to last line in file
-<kbd>,</kbd><kbd>space</kbd> | Clean search highlight
+<kbd>/</kbd> | Easymotion search forward
+<kbd>?</kbd> | Easymotion search backward
+<kbd>g</kbd><kbd>/</kbd> | Easymotion search stay
+<kbd>,</kbd><kbd>n</kbd> | Cycle through ale error
+
+#### Insert mode
+Commands | Descriptions
+--- | ---
+<kbd>Alt</kbd><kbd>tab</kbd> | Jump to next closed pair
+<kbd>Alt</kbd><kbd>e</kbd> | Fast wrap pair to closed pair
 <kbd>tab</kbd> | Expand UltiSnips
-<kbd>tab</kbd> | Jump forward after trigger UltiSnips
-<kbd>Ctrl</kbd><kbd>b</kbd> | Jump backward after trigger UltiSnips
-<kbd>,</kbd><kbd>n</kbd><kbd>r</kbd> | Narrow region line
+<kbd>tab</kbd> | Jump forward after expand UltiSnips
+<kbd>Ctrl</kbd><kbd>b</kbd> | Jump backward after expand UltiSnips
+<kbd>Ctrl</kbd><kbd>n</kbd> | Completion insert next matching word
+<kbd>Ctrl</kbd><kbd>p</kbd> | Completion insert previous matching word
+<kbd>Ctrl</kbd><kbd>e</kbd> | Activate Emmet plugin
+
+#### Visual mode
+Commands | Descriptions
+--- | ---
 <kbd>U</kbd> | Convert selected text to uppercase
 <kbd>u</kbd> | Convert selected text to lowercase
 <kbd>~</kbd> | Invert case of selected text
+<kbd>></kbd> | indent to right
+<kbd><</kbd> | indent to left
+<kbd>,</kbd><kbd>n</kbd><kbd>r</kbd> | Narrow region line
+
+#### Macro
+Commands | Descriptions
+--- | ---
 <kbd>q</kbd><kbd>X</kbd> | Start recording a macro (X = key to assign macro to)
 <kbd>q</kbd> | Stop recording a macro
 <kbd>@</kbd><kbd>X</kbd> | Playback a macro (X = key to assign macro to)
 <kbd>@</kbd><kbd>@</kbd> | Replay previously played macro
-<kbd>Ctrl</kbd><kbd>n</kbd> | Completion insert next matching word
-<kbd>Ctrl</kbd><kbd>p</kbd> | Completion insert previous matching word
-<kbd>/</kbd> | Easymotion search forward
-<kbd>?</kbd> | Easymotion search backward
-<kbd>g</kbd><kbd>/</kbd> | Easymotion search stay
-<kbd>,</kbd><kbd>n</kbd> | Cycle through error
-<kbd>,</kbd><kbd>w</kbd><kbd>w</kbd> | Open vimwiki
+
 </details>
 
 <details>
@@ -115,6 +132,7 @@ Commands | Descriptions
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>c</kbd> | Create a new window
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>k</kbd> | Kill current window
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>w</kbd> | Choose window from a list
+<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>f</kbd> | Maximize current pane
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>,</kbd> | Rename the current window
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>Ctrl</kbd><kbd>s</kbd> | Save session
 <kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>Ctrl</kbd><kbd>r</kbd> | Restore session
