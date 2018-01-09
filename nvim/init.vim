@@ -44,7 +44,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-scripts/grep.vim'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
@@ -59,7 +59,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch.vim'
-Plug 'vimwiki/vimwiki'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -560,16 +559,10 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " BufTabline
 let g:buftabline_indicators = 1
 
-" Vimwiki
-let g:work_wiki = {}
-let g:work_wiki.path = '~/.vimwiki/todo.wiki'
-let g:work_wiki.path_html = '~/.viwiki/todo.html'
-
-" let g:play_wiki = {}
-" let g:play_wiki.path = '~/.play/todo.wiki'
-" let g:play_wiki.path_html = '~/.play/todo.html'
-
-let g:vimwiki_list = [g:work_wiki]
+" Auto pairs
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutJump = '<M-tab>'
+let g:AutoPairsShortcutFastWrap = '<M-e>'
 
 "*****************************************************************************
 "*****************************************************************************
