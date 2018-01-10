@@ -91,7 +91,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -127,6 +127,8 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -171,10 +173,10 @@ for_window [instance="__scratchpad"] move scratchpad
 ###########################s
 
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi ,drun,run -show combi -modi"
-bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+p exec --no-startup-id rofi-pass
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu dmenu_command=rofi
-bindsym $mod+c exec --no-startup-id clipmenu
+# bindsym $mod+c exec --no-startup-id clipmenu
 
 #####################
 ### Start polybar ###
