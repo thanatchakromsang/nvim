@@ -68,7 +68,7 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/fonts ~/.fonts
     ln -sf $dotfiles/i3/compton/compton.conf ~/.config/compton.conf
     ln -sf $dotfiles/i3/i3/ ~/.config
-    ln -sf $dotfiles/i3/dunst/dunstrc ~/.config
+    ln -sf $dotfiles/i3/dunst ~/.config
     ln -sf $dotfiles/i3/polybar ~/.config
     ln -sf $dotfiles/termite ~/.config
     i3-msg restart
