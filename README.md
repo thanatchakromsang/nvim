@@ -115,9 +115,19 @@ Commands | Descriptions
 
 alias | Descriptions
 --- | ---
-`la` | `ls -A`
-`l` | `ls -CF`
-`vim` | `nvim`
+`l` | List directory in column with permission
+`la` | List hidden directory in column with permission
+`l.` | List hidden files and directory in column
+`ls` | List directory in row
+`l1` | List directorey in column
+<kbd>Ctrl</kbd><kbd>z</kbd> | Suspend currently working jobs
+`f` | Open suspending background jobs
+`j` | List suspending background jobs
+`df` | Check filesystem harddisk
+`v` | Open nvim
+`r` | Open ranger
+`u` | Update system
+`c` | Clear terminal
 `ssh@venture` | Connect to venture server
 </details>
 
@@ -126,17 +136,20 @@ alias | Descriptions
 
 Commands | Descriptions
 --- | ---
+<kbd>Alt</kbd> + <kbd>Tab</kbd> | Prefix for command
 <kbd>Ctrl</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd>| Navigate via split panels
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>v</kbd> | Split vertical
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>b</kbd> | Split horizontal
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>c</kbd> | Create a new window
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>k</kbd> | Kill current window
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>w</kbd> | Choose window from a list
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>f</kbd> | Maximize current pane
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>,</kbd> | Rename the current window
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>Ctrl</kbd><kbd>s</kbd> | Save session
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>Ctrl</kbd><kbd>r</kbd> | Restore session
-<kbd>Ctrl</kbd><kbd>a</kbd> + <kbd>I</kbd> | Install tmux plugins
+<kbd>Prefix</kbd> + <kbd>v</kbd> | Split vertical
+<kbd>Prefix</kbd> + <kbd>b</kbd> | Split horizontal
+<kbd>Prefix</kbd> + <kbd>c</kbd> | Create a new window
+<kbd>Prefix</kbd> + <kbd>k</kbd> | Kill current window
+<kbd>Prefix</kbd> + <kbd>Tab</kbd> | Move to next window
+<kbd>Prefix</kbd> + <kbd>Shift</kbd><kbd>Tab</kbd> | Move to previous window
+<kbd>Prefix</kbd> + <kbd>w</kbd> | Choose window from a list
+<kbd>Prefix</kbd> + <kbd>f</kbd> | Maximize current pane
+<kbd>Prefix</kbd> + <kbd>,</kbd> | Rename the current window
+<kbd>Prefix</kbd> + <kbd>Ctrl</kbd><kbd>s</kbd> | Save session
+<kbd>Prefix</kbd> + <kbd>Ctrl</kbd><kbd>r</kbd> | Restore session
+<kbd>Prefix</kbd> + <kbd>I</kbd> | Install tmux plugins
 </details>
 
 <details>
@@ -152,21 +165,22 @@ Commands | Descriptions
 <kbd>mod</kbd> + <kbd>b</kbd> | Split horizontal
 <kbd>mod</kbd> + <kbd>f</kbd> | Fullscreen toggle
 <kbd>mod</kbd> + <kbd>x</kbd> | Scratchpad toggle
+<kbd>mod</kbd> + <kbd>Tab</kbd> | Move to next workspace
+<kbd>mod</kbd><kbd>Shift</kbd> + <kbd>Tab</kbd> | Move to previous workspace
 <kbd>mod</kbd><kbd>Shift</kbd> + <kbd>x</kbd> | Move to scratchpad
+<kbd>mod</kbd> + <kbd>num</kbd> | Switch to workspace num
+<kbd>mod</kbd><kbd>Shift</kbd> + <kbd>num</kbd> | Move focused container to workspace num
 <kbd>mod</kbd> + <kbd>s</kbd> | Stack layout
-<kbd>mod</kbd> + <kbd>w</kbd> | Tab layout
+<kbd>mod</kbd> + <kbd>t</kbd> | Tab layout
 <kbd>mod</kbd> + <kbd>e</kbd> | Split layout
 <kbd>mod</kbd><kbd>Shift</kbd> + <kbd>space</kbd> | Floating toggle
 <kbd>mod</kbd> + <kbd>a</kbd> | Focus parent
-<kbd>mod</kbd> + <kbd>num</kbd> | Switch to workspace num
-<kbd>mod</kbd><kbd>Shift</kbd> + <kbd>num</kbd> | Move focused container to workspace num
 <kbd>mod</kbd><kbd>Shift</kbd> + <kbd>c</kbd> | Reload configuration
 <kbd>mod</kbd><kbd>Shift</kbd> + <kbd>r</kbd> | Restart i3
 <kbd>mod</kbd> + <kbd>d</kbd> | Rofi menu tab
-<kbd>mod</kbd> + <kbd>Tab</kbd> | Rofi window tab
+<kbd>mod</kbd> + <kbd>w</kbd> | Rofi window tab
 <kbd>mod</kbd> + <kbd>p</kbd> | Rofi password store
 <kbd>mod</kbd> + <kbd>n</kbd> | Rofi network manager
-<kbd>mod</kbd> + <kbd>c</kbd> | Clipmenu
 <kbd>mod</kbd> + <kbd>r</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd> | Resize window
 <kbd>mod</kbd> + <kbd>Delete</kbd> + <kbd>l</kbd><kbd>o</kbd><kbd>s</kbd><kbd>r</kbd><kbd>p</kbd>| Logout system
 <kbd>mod</kbd> + <kbd>Print</kbd> + <kbd>f</kbd><kbd>s</kbd><kbd>r</kbd> | Print or record screen
