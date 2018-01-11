@@ -228,7 +228,7 @@ date = %a %b %d,
 time = %H:%M
 
 format = <label>
-label =  %date% %time%
+label =  %date% %time%
 
 [module/battery]
 type = internal/battery
