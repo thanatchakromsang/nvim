@@ -319,7 +319,7 @@ if !exists('*s:setupWrapping')
   function s:setupWrapping()
     set wrap
     set wm=2
-    set textwidth=79
+    set textwidth=80
   endfunction
 endif
 
@@ -502,14 +502,14 @@ let g:jsx_ext_required = 0
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=79
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
 augroup END
 
 " python
 " vim-python
 augroup vimrc-python
   autocmd!
-  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=80
       \ formatoptions+=croq softtabstop=4
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 augroup END
@@ -562,7 +562,7 @@ let g:buftabline_indicators = 1
 
 " Auto pairs
 let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutJump = '<M-tab>'
+let g:AutoPairsShortcutJump = '<M-w>'
 let g:AutoPairsShortcutFastWrap = '<M-e>'
 
 "*****************************************************************************

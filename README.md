@@ -81,7 +81,7 @@ Commands | Descriptions
 #### Insert mode
 Commands | Descriptions
 --- | ---
-<kbd>Alt</kbd><kbd>tab</kbd> | Jump to next closed pair
+<kbd>Alt</kbd><kbd>w</kbd> | Jump to next closed pair
 <kbd>Alt</kbd><kbd>e</kbd> | Fast wrap pair to closed pair
 <kbd>tab</kbd> | Expand UltiSnips
 <kbd>tab</kbd> | Jump forward after expand UltiSnips
