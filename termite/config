@@ -7,7 +7,7 @@ font = MesloLGM Nerd Font Mono 9
 # fullscreen = true
 #geometry = 640x480
 # icon_name = terminal
-#mouse_autohide = false
+mouse_autohide = true
 #scroll_on_output = false
 #scroll_on_keystroke = true
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
@@ -35,62 +35,53 @@ scrollback_lines = 10000
 #size_hints = false
 
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
-
-[colors]
-
-# special
-foreground      = #f8f8f2
-foreground_bold = #f8f8f2
-cursor          = #f8f8f2
-background      = #0e1111
+foreground                      = #f8f8f2
+foreground_bold                 = #f8f8f2
+cursor                          = #f8f8f2
+cursor_foreground               = #000000
+background                      = #0e1111
 
 # black
-color0  = #000000
-color8  = #4d4d4d
+color0                          = #000000
+color8                          = #4d4d4d
 
 # red
-color1  = #ff5555
-color9  = #ff6e67
+color1                          = #ff5555
+color9                          = #ff6e67
 
 # green
-color2  = #50fa7b
-color10 = #5af78e
+color2                          = #50fa7b
+color10                         = #5af78e
 
 # yellow
-color3  = #f1fa8c
-color11 = #f4f99d
+color3                          = #f1fa8c
+color11                         = #f4f99d
 
 # blue
-color4  = #bd93f9
-color12 = #caa9fa
+color4                          = #bd93f9
+color12                         = #caa9fa
 
-# magenta
-color5  = #ff79c6
-color13 = #ff92d0
+# magent                        a
+color5                          = #ff79c6
+color13                         = #ff92d0
 
 # cyan
-color6  = #8be9fd
-color14 = #9aedfe
+color6                          = #8be9fd
+color14                         = #9aedfe
 
 # white
-color7  = #bfbfbf
-color15 = #e6e6e6
+color7                          = #bfbfbf
+color15                         = #e6e6e6
 
 # The following variables (taken from iTerm Scheme) are not
 # available in termite
 # Cursor Text Color = #2c2c2c
 # Selected Text Color = #cccccc
+
+# Transparency
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
 
 [hints]
 #font = hack 12
