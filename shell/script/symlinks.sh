@@ -50,8 +50,10 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/zsh/zshrc ~/.zshrc
     ln -sf $dotfiles/git/gitconfig ~/.gitconfig
 
-    mkdir ~/.config/nvim
+    mkdir -p ~/.config/nvim
     ln -sf $dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+    mkdir -p ~/.config/ranger
+    ln -sf $dotfiles/ranger/rc.conf ~/.config/ranger/rc.conf
     echo "symlink terminal complete"
     echo
 else

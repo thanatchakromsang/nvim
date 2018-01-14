@@ -1,5 +1,5 @@
 #!/bin/bash
-PACMAN_TERMINAL="curl tmux zsh neovim python-pip python-neovim ctags htop npm docker"
+PACMAN_TERMINAL="curl tmux zsh neovim python-pip python-neovim ctags htop npm docker ranger"
 PACMAN_GRAPHICAL="dunst compton rofi termite"
 YAOURT_TERMINAL=""
 YAOURT_GRAPHICAL="polybar clipmenu"
