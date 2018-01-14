@@ -41,6 +41,7 @@ Commands | Descriptions
 <kbd>e</kbd> | Go to end of word *
 <kbd>b</kbd> | Go back word
 <kbd>Ctrl</kbd><kbd>w</kbd><kbd>w</kbd> | Alternative navigate vim split panels
+<kbd>Alt</kbd><kbd>w</kbd> | Switch pane toggle
 <kbd>,</kbd><kbd>.</kbd> | Set path working directory
 <kbd>Tab</kbd> or <kbd>,</kbd><kbd>x</kbd> | Next buffer navigate (Normal mode)
 <kbd>Shift</kbd><kbd>Tab</kbd> or <kbd>,</kbd><kbd>z</kbd> | previous buffer navigate
@@ -141,6 +142,7 @@ Commands | Descriptions
 --- | ---
 <kbd>Alt</kbd> + <kbd>Tab</kbd> | Prefix for command
 <kbd>Ctrl</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd>| Navigate via split panels
+<kbd>Alt</kbd> + <kbd>w</kbd> | Switch pane toggle
 <kbd>Prefix</kbd> + <kbd>v</kbd> | Split vertical
 <kbd>Prefix</kbd> + <kbd>b</kbd> | Split horizontal
 <kbd>Prefix</kbd> + <kbd>c</kbd> | Create a new window

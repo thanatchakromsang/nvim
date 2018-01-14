@@ -2,13 +2,13 @@
 "" Vim-PLug core
 "*****************************************************************************
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = "html,javascript,php,python"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+let g:vim_bootstrap_editor = "nvim"
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -90,23 +90,23 @@ Plug 'dracula/vim'
 
 " html
 "" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-haml'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-haml'
 
 " javascript
 "" Javascript Bundle
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'mxw/vim-jsx'
-Plug 'leshill/vim-json'
-Plug 'epilande/vim-react-snippets'
-Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'ternjs/tern_for_vim'
+Plug 'epilande/vim-react-snippets'
+Plug 'leshill/vim-json'
+Plug 'moll/vim-node'
+Plug 'mxw/vim-jsx'
+Plug 'othree/es.next.syntax.vim'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim'
 Plug 'styled-components/vim-styled-components'
+Plug 'ternjs/tern_for_vim'
 
 " php
 "" PHP Bundle
@@ -115,8 +115,8 @@ Plug 'arnaud-lb/vim-php-namespace'
 " python
 "" Python Bundle
 Plug 'davidhalter/jedi'
-Plug 'zchee/deoplete-jedi'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'zchee/deoplete-jedi'
 
 " markdown
 " Markdown Bundle
@@ -530,7 +530,7 @@ let python_highlight_all = 1
 " deoplete (neovim asynchronous completion)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_refresh_always = 1
 let b:deoplete_ignore_sources = ['buffer']
 let g:deoplete#sources#ternjs#case_insensitive = 1
 let g:deoplete#sources#ternjs#docs = 1
