@@ -61,6 +61,7 @@ Plug 'ap/vim-buftabline'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/gv.vim'
+Plug 'wellle/targets.vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -107,6 +108,7 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim'
 Plug 'styled-components/vim-styled-components'
 Plug 'ternjs/tern_for_vim'
+Plug 'leafgarland/typescript-vim'
 
 " php
 "" PHP Bundle
@@ -370,7 +372,7 @@ noremap <leader>v :<C-u>vsplit<CR>
 "" Git
 noremap <leader>ga :Gwrite<CR>
 noremap <leader>gc :Gcommit<CR>
-noremap <leader>gsh :Gpush<CR>
+noremap <leader>gsh :Git push<CR>
 noremap <leader>gll :Gpull<CR>
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gb :Gblame<CR>
