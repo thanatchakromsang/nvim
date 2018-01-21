@@ -200,8 +200,9 @@ let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
     color dracula
     " Override autocomplete colorscheme
-    hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE guifg=#f8f8f2 guibg=#646e96 gui=NONE
-    hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold guifg=#282a36 guibg=#50fa7b gui=NONE
+    hi Normal ctermfg=none
+    hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
+    hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
     "BufTabLine
     hi BufTabLineActive ctermfg=15 ctermbg=236 cterm=bold
     hi BufTabLineCurrent ctermfg=16 ctermbg=141 cterm=bold

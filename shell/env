@@ -22,4 +22,4 @@ fi
   export PATH=~/.local/bin/:$PATH
 
 # SSH_KEY
-  export SSH_KEY_PATH="~/.ssh/rsa_id"
+  export SSH_KEY_PATH="~/.ssh"
