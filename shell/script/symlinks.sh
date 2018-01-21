@@ -73,6 +73,10 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/i3/dunst ~/.config
     ln -sf $dotfiles/i3/polybar ~/.config
     ln -sf $dotfiles/termite ~/.config
+
+    mkdir -p ~/.config/alacritty
+    ln -sf $dotfiles/alacritty/ ~/.config
+
     i3-msg restart
     xrdb -merge ~/.Xresources
     echo "symlink graphical complete"
