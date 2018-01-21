@@ -436,9 +436,9 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
-noremap YY "+y<CR>
+noremap YY "+yy<CR>
 noremap <leader>p "+gP<CR>
-noremap XX "+x<CR>
+noremap XX "+xx<CR>
 
 if has('macunix')
   " pbcopy for OSX copy/paste
@@ -513,6 +513,12 @@ let g:jsx_ext_required = 0
 augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
+augroup END
+
+"vim-typescript
+augroup vimrc-javascript
+  autocmd!
+  autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
 augroup END
 
 " python
