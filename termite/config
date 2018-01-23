@@ -35,44 +35,53 @@ scrollback_lines = 10000
 #size_hints = false
 
 [colors]
+# Base16 Tomorrow Night
+# Author: Chris Kempson (http://chriskempson.com)
 
-foreground                      = #f8f8f2
-foreground_bold                 = #f8f8f2
-cursor                          = #f8f8f2
-cursor_foreground               = #000000
-background                      = #0e1111
+foreground      = #c5c8c6
+foreground_bold = #e0e0e0
+cursor          = #e0e0e0
+background      = #1d1f21
 
-# black
-color0                          = #000000
-color8                          = #4d4d4d
+# 16 color space
 
-# red
-color1                          = #ff5555
-color9                          = #ff6e67
+# Black, Gray, Silver, White
+color0  = #1d1f21
+color8  = #969896
+color7  = #c5c8c6
+color15 = #ffffff
 
-# green
-color2                          = #50fa7b
-color10                         = #5af78e
+# Red
+color1  = #cc6666
+color9  = #cc6666
 
-# yellow
-color3                          = #f1fa8c
-color11                         = #f4f99d
+# Green
+color2  = #b5bd68
+color10 = #b5bd68
 
-# blue
-color4                          = #bd93f9
-color12                         = #caa9fa
+# Yellow
+color3  = #f0c674
+color11 = #f0c674
 
-# magent                        a
-color5                          = #ff79c6
-color13                         = #ff92d0
+# Blue
+color4  = #81a2be
+color12 = #81a2be
 
-# cyan
-color6                          = #8be9fd
-color14                         = #9aedfe
+# Purple
+color5  = #b294bb
+color13 = #b294bb
 
-# white
-color7                          = #bfbfbf
-color15                         = #e6e6e6
+# Teal
+color6  = #8abeb7
+color14 = #8abeb7
+
+# Extra colors
+color16 = #de935f
+color17 = #a3685a
+color18 = #282a2e
+color19 = #373b41
+color20 = #b4b7b4
+color21 = #e0e0e0
 
 # The following variables (taken from iTerm Scheme) are not
 # available in termite

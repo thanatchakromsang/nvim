@@ -195,23 +195,24 @@ set number
 set relativenumber             " Show relative line numbers
 set cursorline                 " Highlight current line
 set title
+set termguicolors
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-    color dracula
-    " Override autocomplete colorscheme
-    hi Normal ctermfg=none
-    hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
-    hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
-    "BufTabLine
-    hi BufTabLineActive ctermfg=15 ctermbg=236 cterm=bold
-    hi BufTabLineCurrent ctermfg=16 ctermbg=141 cterm=bold
-    hi BufTabLineFill ctermfg=NONE ctermbg=233
-    hi BufTabLineHidden ctermfg=15 ctermbg=233
-    ""TabLine
-    hi TabLineFill ctermfg=233 ctermbg=233
-    hi TabLine ctermfg=15 ctermbg=236 cterm=NONE
-    hi TabLineSel ctermfg=16 ctermbg=141
+    colors base16-tomorrow-night
+    "" Override autocomplete colorscheme
+    "hi Normal ctermfg=none
+    "hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
+    "hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
+    ""BufTabLine
+    "hi BufTabLineActive ctermfg=15 ctermbg=236 cterm=bold
+    "hi BufTabLineCurrent ctermfg=16 ctermbg=141 cterm=bold
+    "hi BufTabLineFill ctermfg=NONE ctermbg=233
+    "hi BufTabLineHidden ctermfg=15 ctermbg=233
+    """TabLine
+    "hi TabLineFill ctermfg=233 ctermbg=233
+    "hi TabLine ctermfg=15 ctermbg=236 cterm=NONE
+    "hi TabLineSel ctermfg=16 ctermbg=141
 endif
 
 set mousemodel=popup
@@ -243,7 +244,6 @@ set laststatus=2
 set modeline
 set modelines=10
 
-
 " let g:airline_section_c = '%F'
 let g:airline_section_z ="%l:%c"
 
@@ -269,7 +269,7 @@ let g:airline_mode_map = {
   \ }
 
 " vim-airline
-let g:airline_theme = 'dracula'
+let g:airline_theme = 'base16_tomorrow'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
