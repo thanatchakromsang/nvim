@@ -40,7 +40,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # focus on mouse
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -177,9 +177,9 @@ for_window [instance="__scratchpad"] move scratchpad
 
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi ,drun,run -show combi -modi"
 bindsym $mod+w exec --no-startup-id rofi -show window
-bindsym $mod+p exec --no-startup-id rofi-pass
-bindsym $mod+n exec --no-startup-id networkmanager_dmenu dmenu_command=rofi
-# bindsym $mod+c exec --no-startup-id clipmenu
+# bindsym $mod+p exec --no-startup-id rofi-pass
+bindsym $mod+p exec --no-startup-id rofi -show ssh
+bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 #####################
 ### Start polybar ###
@@ -220,11 +220,11 @@ assign [class="Chromium" instance="crx_comkdlimbkhemidbbpchhepidbmjpnhh"] $ws7
 assign [class="Chromium" instance="crx_egddcdhcadfhcbheacnhikllgjokeico"] $ws8
 assign [class="Chromium" instance="crx_fmojlbenmflpealcagngfcmmhahopoah"] $ws9
 
+for_window [class="Chrome"] border pixel 2
+
 # make floating apps
 for_window [class="^Simplescreenrecorder$"] floating enable
 for_window [class="^Wine$"] floating enable
-# for_window [class="Pamac_manager" instance="pamac_manager"] floating enable
-for_window [class="Chrome"] border pixel 2
 for_window [instance="__scratchpad"] floating enable
 
 ##############################
@@ -253,36 +253,40 @@ exec --no-startup-id compton
 ### Docorate i3-gaps ###
 ########################
 
-# i3 Colorscheme
-set $bgb            #282a36
-set $bg             #282a36AA
-set $fg             #f8f8f2
-set $tf             #f8f8f2AA
-set $hi             #f1fa7c
-set $tx             #040404
-set $pk             #ff79c6
-set $yw             #f1fa7c
-set $gn             #50fa7b
-set $rd             #ff5555
-set $id             #ff79c6
+# i3 Tomorrow Night
+set $base00 #1d1f21
+set $base01 #282a2e
+set $base02 #373b41
+set $base03 #969896
+set $base04 #b4b7b4
+set $base05 #c5c8c6
+set $base06 #e0e0e0
+set $base07 #ffffff
+set $base08 #cc6666
+set $base09 #de935f
+set $base0A #f0c674
+set $base0B #b5bd68
+set $base0C #8abeb7
+set $base0D #81a2be
+set $base0E #b294bb
+set $base0F #a3685a
 
-# set some nice colors      border  background  text  indicator
-client.focused                  $id     $pk      $tx     $id
-client.unfocused                $bg     $bg      $tf     $id
-client.focused_inactive         $bg     $bg      $pk     $id
-client.urgent                   $yw     $yw      $tx     $id
-# border & indicator are ignored
-client.placeholder              $bg     $bg      $bg     $bg
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
 
 #############################
 ### settings for i3-gaps: ###
 #############################
 
 # Set inner/outer gaps
-# gaps inner 9
-# gaps outer 6
-gaps inner 6
-gaps outer 3
+# gaps inner 6
+# gaps outer 3
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -321,12 +325,13 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-set $logout_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
+set $logout_system (l) lock, (o) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff
 bindsym $mod+Delete mode "$logout_system"
 mode "$logout_system" {
     bindsym l exec $psst ~/.config/i3/i3exit.sh lock, mode "default"
     bindsym o exec $psst ~/.config/i3/i3exit.sh logout, mode "default"
     bindsym s exec $psst ~/.config/i3/i3exit.sh suspend, mode "default"
+    bindsym s exec $psst ~/.config/i3/i3exit.sh hibernate, mode "default"
     bindsym r exec $psst ~/.config/i3/i3exit.sh reboot, mode "default"
     bindsym p exec $psst ~/.config/i3/i3exit.sh poweroff, mode "default"
 
@@ -385,7 +390,7 @@ mode "move" {
 # exec xrandr --addmode HDMI1 1920x1080_60.02
 
 # Project room
-exec_always xrandr --fb 3840x1080 --output HDMI1 --mode 1600x900 --scale-from 1920x1080 --panning 1920x1080+1920+0
+# exec_always xrandr --fb 3840x1080 --output HDMI1 --mode 1600x900 --scale-from 1920x1080 --panning 1920x1080+1920+0
 # exec xrandr --newmode "1920x1080" 118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
 # exec xrandr --addmode HDMI1 1920x1080
 

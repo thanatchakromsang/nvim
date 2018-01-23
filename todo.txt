@@ -1,0 +1,5 @@
+[  ] Add networkmanager_dmenu to shell, add config.ini
+[  ] Add .ssh/config to dotfiles and symlink with sh
+[  ] Remove ssh from alias
+[  ] Tomorrow Night
+[  ] Rofi config at ~/.local/share/rofi/themes/ symlink
