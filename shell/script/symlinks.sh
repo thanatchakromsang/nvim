@@ -15,7 +15,7 @@ if [[ "$REPLY" == "y" ]]; then
     sudo rm -rf ~/.zshrc > /dev/null 2>&1
     sudo rm -rf ~/.gitconfig > /dev/null 2>&1
     sudo rm -rf ~/.config/nvim > /dev/null 2>&1
-    sudo rm -rf ~/.ssh/ > /dev/null 2>&1
+    sudo rm -rf ~/.ssh > /dev/null 2>&1
     echo "remove symlink terminal complete"
     echo
 else
@@ -54,6 +54,7 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/zsh/zshrc ~/.zshrc
     ln -sf $dotfiles/git/gitconfig ~/.gitconfig
     ln -sf $dotfiles/ssh ~/.ssh
+    ln -sf $dotfiles/nvim/vimrc_background ~/.vimrc_background
 
     mkdir -p ~/.config/nvim
     ln -sf $dotfiles/nvim/init.vim ~/.config/nvim/init.vim
@@ -79,7 +80,6 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/i3/dunst ~/.config
     ln -sf $dotfiles/i3/polybar ~/.config
     ln -sf $dotfiles/termite ~/.config
-    ln -sf $dotfiles/nvim/vimrc_background ~/.vimrc_background
     ln -sf $dotfiles/networkmanager-dmenu ~/.config
     ln -sf $dotfiles/alacritty ~/.config
 

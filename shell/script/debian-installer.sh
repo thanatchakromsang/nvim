@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_TERMINAL=""
+APT_TERMINAL="neovim zsh docker python-pip python-neovim htop npm ranger"
 APT_GRAPHICAL=""
 PIP=""
 
