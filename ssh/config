@@ -2,7 +2,7 @@
 Host trooper
     HostName 159.89.193.207
     User venture
-    Port     22
+    IdentityFile ~/.ssh/id_rsa_venture-node-1
 
 Host github.com
     User git
