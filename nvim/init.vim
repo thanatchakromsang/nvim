@@ -63,6 +63,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/gv.vim'
 Plug 'wellle/targets.vim'
 
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -84,7 +85,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'dracula/vim'
-
+Plug 'joshdick/onedark.vim'
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
@@ -137,6 +138,11 @@ call plug#end()
 
 " Required:
 filetype plugin indent on
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 "*****************************************************************************
 "" Basic Setup
@@ -195,11 +201,10 @@ set number
 set relativenumber             " Show relative line numbers
 set cursorline                 " Highlight current line
 set title
-set termguicolors
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-    colors base16-tomorrow-night
+    colorscheme base16-onedark
     "" Override autocomplete colorscheme
     "hi Normal ctermfg=none
     "hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
@@ -498,7 +503,6 @@ map g/ <Plug>(incsearch-easymotion-stay)
 "" ALE
 " cycle through location list
 nmap <silent> <leader>n <Plug>(ale_next_wrap)
-
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************

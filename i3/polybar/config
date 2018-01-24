@@ -8,36 +8,38 @@
 ;=====================================================
 
 [colors]
-bg_color = #1d1f21
-cl_color = #282a2e
-sl_color = #373b41
-fg_color = #c5c8c6
-cm_color = #969896
-red = #cc6666
-orange = #de935f
-yellow =#f0c674
-green =#b5bd68
-aqua =#8abeb7
-blue =#81a2be
-purple =#b294bb
-black =#000000
-white =#ffffff
+base00 = ${xrdb:color0:#000000}
+base01 = ${xrdb:color10:#000000}
+base02 = ${xrdb:color11:#000000}
+base03 = ${xrdb:color8:#000000}
+base04 = ${xrdb:color12:#000000}
+base05 = ${xrdb:color7:#000000}
+base06 = ${xrdb:color13:#000000}
+base07 = ${xrdb:color15:#000000}
+base08 = ${xrdb:color1:#000000}
+base09 = ${xrdb:color9:#000000}
+base0A = ${xrdb:color3:#000000}
+base0B = ${xrdb:color2:#000000}
+base0C = ${xrdb:color6:#000000}
+base0D = ${xrdb:color4:#000000}
+base0E = ${xrdb:color5:#000000}
+base0F = ${xrdb:color14:#000000}
 
-background = ${colors.bg_color}
-background-alt = #444
-foreground = ${colors.fg_color}
-foreground-alt = #555
-primary = ${colors.white}
-secondary = ${colors.aqua}
-alert = ${colors.red}
+background = ${colors.base03}
+background-alt = ${colors.base03}
+foreground = ${colors.base07}
+foreground-alt = ${colors.base07}
+primary = ${colors.base0B}
+secondary = ${colors.base07}
+alert = ${colors.base09}
 
 [bar/top]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 
-background = ${colors.cl_color}
-foreground = ${colors.fg_color}
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 fixed-center = true
 
@@ -162,7 +164,7 @@ ws-icon-8 = 9;
 ; pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
+label-mode-foreground = #555
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
@@ -286,7 +288,7 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.fg_color}
+label-open-foreground = ${colors.base07}
 label-close = cancel
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
