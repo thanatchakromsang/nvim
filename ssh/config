@@ -3,3 +3,8 @@ Host trooper
     HostName 159.89.193.207
     User venture
     Port     22
+
+Host github.com
+    User git
+    Hostname github.com
+    IdentityFile ~/.ssh/id_rsa_github
