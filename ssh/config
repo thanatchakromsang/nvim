@@ -1,0 +1,5 @@
+# Trooper server
+Host trooper
+    HostName 159.89.193.207
+    User venture
+    Port     22

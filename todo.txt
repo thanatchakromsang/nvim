@@ -1,5 +1,0 @@
-[  ] Add networkmanager_dmenu to shell, add config.ini
-[  ] Add .ssh/config to dotfiles and symlink with sh
-[  ] Remove ssh from alias
-[  ] Rofi config at ~/.local/share/rofi/themes/ symlink
-[  ] symlink base16-shell (.vimrc_background)

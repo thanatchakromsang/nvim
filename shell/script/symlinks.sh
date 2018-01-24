@@ -15,6 +15,7 @@ if [[ "$REPLY" == "y" ]]; then
     sudo rm -rf ~/.zshrc > /dev/null 2>&1
     sudo rm -rf ~/.gitconfig > /dev/null 2>&1
     sudo rm -rf ~/.config/nvim > /dev/null 2>&1
+    sudo rm -rf ~/.ssh/ > /dev/null 2>&1
     echo "remove symlink terminal complete"
     echo
 else
@@ -34,6 +35,9 @@ if [[ "$REPLY" == "y" ]]; then
     sudo rm -rf ~/.config/compton.conf > /dev/null 2>&1
     sudo rm -rf ~/.config/polybar > /dev/null 2>&1
     sudo rm -rf ~/.fonts > /dev/null 2>&1
+    sudo rm -rf ~/.vimrc_background > /dev/null 2>&1
+    sudo rm -rf ~/.config/alacritty > /dev/null 2>&1
+    sudo rm -rf ~/.config/networkmanager-dmenu > /dev/null 2>&1
     echo "remove symlink graphical complete"
     echo
 else
@@ -49,9 +53,11 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/tmux/tmux.conf ~/.tmux.conf
     ln -sf $dotfiles/zsh/zshrc ~/.zshrc
     ln -sf $dotfiles/git/gitconfig ~/.gitconfig
+    ln -sf $dotfiles/ssh ~/.ssh
 
     mkdir -p ~/.config/nvim
     ln -sf $dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+    ln -sf $dotfiles/nvim/colors ~/.config/nvim
     mkdir -p ~/.config/ranger
     ln -sf $dotfiles/ranger/rc.conf ~/.config/ranger/rc.conf
     echo "symlink terminal complete"
@@ -73,9 +79,9 @@ if [[ "$REPLY" == "y" ]]; then
     ln -sf $dotfiles/i3/dunst ~/.config
     ln -sf $dotfiles/i3/polybar ~/.config
     ln -sf $dotfiles/termite ~/.config
-
-    mkdir -p ~/.config/alacritty
-    ln -sf $dotfiles/alacritty/ ~/.config
+    ln -sf $dotfiles/nvim/vimrc_background ~/.vimrc_background
+    ln -sf $dotfiles/networkmanager-dmenu ~/.config
+    ln -sf $dotfiles/alacritty ~/.config
 
     i3-msg restart
     xrdb -merge ~/.Xresources
