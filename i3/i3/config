@@ -34,7 +34,7 @@ font pango:DejaVu 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -t Terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -95,10 +95,10 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Return floating toggle
 
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+# bindsym $mod+Shift+Return focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -154,11 +154,16 @@ bindsym $mod+Shift+r restart
 # Audio controls
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioMute exec amixer -q sset Master playback toggle
+bindsym XF86AudioMute        exec amixer -q sset Master playback toggle
+bindsym $mod+F9  exec amixer -q set Master 5%- unmute
+bindsym $mod+F10 exec amixer -q set Master 5%+ unmute
+bindsym $mod+F11 exec amixer -q sset Master playback toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp   exec "xbacklight -inc 10"
+bindsym $mod+F2 exec "xbacklight -dec 10"
+bindsym $mod+F3 exec "xbacklight -inc 10"
 
 ###########################
 ### Scratch pad binding ###
@@ -175,12 +180,12 @@ for_window [instance="__scratchpad"] move scratchpad
 ### Applications binding ###
 ###########################s
 
-bindsym $mod+F1 exec --no-startup-id alacritty -e tmux
-bindsym $mod+d exec --no-startup-id "rofi -combi-modi ,drun,run -show combi -modi"
+bindsym $mod+F1 exec --no-startup-id alacritty -t Coding -e tmux
+bindsym $mod+d exec --no-startup-id "rofi -width 30 -combi-modi ,drun,run -show combi -modi"
 bindsym $mod+w exec --no-startup-id rofi -show window
 # bindsym $mod+p exec --no-startup-id rofi-pass
-bindsym $mod+p exec --no-startup-id rofi -show ssh
-bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+bindsym $mod+p exec --no-startup-id rofi -width 30 -show ssh
+bindsym $mod+n exec --no-startup-id networkmanager_dmenu dmenu_command=rofi -width 25
 
 #####################
 ### Start polybar ###
@@ -201,13 +206,14 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ### Open applications on specific workspaces ###
 ################################################
 assign [class="Code" instance="^code"] $ws3
+assign [class="Coding" instance="^Coding"] $ws3
 assign [class="discord" instance="discord"] $ws4
 assign [class="Slack" instance="slack"] $ws4
 assign [class="Chromium" instance="chromium"] $ws2
 for_window [class="Spotify"] move to workspace $ws6
-assign [instance="__run"] $ws1
-assign [instance="__config"] $ws1
-assign [instance="__show"] $ws1
+# assign [instance="__run"] $ws1
+# assign [instance="__config"] $ws1
+# assign [instance="__show"] $ws1
 
 # Chrome instance
 assign [class="Chromium" instance="crx_lidmfcddemdgmpphkkmmfgfgnkcmdhbn"] $ws4
@@ -220,6 +226,7 @@ assign [class="Chromium" instance="crx_menkifleemblimdogmoihpfopnplikde"] $ws4
 assign [class="Chromium" instance="crx_comkdlimbkhemidbbpchhepidbmjpnhh"] $ws7
 assign [class="Chromium" instance="crx_egddcdhcadfhcbheacnhikllgjokeico"] $ws8
 assign [class="Chromium" instance="crx_fmojlbenmflpealcagngfcmmhahopoah"] $ws9
+assign [class="Chromium" instance="crx_bnjfdainlhllipmmlagcfpdmcckiehng"] $ws9
 
 for_window [class="Chrome"] border pixel 2
 

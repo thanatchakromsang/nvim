@@ -63,7 +63,6 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/gv.vim'
 Plug 'wellle/targets.vim'
 
-
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -85,7 +84,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'dracula/vim'
-Plug 'joshdick/onedark.vim'
+
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
@@ -129,16 +128,10 @@ Plug 'suan/vim-instant-markdown'
 "*****************************************************************************
 "*****************************************************************************
 
-"" Include user's extra bundle
-if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  source ~/.config/nvim/local_bundles.vim
-endif
-
 call plug#end()
 
 " Required:
 filetype plugin indent on
-
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -521,7 +514,7 @@ augroup vimrc-javascript
 augroup END
 
 "vim-typescript
-augroup vimrc-javascript
+augroup vimrc-typescript
   autocmd!
   autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
 augroup END
@@ -537,14 +530,14 @@ augroup END
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python', 'javascript', 'css']
+let g:polyglot_disabled = ['python', 'javascript', 'css', 'typescript']
 let python_highlight_all = 1
 
 " deoplete (neovim asynchronous completion)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_refresh_always = 1
-let b:deoplete_ignore_sources = ['buffer']
+let g:deoplete#enable_refresh_always = 0
+let b:deoplete_ignore_sources = ['buffer', 'omni']
 let g:deoplete#sources#ternjs#case_insensitive = 1
 let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#jedi#show_docstring = 1
@@ -560,16 +553,21 @@ autocmd FileType javascript,html,css EmmetInstall
 
 " ALE Linter
 let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
+
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
+let g:ale_sign_error = 'E' " Less aggressive than the default '>>'
+let g:ale_sign_warning = 'W'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 0
+
+" highlight ALEErrorSign cterm="#5458620"
+" highlight ALEWarningSign cterm="#5458620"
 
 " ALE Code formatter
-let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf']}
+let g:ale_fixers = {'javascript': ['eslint'], 'python': ['yapf'], 'typescript': ['tslint']}
 let g:ale_fix_on_save = 1
 
 " NrrwRgn
