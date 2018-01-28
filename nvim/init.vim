@@ -108,7 +108,11 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim'
 Plug 'styled-components/vim-styled-components'
 Plug 'ternjs/tern_for_vim'
-Plug 'leafgarland/typescript-vim'
+
+" typescript
+" Plug 'leafgarland/typescript-vim'
+" Plug 'mhartington/nvim-typescript'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " php
 "" PHP Bundle
@@ -194,6 +198,7 @@ set number
 set relativenumber             " Show relative line numbers
 set cursorline                 " Highlight current line
 set title
+autocmd BufWritePre * %s/\s\+$//e
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
@@ -301,7 +306,7 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let NERDTreeQuitOnOpen = 1
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 35
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
@@ -465,8 +470,17 @@ vmap < <gv
 vmap > >gv
 
 "" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+noremap J 5j
+noremap K 5k
+
+" this is the best, let me tell you why
+" how annoying is that everytime you want to do something in vim
+" you have to do shift-; to get :, can't we just do ;?
+" Plus what does ; do anyways??
+" if you do have a plugin that needs ;, you can just swap the mapping
+" nnoremap : ;
+" give it a try and you will like it
+nnoremap ; :
 
 "" Open current line on GitHub
 nnoremap <Leader>go :.Gbrowse<CR>
@@ -536,11 +550,20 @@ let python_highlight_all = 1
 " deoplete (neovim asynchronous completion)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_refresh_always = 0
-let b:deoplete_ignore_sources = ['buffer', 'omni']
+" let g:deoplete#enable_refresh_always = 0
+let g:deople#auto_complete_delay = 0
+let b:deoplete_ignore_sources = ['buffer']
 let g:deoplete#sources#ternjs#case_insensitive = 1
 let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#omni_patterns = {}
+" set splitbelow
+" set completeopt+=noselect,menuone
+" set completeopt-=preview
+" autocmd CompleteDone * pclose
+" let g:nvim_typescript#max_completion_detail=100
+" let g:nvim_typescript#completion_mark=''
+
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
@@ -551,7 +574,7 @@ let g:tern#arguments = ["--persistent"]
 let g:user_emmet_install_global = 0
 autocmd FileType javascript,html,css EmmetInstall
 
-" ALE Linter
+
 let g:ale_echo_msg_error_str = 'E'
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
