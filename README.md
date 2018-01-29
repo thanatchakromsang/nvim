@@ -64,7 +64,7 @@ Commands | Descriptions
 <kbd>,</kbd><kbd>g</kbd><kbd>b</kbd> | git blame
 <kbd>,</kbd><kbd>g</kbd><kbd>d</kbd> | git diff
 <kbd>,</kbd><kbd>g</kbd><kbd>r</kbd> | git remove
-<kbd>,</kbd><kbd>g</kbd><kbd>o</kbd> | git open current file in github 
+<kbd>,</kbd><kbd>g</kbd><kbd>o</kbd> | git open current file in github
 <kbd>,</kbd><kbd>g</kbd><kbd>v</kbd> | git view tree (all)
 <kbd>,</kbd><kbd>g</kbd><kbd>v</kbd><kbd>f</kbd> | git view tree (file)
 <kbd>,</kbd><kbd>s</kbd><kbd>o</kbd> | Open Session
