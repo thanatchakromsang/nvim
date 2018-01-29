@@ -92,7 +92,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('haya14busa/incsearch.vim')
   " Has a bug in it
   " call dein#add('chemzqm/redismru.vim', {'build':'npm install'})
-
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('chemzqm/denite-git')
   call dein#add('chemzqm/denite-extra')
@@ -156,7 +155,8 @@ if dein#load_state(('~/.config/nvim'))
 endif
 
   filetype plugin indent on
-  " }}}
+
+" }}}
 
 " System settings  ----------------------------------------------------------{{{
 
@@ -177,7 +177,6 @@ endif
   set ignorecase
   set smartcase
   set clipboard+=unnamedplus
-  set pastetoggle=<f3>
   set nopaste
   autocmd BufWritePre * %s/\s\+$//e
   set noshowmode
@@ -289,7 +288,7 @@ endif
   noremap <leader>x :bn<CR>
   noremap <Tab> :bn<CR>
 "" Close buffer
-  noremap <leader>c :bd<CR>
+  noremap <leader>c :bd!<CR>
 
 " Multicursor
   let g:multi_cursor_next_key='<C-n>'
@@ -348,6 +347,8 @@ endif
       let g:indentLine_conceallevel = 2
       let g:indentLine_char = '¦'
       let g:indentLine_leadingSpaceChar = '·'
+      let g:indentLine_fileTypeExclude = ['nerdtree']
+      autocmd FileType help,nerdtree IndentLinesToggle
 
   "}}}
 
@@ -443,6 +444,31 @@ endif
           \ 'xhtml' : 1,
           \ 'xml' : 1,
           \}
+
+  "}}}
+
+  " Vim-Devicons  --------------------------------------------------------{{{
+
+    let g:NERDTreeGitStatusNodeColorization = 1
+    " 
+    let g:webdevicons_enable_denite = 0
+    " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+    let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
+    let g:WebDevIconsOS = 'Darwin'
+    let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+    let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
+    let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+    let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tsx'] = ''
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
+    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sql'] = ''
+    let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+    let g:webdevicons_conceal_nerdtree_brackets = 1
 
   "}}}
 
@@ -545,7 +571,8 @@ endif
 
   let g:vimfiler_ignore_pattern = ""
   " map <silent> - :VimFiler<CR>
-  map <silent> - :NERDTreeToggle<CR>
+  nnoremap <silent> <F2> :NERDTreeFind<CR>
+  map <silent> <F3> :NERDTreeToggle<CR>
 	let g:vimfiler_tree_leaf_icon = ''
 	" let g:vimfiler_tree_opened_icon = ''
 	" let g:vimfiler_tree_closed_icon = ''
@@ -589,7 +616,7 @@ endif
       nmap <silent> m :call NerdUnite()<cr>
       " nmap <silent> p <Plug>(vimfiler_jump_first_child)
       nmap <silent> r <Plug>(vimfiler_redraw_screen)
-  endf
+    endf
   " let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
   let g:webdevicons_enable_vimfiler = 0
   let g:vimfiler_no_default_key_mappings=1
@@ -606,14 +633,15 @@ endif
       nunmap <buffer> J
   endf
   let NERDTreeShowHidden=1
-  let g:NERDTreeWinSize=45
+  let g:NERDTreeWinSize=40
   let NERDTreeMinimalUI=1
   let NERDTreeHijackNetrw=1
   let NERDTreeCascadeSingleChildDir=0
   let NERDTreeCascadeOpenSingleChildDir=0
   let g:NERDTreeAutoDeleteBuffer=1
   let g:NERDTreeShowIgnoredStatus = 0
-
+  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+  let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 
 	let g:NERDTreeDirArrowExpandable = ''
 	let g:NERDTreeDirArrowCollapsible = ''
@@ -757,6 +785,27 @@ let g:deoplete#ignore_sources._ = ['around']
 " call deoplete#custom#source('typescript', 'debug_enabled', 1)
 "}}}
 
+" Snipppets -----------------------------------------------------------------{{{
+
+" Enable snipMate compatibility feature.
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  " let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
+  " let g:neosnippet#expand_word_boundary = 1
+
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+  " imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  " \ "\<Plug>(neosnippet_expand_or_jump)"
+  " \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  " \ "\<Plug>(neosnippet_expand_or_jump)"
+  " \: "\<TAB>"
+
+"}}}
+
 " Git  -------------------------------------------------------------{{{
 
   let g:gitgutter_max_signs = 1000
@@ -785,11 +834,11 @@ let g:deoplete#ignore_sources._ = ['around']
         \ 'prompt': ' #' ,
         \})
 
-
   call denite#custom#source('file_rec', 'vars', {
         \ 'command': [
-        \ 'ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
+        \ 'ag', '--follow','--nogroup', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
         \] })
+
   call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
   call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
 
@@ -855,41 +904,27 @@ let g:deoplete#ignore_sources._ = ['around']
 
 "}}}
 
-" Denite : General
-" Purpose  -------------------------------------------------------------{{{
+" Denite : General  ---------------------------------------------------------{{{
 
-  let s:menus.generalpurpose = {
-    \ 'description' : 'Fugitive interface',
+  let s:menus.commands = {
+    \ 'description' : 'General purpose command',
     \}
-  let s:menus.git.command_candidates = [
-    \[' git status', 'Gstatus'],
-    \[' git diff', 'Gvdiff'],
-    \[' git commit', 'Gcommit'],
-    \[' git stage/add', 'Gwrite'],
-    \[' git checkout', 'Gread'],
-    \[' git rm', 'Gremove'],
-    \[' git cd', 'Gcd'],
-    \[' git push', 'exe "Git! push " input("remote/branch: ")'],
-    \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
-    \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
-    \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
-    \[' git fetch', 'Gfetch'],
-    \[' git merge', 'Gmerge'],
-    \[' git browse', 'Gbrowse'],
-    \[' git head', 'Gedit HEAD^'],
-    \[' git parent', 'edit %:h'],
-    \[' git log commit buffers', 'Glog --'],
-    \[' git log current file', 'Glog -- %'],
-    \[' git log last n commits', 'exe "Glog -" input("num: ")'],
-    \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
-    \[' git log until date', 'exe "Glog --until=" input("day: ")'],
-    \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
-    \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
-    \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
-    \[' git mv', 'exe "Gmove " input("destination: ")'],
-    \[' git grep',  'exe "Ggrep " input("string: ")'],
-    \[' git prompt', 'exe "Git! " input("command: ")'],
-    \] " Append ' --' after log to get commit info commit buffers
+  let s:menus.commands.command_candidates = [
+    \['colorscheme', 'Denite colorscheme'],
+    \]
+
+"}}}
+
+" Denite : Dotfiles  -------------------------------------------------------{{{
+
+  let s:menus.dotfiles = {
+    \ 'description' : 'Edit your dotfiles config',
+    \}
+
+	let s:menus.dotfiles.file_candidates = [
+		\ ['zshrc', '~/.dotfiles/zsh/zshrc'],
+		\ ['nvim', '~/.dotfiles/nvim/init.vim'],
+		\ ]
 
 "}}}
 
