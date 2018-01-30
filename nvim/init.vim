@@ -178,8 +178,11 @@ endif
   set smartcase
   set clipboard+=unnamedplus
   set nopaste
+  set hidden
+  set title
   autocmd BufWritePre * %s/\s\+$//e
   set noshowmode
+  set nobackup
   set noswapfile
   set splitbelow
   set numberwidth=1
@@ -211,6 +214,9 @@ endif
   set inccommand=nosplit
   set shortmess=atIc
   set isfname-==
+
+  "" Fix backspace indent
+  set backspace=indent,eol,start
 
   " Sayonara as :x
   cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
@@ -342,6 +348,10 @@ endif
   let g:AutoPairsShortcutJump = '<M-w>'
   let g:AutoPairsShortcutFastWrap = '<M-e>'
 
+  "Tagbar
+  nmap <silent> <F4> :TagbarToggle<CR>
+  let g:tagbar_autofocus = 1
+
 "}}}"
 
 " Visual settings  ----------------------------------------------------------{{{
@@ -362,12 +372,6 @@ endif
       let g:indentLine_leadingSpaceChar = '·'
       let g:indentLine_fileTypeExclude = ['nerdtree']
       autocmd FileType help,nerdtree IndentLinesToggle
-
-  "}}}
-
-  " IndentLine  ----------------------------------------------------------{{{
-
-
 
   "}}}
 
@@ -410,6 +414,7 @@ endif
     let g:airline_theme = 'base16_tomorrow'
     let g:airline#extensions#branch#enabled = 1
     let g:airline#extensions#tagbar#enabled = 1
+    let g:airline#extensions#ale#enabled = 1
     let g:airline#extensions#branch#format = 0
     let g:airline_skip_empty_sections = 1
     let g:airline_detect_spelllang=0
@@ -423,7 +428,7 @@ endif
     endif
 
     let g:airline#extensions#tabline#enabled = 1
-    " let g:airline#extensions#tabline#fnamemod = ':t'
+    let g:airline#extensions#tabline#fnamemod = ':t'
     let g:airline_powerline_fonts = 1
     let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
@@ -465,13 +470,11 @@ endif
     let g:NERDTreeGitStatusNodeColorization = 1
     " 
     let g:webdevicons_enable_denite = 0
-    " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
-    let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
-    let g:WebDevIconsOS = 'Darwin'
-    let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-    let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
-    let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-    let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
+    " let g:WebDevIconsOS = 'Darwin'
+    " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+    " let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
+    " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+    " let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
     let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
     let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
     let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tsx'] = ''
@@ -500,42 +503,108 @@ endif
 
 "}}}
 
-" Programing language settings ----------------------------------------------{{{
+" Programing language settings  ---------------------------------------------{{{
 
-  " Javascript  ----------------------------------------------------------{{{
+                          " Javascript  ---------------------------------{{{
+
+      augroup vimrc-javascript
+        autocmd!
+        autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
+      augroup END
 
       let g:jsx_ext_required = 0
+      let g:jsdoc_allow_input_prompt = 1
+      let g:jsdoc_input_description = 1
+      let g:jsdoc_return=0
+      let g:jsdoc_return_type=0
+      let g:vim_json_syntax_conceal = 0
+      let g:tern#command = ['tern']
+      let g:tern#arguments = ['--persistent']
+      let g:tern_map_keys=1
 
   "}}}
 
-  " Python  --------------------------------------------------------------{{{
+                          " Python  -------------------------------------{{{
 
 
   "}}}
 
-  " Typescript  ----------------------------------------------------------{{{
+                          " Typescript  ---------------------------------{{{
 
+      augroup vimrc-javascript
+        autocmd!
+        autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
+      augroup END
+
+      " autocmd FileType typescript setl omnifunc=TSComplete
+      " let g:nvim_typescript#signature_complete=1
+      let g:nvim_typescript#max_completion_detail=100
+      let g:nvim_typescript#completion_mark=''
+      " let g:nvim_typescript#default_mappings=1
+      " let g:nvim_typescript#type_info_on_hold=1
+      let g:nvim_typescript#javascript_support=1
+
+      map <silent> <leader>gd :TSDoc <cr>
+      map <silent> <leader>gt :TSType <cr>
+      map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
+      map <silent> <leader># :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
+
+      let g:nvim_typescript#kind_symbols = {
+          \ 'keyword': 'keyword',
+          \ 'class': '',
+          \ 'interface': '',
+          \ 'script': 'script',
+          \ 'module': '',
+          \ 'local class': 'local class',
+          \ 'type': '',
+          \ 'enum': '',
+          \ 'enum member': '',
+          \ 'alias': '',
+          \ 'type parameter': 'type param',
+          \ 'primitive type': 'primitive type',
+          \ 'var': '',
+          \ 'local var': '',
+          \ 'property': '',
+          \ 'let': '',
+          \ 'const': '',
+          \ 'label': 'label',
+          \ 'parameter': 'param',
+          \ 'index': 'index',
+          \ 'function': '',
+          \ 'local function': 'local function',
+          \ 'method': '',
+          \ 'getter': '',
+          \ 'setter': '',
+          \ 'call': 'call',
+          \ 'constructor': '',
+          \}
+
+      let g:tagbar_type_typescript = {
+        \ 'ctagstype': 'typescript',
+        \ 'kinds': [
+          \ 'c:classes',
+          \ 'n:modules',
+          \ 'f:functions',
+          \ 'v:variables',
+          \ 'v:varlambdas',
+          \ 'm:members',
+          \ 'i:interfaces',
+          \ 'e:enums',
+        \ ]
+        \ }
 
   "}}}
 
-  " MarkDown  ------------------------------------------------------------{{{
+                          " MarkDown  -----------------------------------{{{
 
       noremap <leader>TM :TableModeToggle<CR>
       let g:table_mode_corner="|"
       let g:markdown_fold_override_foldtext = 0
-      " let g:neomake_markdown_proselint_maker = {
-      "     \ 'errorformat': '%W%f:%l:%c: %m',
-      "     \ 'postprocess': function('neomake#postprocess#GenericLengthPostprocess'),
-      "     \}
-      " let g:neomake_markdown_enabled_makers = ['alex', 'proselint']
       let g:markdown_syntax_conceal = 0
-
-      " let g:neoformat_markdown_prettier = g:standard_prettier_settings
-      " let g:neoformat_enabled_markdown = ['prettier']
 
   "}}}
 
-  " HTML  ----------------------------------------------------------------{{{
+                          " HTML  ---------------------------------------{{{
 
       " let g:neomake_html_enabled_makers = []
       " let g:neoformat_enabled_html = ['htmlbeautify']
@@ -553,22 +622,41 @@ endif
   " \ 'BufWinEnter': {},
   " \ 'TextChanged': {},
   " \ 'InsertLeave': { },
-  let g:ale_sign_error = '•'
+
+  let g:ale_set_highlights = 0
+  let g:ale_sign_error = '●'
   let g:ale_sign_warning = '•'
-  let g:airline#extensions#ale#error_symbol='• '
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+  " let g:ale_sign_error = '•'
+  let g:airline#extensions#ale#error_symbol='● '
   let g:airline#extensions#ale#warning_symbol='•  '
-
-  " let g:neomake_warning_sign = {'text': '•'}
-  " let g:neomake_error_sign = {'text': '•'}
-  " let g:airline#extensions#neomake#error_symbol='• '
-  " let g:airline#extensions#neomake#warning_symbol='•  '
-
-  hi link ALEError SpellBad
-  hi link ALEWarning SpellBad
-  " Write this in your vimrc file
+  " let g:airline#extensions#ale#error_symbol='• '
+  let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_enter = 0
-  " let g:neomake_verbose = 3
+
+  let g:ale_fix_on_save = 1
+  let g:ale_linters = {
+        \ 'javascript': ['eslint'],
+        \ 'typescript': ['tslint', 'tsserver'],
+        \ 'python': ['yapf'],
+        \ 'html': ['proselint'],
+        \ 'css': ['stylelint'],
+        \ 'markdown': ['alex', 'proselint'],
+        \ }
+
+  let g:ale_fixers = {
+        \ 'javascript': ['eslint'],
+        \ 'typescript': ['tslint', 'tsserver'],
+        \ 'python': ['yapf'],
+        \ 'html': ['proselint'],
+        \ 'css': ['stylelint'],
+        \ }
+
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  " let g:ale_set_loclist = 0
+  " let g:ale_set_quickfix = 1
 
 "}}}
 
@@ -652,6 +740,7 @@ endif
   let NERDTreeCascadeSingleChildDir=0
   let NERDTreeCascadeOpenSingleChildDir=0
   let g:NERDTreeAutoDeleteBuffer=1
+  let g:NERDTreeChDirMode=2
   let g:NERDTreeShowIgnoredStatus = 0
   let NERDTreeAutoDeleteBuffer = 1
   let NERDTreeQuitOnOpen = 1
@@ -761,44 +850,45 @@ endif
 " Deoplete ------------------------------------------------------------------{{{
 
 " enable deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 50
-let g:echodoc_enable_at_startup=1
-set completeopt+=noselect,menuone
-set completeopt-=preview
-autocmd CompleteDone * pclose
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 50
+  let g:echodoc_enable_at_startup=1
+  set completeopt+=noselect,menuone
+  set completeopt-=preview
+  autocmd CompleteDone * pclose
 
-function! Multiple_cursors_before()
-  let b:deoplete_disable_auto_complete=2
-endfunction
-function! Multiple_cursors_after()
-  let b:deoplete_disable_auto_complete=0
-endfunction
-let g:deoplete#file#enable_buffer_path=1
-call deoplete#custom#source('buffer', 'mark', 'B')
-call deoplete#custom#source('tern', 'mark', '')
-call deoplete#custom#source('omni', 'mark', '⌾')
-call deoplete#custom#source('file', 'mark', '')
-call deoplete#custom#source('jedi', 'mark', '')
-call deoplete#custom#source('neosnippet', 'mark', '')
-call deoplete#custom#source('typescript',  'rank', 630)
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.html = ''
-let g:deoplete#omni_patterns.css = ''
-function! Preview_func()
-  if &pvw
-    setlocal nonumber norelativenumber
-   endif
-endfunction
-autocmd WinEnter * call Preview_func()
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources._ = ['around']
+  function! Multiple_cursors_before()
+    let b:deoplete_disable_auto_complete=2
+  endfunction
+  function! Multiple_cursors_after()
+    let b:deoplete_disable_auto_complete=0
+  endfunction
+  let g:deoplete#file#enable_buffer_path=1
+  call deoplete#custom#source('buffer', 'mark', 'B')
+  call deoplete#custom#source('tern', 'mark', '')
+  call deoplete#custom#source('omni', 'mark', '⌾')
+  call deoplete#custom#source('file', 'mark', '')
+  call deoplete#custom#source('jedi', 'mark', '')
+  call deoplete#custom#source('neosnippet', 'mark', '')
+  call deoplete#custom#source('typescript',  'rank', 630)
+  let g:deoplete#omni_patterns = {}
+  let g:deoplete#omni_patterns.html = ''
+  let g:deoplete#omni_patterns.css = ''
+  function! Preview_func()
+    if &pvw
+      setlocal nonumber norelativenumber
+     endif
+  endfunction
+  autocmd WinEnter * call Preview_func()
+  let g:deoplete#ignore_sources = {}
+  let g:deoplete#ignore_sources._ = ['around']
 
-" let g:deoplete#enable_debug = 1
-" let g:deoplete#enable_profile = 1
-" let g:deoplete#enable_logging = {'level': 'DEBUG','logfile': 'deoplete.log'}
-" call deoplete#enable_logging('DEBUG', 'deoplete.log')
-" call deoplete#custom#source('typescript', 'debug_enabled', 1)
+  " let g:deoplete#enable_debug = 1
+  " let g:deoplete#enable_profile = 1
+  " let g:deoplete#enable_logging = {'level': 'DEBUG','logfile': 'deoplete.log'}
+  " call deoplete#enable_logging('DEBUG', 'deoplete.log')
+  " call deoplete#custom#source('typescript', 'debug_enabled', 1)
+
 "}}}
 
 " Snipppets -----------------------------------------------------------------{{{
@@ -807,18 +897,18 @@ let g:deoplete#ignore_sources._ = ['around']
   let g:neosnippet#enable_snipmate_compatibility = 1
   " let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
   " let g:neosnippet#expand_word_boundary = 1
-
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
+  "
+  " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  " xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
-  " imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  " \ "\<Plug>(neosnippet_expand_or_jump)"
-  " \: pumvisible() ? "\<C-n>" : "\<TAB>"
-  " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  " \ "\<Plug>(neosnippet_expand_or_jump)"
-  " \: "\<TAB>"
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
 
 "}}}
 
@@ -944,7 +1034,7 @@ let g:deoplete#ignore_sources._ = ['around']
 
 "}}}
 
-" Emmet customization -------------------------------------------------------{{{
+" Emmet   -----------------------------------------------------------------{{{
 
 " Remapping <C-y>, just doesn't cut it.
   function! s:expand_html_tab()
