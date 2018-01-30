@@ -379,8 +379,12 @@ call <sid>hi("StartifySlash",    s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("StartifySpecial",  s:gui03, "", s:cterm03, "", "", "")
 
 " Custom ALE
-call <sid>hi("ALEErrorSign",         s:gui05, s:gui01, s:cterm09, s:cterm01, "none", "")
-call <sid>hi("ALEWarningSign",       s:gui05, s:gui01, s:cterm0A, s:cterm01, "none", "")
+call <sid>hi("ALEErrorSign",         s:gui05, s:gui01, s:cterm08, s:cterm01, "none", "")
+call <sid>hi("ALEWarningSign",       s:gui05, s:gui01, s:cterm09, s:cterm01, "none", "")
+
+" Custom
+call <sid>hi("CursorLineNr",         s:gui05, s:gui01, s:cterm05, s:cterm01, "none", "")
+
 
 " Remove functions
 delf <sid>hi
