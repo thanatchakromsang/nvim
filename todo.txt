@@ -1,0 +1,2 @@
+add apt-get install silversearcher-ag to list
+pacman -S the_silver_searcher
