@@ -195,6 +195,7 @@ endif
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
   set autoread
   set updatetime=500
+  set t_Co=256
 " leader is ,
   let mapleader = ','
   set undofile
