@@ -69,8 +69,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('tpope/vim-unimpaired')
   " call dein#local('~/GitHub/', {}, ['neomake'])
   " async make
-  call dein#add('neomake/neomake')
-  " call dein#add('w0rp/ale')
+  " call dein#add('neomake/neomake')
+  call dein#add('w0rp/ale')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('tpope/vim-surround')
   call dein#add('tomtom/tcomment_vim')
@@ -188,7 +188,8 @@ endif
   set wildmenu
   set laststatus=2
   set wrap linebreak nolist
-  set wildmode=full
+  set wildmode=list:longest,list:full
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
   set autoread
   set updatetime=500
 " leader is ,
@@ -217,6 +218,18 @@ endif
 " }}}
 
 " System mappings  ----------------------------------------------------------{{{
+
+" no one is really happy until you have this shortcuts
+  cnoreabbrev W! w!
+  cnoreabbrev Q! q!
+  cnoreabbrev Qall! qall!
+  cnoreabbrev Wq wq
+  cnoreabbrev Wa wa
+  cnoreabbrev wQ wq
+  cnoreabbrev WQ wq
+  cnoreabbrev W w
+  cnoreabbrev Q q
+  cnoreabbrev Qall qall
 
 " No need for ex mode
   nnoremap Q <nop>
@@ -510,11 +523,11 @@ endif
       noremap <leader>TM :TableModeToggle<CR>
       let g:table_mode_corner="|"
       let g:markdown_fold_override_foldtext = 0
-      let g:neomake_markdown_proselint_maker = {
-          \ 'errorformat': '%W%f:%l:%c: %m',
-          \ 'postprocess': function('neomake#postprocess#GenericLengthPostprocess'),
-          \}
-      let g:neomake_markdown_enabled_makers = ['alex', 'proselint']
+      " let g:neomake_markdown_proselint_maker = {
+      "     \ 'errorformat': '%W%f:%l:%c: %m',
+      "     \ 'postprocess': function('neomake#postprocess#GenericLengthPostprocess'),
+      "     \}
+      " let g:neomake_markdown_enabled_makers = ['alex', 'proselint']
       let g:markdown_syntax_conceal = 0
 
       " let g:neoformat_markdown_prettier = g:standard_prettier_settings
@@ -524,8 +537,8 @@ endif
 
   " HTML  ----------------------------------------------------------------{{{
 
-      let g:neomake_html_enabled_makers = []
-      let g:neoformat_enabled_html = ['htmlbeautify']
+      " let g:neomake_html_enabled_makers = []
+      " let g:neoformat_enabled_html = ['htmlbeautify']
 
   "}}}
 
@@ -533,9 +546,9 @@ endif
 
 " Linting -------------------------------------------------------------------{{{
 
-  call neomake#configure#automake({
-  \ 'BufWritePost': {'delay': 0},
-  \ }, 1000)
+  " call neomake#configure#automake({
+  " \ 'BufWritePost': {'delay': 0},
+  " \ }, 1000)
 
   " \ 'BufWinEnter': {},
   " \ 'TextChanged': {},
@@ -545,10 +558,10 @@ endif
   let g:airline#extensions#ale#error_symbol='• '
   let g:airline#extensions#ale#warning_symbol='•  '
 
-  let g:neomake_warning_sign = {'text': '•'}
-  let g:neomake_error_sign = {'text': '•'}
-  let g:airline#extensions#neomake#error_symbol='• '
-  let g:airline#extensions#neomake#warning_symbol='•  '
+  " let g:neomake_warning_sign = {'text': '•'}
+  " let g:neomake_error_sign = {'text': '•'}
+  " let g:airline#extensions#neomake#error_symbol='• '
+  " let g:airline#extensions#neomake#warning_symbol='•  '
 
   hi link ALEError SpellBad
   hi link ALEWarning SpellBad
@@ -632,7 +645,7 @@ endif
       nunmap <buffer> K
       nunmap <buffer> J
   endf
-  let NERDTreeShowHidden=1
+  " let NERDTreeShowHidden=1
   let g:NERDTreeWinSize=40
   let NERDTreeMinimalUI=1
   let NERDTreeHijackNetrw=1
@@ -640,6 +653,9 @@ endif
   let NERDTreeCascadeOpenSingleChildDir=0
   let g:NERDTreeAutoDeleteBuffer=1
   let g:NERDTreeShowIgnoredStatus = 0
+  let NERDTreeAutoDeleteBuffer = 1
+  let NERDTreeQuitOnOpen = 1
+  let g:nerdtree_tabs_focus_on_files=1
   let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
   let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 
@@ -730,7 +746,7 @@ endif
 
 " }}}
 
-" Code formatting (need to remap to denite)-----------------------------------------------------------{{{
+" Code formatting (need to remap to denite)  --------------------------------{{{
 
 " ,f to format code, requires formatters: read the docs
   " noremap <silent> <leader>c :Neoformat<CR>
