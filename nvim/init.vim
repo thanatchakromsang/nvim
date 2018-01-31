@@ -19,8 +19,7 @@ if dein#load_state(('~/.config/nvim'))
 " syntax
   call dein#add('othree/html5.vim')
   call dein#add('othree/yajs.vim')
-  call dein#add('othree/jspc.vim', {'on_ft': 'javascript'})
-  call dein#add('othree/jspc.vim')
+  call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
   call dein#add('mxw/vim-jsx')
   call dein#add('moll/vim-node')
   call dein#add('othree/es.next.syntax.vim')
@@ -36,8 +35,8 @@ if dein#load_state(('~/.config/nvim'))
   " call dein#add('posva/vim-vue')
   call dein#add('skwp/vim-html-escape')
   call dein#add('hail2u/vim-css3-syntax')
-  call dein#add('ap/vim-css-color')
-  " call dein#add('othree/csscomplete.vim')
+  " call dein#add('ap/vim-css-color')
+  call dein#add('othree/csscomplete.vim')
   call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
   call dein#add('dhruvasagar/vim-table-mode')
   call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
@@ -129,7 +128,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('junegunn/gv.vim')
   " call dein#local('~/GitHub', {},['vim-folds'])
   " call dein#local('~/GitHub', {},['oceanic-next'])
-  call dein#add('mhartington/nvim-typescript')
+  " call dein#add('mhartington/nvim-typescript')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   " call dein#local('~/GitHub', {},['nvim-typescript'])
@@ -871,12 +870,12 @@ endif
     let b:deoplete_disable_auto_complete=0
   endfunction
   let g:deoplete#file#enable_buffer_path=1
-  call deoplete#custom#source('buffer', 'mark', 'B')
-  call deoplete#custom#source('tern', 'mark', '')
-  call deoplete#custom#source('omni', 'mark', '⌾')
-  call deoplete#custom#source('file', 'mark', '')
-  call deoplete#custom#source('jedi', 'mark', '')
-  call deoplete#custom#source('neosnippet', 'mark', '')
+  call deoplete#custom#source('buffer', 'mark', '[B]')
+  call deoplete#custom#source('tern', 'mark', '[]')
+  call deoplete#custom#source('omni', 'mark', '[⌾]')
+  call deoplete#custom#source('file', 'mark', '[]')
+  call deoplete#custom#source('jedi', 'mark', '[]')
+  call deoplete#custom#source('neosnippet', 'mark', '[=]')
   call deoplete#custom#source('typescript',  'rank', 630)
   let g:deoplete#omni_patterns = {}
   let g:deoplete#omni_patterns.html = ''
@@ -902,20 +901,20 @@ endif
 
 " Enable snipMate compatibility feature.
   let g:neosnippet#enable_snipmate_compatibility = 1
-  " let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
-  " let g:neosnippet#expand_word_boundary = 1
-  "
-  " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  " xmap <C-k>     <Plug>(neosnippet_expand_target)
+  let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
+  let g:neosnippet#expand_word_boundary = 1
 
-" SuperTab like snippets behavior.
-  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" " SuperTab like snippets behavior.
+"   imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"   \ "\<Plug>(neosnippet_expand_or_jump)"
+"   \: pumvisible() ? "\<C-n>" : "\<TAB>"
+"   smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"   \ "\<Plug>(neosnippet_expand_or_jump)"
+"   \: "\<TAB>"
 
 "}}}
 

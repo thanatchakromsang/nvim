@@ -15,6 +15,7 @@ alias l.='ls -d .*' #ls hidden files
 alias l1='ls -1'
 alias ls='ls -Fh'
 alias c='clear'
+alias tmux='tmux -2'
 
 # editors
 alias v='nvim'
