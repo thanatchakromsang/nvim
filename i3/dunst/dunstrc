@@ -239,17 +239,17 @@
 [base16_low]
     msg_urgency = low
     background = "#353b45"
-    foreground = "#545862"
+    foreground = "#FFFFFF"
 
 [base16_normal]
     msg_urgency = normal
     background = "#3e4451"
-    foreground = "#abb2bf"
+    foreground = "#FFFFFF"
 
 [base16_critical]
     msg_urgency = critical
     background = "#e06c75"
-    foreground = "#b6bdca"
+    foreground = "#FFFFFF"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

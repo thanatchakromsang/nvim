@@ -22,7 +22,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('othree/jspc.vim', {'on_ft': 'javascript'})
   call dein#add('othree/jspc.vim')
   call dein#add('mxw/vim-jsx')
-  " call dein#add('moll/vim-node')
+  call dein#add('moll/vim-node')
   call dein#add('othree/es.next.syntax.vim')
   " call dein#add('maxmellon/vim-jsx-pretty')
   " call dein#add('othree/jsdoc-syntax.vim')
@@ -372,7 +372,7 @@ endif
       let g:indentLine_char = '¦'
       let g:indentLine_leadingSpaceChar = '·'
       let g:indentLine_fileTypeExclude = ['nerdtree']
-      autocmd FileType help,nerdtree IndentLinesToggle
+      autocmd FileType help,nerdtree IndentLinesDisable
 
   "}}}
 
@@ -649,7 +649,7 @@ let g:ale_echo_msg_warning_str = 'W'
 
   let g:ale_fixers = {
         \ 'javascript': ['eslint'],
-        \ 'typescript': ['tslint', 'tsserver'],
+        \ 'typescript': ['tslint'],
         \ 'python': ['yapf'],
         \ 'html': ['proselint'],
         \ 'css': ['stylelint'],
