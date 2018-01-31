@@ -82,9 +82,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/deol.nvim')
   call dein#add('Shougo/denite.nvim')
-
   " Faster search sorting
-  call dein#add('nixprime/cpsm', {'build': 'PY3=ON ./install.sh'})
+  " call dein#add('nixprime/cpsm', {'build': 'PY3=ON ./install.sh'})
   call dein#add('Shougo/neomru.vim')
   " Fast Incsearch
   call dein#add('easymotion/vim-easymotion')
@@ -105,10 +104,10 @@ if dein#load_state(('~/.config/nvim'))
   " call dein#add('ujihisa/neco-look')
   call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
   call dein#add('zchee/deoplete-jedi')
-  " call dein#add('fatih/vim-go')
-  call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
+  call dein#add('fatih/vim-go')
+  call dein#add('zchee/deoplete-go', {'build': 'make'})
   call dein#add('ternjs/tern_for_vim')
-  " call dein#add('zchee/deoplete-go', {'build': 'make'})
+  call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
   call dein#add('junegunn/limelight.vim')
   "update fold only when open
   call dein#add('Konfekt/FastFold')
@@ -120,7 +119,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('honza/vim-snippets')
   " close buffer with ease
   call dein#add('mhinz/vim-sayonara')
-  " call dein#add('mattn/webapi-vim')
+  call dein#add('mattn/webapi-vim')
   call dein#add('mattn/gist-vim')
   " call dein#add('vim-scripts/SyntaxRange')
   call dein#add('terryma/vim-multiple-cursors')
@@ -130,6 +129,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('junegunn/gv.vim')
   " call dein#local('~/GitHub', {},['vim-folds'])
   " call dein#local('~/GitHub', {},['oceanic-next'])
+  call dein#add('mhartington/nvim-typescript')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   " call dein#local('~/GitHub', {},['nvim-typescript'])
@@ -221,6 +221,9 @@ endif
 
   " Sayonara as :x
   cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+
+  let g:python_host_prog = '/usr/bin/python2'
+  let g:python3_host_prog = '/usr/bin/python3'
 
 " }}}
 
@@ -527,6 +530,9 @@ endif
 
                           " Python  -------------------------------------{{{
 
+      " let g:jedi#auto_vim_configuration = 0
+      " let g:jedi#documentation_command = "<leader>k"
+      " let g:jedi#completions_enabled = 0
 
   "}}}
 
@@ -627,8 +633,8 @@ endif
   let g:ale_set_highlights = 0
   let g:ale_sign_error = '●'
   let g:ale_sign_warning = '•'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_error_str = 'E'
+  let g:ale_echo_msg_warning_str = 'W'
   " let g:ale_sign_error = '•'
   let g:airline#extensions#ale#error_symbol='● '
   let g:airline#extensions#ale#warning_symbol='•  '
@@ -947,7 +953,7 @@ let g:ale_echo_msg_warning_str = 'W'
         \] })
 
   call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
-  call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
+  call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
 
       call denite#custom#var('grep', 'command', ['ag'])
       call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
