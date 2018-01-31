@@ -668,7 +668,7 @@ endif
 
 " Terminal settings  --------------------------------------------------------{{{
 
-  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  " au BufEnter * if &buftype == 'terminal' | :startinsert | endif
   autocmd BufEnter term://* startinsert
   autocmd TermOpen * set bufhidden=hide
 
@@ -787,7 +787,7 @@ endif
   tmap <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
   tmap <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
   tmap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
-  tmap <C-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
+  " tmap <C-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
 
 "}}}
 
@@ -841,18 +841,6 @@ endif
 
 " }}}
 
-" Code formatting (need to remap to denite)  --------------------------------{{{
-
-" ,f to format code, requires formatters: read the docs
-  " noremap <silent> <leader>c :Neoformat<CR>
-  " let g:standard_prettier_settings = {
-  "             \ 'exe': 'prettier',
-  "             \ 'args': ['--stdin', '--stdin-filepath', '%:p', '--single-quote'],
-  "             \ 'stdin': 1,
-  "             \ }
-
-" }}}
-
 " Deoplete ------------------------------------------------------------------{{{
 
 " enable deoplete
@@ -901,7 +889,7 @@ endif
 
 " Enable snipMate compatibility feature.
   let g:neosnippet#enable_snipmate_compatibility = 1
-  let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
+  " let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
   let g:neosnippet#expand_word_boundary = 1
 
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -975,7 +963,7 @@ endif
     \ [ '.git/', '.ropeproject/', '__pycache__/',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
   call denite#custom#var('menu', 'menus', s:menus)
-  let g:ctrlp_user_command = 'rg %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 "}}}
 
