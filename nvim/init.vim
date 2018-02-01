@@ -1023,7 +1023,8 @@ endif
     \['colorscheme', 'Denite colorscheme'],
     \['Indent line toggle', 'IndentLinesToggle'],
     \['Leading space toggle', 'LeadingSpaceToggle'],
-    \['Focus mode', 'Goyo'],
+    \['Focus mode toggle', 'Goyo'],
+    \['Dim light mode toggle', 'Limelight!!'],
     \]
 
 "}}}
