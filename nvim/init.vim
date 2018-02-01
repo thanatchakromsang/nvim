@@ -23,6 +23,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('mxw/vim-jsx')
   call dein#add('moll/vim-node')
   call dein#add('othree/es.next.syntax.vim')
+  call dein#add('sheerun/vim-polyglot')
+
   " call dein#add('maxmellon/vim-jsx-pretty')
   " call dein#add('othree/jsdoc-syntax.vim')
   call dein#add('jparise/vim-graphql')
@@ -61,7 +63,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('scrooloose/nerdtree')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   " call dein#local('~/GitHub', {}, ['nerdtree-git-plugin'])
-  " user vim esearch instead of fzf
   call dein#add('eugen0329/vim-esearch')
   call dein#add('AndrewRadev/splitjoin.vim')
   call dein#add('tpope/vim-repeat')
@@ -262,7 +263,7 @@ endif
 
 " Neovim terminal mapping
 " terminal 'normal mode'
-  nnoremap <silent> <leader>sh :terminal<CR>
+  nnoremap <silent> <leader>sh :Deol<CR>
   tmap <esc> <c-\><c-n><esc><cr>
 
 " Move around 'normal mode'
@@ -460,7 +461,6 @@ endif
   " Matchtag Always  -----------------------------------------------------{{{
 
       let g:mta_filetypes = {
-          \ 'javascript.jsx': 1,
           \ 'html' : 1,
           \ 'xhtml' : 1,
           \ 'xml' : 1,
@@ -507,6 +507,8 @@ endif
 "}}}
 
 " Programing language settings  ---------------------------------------------{{{
+
+  let g:polyglot_disabled = ['python', 'javascript.jsx', 'css', 'typescript', 'markdown']
 
                           " Javascript  ---------------------------------{{{
 
@@ -668,7 +670,7 @@ endif
 
 " Terminal settings  --------------------------------------------------------{{{
 
-  " au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
   autocmd BufEnter term://* startinsert
   autocmd TermOpen * set bufhidden=hide
 
@@ -936,7 +938,8 @@ endif
 
   call denite#custom#source('file_rec', 'vars', {
         \ 'command': [
-        \ 'ag', '--follow','--nogroup', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
+        \ 'ag', '--follow','--nogroup', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules',
+        \ '--ignore', '*.jpg', '--ignore', '*.desktop'
         \] })
 
   call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
@@ -951,18 +954,20 @@ endif
 
       nnoremap <silent> <leader>e :Denite file_rec<CR>
       nnoremap <silent> <leader>f :Denite grep<CR>
-      nnoremap <silent> <F8> :Denite help<CR>
-      nnoremap <silent> <leader>m :Denite menu<CR>
+      nnoremap <silent> <leader>h :Denite help<CR>
+      nnoremap <silent> <leader>m :Denite menu:commands<CR>
       nnoremap <silent>  B :Denite buffer<CR>
       nnoremap <silent> <leader>u :call dein#update()<CR>
-      nnoremap <silent> <Leader>g :Denite menu:git <CR>
+      nnoremap <silent> <leader>g :Denite menu:git <CR>
 
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
+
   call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
     \ [ '.git/', '.ropeproject/', '__pycache__/',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
   call denite#custom#var('menu', 'menus', s:menus)
+
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 "}}}
@@ -970,7 +975,7 @@ endif
 " Denite : Git  -------------------------------------------------------------{{{
 
   let s:menus.git = {
-    \ 'description' : 'Fugitive interface',
+    \ 'description' : 'Git interface',
     \}
   let s:menus.git.command_candidates = [
     \[' git status', 'Gstatus'],
@@ -987,20 +992,25 @@ endif
     \[' git fetch', 'Gfetch'],
     \[' git merge', 'Gmerge'],
     \[' git browse', 'Gbrowse'],
+    \[' git blame', 'Gblame'],
     \[' git head', 'Gedit HEAD^'],
     \[' git parent', 'edit %:h'],
-    \[' git log commit buffers', 'Glog --'],
-    \[' git log current file', 'Glog -- %'],
-    \[' git log last n commits', 'exe "Glog -" input("num: ")'],
-    \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
-    \[' git log until date', 'exe "Glog --until=" input("day: ")'],
-    \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
-    \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
+    \[' git log current file', 'GV!'],
+    \[' git log repository', 'GV'],
+    \[' git log search', 'exe "GV -S " input("word: ")'],
+    \[' git revisit', 'GV?'],
     \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
     \[' git mv', 'exe "Gmove " input("destination: ")'],
     \[' git grep',  'exe "Ggrep " input("string: ")'],
     \[' git prompt', 'exe "Git! " input("command: ")'],
     \] " Append ' --' after log to get commit info commit buffers
+    " \[' git log commit buffers', 'Glog --'],
+    " \[' git log current file', 'Glog -- %'],
+    " \[' git log last n commits', 'exe "Glog -" input("num: ")'],
+    " \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
+    " \[' git log until date', 'exe "Glog --until=" input("day: ")'],
+    " \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
+    " \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
 
 "}}}
 
@@ -1011,6 +1021,9 @@ endif
     \}
   let s:menus.commands.command_candidates = [
     \['colorscheme', 'Denite colorscheme'],
+    \['Indent line toggle', 'IndentLinesToggle'],
+    \['Leading space toggle', 'LeadingSpaceToggle'],
+    \['Focus mode', 'Goyo'],
     \]
 
 "}}}
@@ -1059,3 +1072,16 @@ endif
   autocmd FileType html,css,scss EmmetInstall
 
 "}}}
+
+" ESearch   ---------------------------------------------------------------{{{
+
+let g:esearch = {
+  \ 'adapter':    'ag',
+  \ 'backend':    'vimproc',
+  \ 'out':        'win',
+  \ 'batch_size': 1000,
+  \ 'use':        ['visual', 'hlsearch', 'last'],
+  \}
+
+"}}}
+
