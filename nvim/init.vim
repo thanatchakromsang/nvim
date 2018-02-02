@@ -23,7 +23,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('mxw/vim-jsx')
   call dein#add('moll/vim-node')
   call dein#add('othree/es.next.syntax.vim')
-  call dein#add('sheerun/vim-polyglot')
 
   " call dein#add('maxmellon/vim-jsx-pretty')
   " call dein#add('othree/jsdoc-syntax.vim')
@@ -508,8 +507,6 @@ endif
 
 " Programing language settings  ---------------------------------------------{{{
 
-  let g:polyglot_disabled = ['python', 'javascript.jsx', 'css', 'typescript', 'markdown']
-
                           " Javascript  ---------------------------------{{{
 
       augroup vimrc-javascript
@@ -539,7 +536,7 @@ endif
 
                           " Typescript  ---------------------------------{{{
 
-      augroup vimrc-javascript
+      augroup vimrc-typescript
         autocmd!
         autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
       augroup END
