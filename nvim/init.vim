@@ -20,12 +20,10 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('othree/html5.vim')
   call dein#add('othree/yajs.vim')
   call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
-  call dein#add('mxw/vim-jsx')
   call dein#add('moll/vim-node')
   call dein#add('othree/es.next.syntax.vim')
+  call dein#add('mxw/vim-jsx')
 
-  " call dein#add('maxmellon/vim-jsx-pretty')
-  " call dein#add('othree/jsdoc-syntax.vim')
   call dein#add('jparise/vim-graphql')
   call dein#add('heavenshell/vim-jsdoc')
   call dein#add('elzr/vim-json')
@@ -347,7 +345,7 @@ endif
 " imap <right> <nop>
 
 " Auto pairs
-  let g:AutoPairsFlyMode = 1
+  " let g:AutoPairsFlyMode = 1
   let g:AutoPairsShortcutJump = '<M-w>'
   let g:AutoPairsShortcutFastWrap = '<M-e>'
 
@@ -830,7 +828,7 @@ endif
   autocmd FileType css,scss,json setlocal foldmarker={,}
 
   autocmd FileType coffee setl foldmethod=indent
-  let g:xml_syntax_folding = 1
+  " let g:xml_syntax_folding = 1
   autocmd FileType xml setl foldmethod=syntax
 
   autocmd FileType html setl foldmethod=expr
@@ -846,6 +844,8 @@ endif
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_delay = 50
   let g:echodoc_enable_at_startup=1
+  let g:deoplete#enable_smart_case = 1
+
   set completeopt+=noselect,menuone
   set completeopt-=preview
   autocmd CompleteDone * pclose
@@ -891,23 +891,24 @@ endif
   " let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
   let g:neosnippet#expand_word_boundary = 1
 
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
+  " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  " xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" " SuperTab like snippets behavior.
-"   imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"   \ "\<Plug>(neosnippet_expand_or_jump)"
-"   \: pumvisible() ? "\<C-n>" : "\<TAB>"
-"   smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"   \ "\<Plug>(neosnippet_expand_or_jump)"
-"   \: "\<TAB>"
+" SuperTab like snippets behavior.
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
 
 "}}}
 
 " Git  -------------------------------------------------------------{{{
 
-  let g:gitgutter_max_signs = 1000
+  " let g:gitgutter_max_signs = 1000
 
 "}}}
 
@@ -1075,7 +1076,7 @@ endif
 
 let g:esearch = {
   \ 'adapter':    'ag',
-  \ 'backend':    'vimproc',
+  \ 'backend':    'nvim',
   \ 'out':        'win',
   \ 'batch_size': 1000,
   \ 'use':        ['visual', 'hlsearch', 'last'],
