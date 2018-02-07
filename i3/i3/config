@@ -234,6 +234,8 @@ for_window [class="Chrome"] border pixel 2
 # make floating apps
 for_window [class="^Simplescreenrecorder$"] floating enable
 for_window [class="^Wine$"] floating enable
+for_window [class="Chromium" instance="crx_ekajjllcmeckibblgckgoceinmmgnfop"] floating enable
+
 for_window [instance="__scratchpad"] floating enable
 
 ##############################
