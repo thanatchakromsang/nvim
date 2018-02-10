@@ -11,5 +11,5 @@ Host github.com
 
 Host ite.kmitl.ac.th
     User ite18
-    Hostname 192.168.17.104
+    Hostname www.ite.kmitl.ac.th
     IdentityFile ~/.ssh/id_rsa_ite_kmitl
