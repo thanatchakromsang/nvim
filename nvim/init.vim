@@ -103,7 +103,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('zchee/deoplete-jedi')
   call dein#add('fatih/vim-go')
   call dein#add('zchee/deoplete-go', {'build': 'make'})
-  call dein#add('ternjs/tern_for_vim')
+  " call dein#add('ternjs/tern_for_vim')
   call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
   call dein#add('junegunn/limelight.vim')
   "update fold only when open
@@ -126,10 +126,9 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('junegunn/gv.vim')
   " call dein#local('~/GitHub', {},['vim-folds'])
   " call dein#local('~/GitHub', {},['oceanic-next'])
-  " call dein#add('mhartington/nvim-typescript')
+  call dein#add('mhartington/nvim-typescript')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
-  " call dein#local('~/GitHub', {},['nvim-typescript'])
   call dein#add('junegunn/goyo.vim')
   call dein#add('amix/vim-zenroom2')
   " call dein#local('~/GitHub', {}, ['ionic-snippets'])
@@ -518,9 +517,17 @@ endif
       let g:jsdoc_return=0
       let g:jsdoc_return_type=0
       let g:vim_json_syntax_conceal = 0
-      let g:tern#command = ['tern']
-      let g:tern#arguments = ['--persistent']
-      let g:tern_map_keys=1
+      " let g:tern#command = ['tern']
+      " let g:tern#arguments = ['--persistent']
+      " let g:tern_map_keys=1
+
+      let g:deoplete#sources#ternjs#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ ]
+
+      let g:deoplete#sources#ternjs#case_insensitive = 1
+      let g:deoplete#sources#ternjs#docs = 1
 
   "}}}
 
@@ -665,8 +672,8 @@ endif
 
 " Terminal settings  --------------------------------------------------------{{{
 
-  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-  autocmd BufEnter term://* startinsert
+  " au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  " autocmd BufEnter term://* startinsert
   autocmd TermOpen * set bufhidden=hide
 
 " }}}
@@ -757,12 +764,14 @@ endif
 " esearch settings {{{
 
   let g:esearch#cmdline#help_prompt = 1
-   let g:esearch#cmdline#dir_icon = '  '
-   let g:esearch = {
-   \ 'adapter':    'ag',
-   \ 'backend':    'nvim',
-   \ 'use':        ['visual', 'hlsearch', 'last'],
-   \}
+    let g:esearch#cmdline#dir_icon = '  '
+    let g:esearch = {
+    \ 'adapter':    'ag',
+    \ 'backend':    'nvim',
+    \ 'out':        'win',
+    \ 'batch_size': 1000,
+    \ 'use':        ['visual', 'hlsearch', 'last'],
+    \}
 
 " }}}
 
@@ -836,6 +845,8 @@ endif
 
   autocmd FileType javascript,typescript,json setl foldmethod=syntax
 
+  autocmd FileType graphql setl foldmethod=syntax
+
 " }}}
 
 " Deoplete ------------------------------------------------------------------{{{
@@ -891,18 +902,18 @@ endif
   " let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
   let g:neosnippet#expand_word_boundary = 1
 
-  " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  " xmap <C-k>     <Plug>(neosnippet_expand_target)
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
-  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-  imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
+  " imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  " \ "\<Plug>(neosnippet_expand_or_jump)"
+  " \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  " imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  " \ "\<Plug>(neosnippet_expand_or_jump)"
+  " \: "\<TAB>"
 
 "}}}
 
@@ -1069,18 +1080,6 @@ endif
   let g:user_emmet_complete_tag = 0
   let g:user_emmet_install_global = 0
   autocmd FileType html,css,scss EmmetInstall
-
-"}}}
-
-" ESearch   ---------------------------------------------------------------{{{
-
-let g:esearch = {
-  \ 'adapter':    'ag',
-  \ 'backend':    'nvim',
-  \ 'out':        'win',
-  \ 'batch_size': 1000,
-  \ 'use':        ['visual', 'hlsearch', 'last'],
-  \}
 
 "}}}
 
