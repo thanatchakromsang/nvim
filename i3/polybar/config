@@ -8,23 +8,38 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #282a36
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #f8f8f2
-foreground-alt = #555
-primary = #ff79c6
-secondary = #e60053
-alert = #ff5555
+base00 = ${xrdb:color0:#000000}
+base01 = ${xrdb:color10:#000000}
+base02 = ${xrdb:color11:#000000}
+base03 = ${xrdb:color8:#000000}
+base04 = ${xrdb:color12:#000000}
+base05 = ${xrdb:color7:#000000}
+base06 = ${xrdb:color13:#000000}
+base07 = ${xrdb:color15:#000000}
+base08 = ${xrdb:color1:#000000}
+base09 = ${xrdb:color9:#000000}
+base0A = ${xrdb:color3:#000000}
+base0B = ${xrdb:color2:#000000}
+base0C = ${xrdb:color6:#000000}
+base0D = ${xrdb:color4:#000000}
+base0E = ${xrdb:color5:#000000}
+base0F = ${xrdb:color14:#000000}
+
+background = ${colors.base03}
+background-alt = ${colors.base03}
+foreground = ${colors.base07}
+foreground-alt = ${colors.base07}
+primary = ${colors.base0B}
+secondary = ${colors.base07}
+alert = ${colors.base09}
 
 [bar/top]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 
-background = ${xrdb:color0:#000}
-foreground = ${xrdb:color7:#ccfffff}
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 fixed-center = true
 
@@ -69,6 +84,11 @@ modules-right = keyboard wireless-network volume xbacklight battery temperature 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
+; [module/crypto]
+; type = custom/script
+; interval = 300
+; exec = /home/thanatchaya/.config/polybar/crypto.py
+
 cursor-click = pointer
 ; cursor-scroll = ns-resize
 
@@ -84,7 +104,7 @@ master-mixer = Master
 
 ; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
 ; Default: false
-mapped = true
+mapped = false
 
 format-volume = <ramp-volume>
 
@@ -96,31 +116,6 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-; [module/xwindow]
-; type = internal/xwindow
-; label = %title:0:30:...%
-
-; format-prefix = " "
-; format-prefix-foreground = ${colors.foreground-alt}
-; format-prefix-underline = ${colors.secondary}
-
-; label-layout = %layout%
-; label-layout-underline = ${colors.secondary}
-
-; label-indicator-padding = 2
-; label-indicator-margin = 1
-; label-indicator-background = ${colors.secondary}
-; label-indicator-underline = ${colors.secondary}
-
-; [module/filesystem]
-; type = internal/fs
-; interval = 25
-
-; mount-0 = /
-
-; label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-; label-unmounted = %mountpoint% not mounted
-; label-unmounted-foreground = ${colors.foreground-alt}
 [module/keyboard]
 type = internal/xkeyboard
 
@@ -139,7 +134,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.base04}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -174,7 +169,7 @@ ws-icon-8 = 9;
 ; pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
+label-mode-foreground = #555
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
@@ -243,7 +238,7 @@ date = %a %b %d,
 time = %H:%M
 
 format = <label>
-label =  %date% %time%
+label = %date% %time%
 
 [module/battery]
 type = internal/battery
@@ -298,20 +293,20 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = #ff79c6
+label-open-foreground = ${colors.base07}
 label-close = cancel
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = poweroff
 menu-0-1-exec = menu-open-2
 
 menu-1-0 = reboot
 menu-1-0-exec = reboot
 
-menu-2-0 = power off
+menu-2-0 = poweroff
 menu-2-0-exec = poweroff
 
 [settings]

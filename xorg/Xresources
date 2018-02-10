@@ -11,28 +11,61 @@ Xft.antialias:          1
 Xft.rgba:               rgb
 Xft.font:               monospace:size=12
 
-##################################
-### Dracula Xresources palette ###
-##################################
+######################
+### One dark theme ###
+######################
 
-*.foreground: #F8F8F2
-*.background: #282A36
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+#define base00 #282c34
+#define base01 #353b45
+#define base02 #3e4451
+#define base03 #545862
+#define base04 #565c64
+#define base05 #abb2bf
+#define base06 #b6bdca
+#define base07 #c8ccd4
+#define base08 #e06c75
+#define base09 #d19a66
+#define base0A #e5c07b
+#define base0B #98c379
+#define base0C #56b6c2
+#define base0D #61afef
+#define base0E #c678dd
+#define base0F #be5046
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06
 
 ######################
 ### URXVT settings ###
@@ -51,16 +84,49 @@ URxvt.resize-font.bigger:	C-Up
 ### Rofi configuration ###
 ##########################
 
-rofi.color-window: argb:c82d303b, #7c8389, #1d1f21
-rofi.color-normal: argb:3c1d1f21, #c4cbd4, argb:96404552, #ff79c6, #f9f9f9
-rofi.color-urgent: argb:2c1d1f21, #ff5555, argb:e54b5160, #ff5555, #f9f9f9
-rofi.color-active: argb:2c1d1f21, #ff79c6, argb:e44b5160, #ff79c6, #f9f9f9
-rofi.width: 30
+! base00: #282c34
+! base01: #353b45
+! base02: #3e4451
+! base03: #545862
+! base04: #565c64
+! base05: #abb2bf
+! base06: #b6bdca
+! base07: #c8ccd4
+! base08: #e06c75
+! base09: #d19a66
+! base0A: #e5c07b
+! base0B: #98c379
+! base0C: #56b6c2
+! base0D: #61afef
+! base0E: #c678dd
+! base0F: #be5046
+
+! Enable the extended coloring options
+rofi.color-enabled: true
+
+! Property Name     BG       Border   Separator
+rofi.color-window:  #353b45, #353b45, #282c34
+
+! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
+rofi.color-normal:  #353b45, #abb2bf, #353b45, #353b45, #c8ccd4
+rofi.color-active:  #353b45, #61afef, #353b45, #353b45, #61afef
+rofi.color-urgent:  #353b45, #e06c75, #353b45, #353b45, #e06c75
+
+! Set the desired separator style
+rofi.separator-style: none
+
+rofi.width: 50
 rofi.lines: 10
 rofi.columns: 1
-rofi.font: DejaVu 12
-rofi.bw: 0
+rofi.font: Ubuntu Mono 14
+rofi.bw: 3
 rofi.padding: 20
+/* rofi.location: 3 */
 rofi.eh: 1
 rofi.hide-scrollbar: true
-rofi.window-format: [{w}] - {c} {t}
+rofi.window-format: [{w}]\ \ -\ \ {c}\ \ :\ \ {t}
+rofi.terminal: alacritty
+rofi.display-ssh: connect to server
+rofi.display-combi: search
+rofi.display-window: window
+

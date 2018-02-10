@@ -2,6 +2,9 @@
 source $HOME/.dotfiles/shell/aliases #alias
 source $HOME/.dotfiles/shell/env #environment variables
 
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 ZSH_THEME="spaceship"
 
 plugins=(git node tmux command-not-found common-aliases git-flow docker archlinux npm pip zsh-syntax-highlighting yarn)

@@ -1,6 +1,6 @@
 #!/bin/bash
 PACMAN_TERMINAL="curl tmux zsh neovim python-pip python-neovim ctags htop npm docker ranger"
-PACMAN_GRAPHICAL="dunst compton rofi termite"
+PACMAN_GRAPHICAL="dunst compton rofi termite networkmanager_dmenu"
 YAOURT_TERMINAL=""
 YAOURT_GRAPHICAL="polybar clipmenu"
 PIP="pipenv jedi"
