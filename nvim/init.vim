@@ -48,8 +48,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
 
-  " cmd
-  " let g:easygit_enable_command = 1
   call dein#add('neoclide/vim-easygit')
   call dein#add('jreybert/vimagit', {'on_cmd': ['Magit', 'MagitOnly']})
   " call dein#add('rhysd/committia.vim')
@@ -534,7 +532,7 @@ endif
                           " Python  -------------------------------------{{{
 
       " let g:jedi#auto_vim_configuration = 0
-      " let g:jedi#documentation_command = "<leader>k"
+      let g:jedi#documentation_command = "<leader>k"
       " let g:jedi#completions_enabled = 0
 
   "}}}
@@ -847,6 +845,9 @@ endif
 
   autocmd FileType graphql setl foldmethod=syntax
 
+  autocmd FileType git setlocal foldmethod=syntax
+  autocmd FileType git setlocal foldlevel=0
+
 " }}}
 
 " Deoplete ------------------------------------------------------------------{{{
@@ -1008,6 +1009,8 @@ endif
     \[' git log repository', 'GV'],
     \[' git log search', 'exe "GV -S " input("word: ")'],
     \[' git revisit', 'GV?'],
+    \[' git preview', 'Magit'],
+    \[' git preview fullscreen', 'MagitOnly'],
     \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
     \[' git mv', 'exe "Gmove " input("destination: ")'],
     \[' git grep',  'exe "Ggrep " input("string: ")'],

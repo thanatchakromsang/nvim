@@ -1,12 +1,6 @@
 [general]
-base_currency = USD
+base_currency = BTC
 display = both
-
-[bitcoin]
-icon = [Bit]
-
-[ethereum]
-icon = [Ether]
 
 [raiblocks]
 icon = [Nano]

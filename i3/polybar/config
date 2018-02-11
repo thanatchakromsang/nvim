@@ -86,7 +86,7 @@ modules-right = keyboard wireless-network volume xbacklight battery temperature 
 
 ; [module/crypto]
 ; type = custom/script
-; interval = 300
+; interval = 1000
 ; exec = /home/thanatchaya/.config/polybar/crypto.py
 
 cursor-click = pointer
