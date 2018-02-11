@@ -930,11 +930,12 @@ endif
   call denite#custom#option('_', {
         \ 'prompt': '❯',
         \ 'winheight': 10,
-        \ 'updatetime': 1,
+        \ 'updatetime': 100,
         \ 'auto_resize': 0,
         \ 'highlight_matched_char': 'Underlined',
         \ 'highlight_mode_normal': 'CursorLine',
         \ 'reversed': 1,
+        \ 'smartcase': 1,
         \})
 
   call denite#custom#option('TSDocumentSymbol', {
@@ -987,8 +988,9 @@ endif
   let s:menus.git = {
     \ 'description' : 'Git interface',
     \}
+
   let s:menus.git.command_candidates = [
-    \[' git status', 'Gstatus'],
+    \[' git status', 'Denite gitstatus'],
     \[' git diff', 'Gvdiff'],
     \[' git commit', 'Gcommit'],
     \[' git stage/add', 'Gwrite'],
@@ -1005,12 +1007,11 @@ endif
     \[' git blame', 'Gblame'],
     \[' git head', 'Gedit HEAD^'],
     \[' git parent', 'edit %:h'],
-    \[' git log current file', 'GV!'],
-    \[' git log repository', 'GV'],
-    \[' git log search', 'exe "GV -S " input("word: ")'],
-    \[' git revisit', 'GV?'],
-    \[' git preview', 'Magit'],
-    \[' git preview fullscreen', 'MagitOnly'],
+    \[' git branch', 'Denite gitbranch'],
+    \[' git log current file', 'Denite gitlog:file'],
+    \[' git log current repository', 'GV'],
+    \[' git log search by word', 'exe "GV -S " input("word: ")'],
+    \[' git manage by visualization', 'Magit'],
     \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
     \[' git mv', 'exe "Gmove " input("destination: ")'],
     \[' git grep',  'exe "Ggrep " input("string: ")'],
@@ -1032,11 +1033,11 @@ endif
     \ 'description' : 'General purpose command',
     \}
   let s:menus.commands.command_candidates = [
-    \['colorscheme', 'Denite colorscheme'],
-    \['Indent line toggle', 'IndentLinesToggle'],
-    \['Leading space toggle', 'LeadingSpaceToggle'],
-    \['Focus mode toggle', 'Goyo'],
-    \['Dim light mode toggle', 'Limelight!!'],
+    \[' colorscheme', 'Denite colorscheme'],
+    \[' indent line toggle', 'IndentLinesToggle'],
+    \[' leading space toggle', 'LeadingSpaceToggle'],
+    \[' focus mode toggle', 'Goyo'],
+    \[' dim light mode toggle', 'Limelight!!'],
     \]
 
 "}}}
