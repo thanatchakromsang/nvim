@@ -531,6 +531,7 @@ endif
 
                           " Python  -------------------------------------{{{
 
+      let python_highlight_all = 1
       " let g:jedi#auto_vim_configuration = 0
       let g:jedi#documentation_command = "<leader>k"
       " let g:jedi#completions_enabled = 0
