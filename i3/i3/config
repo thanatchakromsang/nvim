@@ -152,18 +152,18 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Audio controls
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioMute        exec amixer -q sset Master playback toggle
+# bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+# bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+# bindsym XF86AudioMute        exec amixer -q sset Master playback toggle
 bindsym $mod+F9  exec amixer -q set Master 5%- unmute
 bindsym $mod+F10 exec amixer -q set Master 5%+ unmute
 bindsym $mod+F11 exec amixer -q sset Master playback toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
-bindsym XF86MonBrightnessUp   exec "xbacklight -inc 5"
-bindsym $mod+F2 exec "xbacklight -dec 5"
-bindsym $mod+F3 exec "xbacklight -inc 5"
+# bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+# bindsym XF86MonBrightnessUp   exec "xbacklight -inc 5"
+bindsym $mod+F2 exec "xbacklight -dec 3"
+bindsym $mod+F3 exec "xbacklight -inc 3"
 
 ###########################
 ### Scratch pad binding ###
@@ -350,6 +350,32 @@ mode "$logout_system" {
     bindsym Escape mode "default"
 }
 
+#####################
+### Multi monitor ###
+#####################
+
+set $mode_output (h) HDMI
+bindsym $mod+F4 mode "$mode_output"
+mode "$mode_output" {
+    bindsym h mode "$mode_hdmi"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_hdmi (i) intern, (e) extern, (c) clone, (x) extend
+mode "$mode_hdmi" {
+    bindsym i exec $psst ~/.config/i3/i3monitor.sh hdmi intern, mode "default"
+    bindsym e exec $psst ~/.config/i3/i3monitor.sh hdmi extern, mode "default"
+    bindsym c exec $psst ~/.config/i3/i3monitor.sh hdmi clone, mode "default"
+    bindsym x exec $psst ~/.config/i3/i3monitor.sh hdmi extend, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 ###########################
 ### Screen manipulation ###
 ###########################
@@ -388,6 +414,7 @@ mode "move" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 ##########################
 ### Dual monitor setup ###
 ##########################
