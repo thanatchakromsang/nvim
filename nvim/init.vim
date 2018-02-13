@@ -162,7 +162,16 @@ endif
   set encoding=utf-8
   set fileencoding=utf-8
   set fileencodings=utf-8
-  set mouse=a
+
+	if &term =~ '256color'
+		" disable background color erase
+		set t_ut=
+	endif
+
+	if has('mouse')
+		set mouse=a
+	endif
+
   filetype on
   " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   " set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
@@ -185,7 +194,7 @@ endif
   set wildmenu
   set laststatus=2
   set wrap linebreak nolist
-  set wildmode=list:longest,list:full
+  set wildmode=list:longest
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
   set autoread
   set updatetime=500
@@ -206,7 +215,6 @@ endif
   autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
   autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
   set formatoptions+=t
-  set inccommand=nosplit
   set shortmess=atIc
   set isfname-==
 
@@ -216,8 +224,13 @@ endif
   " Sayonara as :x
   cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
 
-  let g:python_host_prog = '/usr/bin/python2'
-  let g:python3_host_prog = '/usr/bin/python3'
+	if (has('nvim'))
+		let g:python_host_prog = '/usr/bin/python2'
+		let g:python3_host_prog = '/usr/bin/python3'
+		" show results of substition as they're happening
+		" but don't open a split
+		set inccommand=nosplit
+	endif
 
 " }}}
 
@@ -352,7 +365,7 @@ endif
 
 "}}}"
 
-" Visual settings  ----------------------------------------------------------{{{
+" Appearance settings  ------------------------------------------------------{{{
 
   set ruler
   set cursorline
@@ -502,7 +515,7 @@ endif
 
 " Programing language settings  ---------------------------------------------{{{
 
-                          " Javascript  ---------------------------------{{{
+  " --------------------------  Javascript  ---------------------------------{{{
 
       augroup vimrc-javascript
         autocmd!
@@ -526,6 +539,7 @@ endif
 
       let g:deoplete#sources#ternjs#case_insensitive = 1
       let g:deoplete#sources#ternjs#docs = 1
+      let g:deoplete#sources#ternjs#types = 1
 
   "}}}
 
@@ -551,7 +565,7 @@ endif
       let g:nvim_typescript#completion_mark=''
       " let g:nvim_typescript#default_mappings=1
       " let g:nvim_typescript#type_info_on_hold=1
-      let g:nvim_typescript#javascript_support=1
+      " let g:nvim_typescript#javascript_support=1
 
       map <silent> <leader>gd :TSDoc <cr>
       map <silent> <leader>gt :TSType <cr>
@@ -637,10 +651,9 @@ endif
   let g:ale_sign_warning = '•'
   let g:ale_echo_msg_error_str = 'E'
   let g:ale_echo_msg_warning_str = 'W'
-  " let g:ale_sign_error = '•'
+
   let g:airline#extensions#ale#error_symbol='● '
   let g:airline#extensions#ale#warning_symbol='•  '
-  " let g:airline#extensions#ale#error_symbol='• '
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_enter = 0
@@ -679,10 +692,18 @@ endif
 
 " NERDTree ------------------------------------------------------------------{{{
 
+		" Toggle NERDTree
+		function! ToggleNerdTree()
+			if @% != "" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
+				:NERDTreeFind
+			else
+				:NERDTreeToggle
+			endif
+		endfunction
+
   let g:vimfiler_ignore_pattern = ""
   " map <silent> - :VimFiler<CR>
-  nnoremap <silent> <F2> :NERDTreeFind<CR>
-  map <silent> <F3> :NERDTreeToggle<CR>
+  nnoremap <silent> <F2> :call ToggleNerdTree()<CR>
 	let g:vimfiler_tree_leaf_icon = ''
 	" let g:vimfiler_tree_opened_icon = ''
 	" let g:vimfiler_tree_closed_icon = ''

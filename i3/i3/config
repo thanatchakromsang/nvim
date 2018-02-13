@@ -152,8 +152,8 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Audio controls
-# bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-# bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 # bindsym XF86AudioMute        exec amixer -q sset Master playback toggle
 bindsym $mod+F9  exec amixer -q set Master 5%- unmute
 bindsym $mod+F10 exec amixer -q set Master 5%+ unmute
@@ -210,7 +210,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 assign [class="Coding" instance="^Coding"] $ws3
 assign [class="discord" instance="discord"] $ws4
 assign [class="Slack" instance="slack"] $ws4
-assign [class="Chromium" instance="chromium"] $ws2
+assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
 for_window [class="Spotify"] move to workspace $ws6
 # assign [instance="__run"] $ws1
 # assign [instance="__config"] $ws1
