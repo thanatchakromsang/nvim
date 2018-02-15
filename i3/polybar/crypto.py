@@ -23,7 +23,7 @@ for currency in currencies:
     json = requests.get(
         f'https://api.coinmarketcap.com/v1/ticker/{currency}',
         params=params).json()[0]
-    local_price = round(Decimal(json[f'price_{base_currency.lower()}']), 8)
+    local_price = round(Decimal(json[f'price_{base_currency.lower()}']), 2)
     change_24 = float(json['percent_change_24h'])
 
     display_opt = config['general']['display']

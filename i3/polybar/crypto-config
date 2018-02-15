@@ -1,5 +1,5 @@
 [general]
-base_currency = BTC
+base_currency = USD
 display = both
 
 [raiblocks]
