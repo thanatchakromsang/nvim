@@ -3,6 +3,7 @@
 "==============================="
 
 " Setup dein  ---------------------------------------------------------------{{{
+
   if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
       call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
       call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
@@ -14,9 +15,10 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Shougo/dein.vim')
   call dein#add('haya14busa/dein-command.vim')
   call dein#add('Yggdroot/indentLine')
+  call dein#add('dracula/vim')
   " call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar')
-" syntax
+"' syntax
   call dein#add('othree/html5.vim')
   call dein#add('othree/yajs.vim')
   call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
@@ -424,7 +426,7 @@ endif
       \}
 
     set hidden
-    let g:airline_theme = 'base16_tomorrow'
+    let g:airline_theme = 'dracula'
     let g:airline#extensions#branch#enabled = 1
     let g:airline#extensions#tagbar#enabled = 1
     let g:airline#extensions#ale#enabled = 1
@@ -446,9 +448,10 @@ endif
     let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
 
-    let g:airline_left_sep = ''
+    " powerline symbols
+    let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
+    let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
 
     let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
@@ -508,10 +511,15 @@ endif
   " set background=dark
 
   filetype plugin indent on
-  if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-  endif
+  colorscheme dracula
+    " Override autocomplete colorscheme
+    hi Normal ctermfg=none
+    hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
+    hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
+
+  " Custom ALE
+    hi ALEErrorSign ctermfg=88 ctermbg=none
+    hi ALEWarningSign ctermfg=228 ctermbg=none
 
 "}}}
 
@@ -942,7 +950,7 @@ endif
 
 "}}}
 
-" Git  -------------------------------------------------------------{{{
+" Git  ----------------------------------------------------------------------{{{
 
   " let g:gitgutter_max_signs = 1000
 
@@ -1066,7 +1074,7 @@ endif
 
 "}}}
 
-" Denite : Dotfiles  -------------------------------------------------------{{{
+" Denite : Dotfiles  --------------------------------------------------------{{{
 
   let s:menus.dotfiles = {
     \ 'description' : 'Edit your dotfiles config',
@@ -1079,7 +1087,7 @@ endif
 
 "}}}
 
-" Emmet   -----------------------------------------------------------------{{{
+" Emmet   -------------------------------------------------------------------{{{
 
 " Remapping <C-y>, just doesn't cut it.
   function! s:expand_html_tab()
@@ -1111,7 +1119,7 @@ endif
 
 "}}}
 
-" Notes   -----------------------------------------------------------------{{{
+" Notes   -------------------------------------------------------------------{{{
 
   let g:notes_directories = ['~/Documents/Notes']
 
