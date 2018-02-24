@@ -24,6 +24,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('othree/es.next.syntax.vim')
   call dein#add('mxw/vim-jsx')
 
+  call dein#add('xolox/vim-misc')
+  call dein#add('xolox/vim-notes')
   call dein#add('jparise/vim-graphql')
   call dein#add('heavenshell/vim-jsdoc')
   call dein#add('elzr/vim-json')
@@ -1106,6 +1108,12 @@ endif
   let g:user_emmet_complete_tag = 0
   let g:user_emmet_install_global = 0
   autocmd FileType html,css,scss EmmetInstall
+
+"}}}
+
+" Notes   -----------------------------------------------------------------{{{
+
+  let g:notes_directories = ['~/Documents/Notes']
 
 "}}}
 
