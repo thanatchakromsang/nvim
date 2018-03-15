@@ -503,6 +503,13 @@ endif
 
   "}}}
 
+  " Limelight  ------------------------------------------------------------{{{
+
+    let g:limelight_conceal_ctermfg = 1
+    let g:limelight_conceal_ctermfg = 240
+
+  "}}}
+
 "}}}
 
 " Themes  -------------------------------------------------------------------{{{
@@ -988,7 +995,9 @@ endif
   call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
   call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
 
-      call denite#custom#var('grep', 'command', ['ag'])
+      call denite#custom#var('grep', 'command', [
+            \ 'ag', '--ignore', 'node_modules', '--ignore', '.git'
+            \ ])
       call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
       call denite#custom#var('grep', 'recursive_opts', [])
       call denite#custom#var('grep', 'pattern_opt', [])
@@ -996,7 +1005,7 @@ endif
       call denite#custom#var('grep', 'final_opts', [])
 
       nnoremap <silent> <leader>e :Denite file_rec<CR>
-      nnoremap <silent> <leader>f :Denite grep<CR>
+      nnoremap <silent> <leader>f :Denite grep:::!<CR>
       nnoremap <silent> <leader>h :Denite help<CR>
       nnoremap <silent> <leader>m :Denite menu:commands<CR>
       nnoremap <silent>  B :Denite buffer<CR>
@@ -1068,7 +1077,6 @@ endif
     \[' colorscheme', 'Denite colorscheme'],
     \[' indent line toggle', 'IndentLinesToggle'],
     \[' leading space toggle', 'LeadingSpaceToggle'],
-    \[' focus mode toggle', 'Goyo'],
     \[' dim light mode toggle', 'Limelight!!'],
     \]
 
