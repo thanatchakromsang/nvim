@@ -308,7 +308,7 @@ endif
 
 " Copy to osx clipboard
   vnoremap <C-c> "*y<CR>
-  vnoremap y "*y<CR>
+  " vnoremap y "*y<CR>
   noremap Y y$
   vnoremap y myy`y
   vnoremap Y myY`y
@@ -339,7 +339,7 @@ endif
   map g* <Plug>(incsearch-nohl-g*)
   map g# <Plug>(incsearch-nohl-g#)
 
-" incsearch-easymotion
+" Incsearch-easymotion
   map /  <Plug>(incsearch-easymotion-/)
   map ?  <Plug>(incsearch-easymotion-?)
   map s/ <Plug>(incsearch-easymotion-stay)
@@ -484,7 +484,7 @@ endif
     " 
     let g:webdevicons_enable_denite = 0
     " let g:WebDevIconsOS = 'Darwin'
-    " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+    " let g:WebDevIconsUnicodeDecorateFileNodes = 1
     " let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
     " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
     " let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
