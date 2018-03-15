@@ -61,19 +61,17 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('lambdalisue/gina.vim')
   call dein#add('scrooloose/nerdtree')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
-  " call dein#local('~/GitHub', {}, ['nerdtree-git-plugin'])
+
   call dein#add('eugen0329/vim-esearch')
   call dein#add('AndrewRadev/splitjoin.vim')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-unimpaired')
-  " call dein#local('~/GitHub/', {}, ['neomake'])
-  " async make
   " call dein#add('neomake/neomake')
   call dein#add('w0rp/ale')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('tpope/vim-surround')
-  call dein#add('tomtom/tcomment_vim')
-  " call dein#add('tpope/vim-commentary')
+  " call dein#add('tomtom/tcomment_vim')
+  call dein#add('tpope/vim-commentary')
   call dein#add('wellle/targets.vim')
   call dein#add('mattn/emmet-vim')
   call dein#add('sbdchd/neoformat')
@@ -498,7 +496,7 @@ endif
     let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
     let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
     let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sql'] = ''
-    let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+    let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
     let g:webdevicons_conceal_nerdtree_brackets = 1
 
   "}}}
