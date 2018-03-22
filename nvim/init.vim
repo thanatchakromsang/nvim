@@ -111,7 +111,6 @@ if dein#load_state(('~/.config/nvim'))
   "snippet
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('epilande/vim-react-snippets')
   call dein#add('Shougo/echodoc.vim')
   call dein#add('honza/vim-snippets')
   " close buffer with ease
@@ -149,26 +148,21 @@ if dein#load_state(('~/.config/nvim'))
   call dein#end()
   call dein#save_state()
 endif
-
   filetype plugin indent on
 
 " }}}
 
 " System settings  ----------------------------------------------------------{{{
 
-  " let &t_Cs = "\e[6m"
-  " let &t_Ce = "\e[24m"
-  " source ~/.local.vim
 " Neovim Settings
-  " set termguicolors
   set encoding=utf-8
   set fileencoding=utf-8
   set fileencodings=utf-8
 
-	if &term =~ '256color'
-		" disable background color erase
-		set t_ut=
-	endif
+	" if &term =~ '256color'
+	" 	" disable background color erase
+	" 	set t_ut=
+	" endif
 
 	if has('mouse')
 		set mouse=a
@@ -212,7 +206,6 @@ endif
               \ endif
               " center buffer around cursor when opening files
   autocmd BufRead * normal zz
-  " set updatetime=500
   set complete=.,w,b,u,t,k
   autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
   autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
@@ -763,7 +756,7 @@ endif
       " nmap <silent> p <Plug>(vimfiler_jump_first_child)
       nmap <silent> r <Plug>(vimfiler_redraw_screen)
     endf
-  " let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
+  let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
   let g:webdevicons_enable_vimfiler = 0
   let g:vimfiler_no_default_key_mappings=1
   function! NerdUnite() abort "{{{
@@ -966,7 +959,7 @@ endif
   let s:menus = {}
   call denite#custom#option('_', {
         \ 'prompt': '❯',
-        \ 'winheight': 10,
+        \ 'winheight': 13,
         \ 'updatetime': 100,
         \ 'auto_resize': 0,
         \ 'highlight_matched_char': 'Underlined',
@@ -1008,7 +1001,7 @@ endif
       nnoremap <silent> <leader>m :Denite menu:commands<CR>
       nnoremap <silent>  B :Denite buffer<CR>
       nnoremap <silent> <leader>u :call dein#update()<CR>
-      nnoremap <silent> <leader>g :Denite menu:git <CR>
+      nnoremap <silent> <leader>g :Denite menu:git<CR>
 
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
@@ -1029,7 +1022,7 @@ endif
     \}
 
   let s:menus.git.command_candidates = [
-    \[' git status', 'Denite gitstatus'],
+    \[' git status', 'Gstatus'],
     \[' git diff', 'Gvdiff'],
     \[' git commit', 'Gcommit'],
     \[' git stage/add', 'Gwrite'],

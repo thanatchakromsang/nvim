@@ -7,11 +7,9 @@ source $HOME/.dotfiles/shell/env #environment variables
 
 ZSH_THEME="spaceship"
 
-plugins=(git node tmux command-not-found common-aliases git-flow docker archlinux npm pip zsh-syntax-highlighting zsh-autosuggestions yarn)
+plugins=(git node tmux command-not-found common-aliases git-flow docker archlinux npm pip zsh-syntax-highlighting yarn)
 
 source $ZSH/oh-my-zsh.sh
-
-bindkey '^ ' autosuggest-accept
 
 # Spaceship config
 # PROMPT
