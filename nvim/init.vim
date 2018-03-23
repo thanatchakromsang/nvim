@@ -125,7 +125,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('junegunn/gv.vim')
   " call dein#local('~/GitHub', {},['vim-folds'])
   " call dein#local('~/GitHub', {},['oceanic-next'])
-  call dein#add('mhartington/nvim-typescript')
+  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('junegunn/goyo.vim')
@@ -149,6 +149,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#save_state()
 endif
   filetype plugin indent on
+  syntax enable
 
 " }}}
 
@@ -156,8 +157,6 @@ endif
 
 " Neovim Settings
   set encoding=utf-8
-  set fileencoding=utf-8
-  set fileencodings=utf-8
 
 	" if &term =~ '256color'
 	" 	" disable background color erase
@@ -190,7 +189,7 @@ endif
   set wildmenu
   set laststatus=2
   set wrap linebreak nolist
-  set wildmode=list:longest
+  set wildmode=list:longest,list:full
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
   set autoread
   set updatetime=500
@@ -366,7 +365,7 @@ endif
   set cursorline
   set relativenumber
   set number
-  set fillchars+=vert:│
+  set fillchars=""
 
   " IndentLine  ----------------------------------------------------------{{{
 
@@ -505,10 +504,6 @@ endif
 
 " Themes  -------------------------------------------------------------------{{{
 
-  syntax on
-  " set background=dark
-
-  filetype plugin indent on
   colorscheme dracula
     " Override autocomplete colorscheme
     hi Normal ctermfg=none
@@ -998,10 +993,13 @@ endif
       nnoremap <silent> <leader>e :Denite file_rec<CR>
       nnoremap <silent> <leader>f :Denite grep:::!<CR>
       nnoremap <silent> <leader>h :Denite help<CR>
-      nnoremap <silent> <leader>m :Denite menu:commands<CR>
       nnoremap <silent>  B :Denite buffer<CR>
       nnoremap <silent> <leader>u :call dein#update()<CR>
-      nnoremap <silent> <leader>g :Denite menu:git<CR>
+
+      " Replaced by Unite
+      " nnoremap <silent> <leader>m :Denite menu:commands<CR>
+      " nnoremap <silent> <leader>g :Denite menu:git<CR>
+      nnoremap <silent> <leader>g :Unite -silent -start-insert menu:git<CR>
 
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
@@ -1015,47 +1013,85 @@ endif
 
 "}}}
 
+" Unite  ------------------------------------------------------------------{{{
+
+  let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
+  let g:unite_source_menu_menus.git = {
+      \ 'description' : ' Git Interface
+      \                            [<leader>g]',
+      \}
+  let g:unite_source_menu_menus.git.command_candidates = [
+      \[' git status', 'Gstatus'],
+      \[' git diff', 'Gvdiff'],
+      \[' git commit', 'Gcommit'],
+      \[' git stage/add', 'Gwrite'],
+      \[' git checkout', 'Gread'],
+      \[' git rm', 'Gremove'],
+      \[' git cd', 'Gcd'],
+      \[' git push', 'exe "Git! push " input("remote/branch: ")'],
+      \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
+      \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
+      \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
+      \[' git fetch', 'Gfetch'],
+      \[' git merge', 'Gmerge'],
+      \[' git browse', 'Gbrowse'],
+      \[' git blame', 'Gblame'],
+      \[' git head', 'Gedit HEAD^'],
+      \[' git parent', 'edit %:h'],
+      \[' git branch', 'Denite gitbranch'],
+      \[' git log current file', 'Denite gitlog:file'],
+      \[' git log current repository', 'GV'],
+      \[' git log search by word', 'exe "GV -S " input("word: ")'],
+      \[' git manage by visualization', 'Magit'],
+      \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
+      \[' git mv', 'exe "Gmove " input("destination: ")'],
+      \[' git grep',  'exe "Ggrep " input("string: ")'],
+      \[' git prompt', 'exe "Git! " input("command: ")']
+      \]
+
+"}}}
+
 " Denite : Git  -------------------------------------------------------------{{{
 
-  let s:menus.git = {
-    \ 'description' : 'Git interface',
-    \}
+  " let s:menus.git = {
+  "   \ 'description' : 'Git interface',
+  "   \}
 
-  let s:menus.git.command_candidates = [
-    \[' git status', 'Gstatus'],
-    \[' git diff', 'Gvdiff'],
-    \[' git commit', 'Gcommit'],
-    \[' git stage/add', 'Gwrite'],
-    \[' git checkout', 'Gread'],
-    \[' git rm', 'Gremove'],
-    \[' git cd', 'Gcd'],
-    \[' git push', 'exe "Git! push " input("remote/branch: ")'],
-    \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
-    \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
-    \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
-    \[' git fetch', 'Gfetch'],
-    \[' git merge', 'Gmerge'],
-    \[' git browse', 'Gbrowse'],
-    \[' git blame', 'Gblame'],
-    \[' git head', 'Gedit HEAD^'],
-    \[' git parent', 'edit %:h'],
-    \[' git branch', 'Denite gitbranch'],
-    \[' git log current file', 'Denite gitlog:file'],
-    \[' git log current repository', 'GV'],
-    \[' git log search by word', 'exe "GV -S " input("word: ")'],
-    \[' git manage by visualization', 'Magit'],
-    \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
-    \[' git mv', 'exe "Gmove " input("destination: ")'],
-    \[' git grep',  'exe "Ggrep " input("string: ")'],
-    \[' git prompt', 'exe "Git! " input("command: ")'],
-    \] " Append ' --' after log to get commit info commit buffers
-    " \[' git log commit buffers', 'Glog --'],
-    " \[' git log current file', 'Glog -- %'],
-    " \[' git log last n commits', 'exe "Glog -" input("num: ")'],
-    " \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
-    " \[' git log until date', 'exe "Glog --until=" input("day: ")'],
-    " \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
-    " \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
+  " let s:menus.git.command_candidates = [
+  "   \[' git status', 'Gstatus'],
+  "   \[' git diff', 'Gvdiff'],
+  "   \[' git commit', 'Gcommit'],
+  "   \[' git stage/add', 'Gwrite'],
+  "   \[' git checkout', 'Gread'],
+  "   \[' git rm', 'Gremove'],
+  "   \[' git cd', 'Gcd'],
+  "   \[' git push', 'exe "Git! push " input("remote/branch: ")'],
+  "   \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
+  "   \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
+  "   \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
+  "   \[' git fetch', 'Gfetch'],
+  "   \[' git merge', 'Gmerge'],
+  "   \[' git browse', 'Gbrowse'],
+  "   \[' git blame', 'Gblame'],
+  "   \[' git head', 'Gedit HEAD^'],
+  "   \[' git parent', 'edit %:h'],
+  "   \[' git branch', 'Denite gitbranch'],
+  "   \[' git log current file', 'Denite gitlog:file'],
+  "   \[' git log current repository', 'GV'],
+  "   \[' git log search by word', 'exe "GV -S " input("word: ")'],
+  "   \[' git manage by visualization', 'Magit'],
+  "   \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
+  "   \[' git mv', 'exe "Gmove " input("destination: ")'],
+  "   \[' git grep',  'exe "Ggrep " input("string: ")'],
+  "   \[' git prompt', 'exe "Git! " input("command: ")'],
+  "   \] " Append ' --' after log to get commit info commit buffers
+  "   " \[' git log commit buffers', 'Glog --'],
+  "   " \[' git log current file', 'Glog -- %'],
+  "   " \[' git log last n commits', 'exe "Glog -" input("num: ")'],
+  "   " \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
+  "   " \[' git log until date', 'exe "Glog --until=" input("day: ")'],
+  "   " \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
+  "   " \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
 
 "}}}
 
