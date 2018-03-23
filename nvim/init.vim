@@ -212,6 +212,10 @@ endif
   set shortmess=atIc
   set isfname-==
 
+  "" Use modeline overrides
+  set modeline
+  set modelines=10
+
   "" Fix backspace indent
   set backspace=indent,eol,start
 
@@ -270,8 +274,8 @@ endif
 " Move around 'normal mode'
   noremap H ^
   noremap L g_
-  nnoremap J 5j
-  nnoremap K 5k
+  nnoremap <silent>J 5j
+  nnoremap <silent>K 5k
 
 " Move visual block 'visual mode'
   vnoremap J :m '>+1<CR>gv=gv
@@ -520,7 +524,7 @@ endif
 
   " --------------------------  Javascript  ---------------------------------{{{
 
-      augroup vimrc-javascript
+      augroup javascript
         autocmd!
         autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
       augroup END
@@ -546,7 +550,7 @@ endif
 
   "}}}
 
-                          " Python  -------------------------------------{{{
+  " --------------------------  Python  -------------------------------------{{{
 
       let python_highlight_all = 1
       " let g:jedi#auto_vim_configuration = 0
@@ -555,11 +559,15 @@ endif
 
   "}}}
 
-                          " Typescript  ---------------------------------{{{
+  " --------------------------  Typescript  ---------------------------------{{{
 
-      augroup vimrc-typescript
+      augroup typescript
         autocmd!
         autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
+        autocmd FileType typescript map <silent> <leader>td :TSDoc <cr>
+        autocmd FileType typescript map <silent> <leader>tt :TSType <cr>
+        autocmd FileType typescript map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
+        autocmd FileType typescript map <silent> <leader># :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
       augroup END
 
       " autocmd FileType typescript setl omnifunc=TSComplete
@@ -569,11 +577,6 @@ endif
       " let g:nvim_typescript#default_mappings=1
       " let g:nvim_typescript#type_info_on_hold=1
       " let g:nvim_typescript#javascript_support=1
-
-      map <silent> <leader>gd :TSDoc <cr>
-      map <silent> <leader>gt :TSType <cr>
-      map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
-      map <silent> <leader># :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
 
       let g:nvim_typescript#kind_symbols = {
           \ 'keyword': 'keyword',
@@ -621,16 +624,16 @@ endif
 
   "}}}
 
-                          " MarkDown  -----------------------------------{{{
+  " --------------------------  MarkDown  -----------------------------------{{{
 
-      noremap <leader>TM :TableModeToggle<CR>
+      autocmd FileType markdown noremap <leader>TM :TableModeToggle<CR>
       let g:table_mode_corner="|"
       let g:markdown_fold_override_foldtext = 0
       let g:markdown_syntax_conceal = 0
 
   "}}}
 
-                          " HTML  ---------------------------------------{{{
+  " --------------------------  HTML  ---------------------------------------{{{
 
       " let g:neomake_html_enabled_makers = []
       " let g:neoformat_enabled_html = ['htmlbeautify']
@@ -733,8 +736,8 @@ endif
               \ 'force_hide' : 0,
               \ })
   augroup vfinit
-  autocmd FileType vimfiler call s:vimfilerinit()
-  autocmd FileType unite call s:uniteinit()
+    autocmd FileType vimfiler call s:vimfilerinit()
+    autocmd FileType unite call s:uniteinit()
   augroup END
   function! s:uniteinit()
     nmap <buffer> <Esc> <Plug>(unite_exit)
@@ -766,8 +769,8 @@ endif
       nunmap <buffer> K
       nunmap <buffer> J
   endf
-  " let NERDTreeShowHidden=1
-  let g:NERDTreeWinSize=40
+  let NERDTreeShowHidden=1
+  let g:NERDTreeWinSize=35
   let NERDTreeMinimalUI=1
   let NERDTreeHijackNetrw=1
   let NERDTreeCascadeSingleChildDir=0
@@ -957,7 +960,7 @@ endif
         \ 'winheight': 13,
         \ 'updatetime': 100,
         \ 'auto_resize': 0,
-        \ 'highlight_matched_char': 'Underlined',
+        \ 'highlight_matched_char': 'Character',
         \ 'highlight_mode_normal': 'CursorLine',
         \ 'reversed': 1,
         \ 'smartcase': 1,
@@ -1015,10 +1018,14 @@ endif
 
 " Unite  ------------------------------------------------------------------{{{
 
+  let g:unite_winheight = 10
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  call unite#filters#sorter_default#use(['sorter_rank'])
+
   let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
+
   let g:unite_source_menu_menus.git = {
-      \ 'description' : ' Git Interface
-      \                            [<leader>g]',
+      \ 'description' : ' Git Interface'
       \}
   let g:unite_source_menu_menus.git.command_candidates = [
       \[' git status', 'Gstatus'],
