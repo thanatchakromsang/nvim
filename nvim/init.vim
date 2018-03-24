@@ -91,8 +91,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('chemzqm/denite-git')
   call dein#add('chemzqm/denite-extra')
-  call dein#add('pocari/vim-denite-gists')
-  call dein#add('neoclide/todoapp.vim')
 
   " call dein#add('tweekmonster/deoplete-clang2')
   " call dein#add('artur-shaik/vim-javacomplete2')
@@ -123,18 +121,13 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Shougo/vimfiler.vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('junegunn/gv.vim')
-  " call dein#local('~/GitHub', {},['vim-folds'])
-  " call dein#local('~/GitHub', {},['oceanic-next'])
   call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('junegunn/goyo.vim')
   call dein#add('amix/vim-zenroom2')
-  " call dein#local('~/GitHub', {}, ['ionic-snippets'])
   call dein#add('euclio/vim-markdown-composer', {'build': 'cargo build --release'})
   call dein#add('sjl/vitality.vim')
-  " Tree visualizer
-  call dein#add('sjl/gundo.vim')
   call dein#add('drzel/vim-line-no-indicator')
   call dein#add('Quramy/vison')
   call dein#add('ryanoasis/vim-devicons')
@@ -626,7 +619,7 @@ endif
 
   " --------------------------  MarkDown  -----------------------------------{{{
 
-      autocmd FileType markdown noremap <leader>TM :TableModeToggle<CR>
+      autocmd FileType markdown noremap <leader>tm :TableModeToggle<CR>
       let g:table_mode_corner="|"
       let g:markdown_fold_override_foldtext = 0
       let g:markdown_syntax_conceal = 0
@@ -952,7 +945,7 @@ endif
 
 "}}}
 
-" Denite --------------------------------------------------------------------{{{
+" Denite  -------------------------------------------------------------------{{{
 
   let s:menus = {}
   call denite#custom#option('_', {
@@ -961,7 +954,7 @@ endif
         \ 'updatetime': 100,
         \ 'auto_resize': 0,
         \ 'highlight_matched_char': 'Character',
-        \ 'highlight_mode_normal': 'CursorLine',
+        \ 'highlight_matched_range': 'Character',
         \ 'reversed': 1,
         \ 'smartcase': 1,
         \})
@@ -1000,9 +993,9 @@ endif
       nnoremap <silent> <leader>u :call dein#update()<CR>
 
       " Replaced by Unite
-      " nnoremap <silent> <leader>m :Denite menu:commands<CR>
-      " nnoremap <silent> <leader>g :Denite menu:git<CR>
-      nnoremap <silent> <leader>g :Unite -silent -start-insert menu:git<CR>
+      nnoremap <silent> <leader>m :Denite menu:commands<CR>
+      nnoremap <silent> <leader>g :Denite menu:git<CR>
+      " nnoremap <silent> <leader>g :Unite -silent -start-insert menu:git<CR>
 
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
@@ -1016,102 +1009,102 @@ endif
 
 "}}}
 
-" Unite  ------------------------------------------------------------------{{{
+"" Unite  -------------------------------------------------------------------{{{
 
-  let g:unite_winheight = 10
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  call unite#filters#sorter_default#use(['sorter_rank'])
+"  let g:unite_winheight = 10
+"  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"  call unite#filters#sorter_default#use(['sorter_rank'])
 
-  let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
+"  let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
 
-  let g:unite_source_menu_menus.git = {
-      \ 'description' : ' Git Interface'
-      \}
-  let g:unite_source_menu_menus.git.command_candidates = [
-      \[' git status', 'Gstatus'],
-      \[' git diff', 'Gvdiff'],
-      \[' git commit', 'Gcommit'],
-      \[' git stage/add', 'Gwrite'],
-      \[' git checkout', 'Gread'],
-      \[' git rm', 'Gremove'],
-      \[' git cd', 'Gcd'],
-      \[' git push', 'exe "Git! push " input("remote/branch: ")'],
-      \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
-      \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
-      \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
-      \[' git fetch', 'Gfetch'],
-      \[' git merge', 'Gmerge'],
-      \[' git browse', 'Gbrowse'],
-      \[' git blame', 'Gblame'],
-      \[' git head', 'Gedit HEAD^'],
-      \[' git parent', 'edit %:h'],
-      \[' git branch', 'Denite gitbranch'],
-      \[' git log current file', 'Denite gitlog:file'],
-      \[' git log current repository', 'GV'],
-      \[' git log search by word', 'exe "GV -S " input("word: ")'],
-      \[' git manage by visualization', 'Magit'],
-      \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
-      \[' git mv', 'exe "Gmove " input("destination: ")'],
-      \[' git grep',  'exe "Ggrep " input("string: ")'],
-      \[' git prompt', 'exe "Git! " input("command: ")']
-      \]
+"  let g:unite_source_menu_menus.git = {
+"      \ 'description' : ' Git Interface'
+"      \}
+"  let g:unite_source_menu_menus.git.command_candidates = [
+"      \[' git status', 'Gstatus'],
+"      \[' git diff', 'Gvdiff'],
+"      \[' git commit', 'Gcommit'],
+"      \[' git stage/add', 'Gwrite'],
+"      \[' git checkout', 'Gread'],
+"      \[' git rm', 'Gremove'],
+"      \[' git cd', 'Gcd'],
+"      \[' git push', 'exe "Git! push " input("remote/branch: ")'],
+"      \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
+"      \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
+"      \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
+"      \[' git fetch', 'Gfetch'],
+"      \[' git merge', 'Gmerge'],
+"      \[' git browse', 'Gbrowse'],
+"      \[' git blame', 'Gblame'],
+"      \[' git head', 'Gedit HEAD^'],
+"      \[' git parent', 'edit %:h'],
+"      \[' git branch', 'Denite gitbranch'],
+"      \[' git log current file', 'Denite gitlog:file'],
+"      \[' git log current repository', 'GV'],
+"      \[' git log search by word', 'exe "GV -S " input("word: ")'],
+"      \[' git manage by visualization', 'Magit'],
+"      \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
+"      \[' git mv', 'exe "Gmove " input("destination: ")'],
+"      \[' git grep',  'exe "Ggrep " input("string: ")'],
+"      \[' git prompt', 'exe "Git! " input("command: ")']
+"      \]
 
-"}}}
+""}}}
 
 " Denite : Git  -------------------------------------------------------------{{{
 
-  " let s:menus.git = {
-  "   \ 'description' : 'Git interface',
-  "   \}
+  let s:menus.git = {
+    \ 'description' : 'Git interface',
+    \}
 
-  " let s:menus.git.command_candidates = [
-  "   \[' git status', 'Gstatus'],
-  "   \[' git diff', 'Gvdiff'],
-  "   \[' git commit', 'Gcommit'],
-  "   \[' git stage/add', 'Gwrite'],
-  "   \[' git checkout', 'Gread'],
-  "   \[' git rm', 'Gremove'],
-  "   \[' git cd', 'Gcd'],
-  "   \[' git push', 'exe "Git! push " input("remote/branch: ")'],
-  "   \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
-  "   \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
-  "   \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
-  "   \[' git fetch', 'Gfetch'],
-  "   \[' git merge', 'Gmerge'],
-  "   \[' git browse', 'Gbrowse'],
-  "   \[' git blame', 'Gblame'],
-  "   \[' git head', 'Gedit HEAD^'],
-  "   \[' git parent', 'edit %:h'],
-  "   \[' git branch', 'Denite gitbranch'],
-  "   \[' git log current file', 'Denite gitlog:file'],
-  "   \[' git log current repository', 'GV'],
-  "   \[' git log search by word', 'exe "GV -S " input("word: ")'],
-  "   \[' git manage by visualization', 'Magit'],
-  "   \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
-  "   \[' git mv', 'exe "Gmove " input("destination: ")'],
-  "   \[' git grep',  'exe "Ggrep " input("string: ")'],
-  "   \[' git prompt', 'exe "Git! " input("command: ")'],
-  "   \] " Append ' --' after log to get commit info commit buffers
-  "   " \[' git log commit buffers', 'Glog --'],
-  "   " \[' git log current file', 'Glog -- %'],
-  "   " \[' git log last n commits', 'exe "Glog -" input("num: ")'],
-  "   " \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
-  "   " \[' git log until date', 'exe "Glog --until=" input("day: ")'],
-  "   " \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
-  "   " \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
+  let s:menus.git.command_candidates = [
+    \[' [1]  ❯ :Magit                             | git status', 'Magit'],
+    \[' [2]  ❯ :Gvdiff                            | git diff', 'Gvdiff'],
+    \[' [3]  ❯ :Gcommit                           | git commit', 'Gcommit'],
+    \[' [4]  ❯ :Gwrite                            | git stage/add', 'Gwrite'],
+    \[' [5]  ❯ :Gread                             | git checkout', 'Gread'],
+    \[' [6]  ❯ :Gremove                           | git rm', 'Gremove'],
+    \[' [7]  ❯ :Gcd                               | git cd', 'Gcd'],
+    \[' [8]  ❯ :Git! push (current branch)        | git push current directory', 'Git! push'],
+    \[' [9]  ❯ :Git! push (pick branch)           | git push (remote/branch:)', 'exe "Git! push " input("remote/branch: ")'],
+    \[' [10] ❯ :Git! pull (current branch)        | git pull current directory', 'Git! pull'],
+    \[' [11] ❯ :Git! pull (pick branch)           | git pull (remote/branch:)', 'exe "Git! pull " input("remote/branch: ")'],
+    \[' [12] ❯ :Git! checkout (pick branch)       | git checkout (remote/branch:)', 'exe "Git! checkout " input("branch: ")'],
+    \[' [13] ❯ :Gfetch                            | git fetch', 'Gfetch'],
+    \[' [14] ❯ :Gmerge                            | git merge', 'Gmerge'],
+    \[' [15] ❯ :Gbrowse                           | git browse', 'Gbrowse'],
+    \[' [16] ❯ :Gblame                            | git blame', 'Gblame'],
+    \[' [17] ❯ :Gedit HEAD^                       | git head', 'Gedit HEAD^'],
+    \[' [18] ❯ :Denite gitbranch                  | git branch', 'Denite gitbranch'],
+    \[' [19] ❯ :Denite gitlog:file                | git log current file', 'Denite gitlog:file'],
+    \[' [20] ❯ :GV                                | git log current repository', 'GV'],
+    \[' [21] ❯ :Gmove (pick destination)          | git mv', 'exe "Gmove " input("destination: ")'],
+    \[' [21] ❯ :Git! (input)                      | git prompt', 'exe "Git! " input("command: ")'],
+    \[' [22] ❯ :Glog                              | git log last commit', 'Glog --'],
+    \] " Append ' --' after log to get commit info commit buffers
+    " \[' git log current file', 'Glog -- %'],
+    " \[' git log last n commits', 'exe "Glog -" input("num: ")'],
+    " \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
+    " \[' git log until date', 'exe "Glog --until=" input("day: ")'],
+    " \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
+    " \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
 
 "}}}
 
 " Denite : General  ---------------------------------------------------------{{{
 
   let s:menus.commands = {
-    \ 'description' : 'General purpose command',
+    \ 'description' : 'General command',
     \}
   let s:menus.commands.command_candidates = [
-    \[' colorscheme', 'Denite colorscheme'],
-    \[' indent line toggle', 'IndentLinesToggle'],
-    \[' leading space toggle', 'LeadingSpaceToggle'],
-    \[' dim light mode toggle', 'Limelight!!'],
+    \[' [1]  ❯ :Gist                 | Upload current file to gist.github', 'Gist'],
+    \[' [2]  ❯ :Limelight!!          | Dim surrounding light', 'Limelight!!'],
+    \[' [3]  ❯ :Goyo                 | Toggle Focus mode', 'Goyo'],
+    \[' [4]  ❯ :LeadingSpaceToggle   | Toggle leading dots', 'LeadingSpaceToggle'],
+    \[' [5]  ❯ :IndentLinesToggle    | Toggle indent line', 'IndentLinesToggle'],
+    \[' [6]  ❯ :colorscheme          | Change colourscheme', 'Denite colorscheme'],
+    \[' [7]  ❯ :Note                 | Open untitled note', 'Note'],
+    \[' [8]  ❯ :TableModeToggle      | Toggle table mode markdown                ⌘ => [,][t][m]', 'TableModeToggle'],
     \]
 
 "}}}
