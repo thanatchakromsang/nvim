@@ -125,7 +125,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '0x282a35'
+    black: '0x4C566A'
     red:     '0xff6e67'
     green:   '0x5af78e'
     yellow:  '0xf4f99d'
@@ -172,7 +172,7 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.9
+background_opacity: 0.96
 
 # Mouse bindings
 #
