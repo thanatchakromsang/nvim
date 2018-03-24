@@ -23,7 +23,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('othree/yajs.vim')
   call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
   call dein#add('moll/vim-node')
-  call dein#add('othree/es.next.syntax.vim')
+  call dein#add('othree/es.next.syntax.vim', {'on_ft': ['javascript.jsx', 'javascript']})
   call dein#add('mxw/vim-jsx')
 
   call dein#add('xolox/vim-misc')
@@ -353,6 +353,7 @@ endif
   "Tagbar
   nmap <silent> <F4> :TagbarToggle<CR>
   let g:tagbar_autofocus = 1
+  let g:tagbar_left = 1
 
 "}}}"
 
@@ -770,6 +771,7 @@ endif
   let NERDTreeCascadeOpenSingleChildDir=0
   let g:NERDTreeAutoDeleteBuffer=1
   let g:NERDTreeChDirMode=2
+  let g:NERDTreeWinPos="right"
   let g:NERDTreeShowIgnoredStatus = 0
   let NERDTreeAutoDeleteBuffer = 1
   let NERDTreeQuitOnOpen = 1
@@ -939,12 +941,6 @@ endif
 
 "}}}
 
-" Git  ----------------------------------------------------------------------{{{
-
-  " let g:gitgutter_max_signs = 1000
-
-"}}}
-
 " Denite  -------------------------------------------------------------------{{{
 
   let s:menus = {}
@@ -1097,28 +1093,15 @@ endif
     \ 'description' : 'General command',
     \}
   let s:menus.commands.command_candidates = [
-    \[' [1]  ❯ :Gist                 | Upload current file to gist.github', 'Gist'],
-    \[' [2]  ❯ :Limelight!!          | Dim surrounding light', 'Limelight!!'],
-    \[' [3]  ❯ :Goyo                 | Toggle Focus mode', 'Goyo'],
-    \[' [4]  ❯ :LeadingSpaceToggle   | Toggle leading dots', 'LeadingSpaceToggle'],
-    \[' [5]  ❯ :IndentLinesToggle    | Toggle indent line', 'IndentLinesToggle'],
-    \[' [6]  ❯ :colorscheme          | Change colourscheme', 'Denite colorscheme'],
-    \[' [7]  ❯ :Note                 | Open untitled note', 'Note'],
-    \[' [8]  ❯ :TableModeToggle      | Toggle table mode markdown                ⌘ => [,][t][m]', 'TableModeToggle'],
+    \[' [1]  ❯ :Gist                              | Upload current file to gist.github', 'Gist'],
+    \[' [2]  ❯ :Limelight!!                       | Dim surrounding light', 'Limelight!!'],
+    \[' [3]  ❯ :Goyo                              | Toggle Focus mode', 'Goyo'],
+    \[' [4]  ❯ :LeadingSpaceToggle                | Toggle leading dots', 'LeadingSpaceToggle'],
+    \[' [5]  ❯ :IndentLinesToggle                 | Toggle indent line', 'IndentLinesToggle'],
+    \[' [6]  ❯ :colorscheme                       | Change colourscheme', 'Denite colorscheme'],
+    \[' [7]  ❯ :Note                              | Open untitled note', 'Note'],
+    \[' [8]  ❯ :TableModeToggle       ⌘ [,][t][m] | Toggle table mode markdown', 'TableModeToggle'],
     \]
-
-"}}}
-
-" Denite : Dotfiles  --------------------------------------------------------{{{
-
-  let s:menus.dotfiles = {
-    \ 'description' : 'Edit your dotfiles config',
-    \}
-
-	let s:menus.dotfiles.file_candidates = [
-		\ ['zshrc', '~/.dotfiles/zsh/zshrc'],
-		\ ['nvim', '~/.dotfiles/nvim/init.vim'],
-		\ ]
 
 "}}}
 
