@@ -239,6 +239,14 @@ endif
   cnoreabbrev Q q
   cnoreabbrev Qall qall
 
+" Command history
+  nnoremap q: <nop>
+  nnoremap q/ <nop>
+  nnoremap q? <nop>
+  " nnoremap Q: q:
+  " nnoremap Q/ q/
+  " nnoremap Q? q?
+
 " No need for ex mode
   nnoremap Q <nop>
   vnoremap // y/<C-R>"<CR>
@@ -460,11 +468,11 @@ endif
 
   " Matchtag Always  -----------------------------------------------------{{{
 
-      let g:mta_filetypes = {
-          \ 'html' : 1,
-          \ 'xhtml' : 1,
-          \ 'xml' : 1,
-          \}
+      " let g:mta_filetypes = {
+      "     \ 'html' : 1,
+      "     \ 'xhtml' : 1,
+      "     \ 'xml' : 1,
+      "     \}
 
   "}}}
 
@@ -629,8 +637,8 @@ endif
 
   " --------------------------  HTML  ---------------------------------------{{{
 
-      " let g:neomake_html_enabled_makers = []
-      " let g:neoformat_enabled_html = ['htmlbeautify']
+      let g:neomake_html_enabled_makers = []
+      let g:neoformat_enabled_html = ['htmlbeautify']
 
   "}}}
 
@@ -663,7 +671,6 @@ endif
         \ 'javascript': ['eslint'],
         \ 'typescript': ['tslint', 'tsserver'],
         \ 'python': ['yapf'],
-        \ 'html': ['proselint'],
         \ 'css': ['stylelint'],
         \ 'markdown': ['alex', 'proselint'],
         \ }
@@ -672,7 +679,6 @@ endif
         \ 'javascript': ['eslint'],
         \ 'typescript': ['tslint'],
         \ 'python': ['yapf'],
-        \ 'html': ['proselint'],
         \ 'css': ['stylelint'],
         \ }
 
@@ -1062,10 +1068,10 @@ endif
     \[' [6]  ❯ :Gremove                           | git rm', 'Gremove'],
     \[' [7]  ❯ :Gcd                               | git cd', 'Gcd'],
     \[' [8]  ❯ :Git! push (current branch)        | git push current directory', 'Git! push'],
-    \[' [9]  ❯ :Git! push (pick branch)           | git push (remote/branch:)', 'exe "Git! push " input("remote/branch: ")'],
+    \[' [9]  ❯ :Git! push (pick branch)           | git push (remote/branch:)', 'exe "Git! push " input("Push remote/branch: ")'],
     \[' [10] ❯ :Git! pull (current branch)        | git pull current directory', 'Git! pull'],
-    \[' [11] ❯ :Git! pull (pick branch)           | git pull (remote/branch:)', 'exe "Git! pull " input("remote/branch: ")'],
-    \[' [12] ❯ :Git! checkout (pick branch)       | git checkout (remote/branch:)', 'exe "Git! checkout " input("branch: ")'],
+    \[' [11] ❯ :Git! pull (pick branch)           | git pull (remote/branch:)', 'exe "Git! pull " input("Pull remote/branch: ")'],
+    \[' [12] ❯ :Git! checkout (pick branch)       | git checkout (branch:)', 'exe "Git! checkout " input("Checkout branch: ")'],
     \[' [13] ❯ :Gfetch                            | git fetch', 'Gfetch'],
     \[' [14] ❯ :Gmerge                            | git merge', 'Gmerge'],
     \[' [15] ❯ :Gbrowse                           | git browse', 'Gbrowse'],
@@ -1074,8 +1080,8 @@ endif
     \[' [18] ❯ :Denite gitbranch                  | git branch', 'Denite gitbranch'],
     \[' [19] ❯ :Denite gitlog:file                | git log current file', 'Denite gitlog:file'],
     \[' [20] ❯ :GV                                | git log current repository', 'GV'],
-    \[' [21] ❯ :Gmove (pick destination)          | git mv', 'exe "Gmove " input("destination: ")'],
-    \[' [21] ❯ :Git! (input)                      | git prompt', 'exe "Git! " input("command: ")'],
+    \[' [21] ❯ :Gmove (pick destination)          | git mv', 'exe "Gmove " input("Move destination: ")'],
+    \[' [21] ❯ :Git! (input)                      | git prompt', 'exe "Git! " input("Git command: ")'],
     \[' [22] ❯ :Glog                              | git log last commit', 'Glog --'],
     \] " Append ' --' after log to get commit info commit buffers
     " \[' git log current file', 'Glog -- %'],
@@ -1101,6 +1107,8 @@ endif
     \[' [6]  ❯ :colorscheme                       | Change colourscheme', 'Denite colorscheme'],
     \[' [7]  ❯ :Note                              | Open untitled note', 'Note'],
     \[' [8]  ❯ :TableModeToggle       ⌘ [,][t][m] | Toggle table mode markdown', 'TableModeToggle'],
+    \[' [9]  ❯ :RecentNotes                       | Open recent note', 'RecentNotes'],
+    \[' [10] ❯ :SearchNotes                       | Search note by word', 'exe "SearchNotes " input("SearchNotes: ")'],
     \]
 
 "}}}
