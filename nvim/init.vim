@@ -48,7 +48,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
   call dein#add('tmux-plugins/vim-tmux')
   " call dein#add('itmammoth/doorboy.vim')
-  call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
+  " call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
 
