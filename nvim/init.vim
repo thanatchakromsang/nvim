@@ -18,6 +18,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('dracula/vim')
   " call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar')
+  call dein#add('ludovicchabant/vim-gutentags')
 "' syntax
   call dein#add('othree/html5.vim')
   call dein#add('othree/yajs.vim')
