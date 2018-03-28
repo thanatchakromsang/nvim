@@ -445,9 +445,9 @@ endif
     let g:airline_symbols.readonly = ''
 
     " powerline symbols
-    let g:airline_left_sep = ''
+    let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
+    let g:airline_right_sep = ''
     let g:airline_right_alt_sep = ''
 
     let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
@@ -540,7 +540,8 @@ endif
       " let g:tern#command = ['tern']
       " let g:tern#arguments = ['--persistent']
       " let g:tern_map_keys=1
-
+      "
+      let g:deoplete#sources#ternjs#tern_bin = 'tern'
       let g:deoplete#sources#ternjs#filetypes = [
                 \ 'jsx',
                 \ 'javascript.jsx',
