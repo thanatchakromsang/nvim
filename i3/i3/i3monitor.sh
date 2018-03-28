@@ -15,7 +15,7 @@ case "$2" in
         xrandr --output $EXTERN --off --output $EXTERN2 --off --output $INTERN --auto
         sh $HOME/.config/i3/wallpaper single
         i3-msg restart
-        xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
+        xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 1
         ;;
     extern)
         xrandr --output $EXTERN --auto --output $EXTERN2 --off --output $INTERN --off
