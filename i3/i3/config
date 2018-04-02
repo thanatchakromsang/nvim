@@ -50,8 +50,8 @@ focus_follows_mouse no
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 2
-new_float pixel 2
+new_window pixel 1
+new_float pixel 1
 
 # Hide borders
 hide_edge_borders none
@@ -93,9 +93,6 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+Return floating toggle
 
 # change focus between tiling / floating windows
 # bindsym $mod+Shift+Return focus mode_toggle
@@ -169,7 +166,13 @@ bindsym $mod+F3 exec "xbacklight -inc 3"
 ### Scratch pad binding ###
 ###########################
 
+# toggle tiling / floating
+bindsym $mod+Shift+Return floating toggle
+
+# move to scratchpad
 bindsym $mod+Shift+x move scratchpad
+
+# toggle scratchpad
 bindsym $mod+x scratchpad show
 
 ## put terminal into scratchpad
@@ -205,9 +208,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ################################################
 ### Open applications on specific workspaces ###
 ################################################
-assign [class="Code - OSS" instance="^code - oss"] $ws3
+assign [class="Code" instance="^code"] $ws3
 assign [class="Alacritty" title="^Coding"] $ws3
-assign [class="Coding" instance="^Coding"] $ws3
+assign [class="Coding" instance="^Coding"] $ws1
 assign [class="discord" instance="discord"] $ws4
 assign [class="Slack" instance="slack"] $ws4
 assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
