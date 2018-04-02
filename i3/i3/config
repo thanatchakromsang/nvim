@@ -205,7 +205,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ################################################
 ### Open applications on specific workspaces ###
 ################################################
-assign [class="Code" instance="^code"] $ws3
+assign [class="Code - OSS" instance="^code - oss"] $ws3
 assign [class="Alacritty" title="^Coding"] $ws3
 assign [class="Coding" instance="^Coding"] $ws3
 assign [class="discord" instance="discord"] $ws4

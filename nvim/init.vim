@@ -18,8 +18,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('dracula/vim')
   " call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar')
-  call dein#add('ludovicchabant/vim-gutentags')
-"' syntax
+" syntax
+  " call dein#add('sheerun/vim-polyglot')
   call dein#add('othree/html5.vim')
   call dein#add('othree/yajs.vim')
   call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
@@ -133,6 +133,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Quramy/vison')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('junegunn/fzf')
+  " call dein#add('justinmk/vim-sneak')
   call dein#add('jiangmiao/auto-pairs')
   if dein#check_install()
     call dein#install()
@@ -360,7 +361,7 @@ endif
   let g:AutoPairsShortcutFastWrap = '<M-e>'
 
   "Tagbar
-  nmap <silent> <F4> :TagbarToggle<CR>
+  nmap <silent> <F3> :TagbarToggle<CR>
   let g:tagbar_autofocus = 1
   let g:tagbar_left = 1
 
@@ -377,7 +378,7 @@ endif
   " IndentLine  ----------------------------------------------------------{{{
 
       let g:indentLine_enabled = 1
-      let g:indentLine_leadingSpaceEnabled = 1
+      " let g:indentLine_leadingSpaceEnabled = 1
       let g:indentLine_concealcursor = 'inc'
       let g:indentLine_conceallevel = 2
       let g:indentLine_char = '¦'
@@ -524,6 +525,16 @@ endif
 "}}}
 
 " Programing language settings  ---------------------------------------------{{{
+
+  " --------------------------  Polyglot  -----------------------------------{{{
+
+  " let g:polyglot_disabled = [
+  "       \ 'javascript',
+  "       \ 'python',
+  "       \ 'typescript'
+  "       \ ]
+
+  "}}}
 
   " --------------------------  Javascript  ---------------------------------{{{
 
@@ -991,7 +1002,11 @@ endif
       call denite#custom#var('grep', 'final_opts', [])
 
       nnoremap <silent> <leader>e :Denite file_rec<CR>
+      nnoremap <silent> <C-p> :Denite file_rec<CR>
+
       nnoremap <silent> <leader>f :Denite grep:::!<CR>
+      nnoremap <silent> <F4> :Denite grep:::!<CR>
+
       nnoremap <silent> <leader>h :Denite help<CR>
       nnoremap <silent>  B :Denite buffer<CR>
       nnoremap <silent> <leader>u :call dein#update()<CR>
