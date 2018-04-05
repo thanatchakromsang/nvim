@@ -581,8 +581,8 @@ endif
         autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
         autocmd FileType typescript map <silent> <leader>td :TSDoc <cr>
         autocmd FileType typescript map <silent> <leader>tt :TSType <cr>
-        autocmd FileType typescript map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
-        autocmd FileType typescript map <silent> <leader># :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
+        autocmd FileType typescript map <silent> <leader>r :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
+        autocmd FileType typescript map <silent> <leader>t :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
       augroup END
 
       " autocmd FileType typescript setl omnifunc=TSComplete
