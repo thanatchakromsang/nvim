@@ -12,6 +12,9 @@
   "editor.lightbulb.enabled": false,
   "editor.minimap.enabled": false,
   "editor.snippetSuggestions": "inline",
+  "editor.renderLineHighlight": "line",
+  "editor.selectionHighlight": false,
+  "editor.lineNumbers": "relative",
   // Workbench
   "workbench.colorTheme": "Dracula Soft",
   "workbench.activityBar.visible": false,
@@ -25,6 +28,143 @@
   "window.zoomLevel": 0,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "toggle",
+  // Vim
+  "vim.cmdLineInitialColon": true,
+  "vim.easymotion": true,
+  "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
+  "vim.easymotionMarkerFontFamily": "MesloLGM Nerd Font mono",
+  "vim.enableNeovim": true,
+  "vim.handleKeys": {
+    "<C-f>": false,
+    "<C-d>": true,
+    "<C-u>": true,
+  },
+  "vim.foldfix": false,
+  "vim.leader": ",",
+  "vim.scroll": 10,
+  "vim.sneak": true,
+  "vim.textwidth": 100,
+  "vim.useSystemClipboard": true,
+  "vim.incsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "r"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.gotoSymbol"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "t"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.showAllSymbols"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "s",
+        "h"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.terminal.toggleTerminal"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "f"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.findInFiles"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen"
+        }
+      ]
+    },
+  ],
+  // Scrolloff (vim-like behavior)
+  "scrolloff.scrolloff": 5,
+  // Files
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -43,4 +183,62 @@
   // Terminal
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.fontWeightBold": "normal",
+  // Git lens
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.blame.format": "${id|8-} ${author|25?} ${agoOrDate|14-}",
+  "gitlens.blame.heatmap.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.defaultDateStyle": "absolute",
+  "gitlens.keymap": "none",
+  "gitlens.historyExplorer.enabled": false,
+  "gitlens.codeLens.scopes": [
+    "document",
+    "containers"
+  ],
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm:ss",
+  "gitlens.explorers.avatars": false,
+  "gitlens.blame.avatars": false,
+  "gitlens.blame.compact": false,
+  "gitlens.blame.highlight.locations": [
+    "gutter",
+  ],
+  "gitlens.hovers.annotations.over": "annotation",
+  "gitlens.hovers.annotations.details": false,
+  "gitlens.recentChanges.highlight.locations": [
+    "line",
+    "gutter",
+    "overview"
+  ],
+  "gitlens.statusBar.reduceFlicker": true,
+  "gitlens.statusBar.format": "${authorAgo}",
+  // Linter
+  // // Typescript
+  "tslint.autoFixOnSave": true,
+  "tslint.run": "onSave",
+  // // Javascript
+  "eslint.autoFixOnSave": true,
+  "eslint.run": "onSave",
+  "prettier.eslintIntegration": true,
+  // Emmet
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html"
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  // Project manager
+  "projectManager.projectsLocation": "$home",
+  // NPM
+  "npm-intellisense.showBuildInLibs": true
 }
