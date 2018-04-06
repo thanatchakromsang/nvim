@@ -8,7 +8,7 @@
     {
         "key": "f2",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "explorerViewletFocus"
+        "when": "explorerViewletVisible"
     },
     {
         "key": "ctrl+b",
