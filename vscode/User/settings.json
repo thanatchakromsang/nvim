@@ -28,6 +28,12 @@
   "window.zoomLevel": 0,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "toggle",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#000000",
+    "statusBar.noFolderBackground": "#222222",
+    "statusBar.debuggingBackground": "#222222",
+    "statusBar.foreground": "#ffffff"
+  },
   // Vim
   "vim.cmdLineInitialColon": true,
   "vim.easymotion": true,
@@ -58,6 +64,8 @@
     }
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
+    // gh - show the hover tooltip.
+    // gb - add an additional cursor at the next place that matches *
     {
       "before": [
         "j"
@@ -161,6 +169,17 @@
         }
       ]
     },
+    {
+      "before": [
+        "leader",
+        "v"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.spiltEditor"
+        }
+      ]
+    },
   ],
   // Scrolloff (vim-like behavior)
   "scrolloff.scrolloff": 5,
@@ -240,5 +259,5 @@
   // Project manager
   "projectManager.projectsLocation": "$home",
   // NPM
-  "npm-intellisense.showBuildInLibs": true
+  "npm-intellisense.showBuildInLibs": true,
 }
