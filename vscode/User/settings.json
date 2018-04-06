@@ -259,7 +259,6 @@
     "vue-html": "html"
   },
   "emmet.showSuggestionsAsSnippets": true,
-  // Project manager
   // NPM
   "npm-intellisense.showBuildInLibs": true,
   "cSpell.language": "en",
