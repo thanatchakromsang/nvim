@@ -1097,7 +1097,6 @@ endif
     \[' [18] ❯ :Denite gitbranch                  | git branch', 'Denite gitbranch'],
     \[' [19] ❯ :Denite gitlog:file                | git log current file', 'Denite gitlog:file'],
     \[' [20] ❯ :GV                                | git log current repository', 'GV'],
-    \[' [21] ❯ :Gmove (pick destination)          | git mv', 'exe "Gmove " input("Move destination: ")'],
     \[' [21] ❯ :Git! (input)                      | git prompt', 'exe "Git! " input("Git command: ")'],
     \[' [22] ❯ :Glog                              | git log last commit', 'Glog --'],
     \] " Append ' --' after log to get commit info commit buffers
