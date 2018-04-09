@@ -133,7 +133,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Quramy/vison')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('junegunn/fzf')
-  " call dein#add('justinmk/vim-sneak')
+  call dein#add('justinmk/vim-sneak')
   call dein#add('jiangmiao/auto-pairs')
   if dein#check_install()
     call dein#install()
@@ -302,7 +302,7 @@ endif
 " if you do have a plugin that needs ;, you can just swap the mapping
 " nnoremap : ;
 " give it a try and you will like it
-  nnoremap ; :
+  " nnoremap ; :
   inoremap <c-f> <c-x><c-f>
 
 " Copy to osx clipboard
@@ -360,10 +360,14 @@ endif
   let g:AutoPairsShortcutJump = '<M-w>'
   let g:AutoPairsShortcutFastWrap = '<M-e>'
 
-  "Tagbar
+" Tagbar
   nmap <silent> <F3> :TagbarToggle<CR>
   let g:tagbar_autofocus = 1
   let g:tagbar_left = 1
+
+" Sneak
+  map s <Plug>Sneak_s
+  map S <Plug>Sneak_S
 
 "}}}"
 
@@ -521,6 +525,12 @@ endif
   " Custom ALE
     hi ALEErrorSign ctermfg=88 ctermbg=none
     hi ALEWarningSign ctermfg=228 ctermbg=none
+
+  " Search
+    hi Search ctermfg=15 ctermbg=61 cterm=NONE
+
+  " Sneak
+    hi link Sneak Search
 
 "}}}
 
@@ -1163,7 +1173,11 @@ endif
 
 " Notes   -------------------------------------------------------------------{{{
 
-  let g:notes_directories = ['~/Documents/Notes']
+  let g:otes_directories = ['~/Documents/Notes']
 
 "}}}
 
+" Sneak   -------------------------------------------------------------------{{{
+
+
+"}}}
