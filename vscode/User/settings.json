@@ -17,6 +17,7 @@
   "editor.lineNumbers": "relative",
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": true,
+  "editor.quickSuggestionsDelay": 100,
   // Workbench
   "workbench.colorTheme": "Dracula Soft",
   "workbench.activityBar.visible": false,
@@ -105,6 +106,19 @@
         "k"
       ]
     },
+    // gf behavior in vim
+    {
+      "before": [
+        "g",
+        "f"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.goToDeclaration"
+        }
+      ]
+    },
     {
       "before": [
         "leader",
@@ -182,6 +196,16 @@
           "command": "workbench.action.spiltEditor"
         }
       ]
+    },
+    {
+      "before": [
+        "leader",
+        "h"
+      ],
+      "after": [
+        "g",
+        "h"
+      ],
     },
   ],
   // Scrolloff (vim-like behavior)

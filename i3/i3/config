@@ -245,6 +245,11 @@ for_window [class="^Simplescreenrecorder$"] floating enable
 for_window [class="^Wine$"] floating enable
 for_window [class="Chromium" instance="crx_ekajjllcmeckibblgckgoceinmmgnfop"] floating enable
 
+# # gimp
+# assign [class="Gimp"] gimp
+# for_window [title="GIMP Startup"] move workspace gimp
+# for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
+
 for_window [instance="__scratchpad"] floating enable
 
 ##############################
