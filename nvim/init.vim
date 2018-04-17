@@ -381,14 +381,16 @@ endif
 
   " IndentLine  ----------------------------------------------------------{{{
 
-      let g:indentLine_enabled = 1
-      " let g:indentLine_leadingSpaceEnabled = 1
-      let g:indentLine_concealcursor = 'inc'
-      let g:indentLine_conceallevel = 2
-      let g:indentLine_char = '¦'
-      let g:indentLine_leadingSpaceChar = '·'
-      let g:indentLine_fileTypeExclude = ['nerdtree']
-      autocmd FileType help,nerdtree IndentLinesDisable
+    let g:indentLine_enabled = 1
+    let g:indentLine_color_term = 239
+    " let g:indentLine_bgcolor_term = 236
+    " let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_concealcursor = 'inc'
+    let g:indentLine_conceallevel = 2
+    let g:indentLine_char = '│'
+    let g:indentLine_leadingSpaceChar = '·'
+    let g:indentLine_fileTypeExclude = ['nerdtree']
+    autocmd FileType help,nerdtree IndentLinesDisable
 
   "}}}
 
@@ -518,14 +520,15 @@ endif
 
   colorscheme dracula
     " Override autocomplete colorscheme
-    hi Normal ctermfg=none
     hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
     hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
+    hi Normal ctermbg=NONE ctermfg=NONE
+    hi CursorLine ctermbg=236
+    hi StatusLine ctermbg=235
 
   " Custom ALE
     hi ALEErrorSign ctermfg=88 ctermbg=none
     hi ALEWarningSign ctermfg=228 ctermbg=none
-
   " Search
     hi Search ctermfg=15 ctermbg=61 cterm=NONE
 
@@ -589,7 +592,7 @@ endif
       augroup typescript
         autocmd!
         autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
-        autocmd FileType typescript map <silent> <leader>td :TSDoc <cr>
+        autocmd FileType typescript map <silent> <leader>h :TSDoc <cr>
         autocmd FileType typescript map <silent> <leader>tt :TSType <cr>
         autocmd FileType typescript map <silent> <leader>r :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
         autocmd FileType typescript map <silent> <leader>t :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
@@ -1017,7 +1020,7 @@ endif
       nnoremap <silent> <leader>f :Denite grep:::!<CR>
       nnoremap <silent> <F4> :Denite grep:::!<CR>
 
-      nnoremap <silent> <leader>h :Denite help<CR>
+      " nnoremap <silent> <leader>h :Denite help<CR>
       nnoremap <silent>  B :Denite buffer<CR>
       nnoremap <silent> <leader>u :call dein#update()<CR>
 
