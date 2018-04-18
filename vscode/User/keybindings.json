@@ -134,13 +134,17 @@
     ///////////////////////////////////
     {
         "key": "escape",
-        "command": "workbench.action.terminal.toggleTerminal",
+        "command": "workbench.action.togglePanel",
         "when": "terminalFocus"
     },
     {
         "key": "Ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal",
     },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    }
     ///////////////////////////////////
     // Navigate search with <C-n>, <C-p>
     ///////////////////////////////////
