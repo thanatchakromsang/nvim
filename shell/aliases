@@ -8,7 +8,7 @@ alias f4='fg %4'
 alias f5='fg %5'
 alias df='df -h'
 alias f=fg
-alias j=jobs
+# alias j=jobs
 alias la='ls -A'
 alias l='ls -CF'
 alias l.='ls -d .*' #ls hidden files
@@ -29,3 +29,6 @@ alias r='ranger'
 if [ "$PACKAGE_MANAGER" = pacman ]; then
   alias u="sudo pacman --sync --refresh --sysupgrade"
 fi
+
+#vscode
+alias code='code-oss'
