@@ -29,7 +29,7 @@
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   // Window
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "toggle",
   "workbench.colorCustomizations": {
@@ -44,6 +44,7 @@
   "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
   "vim.easymotionMarkerFontFamily": "MesloLGM Nerd Font mono",
   "vim.enableNeovim": true,
+  "vim.neovimPath": "nvim",
   "vim.handleKeys": {
     "<C-f>": false,
     "<C-d>": true,
@@ -269,14 +270,16 @@
   ],
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.statusBar.format": "${authorAgo}",
-  // Linter
-  // // Typescript
+  // Language Specific
+  // // Typescript linter
   "tslint.autoFixOnSave": true,
   "tslint.run": "onSave",
-  // // Javascript
+  // // Javascript linte
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
   "prettier.eslintIntegration": true,
+  // // Python
+  "autoDocstring.docstringFormat": "google",
   // Emmet
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
