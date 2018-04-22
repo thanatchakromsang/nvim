@@ -183,7 +183,6 @@ for_window [instance="__scratchpad"] move scratchpad
 ### Applications binding ###
 ###########################s
 
-bindsym $mod+F1 exec --no-startup-id alacritty -t Coding -e tmux
 bindsym $mod+d exec --no-startup-id "rofi -width 30 -combi-modi ,drun -show combi -modi"
 bindsym $mod+w exec --no-startup-id rofi -show window
 # bindsym $mod+p exec --no-startup-id rofi-pass
@@ -336,8 +335,8 @@ client.placeholder          $bg     $bg         $bg     $bg
 #############################
 
 # Set inner/outer gaps
-# gaps inner 6
-# gaps outer 3
+gaps inner 9
+gaps outer 6
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -345,11 +344,11 @@ client.placeholder          $bg     $bg         $bg     $bg
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+smart_borders no_gaps
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -449,6 +448,20 @@ mode "move" {
     bindsym j     move down
     bindsym k     move up
     bindsym l     move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#######################################
+### Mode                           ####
+#######################################
+
+set $application open (1) tmux
+bindsym $mod+F1 mode "$application"
+mode "$application" {
+    bindsym 1 exec --no-startup-id alacritty -t Coding -e tmux, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
