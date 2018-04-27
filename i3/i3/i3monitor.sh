@@ -33,6 +33,7 @@ case "$2" in
         xrandr --output $INTERN --auto --output $EXTERN --auto --right-of $INTERN --output $EXTERN2 --off
         sh /home/mike/.scripts/bin/wallpaper dual
         i3-msg restart
+        xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
         ;;
     *)
         usage
