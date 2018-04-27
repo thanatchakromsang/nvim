@@ -154,23 +154,23 @@ label-mode-foreground = #555
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = (F) %index%:%icon%
+label-focused = %index% :%icon% (F)
 label-focused-background = ${colors.background-alt}
 label-focused-underline = ${colors.base06}
 label-focused-padding = ${self.padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = (V) %index%:%icon%
+label-visible = %index% :%icon% (V)
 label-visible-background = ${colors.background-alt}
 label-visible-underline = ${colors.base01}
 label-visible-padding = ${self.padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%:%index%
+label-unfocused = %index% :%icon%
 label-unfocused-padding = ${self.padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = (U) %index%:%icon%
+label-urgent = %index% :%icon% (U)
 label-urgent-background = ${colors.background-alt}
 label-urgent-underline= ${colors.alert}
 label-urgent-padding = ${self.padding}
