@@ -144,7 +144,7 @@
     {
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
-    }
+    },
     ///////////////////////////////////
     // Navigate search with <C-n>, <C-p>
     ///////////////////////////////////
