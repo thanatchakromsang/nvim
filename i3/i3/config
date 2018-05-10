@@ -475,12 +475,13 @@ mode "move" {
 ### Mode                           ####
 #######################################
 
-set $application open (1) tmux (2) bluetooth-manager (3) sound-manager
+set $application open (1) tmux (2) Vimwiki (3) bluetooth-manager (4) sound-manager
 bindsym $mod+F1 mode "$application"
 mode "$application" {
     bindsym 1 exec --no-startup-id alacritty -t Coding -e tmux, mode "default"
-    bindsym 2 exec --no-startup-id blueman-applet, mode "default"
-    bindsym 3 exec --no-startup-id pavucontrol, mode "default"
+    bindsym 2 exec --no-startup-id alacritty -t Vimwiki -e nvim -c VimwikiIndex, mode "default"
+    bindsym 3 exec --no-startup-id blueman-applet, mode "default"
+    bindsym 4 exec --no-startup-id pavucontrol, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

@@ -29,6 +29,7 @@ if dein#load_state(('~/.config/nvim'))
 
   call dein#add('xolox/vim-misc')
   call dein#add('xolox/vim-notes')
+  call dein#add('vimwiki/vimwiki')
   call dein#add('jparise/vim-graphql')
   call dein#add('heavenshell/vim-jsdoc')
   call dein#add('elzr/vim-json')
@@ -1176,6 +1177,20 @@ endif
 
 " Notes   -------------------------------------------------------------------{{{
 
-  let g:otes_directories = ['~/Documents/Notes']
+  let g:notes_directories = ['~/Documents/Notes']
+
+  " Vimwiki
+
+  let g:vimwiki_list = [{'path': '~/Notes/'}]
+  let g:vimwiki_folding = 'expr'
+  " let g:vimwiki_list = [{'path': '~/Notes/',
+  "                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+  hi VimwikiHeader1 ctermfg=1
+  hi VimwikiHeader2 ctermfg=2
+  hi VimwikiHeader3 ctermfg=3
+  hi VimwikiHeader4 ctermfg=4
+  hi VimwikiHeader5 ctermfg=5
+  hi VimwikiHeader6 ctermfg=6
 
 "}}}
