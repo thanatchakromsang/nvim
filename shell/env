@@ -18,8 +18,10 @@ fi
   export VISUAL=nvim
   export EDITOR="$VISUAL"
   export ZSH=$HOME/.oh-my-zsh
+  export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
   export PATH=~/.local/bin/:$PATH
+  export TERMINAL=urxvt
 
 # SSH_KEY
   export SSH_KEY_PATH="~/.ssh"

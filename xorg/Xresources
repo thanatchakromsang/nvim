@@ -8,8 +8,39 @@ Xtf.lcdfilter:          lcddefault
 Xft.hintstyle:          hintfull
 Xft.hinting:            1
 Xft.antialias:          1
-Xft.rgba:               rgb
+Xft.rgba:               none
 Xft.font:               monospace:size=12
+
+#####################
+### URxvt Setting ###
+#####################
+
+! General settings
+URxvt.saveLines:        2000
+URxvt.termName:         rxvt-unicode-256color
+URxvt.urgentOnBell:     True
+URxvt.cursorBlink:      False
+URxvt.cursorColor:      magenta
+URxvt.letterSpace:      0
+
+URxvt.background:       #000000
+URxvt.font:             xft:MesloLGM Nerd Font Mono:size=10
+URxvt.italicFont:
+URxvt.scrollBar:        False
+
+URxvt.copyCommand:      xclip -i -selection clipboard
+URxvt.pasteCommand:     xclip -o -selection clipboard
+
+! Extensions
+URxvt.perl-ext-common: default,matcher,resize-font,clipboard,keyboard-select,url-select
+URxvt.urlLauncher: chromium
+URxvt.urlButton: 1
+URxvt.underlineURLs: True
+
+! Resize font
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-equal:      resize-font:bigger
+/* URxvt.keysym.C-plus:      resize-font:bigger */
 
 ######################
 ### One dark theme ###
@@ -59,8 +90,7 @@ rofi.padding: 20
 rofi.eh: 1
 rofi.hide-scrollbar: true
 rofi.window-format: [{w}]\ \ -\ \ {c}\ \ :\ \ {t}
-rofi.terminal: st
+rofi.terminal: i3-sensible-terminal
 rofi.display-ssh: connect to server
 rofi.display-combi: search
 rofi.display-window: window
-
