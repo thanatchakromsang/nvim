@@ -179,7 +179,8 @@ label-urgent-padding = ${self.padding}
 type = internal/xbacklight
 enable-scroll = false
 
-format = <ramp>
+format = <ramp> <label>
+label = %percentage%%
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
@@ -307,9 +308,11 @@ format = <label>
 label =   %output%
 
 exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:artist; echo -n " - "; playerctl metadata xesam:title; else echo -n " Play music"; fi
-round = #000
-format-padding = 4
 exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
+click-left = playerctl play-pause
+click-right = playerctl next
++round = #000
++format-padding = 4
 interval = 1
 
 [module/title]
