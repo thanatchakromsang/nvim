@@ -24,7 +24,7 @@ URxvt.cursorColor:      magenta
 URxvt.letterSpace:      0
 
 URxvt.background:       #000000
-URxvt.font:             xft:MesloLGM Nerd Font Mono:size=10
+URxvt.font:             xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
 URxvt.italicFont:
 URxvt.scrollBar:        False
 
@@ -41,6 +41,9 @@ URxvt.underlineURLs: True
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-equal:      resize-font:bigger
 /* URxvt.keysym.C-plus:      resize-font:bigger */
+
+URxvt.iso14755:false
+URxvt.iso14755_52:false
 
 ######################
 ### One dark theme ###

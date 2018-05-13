@@ -18,7 +18,9 @@ alias c='clear'
 alias tmux='tmux -2'
 
 # editors
-alias nv='nvim'
+alias v='nvim'
+alias vimwiki='nvim -c VimwikiIndex'
+alias magit='nvim -c MagitOnly'       # manage git folder with magit
 
 # dotfiles
 alias dotfiles='cd ~/.dotfiles'

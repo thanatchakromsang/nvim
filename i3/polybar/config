@@ -36,7 +36,7 @@ alert = ${colors.base09}
 [bar/top]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 24
+height = 20
 
 background = ${colors.base00}
 foreground = ${colors.foreground}
@@ -56,17 +56,17 @@ module-margin-left = 1
 module-margin-right = 2
 
 ; The separator will be inserted between the output of each module
-; separator =
+separator = /
 
 font-0 = FontAwesome:pixelsize=11;1
 font-1 = DejaVu:size=8;1
 font-2 = icons\-in\-terminal:pixelsize=11;1
 font-3 = Material Icons:style=Regular:size=11;1
 
-modules-left = i3
-modules-center = date
+modules-left = i3 title
+modules-center = music
 ; modules-right = keyboard wireless-network volume xbacklight battery temperature powermenu
-modules-right = keyboard wireless-network volume xbacklight battery powermenu
+modules-right = keyboard volume xbacklight battery wireless-network date
 
 ; tray-position = right
 ; tray-padding = 2
@@ -107,7 +107,7 @@ master-mixer = Master
 ; Default: false
 mapped = false
 
-format-volume = <ramp-volume>
+format-volume = <ramp-volume> <label-volume>
 
 label-muted =  muted
 label-muted-foreground = #66
@@ -126,7 +126,7 @@ blacklist-1 = scroll lock
 format =  <label-layout>
 format-spacing = 0
 
-label-layout = %layout%
+label-layout =  %layout%
 ; label-layout-padding = 2
 label-layout-foreground = ${bar/top.foreground}
 
@@ -219,7 +219,7 @@ date = %a %b %d,
 time = %H:%M
 
 format = <label>
-label = %date% %time%
+label =  %date% %time%
 
 [module/battery]
 type = internal/battery
@@ -300,5 +300,32 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/music]
+type = custom/script
+format = <label>
+label =   %output%
+
+exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:artist; echo -n " - "; playerctl metadata xesam:title; else echo -n " Play music"; fi
+round = #000
+format-padding = 4
+exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
+interval = 1
+
+[module/title]
+type = internal/xwindow
+
+; Available tags:
+;   <label> (default)
+format = <label>
+; format-background = #f00
+; format-foreground = #000
+; format-padding = 2
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
 
 ; vim:ft=dosini
