@@ -27,8 +27,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('othree/es.next.syntax.vim', {'on_ft': ['javascript.jsx', 'javascript']})
   call dein#add('mxw/vim-jsx')
 
+  call dein#add('chakrit/vim-thai-keys')
   call dein#add('xolox/vim-misc')
-  call dein#add('xolox/vim-notes')
   call dein#add('vimwiki/vimwiki')
   call dein#add('jparise/vim-graphql')
   call dein#add('heavenshell/vim-jsdoc')
@@ -361,6 +361,7 @@ endif
   let g:AutoPairsShortcutJump = '<M-w>'
   let g:AutoPairsShortcutFastWrap = '<M-e>'
 
+
 " Tagbar
   nmap <silent> <F3> :TagbarToggle<CR>
   let g:tagbar_autofocus = 1
@@ -391,7 +392,7 @@ endif
     let g:indentLine_char = '│'
     let g:indentLine_leadingSpaceChar = '·'
     let g:indentLine_fileTypeExclude = ['nerdtree']
-    autocmd FileType help,nerdtree IndentLinesDisable
+    autocmd FileType help,nerdtree,vimwiki IndentLinesDisable
 
   "}}}
 
@@ -1025,10 +1026,8 @@ endif
       nnoremap <silent>  B :Denite buffer<CR>
       nnoremap <silent> <leader>u :call dein#update()<CR>
 
-      " Replaced by Unite
       nnoremap <silent> <leader>m :Denite menu:commands<CR>
       nnoremap <silent> <leader>g :Denite menu:git<CR>
-      " nnoremap <silent> <leader>g :Unite -silent -start-insert menu:git<CR>
 
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
@@ -1113,6 +1112,7 @@ endif
     \[' [20] ❯ :GV                                | git log current repository', 'GV'],
     \[' [21] ❯ :Git! (input)                      | git prompt', 'exe "Git! " input("Git command: ")'],
     \[' [22] ❯ :Glog                              | git log last commit', 'Glog --'],
+    \[' [23] ❯ :MagitOnly                         | manage git commit', 'MagitOnly'],
     \] " Append ' --' after log to get commit info commit buffers
     " \[' git log current file', 'Glog -- %'],
     " \[' git log last n commits', 'exe "Glog -" input("num: ")'],
@@ -1135,10 +1135,33 @@ endif
     \[' [4]  ❯ :LeadingSpaceToggle                | Toggle leading dots', 'LeadingSpaceToggle'],
     \[' [5]  ❯ :IndentLinesToggle                 | Toggle indent line', 'IndentLinesToggle'],
     \[' [6]  ❯ :colorscheme                       | Change colourscheme', 'Denite colorscheme'],
-    \[' [7]  ❯ :Note                              | Open untitled note', 'Note'],
-    \[' [8]  ❯ :TableModeToggle       ⌘ [,][t][m] | Toggle table mode markdown', 'TableModeToggle'],
-    \[' [9]  ❯ :RecentNotes                       | Open recent note', 'RecentNotes'],
-    \[' [10] ❯ :SearchNotes                       | Search note by word', 'exe "SearchNotes " input("SearchNotes: ")'],
+    \[' [7]  ❯ :TableModeToggle       ⌘ [,][t][m] | Toggle table mode markdown', 'TableModeToggle'],
+    \[' [8]  ❯ :Vimwiki Bindings                  | Vimwiki key bindings', 'Denite menu:vimwiki'],
+    \]
+
+"}}}
+
+" Denite : Vimwiki  ---------------------------------------------------------{{{
+
+  let s:menus.vimwiki = {
+    \ 'description' : 'Vimwiki key bindings',
+    \}
+  let s:menus.vimwiki.command_candidates = [
+    \[' [1]   ❯ Command                ⌘ [,][w][w] | Open default wiki index file',''],
+    \[' [2]   ❯ Command                ⌘ [,][w][t] | Open default wiki index file in a new tab',''],
+    \[' [3]   ❯ Command                ⌘ [,][w][s] | Select and open wiki index file',''],
+    \[' [4]   ❯ Command                ⌘ [,][w][d] | Delete wiki file you are in',''],
+    \[' [5]   ❯ Command                ⌘ [,][w][r] | Rename wiki file you are in',''],
+    \[' [6]   ❯ Command                ⌘ [S-Enter] | Split and follow/create wiki link',''],
+    \[' [7]   ❯ Command                ⌘ [C-Enter] | Vertical split and follow/create wiki link',''],
+    \[' [8]   ❯ Command             ⌘ [,][w][h][h] | Convert current wiki page to HTML and open it in browser',''],
+    \[' [9]   ❯ Command                      ⌘ [=] | Add header level',''],
+    \[' [10]  ❯ Command                      ⌘ [-] | Remove header level',''],
+    \[' [11]  ❯ Command                      ⌘ [+] | Create and/or decorate links',''],
+    \[' [12]  ❯ Command                ⌘ [C-Space] | Toggle checkbox of a list item on/off',''],
+    \[' [13]  ❯ Command            ⌘ [g][l][Space] | Remove checkbox from list',''],
+    \[' [14]  ❯ Command                ⌘ [g][l][n] | Increase done status from [ ] to [.] to [o]',''],
+    \[' [15]  ❯ Command                ⌘ [g][l][p] | Decrease done status from [o] to [.] to [ ]',''],
     \]
 
 "}}}
@@ -1175,9 +1198,7 @@ endif
 
 "}}}
 
-" Notes   -------------------------------------------------------------------{{{
-
-  let g:notes_directories = ['~/Documents/Notes']
+" Vimwiki   -----------------------------------------------------------------{{{
 
   " Vimwiki
 
