@@ -152,15 +152,15 @@ bindsym $mod+Shift+r restart
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5% && pactl set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% && pactl set-sink-volume 0 +5%
 bindsym XF86AudioMute        exec pactl set-sink-mute 1 toggle && pactl set-sink-mute 0 toggle
-bindsym $mod+F9  exec pactl set-sink-volume 1 -5% && pactl set-sink-volume 0 -5%
-bindsym $mod+F10 exec pactl set-sink-volume 1 +5% && pactl set-sink-volume 0 +5%
-bindsym $mod+F11 exec pactl set-sink-mute 1 toggle && pactl set-sink-mute 0 toggle
+bindsym $mod+F9              exec pactl set-sink-volume 1 -5% && pactl set-sink-volume 0 -5%
+bindsym $mod+F10             exec pactl set-sink-volume 1 +5% && pactl set-sink-volume 0 +5%
+bindsym $mod+F11             exec pactl set-sink-mute 1 toggle && pactl set-sink-mute 0 toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 3"
-bindsym XF86MonBrightnessUp   exec "xbacklight -inc 3"
-bindsym $mod+F2 exec "xbacklight -dec 3"
-bindsym $mod+F3 exec "xbacklight -inc 3"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+bindsym XF86MonBrightnessUp   exec "xbacklight -inc 5"
+bindsym $mod+F2 exec "xbacklight -dec 5"
+bindsym $mod+F3 exec "xbacklight -inc 5"
 
 ###########################
 ### Scratch pad binding ###
