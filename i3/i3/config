@@ -149,11 +149,11 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Audio controls
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5% && pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% && pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -2% && pactl set-sink-volume 0 -2%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +2% && pactl set-sink-volume 0 +2%
 bindsym XF86AudioMute        exec pactl set-sink-mute 1 toggle && pactl set-sink-mute 0 toggle
-bindsym $mod+F9              exec pactl set-sink-volume 1 -5% && pactl set-sink-volume 0 -5%
-bindsym $mod+F10             exec pactl set-sink-volume 1 +5% && pactl set-sink-volume 0 +5%
+bindsym $mod+F9              exec pactl set-sink-volume 1 -2% && pactl set-sink-volume 0 -2%
+bindsym $mod+F10             exec pactl set-sink-volume 1 +2% && pactl set-sink-volume 0 +2%
 bindsym $mod+F11             exec pactl set-sink-mute 1 toggle && pactl set-sink-mute 0 toggle
 
 # Screen brightness controls
@@ -410,18 +410,9 @@ mode "$logout_system" {
 ### Multi monitor ###
 #####################
 
-set $mode_output (h) HDMI
+set $mode_output (i) intern, (e) extern, (c) clone, (x) extend
 bindsym $mod+F4 mode "$mode_output"
 mode "$mode_output" {
-    bindsym h mode "$mode_hdmi"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_hdmi (i) intern, (e) extern, (c) clone, (x) extend
-mode "$mode_hdmi" {
     bindsym i exec $psst ~/.config/i3/i3monitor.sh hdmi intern, mode "default"
     bindsym e exec $psst ~/.config/i3/i3monitor.sh hdmi extern, mode "default"
     bindsym c exec $psst ~/.config/i3/i3monitor.sh hdmi clone, mode "default"
