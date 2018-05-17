@@ -358,8 +358,8 @@ endif
 
 " Auto pairs
   " let g:AutoPairsFlyMode = 1
-  let g:AutoPairsShortcutJump = '<M-w>'
-  let g:AutoPairsShortcutFastWrap = '<M-e>'
+  let g:AutoPairsShortcutJump = '<C-e>'
+  " let g:AutoPairsShortcutFastWrap = '<M-e>'
 
 
 " Tagbar
