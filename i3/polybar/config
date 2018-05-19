@@ -59,8 +59,8 @@ module-margin-right = 2
 separator = /
 
 font-0 = FontAwesome:pixelsize=11;1
-font-1 = DejaVu:size=8;1
-font-2 = icons\-in\-terminal:pixelsize=11;1
+font-1 = icons\-in\-terminal:pixelsize=11;1
+font-2 = MesloLGM Nerd Font:size=10;1
 font-3 = Material Icons:style=Regular:size=11;1
 
 modules-left = i3 title
@@ -126,7 +126,7 @@ blacklist-1 = scroll lock
 format =  <label-layout>
 format-spacing = 0
 
-label-layout =  %layout%
+label-layout =  %name%
 ; label-layout-padding = 2
 label-layout-foreground = ${bar/top.foreground}
 
@@ -151,7 +151,7 @@ pin-workspaces = true
 padding = 1
 label-mode-padding = 2
 label-mode-foreground = #555
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.base06}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index% :%icon% (F)
@@ -232,7 +232,7 @@ format-charging = <animation-charging> <label-charging>
 
 format-discharging = <ramp-capacity> <label-discharging>
 
-label-full = 
+label-full =  Full
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -311,8 +311,6 @@ exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam
 exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
 click-left = playerctl play-pause
 click-right = playerctl next
-+round = #000
-+format-padding = 4
 interval = 1
 
 [module/title]
