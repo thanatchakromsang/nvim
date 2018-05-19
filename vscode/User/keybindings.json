@@ -134,7 +134,7 @@
     ///////////////////////////////////
     {
         "key": "escape",
-        "command": "workbench.action.togglePanel",
+        "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus"
     },
     {
@@ -243,9 +243,25 @@
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inProjectManagerList"
     },
-    // use <leader> instead
+    // use <leader>R instead
     {
         "key": "ctrl+t",
         "command": "-workbench.action.showAllSymbols"
     },
+    // ctrl+spacebar widget suggestion <C-p> and <C-n>
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "escape",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    }
 ]

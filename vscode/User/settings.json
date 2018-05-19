@@ -1,7 +1,7 @@
 {
   // Editor setting
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "MesloLGM Nerd Font mono",
+  "editor.fontFamily": "MesloLGM Nerd Font Mono",
   "editor.fontWeight": "normal",
   "editor.fontSize": 14,
   "editor.wordWrap": "wordWrapColumn",
@@ -60,38 +60,78 @@
   "vim.incsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
     // gh - show the hover tooltip.
     // gb - add an additional cursor at the next place that matches *
     {
-      "before": ["j"],
-      "after": ["g", "j"]
+      "before": [
+        "j"
+      ],
+      "after": [
+        "g",
+        "j"
+      ]
     },
     {
-      "before": ["k"],
-      "after": ["g", "k"]
+      "before": [
+        "k"
+      ],
+      "after": [
+        "g",
+        "k"
+      ]
     },
     {
-      // "before": ["J"],
-      // "after": ["5", "j"]
-      // Fix unfold by accident
-      "before": ["J"],
-      "after": ["5", "g", "j"]
+      "before": [
+        "J"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
+      // // Fix unfold by accident
+      // "before": [
+      //   "J"
+      // ],
+      // "after": [
+      //   "5",
+      //   "g",
+      //   "j"
+      // ]
     },
     {
-      // "before": ["K"],
-      // "after": ["5", "k"]
-      // Fix unfold by accident
-      "before": ["K"],
-      "after": ["5", "g", "k"]
+      "before": [
+        "K"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
+      // // Fix unfold by accident
+      // "before": [
+      //   "K"
+      // ],
+      // "after": [
+      //   "5",
+      //   "g",
+      //   "k"
+      // ]
     },
     // gf behavior in vim
     {
-      "before": ["g", "f"],
+      "before": [
+        "g",
+        "f"
+      ],
       "after": [],
       "commands": [
         {
@@ -100,7 +140,10 @@
       ]
     },
     {
-      "before": ["leader", "c"],
+      "before": [
+        "leader",
+        "c"
+      ],
       "commands": [
         {
           "command": "workbench.action.closeActiveEditor"
@@ -108,7 +151,10 @@
       ]
     },
     {
-      "before": ["leader", "r"],
+      "before": [
+        "leader",
+        "r"
+      ],
       "commands": [
         {
           "command": "workbench.action.gotoSymbol"
@@ -116,7 +162,10 @@
       ]
     },
     {
-      "before": ["leader", "t"],
+      "before": [
+        "leader",
+        "t"
+      ],
       "commands": [
         {
           "command": "workbench.action.showAllSymbols"
@@ -124,7 +173,11 @@
       ]
     },
     {
-      "before": ["leader", "s", "h"],
+      "before": [
+        "leader",
+        "s",
+        "h"
+      ],
       "commands": [
         {
           "command": "workbench.action.terminal.toggleTerminal"
@@ -132,7 +185,10 @@
       ]
     },
     {
-      "before": ["leader", "f"],
+      "before": [
+        "leader",
+        "f"
+      ],
       "commands": [
         {
           "command": "workbench.action.findInFiles"
@@ -140,7 +196,10 @@
       ]
     },
     {
-      "before": ["leader", "e"],
+      "before": [
+        "leader",
+        "e"
+      ],
       "commands": [
         {
           "command": "workbench.action.quickOpen"
@@ -148,7 +207,10 @@
       ]
     },
     {
-      "before": ["leader", "v"],
+      "before": [
+        "leader",
+        "v"
+      ],
       "commands": [
         {
           "command": ":split"
@@ -156,14 +218,26 @@
       ]
     },
     {
-      "before": ["leader", "h"],
-      "after": ["g", "h"]
+      "before": [
+        "leader",
+        "h"
+      ],
+      "after": [
+        "g",
+        "h"
+      ]
     },
     // Easymotion search instead of /
     {
-      "before": ["/"],
-      "after": ["<leader>", "<leader>", "/"]
-    }
+      "before": [
+        "/"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "/"
+      ]
+    },
   ],
   // Scrolloff (vim-like behavior)
   "scrolloff.scrolloff": 5,
@@ -203,7 +277,10 @@
   "gitlens.defaultDateStyle": "absolute",
   "gitlens.keymap": "none",
   "gitlens.historyExplorer.enabled": false,
-  "gitlens.codeLens.scopes": ["document", "containers"],
+  "gitlens.codeLens.scopes": [
+    "document",
+    "containers"
+  ],
   "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
@@ -211,10 +288,16 @@
   "gitlens.explorers.avatars": false,
   "gitlens.blame.avatars": false,
   "gitlens.blame.compact": false,
-  "gitlens.blame.highlight.locations": ["gutter"],
+  "gitlens.blame.highlight.locations": [
+    "gutter"
+  ],
   "gitlens.hovers.annotations.over": "annotation",
   "gitlens.hovers.annotations.details": false,
-  "gitlens.recentChanges.highlight.locations": ["line", "gutter", "overview"],
+  "gitlens.recentChanges.highlight.locations": [
+    "line",
+    "gutter",
+    "overview"
+  ],
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.statusBar.format": "${authorAgo}",
   // Language Specific
@@ -235,5 +318,6 @@
   "emmet.showSuggestionsAsSnippets": true,
   // NPM
   "npm-intellisense.showBuildInLibs": true,
-  "cSpell.language": "en"
+  "cSpell.language": "en",
+  "dart.flutterSdkPath": "/opt/flutter"
 }
