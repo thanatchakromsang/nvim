@@ -9,23 +9,24 @@ Xft.hintstyle:          hintfull
 Xft.hinting:            1
 Xft.antialias:          1
 Xft.rgba:               none
-Xft.font:               monospace:size=12
+Xft.font:               MesloLGM Nerd Font:size=12
 
 #####################
 ### URxvt Setting ###
 #####################
 
 ! General settings
-URxvt.saveLines:        2000
+URxvt.saveLines:        10000
 URxvt.termName:         rxvt-unicode-256color
 URxvt.urgentOnBell:     True
 URxvt.cursorBlink:      False
-URxvt.cursorColor:      magenta
+URxvt.cursorColor:      green
 URxvt.letterSpace:      0
 
 URxvt.background:       #000000
 URxvt.font:             xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
 URxvt.italicFont:
+URxvt.boldFont:         xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
 URxvt.scrollBar:        False
 
 URxvt.copyCommand:      xclip -i -selection clipboard
@@ -38,8 +39,8 @@ URxvt.urlButton: 1
 URxvt.underlineURLs: True
 
 ! Resize font
-URxvt.keysym.C-minus:     resize-font:smaller
-URxvt.keysym.C-equal:      resize-font:bigger
+URxvt.keysym.C-minus:        resize-font:smaller
+URxvt.keysym.C-equal:        resize-font:bigger
 /* URxvt.keysym.C-plus:      resize-font:bigger */
 
 URxvt.iso14755:false
@@ -83,17 +84,20 @@ rofi.color-urgent:  #353b45, #e06c75, #353b45, #353b45, #e06c75
 ! Set the desired separator style
 rofi.separator-style: none
 
-rofi.width: 50
+rofi.width: 30
 rofi.lines: 10
 rofi.columns: 1
-rofi.font: Ubuntu Mono 14
+rofi.font: MesloLGM Nerd Font Mono 11
 rofi.bw: 3
 rofi.padding: 20
 /* rofi.location: 3 */
 rofi.eh: 1
 rofi.hide-scrollbar: true
-rofi.window-format: [{w}]\ \ -\ \ {c}\ \ :\ \ {t}
+rofi.window-format: [{w}]\ -\ {c}\ :\ {t}
 rofi.terminal: i3-sensible-terminal
 rofi.display-ssh: connect to server
-rofi.display-combi: search
+rofi.display-run: execute
+rofi.display-drun: search
 rofi.display-window: window
+/* rofi.combi-modi: run,drun */
+rofi.modi: run,drun
