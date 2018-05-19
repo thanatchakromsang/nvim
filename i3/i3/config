@@ -183,7 +183,7 @@ for_window [instance="__scratchpad"] move scratchpad
 ### Applications binding ###
 ###########################s
 
-bindsym $mod+d exec --no-startup-id "rofi -width 30 -combi-modi ,drun -show combi -modi"
+bindsym $mod+d exec --no-startup-id "rofi -width 30 -show drun"
 bindsym $mod+w exec --no-startup-id rofi -show window
 # bindsym $mod+p exec --no-startup-id rofi-pass
 bindsym $mod+p exec --no-startup-id rofi -width 30 -show ssh
