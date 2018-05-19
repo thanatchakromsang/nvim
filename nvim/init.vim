@@ -16,6 +16,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('haya14busa/dein-command.vim')
   call dein#add('Yggdroot/indentLine')
   call dein#add('dracula/vim')
+  call dein#add('lervag/vimtex', {'on_ft': ['plaintex', 'tex']})
   " call dein#add('junegunn/vim-easy-align')
   call dein#add('majutsushi/tagbar')
 " syntax
@@ -1198,7 +1199,7 @@ endif
 
 "}}}
 
-" Vimwiki   -----------------------------------------------------------------{{{
+" Text   --------------------------------------------------------------------{{{
 
   " Vimwiki
 
@@ -1214,4 +1215,9 @@ endif
   hi VimwikiHeader5 ctermfg=5
   hi VimwikiHeader6 ctermfg=6
 
+  " vimtex
+
+  let g:vimtex_view_method = 'zathura'
+
 "}}}
+
