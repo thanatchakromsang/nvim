@@ -252,16 +252,16 @@
     {
         "key": "ctrl+p",
         "command": "selectPrevSuggestion",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+n",
         "command": "selectNextSuggestion",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus && vim.mode == 'Normal'"
     },
     {
         "key": "escape",
         "command": "hideSuggestWidget",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus && vim.mode == 'Normal'"
     }
 ]

@@ -58,6 +58,7 @@
   "vim.textwidth": 100,
   "vim.useSystemClipboard": true,
   "vim.incsearch": true,
+  "vim.showcmd": false,
   "vim.insertModeKeyBindings": [
     {
       "before": [
@@ -310,6 +311,8 @@
   "prettier.eslintIntegration": true,
   // // Python
   "autoDocstring.docstringFormat": "google",
+  // // Dart
+  "dart.flutterSdkPath": "flutter",
   // Emmet
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
@@ -318,6 +321,8 @@
   "emmet.showSuggestionsAsSnippets": true,
   // NPM
   "npm-intellisense.showBuildInLibs": true,
+  // cSpell
   "cSpell.language": "en",
-  "dart.flutterSdkPath": "/opt/flutter"
+  // Path intellisense
+  "path-intellisense.autoSlashAfterDirectory": true,
 }
