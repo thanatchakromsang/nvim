@@ -41,7 +41,7 @@ bindsym $mod+backslash exec i3-sensible-terminal -name floating
 bindsym $mod+q kill
 
 # focus on mouse
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run

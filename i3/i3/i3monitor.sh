@@ -30,10 +30,10 @@ case "$2" in
         i3-msg restart
         ;;
     extend)
-        xrandr --output $INTERN --auto --output $EXTERN --auto --right-of $INTERN --output $EXTERN2 --off
+        xrandr --output $INTERN --auto --output $EXTERN --auto --above $INTERN --output $EXTERN2 --off
         sh /home/mike/.scripts/bin/wallpaper dual
         i3-msg restart
-        xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
+        xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 1
         ;;
     *)
         usage
