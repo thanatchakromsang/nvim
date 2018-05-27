@@ -165,8 +165,8 @@ bindsym $mod+F11             exec pactl set-sink-mute 1 toggle && pactl set-sink
 # Screen brightness controls
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 bindsym XF86MonBrightnessUp   exec "xbacklight -inc 5"
-bindsym $mod+F2 exec "xbacklight -dec 5"
-bindsym $mod+F3 exec "xbacklight -inc 5"
+# bindsym $mod+F2 exec "xbacklight -dec 5"
+# bindsym $mod+F3 exec "xbacklight -inc 5"
 
 ###########################
 ### Scratch pad binding ###
@@ -471,13 +471,27 @@ mode "move" {
 ### Mode                           ####
 #######################################
 
-set $application open (1) tmux (2) Vimwiki (3) bluetooth-manager (4) sound-manager
+set $application open (1) tmux (2) bluetooth-manager (3) sound-manager
 bindsym $mod+F1 mode "$application"
 mode "$application" {
-    bindsym 1 exec --no-startup-id i3-sensible-terminal -title Coding -e tmux, mode "default"
-    bindsym 2 exec --no-startup-id i3-sensible-terminal -title Vimwiki -e nvim -c VimwikiIndex, mode "default"
-    bindsym 3 exec --no-startup-id blueman-applet, mode "default"
-    bindsym 4 exec --no-startup-id pavucontrol, mode "default"
+    bindsym 1 exec --no-startup-id i3-sensible-terminal -c Coding -e tmux, mode "default"
+    bindsym 2 exec --no-startup-id i3-sensible-terminal -c Vimwiki -e nvim -c VimwikiIndex, mode "default"
+    bindsym 2 exec --no-startup-id blueman-applet, mode "default"
+    bindsym 3 exec --no-startup-id pavucontrol, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $organize open (1) wiki (2) diary (3) today-dairy (4) yesterday-diary (5) tomorrow-dairy
+bindsym $mod+F2 mode "$organize"
+mode "$organize" {
+    bindsym 1 exec --no-startup-id i3-sensible-terminal -c Wiki\ Index -e nvim -c VimwikiIndex, mode "default"
+    bindsym 2 exec --no-startup-id i3-sensible-terminal -c Diary\ Index -e nvim -c "VimwikiDiaryIndex" -c "VimwikiDiaryGenerateLinks", mode "default"
+    bindsym 3 exec --no-startup-id i3-sensible-terminal -c Today\ Diary -e nvim -c VimwikiMakeDairyNote, mode "default"
+    bindsym 4 exec --no-startup-id i3-sensible-terminal -c Yesterday\ Diary -e nvim -c VimwikiMakeYesterdayDiaryNote, mode "default"
+    bindsym 5 exec --no-startup-id i3-sensible-terminal -c Tomorrow\ Diary -e nvim -c VimwikiMakeTomorrowDiaryNote, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

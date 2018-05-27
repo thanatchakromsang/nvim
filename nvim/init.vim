@@ -1163,6 +1163,8 @@ endif
     \[' [13]  ❯ Command            ⌘ [g][l][Space] | Remove checkbox from list',''],
     \[' [14]  ❯ Command                ⌘ [g][l][n] | Increase done status from [ ] to [.] to [o]',''],
     \[' [15]  ❯ Command                ⌘ [g][l][p] | Decrease done status from [o] to [.] to [ ]',''],
+    \[' [16]  ❯ Command             ⌘ [,][w][,][i] | Generate VimwikiDiary Index', 'VimwikiDiaryGenerateLinks'],
+    \[' [17]  ❯ Command             ⌘ [,][w][,][w] | Generate Today Diary', 'VimwikiMakeDiaryNote'],
     \]
 
 "}}}
