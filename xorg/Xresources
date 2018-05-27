@@ -5,10 +5,10 @@
 Xft.dpi:                120
 Xft.autonhint:          0
 Xtf.lcdfilter:          lcddefault
-Xft.hintstyle:          hintfull
-Xft.hinting:            1
-Xft.antialias:          1
-Xft.rgba:               none
+Xft.hintstyle:          hintslight
+Xft.hinting:            true
+Xft.antialias:          true
+Xft.rgba:               rgb
 Xft.font:               MesloLGM Nerd Font:size=12
 
 #####################
@@ -17,7 +17,6 @@ Xft.font:               MesloLGM Nerd Font:size=12
 
 ! General settings
 URxvt.saveLines:        10000
-URxvt.termName:         rxvt-unicode-256color
 URxvt.urgentOnBell:     True
 URxvt.cursorBlink:      False
 URxvt.cursorColor:      green
@@ -27,7 +26,14 @@ URxvt.letterSpace:      0
 URxvt.font:             xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
 URxvt.italicFont:
 URxvt.boldFont:         xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
-URxvt.scrollBar:        False
+URxvt.scrollBar:        false
+
+/* ! Scrollbar */
+/* URxvt*scrollColor:        #1E1E1E */
+/* URxvt*scrollbar_floating: false */
+/* URxvt*scrollstyle:        plain */
+/* URxvt*scrollBar_right:    true */
+/* URxvt*thickness:          3 */
 
 URxvt.copyCommand:      xclip -i -selection clipboard
 URxvt.pasteCommand:     xclip -o -selection clipboard
@@ -43,8 +49,13 @@ URxvt.keysym.C-minus:        resize-font:smaller
 URxvt.keysym.C-equal:        resize-font:bigger
 /* URxvt.keysym.C-plus:      resize-font:bigger */
 
-/* URxvt.iso14755:false */
-/* URxvt.iso14755_52:false */
+! COPY / PASTE
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! Disable ctrl + shift
+URxvt.iso14755:false
+URxvt.iso14755_52:false
 
 ######################
 ### One dark theme ###
