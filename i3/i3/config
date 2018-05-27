@@ -145,6 +145,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 # work space back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 
+# sticky floating window
+bindsym $mod+z sticky toggle
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -272,8 +274,6 @@ for_window [class="Chromium" instance="crx_jpaffdimlcjijhmahjmmfofpbenjocpl"] mo
 # for_window [title="GIMP Startup"] move workspace gimp
 # for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
 
-for_window [instance="__scratchpad"] floating enable
-
 ##############################
 ### Autostart applications ###
 ##############################
@@ -286,7 +286,7 @@ exec --no-startup-id pulseaudio
 # Notification
 exec --no-startup-id dunst
 
-# Eyecandy
+# Eyecandy shadow
 exec --no-startup-id compton
 
 # Auto suspend
@@ -357,8 +357,8 @@ client.placeholder          $bg     $bg         $bg     $bg
 #############################
 
 # Set inner/outer gaps
-gaps inner 0
-gaps outer 0
+gaps inner 6
+gaps outer 3
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
