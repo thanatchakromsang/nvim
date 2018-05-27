@@ -23,7 +23,7 @@ URxvt.cursorBlink:      False
 URxvt.cursorColor:      green
 URxvt.letterSpace:      0
 
-URxvt.background:       #000000
+/* URxvt.background:       #000000 */
 URxvt.font:             xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
 URxvt.italicFont:
 URxvt.boldFont:         xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
@@ -43,8 +43,8 @@ URxvt.keysym.C-minus:        resize-font:smaller
 URxvt.keysym.C-equal:        resize-font:bigger
 /* URxvt.keysym.C-plus:      resize-font:bigger */
 
-URxvt.iso14755:false
-URxvt.iso14755_52:false
+/* URxvt.iso14755:false */
+/* URxvt.iso14755_52:false */
 
 ######################
 ### One dark theme ###
