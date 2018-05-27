@@ -1217,9 +1217,11 @@ endif
   hi VimwikiHeader5 ctermfg=5
   hi VimwikiHeader6 ctermfg=6
 
-  " vimtex
+"}}}
 
-  let g:vimtex_view_method = 'zathura'
+" Magit  --------------------------------------------------------------------{{{
+
+  let g:magit_discard_untracked_do_delete=1
 
 "}}}
 
