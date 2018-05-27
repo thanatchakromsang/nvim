@@ -483,12 +483,12 @@ mode "$application" {
     bindsym Escape mode "default"
 }
 
-set $organize open (1) wiki (2) diary (3) today-dairy (4) yesterday-diary (5) tomorrow-dairy
+set $organize open:todo (1) wiki (2) diary (3) today (4) yesterday (5) tomorrow
 bindsym $mod+F2 mode "$organize"
 mode "$organize" {
     bindsym 1 exec --no-startup-id i3-sensible-terminal -c Wiki\ Index -e nvim -c VimwikiIndex, mode "default"
     bindsym 2 exec --no-startup-id i3-sensible-terminal -c Diary\ Index -e nvim -c "VimwikiDiaryIndex" -c "VimwikiDiaryGenerateLinks", mode "default"
-    bindsym 3 exec --no-startup-id i3-sensible-terminal -c Today\ Diary -e nvim -c VimwikiMakeDairyNote, mode "default"
+    bindsym 3 exec --no-startup-id i3-sensible-terminal -c Today\ Diary -e nvim -c VimwikiMakeDiaryNote, mode "default"
     bindsym 4 exec --no-startup-id i3-sensible-terminal -c Yesterday\ Diary -e nvim -c VimwikiMakeYesterdayDiaryNote, mode "default"
     bindsym 5 exec --no-startup-id i3-sensible-terminal -c Tomorrow\ Diary -e nvim -c VimwikiMakeTomorrowDiaryNote, mode "default"
 
