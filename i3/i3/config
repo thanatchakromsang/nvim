@@ -34,8 +34,8 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal -title Terminal
-bindsym $mod+backslash exec i3-sensible-terminal -name floating
+bindsym $mod+Return exec i3-sensible-terminal -c Terminal
+bindsym $mod+backslash exec i3-sensible-terminal -c Floating
 
 # kill focused window
 bindsym $mod+q kill
@@ -214,8 +214,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ### Open applications on specific workspaces ###
 ################################################
 assign [class="Code" instance="^code"] $ws3
-assign [class="Alacritty" title="^Coding"] $ws3
-assign [class="Coding" instance="^Coding"] $ws1
+assign [class="Coding"] $ws1
 assign [class="discord" instance="discord"] $ws4
 assign [class="Slack" instance="slack"] $ws4
 assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
@@ -263,7 +262,7 @@ for_window [class="Chromium"] border pixel 1
 for_window [class="^Simplescreenrecorder$"] floating enable
 for_window [class="^Wine$"] floating enable
 for_window [class="Chromium" instance="crx_ekajjllcmeckibblgckgoceinmmgnfop"] floating enable
-for_window [class="URxvt" instance="floating"] floating enable
+for_window [class="Floating"] floating enable
 
 # Scratchpad instance
 # Rainy mood
