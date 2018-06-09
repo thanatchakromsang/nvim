@@ -12,131 +12,141 @@
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
 if dein#load_state(('~/.config/nvim'))
   call dein#begin(expand('~/.config/nvim'))
+
+" Plugin Manager
   call dein#add('Shougo/dein.vim')
   call dein#add('haya14busa/dein-command.vim')
-  call dein#add('Yggdroot/indentLine')
-  call dein#add('dracula/vim')
-  call dein#add('lervag/vimtex', {'on_ft': ['plaintex', 'tex']})
-  " call dein#add('junegunn/vim-easy-align')
-  call dein#add('majutsushi/tagbar')
-" syntax
-  " call dein#add('sheerun/vim-polyglot')
-  call dein#add('othree/html5.vim')
-  call dein#add('othree/yajs.vim')
-  call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
-  call dein#add('moll/vim-node')
-  call dein#add('othree/es.next.syntax.vim', {'on_ft': ['javascript.jsx', 'javascript']})
-  call dein#add('mxw/vim-jsx')
 
-  call dein#add('chakrit/vim-thai-keys')
-  call dein#add('xolox/vim-misc')
-  call dein#add('vimwiki/vimwiki')
-  call dein#add('jparise/vim-graphql')
-  call dein#add('heavenshell/vim-jsdoc')
-  call dein#add('elzr/vim-json')
-  call dein#add('HerringtonDarkholme/yats.vim')
-  call dein#add('ianks/vim-tsx')
-  " call dein#add('rust-lang/rust.vim')
-  " call dein#add('racer-rust/vim-racer')
-  " call dein#add('posva/vim-vue')
-  call dein#add('skwp/vim-html-escape')
-  call dein#add('hail2u/vim-css3-syntax')
-  " call dein#add('ap/vim-css-color')
-  call dein#add('othree/csscomplete.vim')
-  call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
-  call dein#add('dhruvasagar/vim-table-mode')
-  call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
-  " Grammar check tool
-  " call dein#add('rhysd/vim-grammarous')
-  call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
-  call dein#add('tmux-plugins/vim-tmux')
-  " call dein#add('itmammoth/doorboy.vim')
-  " call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rhubarb')
+" Command Interface
+  call dein#add('Shougo/denite.nvim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('chemzqm/denite-git')
+  call dein#add('chemzqm/denite-extra')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('jiangmiao/auto-pairs')
 
-  call dein#add('neoclide/vim-easygit')
-  call dein#add('jreybert/vimagit', {'on_cmd': ['Magit', 'MagitOnly']})
-  " call dein#add('rhysd/committia.vim')
-  call dein#add('sgeb/vim-diff-fold')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('junegunn/gv.vim')
-  call dein#add('lambdalisue/gina.vim')
+" File Manager
   call dein#add('scrooloose/nerdtree')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('Shougo/vimfiler.vim')
+  " Search in Denite?
+  call dein#add('junegunn/fzf')
 
-  call dein#add('eugen0329/vim-esearch')
-  call dein#add('AndrewRadev/splitjoin.vim')
+" Sensible
+  call dein#add('wellle/targets.vim')
+  call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-unimpaired')
-  " call dein#add('neomake/neomake')
-  call dein#add('w0rp/ale')
-  call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('tpope/vim-surround')
-  " call dein#add('tomtom/tcomment_vim')
   call dein#add('tpope/vim-commentary')
-  call dein#add('wellle/targets.vim')
-  call dein#add('mattn/emmet-vim')
-  call dein#add('sbdchd/neoformat')
-" deoplete stuff
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/deol.nvim')
-  call dein#add('Shougo/denite.nvim')
-  " Faster search sorting
-  " call dein#add('nixprime/cpsm', {'build': 'PY3=ON ./install.sh'})
-  call dein#add('Shougo/neomru.vim')
-  " Fast Incsearch
+  call dein#add('justinmk/vim-sneak')
+
+" Fast Motion
   call dein#add('easymotion/vim-easymotion')
   call dein#add('haya14busa/incsearch-easymotion.vim')
   call dein#add('haya14busa/incsearch.vim')
-  " Has a bug in it
-  " call dein#add('chemzqm/redismru.vim', {'build':'npm install'})
-  call dein#add('Shougo/context_filetype.vim')
-  call dein#add('chemzqm/denite-git')
-  call dein#add('chemzqm/denite-extra')
-
-  " call dein#add('tweekmonster/deoplete-clang2')
-  " call dein#add('artur-shaik/vim-javacomplete2')
-  call dein#add('Shougo/neco-vim')
-  call dein#add('Shougo/neoinclude.vim')
-  " call dein#add('ujihisa/neco-look')
-  call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
-  call dein#add('zchee/deoplete-jedi')
-  call dein#add('fatih/vim-go')
-  call dein#add('zchee/deoplete-go', {'build': 'make'})
-  " call dein#add('ternjs/tern_for_vim')
-  call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
-  call dein#add('junegunn/limelight.vim')
-  "update fold only when open
-  call dein#add('Konfekt/FastFold')
-  "snippet
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/echodoc.vim')
-  call dein#add('honza/vim-snippets')
-  " close buffer with ease
-  call dein#add('mhinz/vim-sayonara')
-  call dein#add('mattn/webapi-vim')
-  call dein#add('mattn/gist-vim')
-  " call dein#add('vim-scripts/SyntaxRange')
   call dein#add('terryma/vim-multiple-cursors')
-  " call dein#add('MartinLafreniere/vim-PairTools')
-  call dein#add('Shougo/vimfiler.vim')
-  call dein#add('Shougo/unite.vim')
-  call dein#add('junegunn/gv.vim')
-  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
+
+" Colorscheme
+  call dein#add('dracula/vim')
+  call dein#add('majutsushi/tagbar')
+
+" Appearance
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('Yggdroot/indentLine')
+  call dein#add('ryanoasis/vim-devicons')
+  call dein#add('drzel/vim-line-no-indicator')
+
+" Terminal
+  call dein#add('Shougo/deol.nvim')
+  call dein#add('christoomey/vim-tmux-navigator')
+
+" Git
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rhubarb')
+  call dein#add('jreybert/vimagit', {'on_cmd': ['Magit', 'MagitOnly']})
+  call dein#add('neoclide/vim-easygit')
+  call dein#add('lambdalisue/gina.vim')
+  call dein#add('junegunn/gv.vim')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('mattn/webapi-vim')
+  call dein#add('mattn/gist-vim')
+  call dein#add('junegunn/gv.vim')
+
+" Syntax and Language Specific
+  " HTML
+  call dein#add('othree/html5.vim')
+  call dein#add('mattn/emmet-vim')
+  " CSS
+  call dein#add('hail2u/vim-css3-syntax')
+  call dein#add('othree/csscomplete.vim')
+  " Javascript
+  call dein#add('othree/yajs.vim')
+  call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
+  call dein#add('othree/es.next.syntax.vim', {'on_ft': ['javascript.jsx', 'javascript']})
+  call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
+  call dein#add('mxw/vim-jsx')
+  " Typescript
+  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
+  call dein#add('HerringtonDarkholme/yats.vim')
+  call dein#add('ianks/vim-tsx')
+  " Graphql
+  call dein#add('jparise/vim-graphql')
+  " JSON
+  call dein#add('elzr/vim-json')
+  call dein#add('Quramy/vison')
+  " LaTex
+  call dein#add('lervag/vimtex', {'on_ft': ['plaintex', 'tex']})
+  call dein#add('moll/vim-node')
+  " Markdown
+  call dein#add('euclio/vim-markdown-composer', {'build': 'cargo build --release'})
+  call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
+  call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
+  call dein#add('dhruvasagar/vim-table-mode')
+  " Python
+  "" Need to fix override <leader>g
+  call dein#add('zchee/deoplete-jedi')
+  call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
+  call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
+  " Golang
+  call dein#add('fatih/vim-go')
+  call dein#add('zchee/deoplete-go', {'build': 'make'})
+
+" Linter
+  call dein#add('w0rp/ale')
+
+" Code Completion
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/neco-vim')
+  call dein#add('Shougo/neoinclude.vim')
+  call dein#add('Shougo/echodoc.vim')
+
+" Snippets
+  call dein#add('honza/vim-snippets')
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+
+" Formatter
+  call dein#add('sbdchd/neoformat')
+
+" Misc plugin
+  call dein#add('Konfekt/FastFold')
+  call dein#add('junegunn/limelight.vim')
+  call dein#add('chakrit/vim-thai-keys')
+  call dein#add('xolox/vim-misc')
+  call dein#add('vimwiki/vimwiki')
+  call dein#add('tmux-plugins/vim-tmux')
+  call dein#add('sgeb/vim-diff-fold')
+  call dein#add('Shougo/context_filetype.vim')
+  call dein#add('mhinz/vim-sayonara')
   call dein#add('junegunn/goyo.vim')
   call dein#add('amix/vim-zenroom2')
-  call dein#add('euclio/vim-markdown-composer', {'build': 'cargo build --release'})
+  " Search and Replace <leader>ff
+  " call dein#add('eugen0329/vim-esearch')
+
+" iTerm
   call dein#add('sjl/vitality.vim')
-  call dein#add('drzel/vim-line-no-indicator')
-  call dein#add('Quramy/vison')
-  call dein#add('ryanoasis/vim-devicons')
-  call dein#add('junegunn/fzf')
-  call dein#add('justinmk/vim-sneak')
-  call dein#add('jiangmiao/auto-pairs')
+
   if dein#check_install()
     call dein#install()
     let pluginsExist=1
@@ -819,15 +829,15 @@ endif
 
 " esearch settings {{{
 
-  let g:esearch#cmdline#help_prompt = 1
-    let g:esearch#cmdline#dir_icon = '  '
-    let g:esearch = {
-    \ 'adapter':    'ag',
-    \ 'backend':    'nvim',
-    \ 'out':        'win',
-    \ 'batch_size': 1000,
-    \ 'use':        ['visual', 'hlsearch', 'last'],
-    \}
+  " let g:esearch#cmdline#help_prompt = 1
+  "   let g:esearch#cmdline#dir_icon = '  '
+  "   let g:esearch = {
+  "   \ 'adapter':    'ag',
+  "   \ 'backend':    'nvim',
+  "   \ 'out':        'win',
+  "   \ 'batch_size': 1000,
+  "   \ 'use':        ['visual', 'hlsearch', 'last'],
+  "   \}
 
 " }}}
 
