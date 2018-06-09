@@ -215,9 +215,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ################################################
 assign [class="Code" instance="^code"] $ws3
 assign [class="Coding"] $ws1
-assign [class="discord" instance="discord"] $ws4
-assign [class="Slack" instance="slack"] $ws4
-assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
+assign [class="discord" instance="discord"] $ws7
+assign [class="Slack" instance="slack"] $ws7
+# assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
 assign [class="okular" instance="okular"] $ws5
 assign [class="^libreoffice" instance="^libreoffice"] $ws5
 for_window [class="Spotify"] move to workspace $ws6
@@ -228,9 +228,9 @@ for_window [class="Spotify"] move to workspace $ws6
 # Chrome instance
 
 # Facebook
-assign [class="Chromium" instance="crx_celnaknmndcdcjcagffhbhciignkeokb"] $ws4
+assign [class="Chromium" instance="crx_celnaknmndcdcjcagffhbhciignkeokb"] $ws7
 # Facebook Messenger
-assign [class="Chromium" instance="crx_lidmfcddemdgmpphkkmmfgfgnkcmdhbn"] $ws4
+assign [class="Chromium" instance="crx_lidmfcddemdgmpphkkmmfgfgnkcmdhbn"] $ws7
 # Google Keep
 assign [class="Chromium" instance="crx_hcfcmgpnmpinpidjdgejehjchlbglpde"] $ws9
 # Medium
@@ -250,7 +250,7 @@ assign [class="Chromium" instance="crx_bnjfdainlhllipmmlagcfpdmcckiehng"] $ws9
 # Google Calendar
 assign [class="Chromium" instance="crx_jdbojlaicachcbjoddbcbnhomkmkcfld"] $ws9
 # Line
-assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws4
+assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws7
 # Anydo
 assign [class="Chromium" instance="crx_dhckiafmddpbajecepaaidjckpcfempi"] $ws9
 # Netflix
@@ -346,7 +346,7 @@ set $id                   #ff79c6
 # set some nice colors      border  background  text  indicator
 client.focused              $id     $pk         $tx     $id
 client.unfocused            $bg     $bg         $tf     $id
-client.focused_inactive     $bg     $bg         $pk     $id
+client.focused_inactive     $bg     $pk         $tx     $id
 client.urgent               $yw     $yw         $tx     $id
 #border & indicator are ignored
 client.placeholder          $bg     $bg         $bg     $bg
@@ -356,8 +356,8 @@ client.placeholder          $bg     $bg         $bg     $bg
 #############################
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer 3
+gaps inner 9
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -494,5 +494,4 @@ mode "$organize" {
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+    bindsym Escape mode "default" }
