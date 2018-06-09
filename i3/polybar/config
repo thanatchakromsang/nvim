@@ -56,14 +56,14 @@ module-margin-left = 1
 module-margin-right = 2
 
 ; The separator will be inserted between the output of each module
-separator = /
+separator = \
 
 font-0 = FontAwesome:pixelsize=11;1
-font-1 = icons\-in\-terminal:pixelsize=11;1
-font-2 = MesloLGM Nerd Font:size=10;1
+font-1 = icons\-in\-terminal:pixelsize=11;2
+font-2 = MesloLGM Nerd Font:size=10:weight=bold;2
 font-3 = Material Icons:style=Regular:size=11;1
 
-modules-left = i3 title
+modules-left = i3 taskwarrior
 modules-center = music
 ; modules-right = keyboard wireless-network volume xbacklight battery temperature powermenu
 modules-right = keyboard volume xbacklight battery wireless-network date
@@ -328,5 +328,20 @@ format = <label>
 ; Default: %title%
 label = %title%
 label-maxlen = 50
+
+[module/taskwarrior]
+interval = 10
+type = custom/script
+exec = ~/.config/polybar/task_polybar.sh
+format = <label>
+format-foreground = #FFF
+format-prefix = " "
+click-left = task "$((`cat /tmp/tw_polybar_id`))" done
+
+; [module/crypto]
+; type = custom/script
+; interval = 1000
+; exec = /home/thanatchaya/.config/polybar/crypto.py
+
 
 ; vim:ft=dosini
