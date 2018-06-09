@@ -12,5 +12,8 @@ case "$1" in
         ;;
 esac
 
+Random pictures in folder
 find "$PICTURES" -type f | shuf -n 1 | xargs feh --bg-fill &> /dev/null
+
+# feh --bg-fill "$PICTURE"/dracula2.jpg
 

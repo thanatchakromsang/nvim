@@ -31,7 +31,7 @@ case "$2" in
         ;;
     extend)
         xrandr --output $INTERN --auto --output $EXTERN --auto --above $INTERN --output $EXTERN2 --off
-        sh $DOTFILES/i3/i3/random_wallpaper.sh dual
+        sh ~/.dotfiles/i3/i3/random_wallpaper.sh single
         i3-msg restart
         xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 1
         ;;
