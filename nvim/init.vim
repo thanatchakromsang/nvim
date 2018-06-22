@@ -134,6 +134,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('junegunn/limelight.vim')
   call dein#add('chakrit/vim-thai-keys')
   call dein#add('xolox/vim-misc')
+  call dein#add('tbabej/taskwiki')
   call dein#add('vimwiki/vimwiki')
   call dein#add('tmux-plugins/vim-tmux')
   call dein#add('sgeb/vim-diff-fold')
@@ -711,7 +712,6 @@ endif
         \ 'typescript': ['tslint', 'tsserver'],
         \ 'python': ['yapf'],
         \ 'css': ['stylelint'],
-        \ 'markdown': ['alex', 'proselint'],
         \ }
 
   let g:ale_fixers = {
@@ -1227,6 +1227,9 @@ endif
   hi VimwikiHeader5 ctermfg=5
   hi VimwikiHeader6 ctermfg=6
 
+  " TaskWiki
+  let g:taskwiki_dont_preserve_folds="yes"
+
 "}}}
 
 " Magit  --------------------------------------------------------------------{{{
@@ -1235,3 +1238,9 @@ endif
 
 "}}}
 
+" GitGutter ------------------------------------------------------------------{{{
+
+  let g:gitgutter_map_keys = 0
+  " let g:gitgutter_highlight_lines = 1
+
+"}}}
