@@ -332,7 +332,7 @@ exec = ~/.config/polybar/task_polybar.sh
 format = <label>
 format-foreground = #FFF
 format-prefix = " "
-click-left = task "$((`cat /tmp/tw_polybar_id`))" done
+; click-left = task "$((`cat /tmp/tw_polybar_id`))" done
 
 ; [module/crypto]
 ; type = custom/script
