@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # build-in commands and core utilities
 alias f1='fg %1'
@@ -9,16 +9,23 @@ alias f5='fg %5'
 alias df='df -h'
 alias f=fg
 # alias j=jobs
-alias la='ls -A'
-alias l='ls -CF'
-alias l.='ls -d .*' #ls hidden files
-alias l1='ls -1'
-alias ls='ls -Fh'
+# alias la='ls -A'
+# alias l='ls -CF'
+# alias l.='ls -d .*' #ls hidden files
+# alias l1='ls -1'
+# alias ls='ls -Fh'
+alias ls='exa -Fh'
+alias la='exa -aglh --group-directories-first --git'
+alias l='exa -GF'
+alias l.='exa -d .*'
+alias ll.='exa -dlg .*'
+alias l1='exa -1'
+alias ll='exa -glh --group-directories-first --git'
 alias c='clear'
 alias tmux='tmux -2'
 
 # editors
-alias v='nvim'
+alias vim='nvim'
 alias wiki='nvim -c VimwikiIndex'
 alias diary='nvim -c VimwikiMakeDiaryNote'
 alias magit='nvim -c MagitOnly'       # manage git folder with magit
