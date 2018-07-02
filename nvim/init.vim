@@ -26,6 +26,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('jiangmiao/auto-pairs')
 
 " File Manager
+  call dein#add('mhinz/vim-startify')
   call dein#add('scrooloose/nerdtree')
   call dein#add('Shougo/vimfiler.vim')
   " Search in Denite?
@@ -52,7 +53,7 @@ if dein#load_state(('~/.config/nvim'))
 " Appearance
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('Yggdroot/indentLine')
+  " call dein#add('Yggdroot/indentLine')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('drzel/vim-line-no-indicator')
 
