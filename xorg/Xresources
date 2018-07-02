@@ -2,7 +2,7 @@
 ### Xft Setting ###
 ###################
 
-Xft.dpi:                120
+Xft.dpi:                144
 Xft.autonhint:          0
 Xtf.lcdfilter:          lcddefault
 Xft.hintstyle:          hintslight
