@@ -74,7 +74,7 @@
       ]
     },
   ],
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindings": [
     // gh - show the hover tooltip.
     // gb - add an additional cursor at the next place that matches *
     {
@@ -329,4 +329,5 @@
   "npm-intellisense.showBuildInLibs": true,
   // Path intellisense
   "path-intellisense.autoSlashAfterDirectory": true,
+  "vsicons.dontShowNewVersionMessage": true,
 }
