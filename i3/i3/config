@@ -34,8 +34,8 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal -c Terminal
-bindsym $mod+backslash exec i3-sensible-terminal -c Floating
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal --class Terminal -t Terminal
+bindsym $mod+backslash exec --no-startup-id i3-sensible-terminal --class Floating -t Floating
 
 # kill focused window
 bindsym $mod+q kill
@@ -473,8 +473,8 @@ mode "move" {
 set $application open (1) tmux (2) bluetooth-manager (3) sound-manager
 bindsym $mod+F1 mode "$application"
 mode "$application" {
-    bindsym 1 exec --no-startup-id i3-sensible-terminal -c Coding -e tmux, mode "default"
-    bindsym 2 exec --no-startup-id i3-sensible-terminal -c Vimwiki -e nvim -c VimwikiIndex, mode "default"
+    bindsym 1 exec --no-startup-id i3-sensible-terminal --class Coding -e tmux, mode "default"
+    bindsym 2 exec --no-startup-id i3-sensible-terminal --class Vimwiki -e nvim -c VimwikiIndex, mode "default"
     bindsym 2 exec --no-startup-id blueman-applet, mode "default"
     bindsym 3 exec --no-startup-id pavucontrol, mode "default"
 
@@ -486,11 +486,11 @@ mode "$application" {
 set $organize open:todo (1) wiki (2) diary (3) today (4) yesterday (5) tomorrow
 bindsym $mod+F2 mode "$organize"
 mode "$organize" {
-    bindsym 1 exec --no-startup-id i3-sensible-terminal -c Wiki\ Index -e nvim -c VimwikiIndex, mode "default"
-    bindsym 2 exec --no-startup-id i3-sensible-terminal -c Diary\ Index -e nvim -c "VimwikiDiaryIndex" -c "VimwikiDiaryGenerateLinks", mode "default"
-    bindsym 3 exec --no-startup-id i3-sensible-terminal -c Today\ Diary -e nvim -c VimwikiMakeDiaryNote, mode "default"
-    bindsym 4 exec --no-startup-id i3-sensible-terminal -c Yesterday\ Diary -e nvim -c VimwikiMakeYesterdayDiaryNote, mode "default"
-    bindsym 5 exec --no-startup-id i3-sensible-terminal -c Tomorrow\ Diary -e nvim -c VimwikiMakeTomorrowDiaryNote, mode "default"
+    bindsym 1 exec --no-startup-id i3-sensible-terminal --class Wiki\ Index -e nvim -c VimwikiIndex, mode "default"
+    bindsym 2 exec --no-startup-id i3-sensible-terminal --class Diary\ Index -e nvim -c "VimwikiDiaryIndex" -c "VimwikiDiaryGenerateLinks", mode "default"
+    bindsym 3 exec --no-startup-id i3-sensible-terminal --class Today\ Diary -e nvim -c VimwikiMakeDiaryNote, mode "default"
+    bindsym 4 exec --no-startup-id i3-sensible-terminal --class Yesterday\ Diary -e nvim -c VimwikiMakeYesterdayDiaryNote, mode "default"
+    bindsym 5 exec --no-startup-id i3-sensible-terminal --class Tomorrow\ Diary -e nvim -c VimwikiMakeTomorrowDiaryNote, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
