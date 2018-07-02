@@ -69,8 +69,8 @@ modules-center = music
 ; modules-right = keyboard wireless-network volume xbacklight battery temperature powermenu
 modules-right = keyboard volume xbacklight battery wireless-network date
 
-; tray-position = right
-; tray-padding = 2
+;tray-position = center
+;tray-padding = 2
 
 ;tray-transparent = true
 ;tray-background = #0063ff
@@ -330,13 +330,12 @@ interval = 10
 type = custom/script
 exec = ~/.config/polybar/task_polybar.sh
 format = <label>
-format-foreground = #FFF
-format-prefix = " "
+format-foreground = ${colors.foreground}
 ; click-left = task "$((`cat /tmp/tw_polybar_id`))" done
 
 ; [module/crypto]
 ; type = custom/script
-; interval = 1000
+; interval = 300
 ; exec = /home/thanatchaya/.config/polybar/crypto.py
 
 
