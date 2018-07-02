@@ -190,20 +190,19 @@ endif
   set noshowmode
   set nobackup
   set noswapfile
-  set splitbelow
   set numberwidth=1
   set conceallevel=0
   set virtualedit=
   set wildmenu
-  set laststatus=2
-  set wrap linebreak nolist
+  set laststatus=2                    " display incomplete commands
+  set wrap linebreak
   set wildmode=list:longest,list:full
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-  set autoread
+  set wildignore+=*/tmp/*,*.so,*.swp,
+        \*.zip,*.pyc,*.db,*.sqlite
+  set autoread                        " Reload unchanged files automatically.
   set updatetime=500
   set t_Co=256
-" leader is ,
-  let mapleader = ','
+  let mapleader = ','                 " Leader key
   set undofile
   set undodir="$HOME/.VIM_UNDO_FILES"
 " Remember cursor position between vim sessions
@@ -220,15 +219,21 @@ endif
   set shortmess=atIc
   set isfname-==
 
-  "" Use modeline overrides
-  set modeline
+  " Use modeline overrides
+  " set modeline
   set modelines=10
 
-  "" Fix backspace indent
+  set listchars=tab:‣\ ,trail:·,precedes:«,extends:»,eol:¬
+  set list
+
+  " Fix backspace indent
   set backspace=indent,eol,start
 
   " Sayonara as :x
   cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+  " Open new split panes to right and bottom, which feels more natural
+  set splitright
+  set splitbelow
 
 	if (has('nvim'))
 		let g:python_host_prog = '/usr/bin/python2'
@@ -237,6 +242,9 @@ endif
 		" but don't open a split
 		set inccommand=nosplit
 	endif
+
+  autocmd FileType vimwiki :ALEDisable
+  autocmd FileType vimwiki :GitGutterDisable
 
 " }}}
 
@@ -387,26 +395,26 @@ endif
 
 " Appearance settings  ------------------------------------------------------{{{
 
-  set ruler
+  set ruler         " show the cursor position all the time
   set cursorline
   set relativenumber
   set number
   set fillchars=""
 
-  " IndentLine  ----------------------------------------------------------{{{
+  "" IndentLine  ----------------------------------------------------------{{{
 
-    let g:indentLine_enabled = 1
-    let g:indentLine_color_term = 239
-    " let g:indentLine_bgcolor_term = 236
-    " let g:indentLine_leadingSpaceEnabled = 1
-    let g:indentLine_concealcursor = 'inc'
-    let g:indentLine_conceallevel = 2
-    let g:indentLine_char = '│'
-    let g:indentLine_leadingSpaceChar = '·'
-    let g:indentLine_fileTypeExclude = ['nerdtree']
-    autocmd FileType help,nerdtree,vimwiki IndentLinesDisable
+  "  let g:indentLine_enabled = 1
+  "  let g:indentLine_color_term = 239
+  "  " let g:indentLine_bgcolor_term = 236
+  "  " let g:indentLine_leadingSpaceEnabled = 1
+  "  let g:indentLine_concealcursor = 'inc'
+  "  let g:indentLine_conceallevel = 2
+  "  let g:indentLine_char = '│'
+  "  let g:indentLine_leadingSpaceChar = '·'
+  "  let g:indentLine_fileTypeExclude = ['nerdtree']
+  "  autocmd FileType help,nerdtree,vimwiki IndentLinesDisable
 
-  "}}}
+  ""}}}
 
   " Airline  -------------------------------------------------------------{{{
 
@@ -553,16 +561,6 @@ endif
 
 " Programing language settings  ---------------------------------------------{{{
 
-  " --------------------------  Polyglot  -----------------------------------{{{
-
-  " let g:polyglot_disabled = [
-  "       \ 'javascript',
-  "       \ 'python',
-  "       \ 'typescript'
-  "       \ ]
-
-  "}}}
-
   " --------------------------  Javascript  ---------------------------------{{{
 
       augroup javascript
@@ -597,6 +595,7 @@ endif
       let python_highlight_all = 1
       " let g:jedi#auto_vim_configuration = 0
       let g:jedi#documentation_command = "<leader>k"
+      let g:jedi#goto_assignments_command = "<leader>h"
       " let g:jedi#completions_enabled = 0
 
   "}}}
