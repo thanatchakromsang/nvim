@@ -7,6 +7,3 @@
 [submodule "/home/thanatchaya/.dotfiles/zsh/plugins/zsh-syntax-highlighting"]
 	path = /home/thanatchaya/.dotfiles/zsh/plugins/zsh-syntax-highlighting
 	url = /home/thanatchaya/zsh-syntax-highlighting
-[submodule "/home/thanatchaya/.dotfiles/Notes"]
-	path = /home/thanatchaya/.dotfiles/Notes
-	url = /home/thanatchaya/Notes
