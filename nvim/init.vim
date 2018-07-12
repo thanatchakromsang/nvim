@@ -23,7 +23,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('chemzqm/denite-git')
   call dein#add('chemzqm/denite-extra')
   call dein#add('Shougo/unite.vim')
-  call dein#add('jiangmiao/auto-pairs')
 
 " File Manager
   call dein#add('mhinz/vim-startify')
@@ -53,7 +52,7 @@ if dein#load_state(('~/.config/nvim'))
 " Appearance
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
-  " call dein#add('Yggdroot/indentLine')
+  call dein#add('Yggdroot/indentLine')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('drzel/vim-line-no-indicator')
 
@@ -107,7 +106,6 @@ if dein#load_state(('~/.config/nvim'))
   " Python
   "" Need to fix override <leader>g
   call dein#add('zchee/deoplete-jedi')
-  call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
   call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
   " Golang
   call dein#add('fatih/vim-go')
