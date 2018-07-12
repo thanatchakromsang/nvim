@@ -704,14 +704,14 @@ endif
   let g:ale_linters = {
         \ 'javascript': ['eslint'],
         \ 'typescript': ['tslint', 'tsserver'],
-        \ 'python': ['yapf'],
+        \ 'python': ['flake8'],
         \ 'css': ['stylelint'],
         \ }
 
   let g:ale_fixers = {
         \ 'javascript': ['eslint'],
         \ 'typescript': ['tslint'],
-        \ 'python': ['yapf'],
+        \ 'python': ['autopep8'],
         \ 'css': ['stylelint'],
         \ }
 
