@@ -67,7 +67,7 @@ font-3 = Material Icons:style=Regular:size=11;1
 modules-left = i3 taskwarrior
 modules-center = music
 ; modules-right = keyboard wireless-network volume xbacklight battery temperature powermenu
-modules-right = keyboard volume xbacklight battery wireless-network date
+modules-right = keyboard volume backlight-acpi battery wireless-network date
 
 ;tray-position = center
 ;tray-padding = 2
