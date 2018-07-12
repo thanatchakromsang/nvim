@@ -377,20 +377,14 @@ endif
 " imap <left> <nop>
 " imap <right> <nop>
 
-" Auto pairs
-  " let g:AutoPairsFlyMode = 1
-  let g:AutoPairsShortcutJump = '<C-e>'
-  " let g:AutoPairsShortcutFastWrap = '<M-e>'
-
-
 " Tagbar
   nmap <silent> <F3> :TagbarToggle<CR>
   let g:tagbar_autofocus = 1
   let g:tagbar_left = 1
 
 " Sneak
-  map s <Plug>Sneak_s
-  map S <Plug>Sneak_S
+  map f <Plug>Sneak_s
+  map F <Plug>Sneak_S
 
 "}}}"
 
