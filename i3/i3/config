@@ -255,6 +255,12 @@ assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws7
 assign [class="Chromium" instance="crx_dhckiafmddpbajecepaaidjckpcfempi"] $ws9
 # Netflix
 assign [class="Chromium" instance="crx_eppojlglocelodeimnohnlnionkobfln"] $ws6
+# Slack prontotools
+assign [class="Chromium" instance="crx_holnenfpomhkndhdglnnfbfockijaofe"] $ws7
+# Slack squadbeat
+assign [class="Chromium" instance="crx_eppojlglocelodeimnohnlnionkobfln"] $ws7
+# Jira
+assign [class="Chromium" instance="crx_eggpgmndempnegmfepjcgggnohibdbmo"] $ws9
 
 for_window [class="Chromium"] border pixel 1
 
