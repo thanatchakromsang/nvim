@@ -254,7 +254,7 @@ assign [class="Chromium" instance="crx_holnenfpomhkndhdglnnfbfockijaofe"] $ws7
 # Slack squadbeat
 assign [class="Chromium" instance="crx_nacnooigdkcajefhhchobeeacinkpojl"] $ws7
 # Jira
-assign [class="Chromium" instance="crx_eggpgmndempnegmfepjcgggnohibdbmo"] $ws9
+assign [class="Chromium" instance="crx_mgpdnmcalffaongdaeeoonaocchbiafa"] $ws9
 
 for_window [class="Chromium"] border pixel 1
 
