@@ -215,9 +215,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ################################################
 assign [class="Code" instance="^code"] $ws3
 assign [class="Coding"] $ws1
-assign [class="discord" instance="discord"] $ws7
-assign [class="Slack" instance="slack"] $ws7
-# assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
+assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
 assign [class="okular" instance="okular"] $ws5
 assign [class="^libreoffice" instance="^libreoffice"] $ws5
 for_window [class="Spotify"] move to workspace $ws6
@@ -230,7 +228,7 @@ for_window [class="Spotify"] move to workspace $ws6
 # Facebook
 assign [class="Chromium" instance="crx_celnaknmndcdcjcagffhbhciignkeokb"] $ws7
 # Facebook Messenger
-assign [class="Chromium" instance="crx_lidmfcddemdgmpphkkmmfgfgnkcmdhbn"] $ws7
+assign [class="Chromium" instance="crx_fmpeogjilmkgcolmjmaebdaebincaebh"] $ws7
 # Google Keep
 assign [class="Chromium" instance="crx_hcfcmgpnmpinpidjdgejehjchlbglpde"] $ws9
 # Medium
@@ -243,22 +241,18 @@ assign [class="Chromium" instance="crx_bojccfnmcnekjgjhcaklmcgofnngpjcl"] $ws5
 assign [class="Chromium" instance="crx_comkdlimbkhemidbbpchhepidbmjpnhh"] $ws7
 # Inbox
 assign [class="Chromium" instance="crx_egddcdhcadfhcbheacnhikllgjokeico"] $ws8
-# Asana
-assign [class="Chromium" instance="crx_fmojlbenmflpealcagngfcmmhahopoah"] $ws9
 # Google Classroom
 assign [class="Chromium" instance="crx_bnjfdainlhllipmmlagcfpdmcckiehng"] $ws9
 # Google Calendar
 assign [class="Chromium" instance="crx_jdbojlaicachcbjoddbcbnhomkmkcfld"] $ws9
 # Line
 assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws7
-# Anydo
-assign [class="Chromium" instance="crx_dhckiafmddpbajecepaaidjckpcfempi"] $ws9
 # Netflix
 assign [class="Chromium" instance="crx_eppojlglocelodeimnohnlnionkobfln"] $ws6
 # Slack prontotools
 assign [class="Chromium" instance="crx_holnenfpomhkndhdglnnfbfockijaofe"] $ws7
 # Slack squadbeat
-assign [class="Chromium" instance="crx_eppojlglocelodeimnohnlnionkobfln"] $ws7
+assign [class="Chromium" instance="crx_nacnooigdkcajefhhchobeeacinkpojl"] $ws7
 # Jira
 assign [class="Chromium" instance="crx_eggpgmndempnegmfepjcgggnohibdbmo"] $ws9
 
@@ -267,8 +261,6 @@ for_window [class="Chromium"] border pixel 1
 # make floating apps
 for_window [class="^Simplescreenrecorder$"] floating enable
 for_window [class="^Wine$"] floating enable
-for_window [class="Chromium" instance="crx_ekajjllcmeckibblgckgoceinmmgnfop"] floating enable
-for_window [class="Floating"] floating enable
 
 # Scratchpad instance
 # Rainy mood
