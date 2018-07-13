@@ -87,7 +87,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
   call dein#add('mxw/vim-jsx')
   " Typescript
-  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
+  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'}, {'build': './install.sh'})
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('ianks/vim-tsx')
   " Graphql
@@ -818,6 +818,18 @@ endif
 
 	let g:NERDTreeDirArrowExpandable = ''
 	let g:NERDTreeDirArrowCollapsible = ''
+  let g:NERDTreeGitStatusIndicatorMap = {
+          \ 'Modified'  : '✹',
+          \ 'Staged'    : '✚',
+          \ 'Untracked' : '✭',
+          \ 'Renamed'   : '➜',
+          \ 'Unmerged'  : '═',
+          \ 'Deleted'   : '✖',
+          \ 'Dirty'     : '✗',
+          \ 'Clean'     : '✔︎',
+          \ 'Ignored'   : '',
+          \ 'Unknown'   : '?'
+          \ }
 
 " esearch settings {{{
 
@@ -901,7 +913,8 @@ endif
   autocmd FileType html setl foldmethod=expr
   autocmd FileType html setl foldexpr=HTMLFolds()
 
-  autocmd FileType javascript,typescript,json setl foldmethod=syntax
+  " autocmd FileType javascript,typescript,json setl foldmethod=syntax
+  autocmd FileType javascript,typescript,typescriptreact,json setl foldmethod=syntax
 
   autocmd FileType graphql setl foldmethod=syntax
 
@@ -1195,11 +1208,11 @@ endif
   " let g:user_emmet_expandabbr_key='<Tab>'
   " imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
-  autocmd FileType html,css,scss imap <silent><buffer><expr><tab> <sid>expand_html_tab()
+  autocmd FileType html,css,scss,typescript.tsx imap <silent><buffer><expr><tab> <sid>expand_html_tab()
   let g:user_emmet_mode='a'
   let g:user_emmet_complete_tag = 0
   let g:user_emmet_install_global = 0
-  autocmd FileType html,css,scss EmmetInstall
+  autocmd FileType html,css,scss,typescript.tsx EmmetInstall
 
 "}}}
 
