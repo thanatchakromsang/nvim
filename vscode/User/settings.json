@@ -23,7 +23,7 @@
     100
   ],
   // Workbench
-  "workbench.colorTheme": "Dracula Soft",
+  "workbench.colorTheme": "Dracula",
   "workbench.activityBar.visible": false,
   "workbench.commandPalette.preserveInput": true,
   // "workbench.editor.openPositioning": "right",
@@ -43,7 +43,6 @@
     "statusBar.foreground": "#ffffff"
   },
   // Vim
-  "vim.cmdLineInitialColon": true,
   "vim.easymotion": true,
   "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
   "vim.easymotionMarkerFontFamily": "MesloLGM Nerd Font mono",
@@ -232,17 +231,17 @@
         "h"
       ]
     },
-    // Easymotion search instead of /
-    {
-      "before": [
-        "/"
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "/"
-      ]
-    },
+    // // Easymotion search instead of /
+    // {
+    //   "before": [
+    //     "/"
+    //   ],
+    //   "after": [
+    //     "<leader>",
+    //     "<leader>",
+    //     "/"
+    //   ]
+    // },
   ],
   // Scrolloff (vim-like behavior)
   "scrolloff.scrolloff": 5,
@@ -330,4 +329,6 @@
   // Path intellisense
   "path-intellisense.autoSlashAfterDirectory": true,
   "vsicons.dontShowNewVersionMessage": true,
+  "materialTheme.fixIconsRunning": false,
+  "workbench.iconTheme": "eq-material-theme-icons-ocean",
 }
