@@ -49,8 +49,8 @@ foreground-alt = ${colors.base07}
 alert = ${colors.base09}
 
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+margin-top = 3
+margin-bottom = 3
 override-redirect = true
 
 [bar/top]
@@ -60,7 +60,6 @@ height = 24
 offset-x = 0
 offset-y = 0
 
-; background = ${colors.base00}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -88,11 +87,7 @@ font-3 = Material Icons:style=Regular:size=11;1
 
 modules-left = i3 taskwarrior
 modules-center = music
-; modules-right = keyboard wireless-network volume xbacklight battery temperature powermenu
 modules-right = keyboard volume backlight-acpi battery wireless-network date
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 ; cursor-scroll = ns-resize
@@ -119,7 +114,7 @@ format-volume-foreground = ${colors.base00}
 label-muted =  muted
 label-muted-padding = 2
 label-muted-background = ${colors.base0F}
-label-muted-foreground = ${colors.base00}
+label-muted-foreground = ${colors.base03}
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
@@ -160,6 +155,8 @@ pin-workspaces = true
 
 padding = 3
 
+; label in i3 command
+label-mode-padding = 2
 label-mode-foreground = ${colors.base00}
 label-mode-background = ${colors.base0D}
 
@@ -167,7 +164,6 @@ label-mode-background = ${colors.base0D}
 label-focused = %index% :%icon%
 label-focused-foreground = ${colors.base00}
 label-focused-background = ${colors.base0D}
-; label-focused-underline = ${colors.base0E}
 label-focused-padding = ${self.padding}
 
 ; visible = Active workspace on unfocused monitor
