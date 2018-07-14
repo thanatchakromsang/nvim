@@ -1,5 +1,4 @@
 ;=====================================================
-;
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 ;
@@ -8,56 +7,79 @@
 ;=====================================================
 
 [colors]
+; grey
+background = ${xrdb:background:#000000}
+; white
+foreground = ${xrdb:foreground:#000000}
+; black
 base00 = ${xrdb:color0:#000000}
+; light green
 base01 = ${xrdb:color10:#000000}
+; yellow
 base02 = ${xrdb:color11:#000000}
+; grey more than bg
 base03 = ${xrdb:color8:#000000}
+; light purple
 base04 = ${xrdb:color12:#000000}
+; light grey
 base05 = ${xrdb:color7:#000000}
+; pink
 base06 = ${xrdb:color13:#000000}
+; almost white
 base07 = ${xrdb:color15:#000000}
+; red almost orange
 base08 = ${xrdb:color1:#000000}
+; lighter than red
 base09 = ${xrdb:color9:#000000}
+; yellow
 base0A = ${xrdb:color3:#000000}
+; green
 base0B = ${xrdb:color2:#000000}
+; blue
 base0C = ${xrdb:color6:#000000}
+; purple
 base0D = ${xrdb:color4:#000000}
+; pink
 base0E = ${xrdb:color5:#000000}
+; light blue
 base0F = ${xrdb:color14:#000000}
 
-background = ${colors.base03}
 background-alt = ${colors.base03}
-foreground = ${colors.base07}
 foreground-alt = ${colors.base07}
-primary = ${colors.base0B}
-secondary = ${colors.base07}
 alert = ${colors.base09}
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+override-redirect = true
 
 [bar/top]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 24
+offset-x = 0
+offset-y = 0
 
 ; background = ${colors.base00}
-background = 0
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 fixed-center = true
 
 line-size = 3
-line-color = #f00
+line-color = ${colors.foreground}
 
 border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 0
 
 ; The separator will be inserted between the output of each module
-separator = \
+; separator = \
 
 font-0 = FontAwesome:pixelsize=11;1
 font-1 = icons\-in\-terminal:pixelsize=11;2
@@ -68,20 +90,6 @@ modules-left = i3 taskwarrior
 modules-center = music
 ; modules-right = keyboard wireless-network volume xbacklight battery temperature powermenu
 modules-right = keyboard volume backlight-acpi battery wireless-network date
-
-;tray-position = center
-;tray-padding = 2
-
-;tray-transparent = true
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -104,9 +112,14 @@ master-mixer = Master
 mapped = false
 
 format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 2
+format-volume-background = ${colors.base0F}
+format-volume-foreground = ${colors.base00}
 
 label-muted =  muted
-label-muted-foreground = #66
+label-muted-padding = 2
+label-muted-background = ${colors.base0F}
+label-muted-foreground = ${colors.base00}
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
@@ -122,9 +135,10 @@ blacklist-1 = scroll lock
 format =  <label-layout>
 format-spacing = 0
 
-label-layout =  %name%
-; label-layout-padding = 2
-label-layout-foreground = ${bar/top.foreground}
+label-layout =  %layout%
+label-layout-padding = 2
+label-layout-background = ${colors.base09}
+label-layout-foreground = ${colors.base00}
 
 [module/i3]
 type = internal/i3
@@ -144,38 +158,43 @@ ws-icon-8 = 9;
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-padding = 1
-label-mode-padding = 2
-label-mode-foreground = #555
-label-mode-background = ${colors.base06}
+padding = 3
+
+label-mode-foreground = ${colors.base00}
+label-mode-background = ${colors.base0D}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index% :%icon%
-label-focused-background = 0
-label-focused-underline = ${colors.base06}
+label-focused-foreground = ${colors.base00}
+label-focused-background = ${colors.base0D}
+; label-focused-underline = ${colors.base0E}
 label-focused-padding = ${self.padding}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index% :%icon%
-label-visible-background = 0
-label-visible-underline = ${colors.base01}
+label-visible-background = ${colors.base0E}
+label-visible-foreground = ${colors.base00}
 label-visible-padding = ${self.padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index% :%icon%
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.base00}
+label-urgent-padding = ${self.padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index% :%icon%
 label-unfocused-padding = ${self.padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %index% :%icon%
-label-urgent-background = 0
-label-urgent-underline= ${colors.alert}
-label-urgent-padding = ${self.padding}
 
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = false
 
 format = <ramp> <label>
+format-padding = 2
+format-background = ${colors.base0A}
+format-foreground = ${colors.base00}
+
 label = %percentage%%
 ramp-0 = 
 ramp-1 = 
@@ -189,13 +208,19 @@ card = intel_backlight
 [module/wireless-network]
 type = internal/network
 interface = wlo1
-interval = 3.0
 ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
+format-connected-padding = 2
+format-connected-background = ${colors.base0E}
+format-connected-foreground = ${colors.base00}
+
 label-connected = %essid%
+
 label-disconnected = wifi not connected
-label-disconnected-foreground = #66
+label-disconnected-padding = 2
+label-disconnected-background = ${colors.base0E}
+label-disconnected-foreground = ${colors.base03}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -216,6 +241,9 @@ date = %a %b %d,
 time = %H:%M
 
 format = <label>
+format-padding = 2
+format-background = ${colors.base0D}
+format-foreground = ${colors.base00}
 label =  %date% %time%
 
 [module/battery]
@@ -226,9 +254,20 @@ full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 
+format-charging-padding = 2
+format-charging-background = ${colors.base0B}
+format-charging-foreground = ${colors.base00}
+
 format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 2
+format-discharging-background = ${colors.base0B}
+format-discharging-foreground = ${colors.base00}
+
 
 label-full =  Full
+label-full-padding = 2
+label-full-background = ${colors.base0B}
+label-full-foreground = ${colors.base00}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -294,10 +333,6 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
-
 [module/music]
 type = custom/script
 format = <label>
@@ -307,6 +342,7 @@ exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam
 exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
 click-left = playerctl play-pause
 click-right = playerctl next
+
 interval = 1
 
 [module/title]
@@ -315,9 +351,9 @@ type = internal/xwindow
 ; Available tags:
 ;   <label> (default)
 format = <label>
-; format-background = #f00
-; format-foreground = #000
-; format-padding = 2
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 2
 
 ; Available tokens:
 ;   %title%
@@ -330,13 +366,14 @@ interval = 10
 type = custom/script
 exec = ~/.config/polybar/task_polybar.sh
 format = <label>
+format-padding = 2
 format-foreground = ${colors.foreground}
+format-background = ${colors.background}
 ; click-left = task "$((`cat /tmp/tw_polybar_id`))" done
 
 ; [module/crypto]
 ; type = custom/script
 ; interval = 300
 ; exec = /home/thanatchaya/.config/polybar/crypto.py
-
 
 ; vim:ft=dosini
