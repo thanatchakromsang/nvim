@@ -213,7 +213,7 @@ format-connected-foreground = ${colors.base00}
 
 label-connected = %essid%
 
-label-disconnected = wifi not connected
+label-disconnected =  not connected
 label-disconnected-padding = 2
 label-disconnected-background = ${colors.base0E}
 label-disconnected-foreground = ${colors.base03}
@@ -227,11 +227,9 @@ ramp-signal-4 = 
 format-packetloss = <animation-packetloss> <label-connected>
 format-packetloss-padding = 2
 format-packetloss-background = ${colors.base0E}
-format-packetloss-foreground = ${colors.base03}
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = ${colors.base03}
+format-packetloss-foreground = ${colors.base00}
+animation-packetloss-0 = 
 animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${colors.base03}
 animation-packetloss-framerate = 500
 
 [module/date]
