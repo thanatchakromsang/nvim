@@ -343,8 +343,8 @@ set $id                   #ff79c6
 
 # set some nice colors      border  background  text  indicator
 client.focused              $id     $pk         $tx     $id
-client.unfocused            $bg     $bg         $tf     $id
 client.focused_inactive     $bg     $pk         $tx     $id
+client.unfocused            $bgb    $bgb        $fg     $id
 client.urgent               $yw     $yw         $tx     $id
 #border & indicator are ignored
 client.placeholder          $bg     $bg         $bg     $bg
