@@ -4,9 +4,9 @@
   "editor.fontFamily": "MesloLGM Nerd Font Mono",
   "editor.fontWeight": "normal",
   "editor.fontSize": 14,
-  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrap": "off",
   "editor.wordWrapColumn": 80,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.glyphMargin": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.lightbulb.enabled": false,
@@ -20,7 +20,8 @@
   "editor.quickSuggestionsDelay": 100,
   "editor.rulers": [
     80,
-    100
+    100,
+    120
   ],
   // Workbench
   "workbench.colorTheme": "Dracula",
@@ -32,8 +33,10 @@
   "workbench.list.openMode": "doubleClick",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.labelFormat": "medium",
   // Window
-  "window.zoomLevel": 0,
+  "window.titleBarStyle": "native",
+  "window.zoomLevel": -1,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "toggle",
   "workbench.colorCustomizations": {
@@ -224,6 +227,17 @@
     {
       "before": [
         "leader",
+        "b"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorOrthogonal"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
         "h"
       ],
       "after": [
@@ -308,7 +322,9 @@
   // // Typescript linter
   "tslint.autoFixOnSave": true,
   "tslint.run": "onSave",
-  // // Javascript linte
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.autoImportSuggestions.enabled": false,
+  // // Javascript linter
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
   "prettier.eslintIntegration": true,
@@ -316,6 +332,7 @@
   "autoDocstring.docstringFormat": "google",
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
+  "python.jediMemoryLimit": -1,
   // // Dart
   "dart.flutterSdkPath": "flutter",
   // Emmet
@@ -328,7 +345,10 @@
   "npm-intellisense.showBuildInLibs": true,
   // Path intellisense
   "path-intellisense.autoSlashAfterDirectory": true,
-  "vsicons.dontShowNewVersionMessage": true,
   "materialTheme.fixIconsRunning": false,
-  "workbench.iconTheme": "eq-material-theme-icons-ocean",
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.statusBar.visible": true,
+  "editor.fontLigatures": true,
+  "git.confirmSync": false,
+  "gitlens.mode.active": "zen",
 }
