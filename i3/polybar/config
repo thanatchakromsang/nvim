@@ -82,7 +82,7 @@ module-margin-right = 0
 
 font-0 = FontAwesome:pixelsize=11;1
 font-1 = icons\-in\-terminal:pixelsize=11;2
-font-2 = MesloLGM Nerd Font:size=10:weight=bold;2
+font-2 = Noto Sans Mono:size=10:weight=bold;2
 font-3 = Material Icons:style=Regular:size=11;1
 
 modules-left = i3 taskwarrior
@@ -183,8 +183,8 @@ label-unfocused = %index% :%icon%
 label-unfocused-padding = ${self.padding}
 
 [module/xbacklight]
-type = internal/xbacklight
-enable-scroll = false
+type = internal/backlight
+enable-scroll = true
 
 format = <ramp> <label>
 format-padding = 2
