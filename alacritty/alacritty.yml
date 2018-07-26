@@ -78,7 +78,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 11.0
+  size: 13.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -284,6 +284,10 @@ shell:
 # (e.g. "\x1b[5~") is? Open another terminal (like xterm) without tmux,
 # then run `showkey -a` to get the sequence associated to a key combination.
 key_bindings:
+  # Ctrl + P forward
+  - { key: P,        mods: Control,          chars: "\x1bf"              }
+  # Ctrl + O Arrow Up
+  - { key: O,        mods: Control,          chars: "\x1b[A",            }
   - { key: V,        mods: Control|Shift,    action: Paste               }
   - { key: C,        mods: Control|Shift,    action: Copy                }
   - { key: Q,        mods: Command, action: Quit                         }
@@ -304,6 +308,7 @@ key_bindings:
   - { key: PageDown,                chars: "\x1b[6~"                     }
   - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                      }
   - { key: Back,                    chars: "\x7f"                        }
+  - { key: Back,     mods: Control, chars: "\x1b\x7f"                    }
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
   - { key: Insert,                  chars: "\x1b[2~"                     }
   - { key: Delete,                  chars: "\x1b[3~"                     }
