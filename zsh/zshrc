@@ -1,5 +1,6 @@
 # source files
 source $HOME/.dotfiles/shell/env #environment variables
+# source $HOME/.dotfiles/zsh/lazyload.sh
 
 ZSH_THEME="spaceship"
 
@@ -24,11 +25,14 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/shell/aliases #alias
-
-# BASE16_SHELL=$HOME/.config/base16-shell/
-# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# Show startup logo only when appropriate
+if [[ $(tput cols) -gt 80 && $(tput lines) -gt 15 ]]; then
+  source $HOME/.dotfiles/zsh/startup.sh
+fi
 
 bindkey '^ ' autosuggest-accept
+bindkey '^p' up-line-or-search
+bindkey '^n' down-line-or-search
 
 # Spaceship config
 # PROMPT
