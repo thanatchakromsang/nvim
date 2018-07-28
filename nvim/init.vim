@@ -25,7 +25,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Shougo/unite.vim')
 
 " File Manager
-  call dein#add('mhinz/vim-startify')
+  " call dein#add('mhinz/vim-startify')
   call dein#add('scrooloose/nerdtree')
   call dein#add('Shougo/vimfiler.vim')
   " Search in Denite?
@@ -41,12 +41,13 @@ if dein#load_state(('~/.config/nvim'))
 
 " Fast Motion
   call dein#add('easymotion/vim-easymotion')
-  call dein#add('haya14busa/incsearch-easymotion.vim')
+  " call dein#add('haya14busa/incsearch-easymotion.vim')
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('terryma/vim-multiple-cursors')
 
 " Colorscheme
   call dein#add('dracula/vim')
+  call dein#add('morhetz/gruvbox')
   call dein#add('majutsushi/tagbar')
 
 " Appearance
@@ -99,7 +100,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('lervag/vimtex', {'on_ft': ['plaintex', 'tex']})
   call dein#add('moll/vim-node')
   " Markdown
-  call dein#add('euclio/vim-markdown-composer', {'build': 'cargo build --release'})
+  " call dein#add('euclio/vim-markdown-composer', {'build': 'cargo build --release'})
   call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
   call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
   call dein#add('dhruvasagar/vim-table-mode')
@@ -169,7 +170,7 @@ endif
 	" 	" disable background color erase
 	" 	set t_ut=
 	" endif
-
+  "
 	if has('mouse')
 		set mouse=a
 	endif
@@ -357,11 +358,9 @@ endif
   map #  <Plug>(incsearch-nohl-#)
   map g* <Plug>(incsearch-nohl-g*)
   map g# <Plug>(incsearch-nohl-g#)
-
-" Incsearch-easymotion
-  map /  <Plug>(incsearch-easymotion-/)
-  map ?  <Plug>(incsearch-easymotion-?)
-  map s/ <Plug>(incsearch-easymotion-stay)
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map s/ <Plug>(incsearch-stay)
 
 " " Disable Arrow keys in Escape mode
 " map <up> <nop>
@@ -381,8 +380,13 @@ endif
   let g:tagbar_left = 1
 
 " Sneak
-  map f <Plug>Sneak_s
-  map F <Plug>Sneak_S
+  map s <Plug>Sneak_s
+  map S <Plug>Sneak_S
+  map f <Plug>Sneak_f
+  map F <Plug>Sneak_F
+  map t <Plug>Sneak_t
+  map T <Plug>Sneak_T
+
 
 "}}}"
 
@@ -445,7 +449,7 @@ endif
       \}
 
     set hidden
-    let g:airline_theme = 'dracula'
+    let g:airline_theme = 'gruvbox'
     let g:airline#extensions#branch#enabled = 1
     let g:airline#extensions#tagbar#enabled = 1
     let g:airline#extensions#ale#enabled = 1
@@ -533,22 +537,23 @@ endif
 
 " Themes  -------------------------------------------------------------------{{{
 
-  colorscheme dracula
-    " Override autocomplete colorscheme
-    hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
-    hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
-    hi Normal ctermbg=NONE ctermfg=NONE
-    hi CursorLine ctermbg=236
-    hi StatusLine ctermbg=235
+  colorscheme gruvbox
+  set background=dark
+    " " Override autocomplete colorscheme
+    " hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
+    " hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
+    " hi Normal ctermbg=NONE ctermfg=NONE
+    " hi CursorLine ctermbg=236
+    " hi StatusLine ctermbg=235
 
-  " Custom ALE
-    hi ALEErrorSign ctermfg=88 ctermbg=none
-    hi ALEWarningSign ctermfg=228 ctermbg=none
-  " Search
-    hi Search ctermfg=15 ctermbg=61 cterm=NONE
+  " " Custom ALE
+  "   hi ALEErrorSign ctermfg=88 ctermbg=none
+  "   hi ALEWarningSign ctermfg=228 ctermbg=none
+  " " Search
+  "   hi Search ctermfg=15 ctermbg=61 cterm=NONE
 
-  " Sneak
-    hi link Sneak Search
+  " " Sneak
+  "   hi link Sneak Search
 
 "}}}
 
@@ -709,7 +714,6 @@ endif
   let g:ale_fixers = {
         \ 'javascript': ['eslint'],
         \ 'typescript': ['tslint'],
-        \ 'python': ['autopep8'],
         \ 'css': ['stylelint'],
         \ }
 
