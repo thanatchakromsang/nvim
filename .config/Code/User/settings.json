@@ -11,7 +11,6 @@
   "editor.hideCursorInOverviewRuler": true,
   "editor.lightbulb.enabled": false,
   "editor.minimap.enabled": false,
-  "editor.snippetSuggestions": "bottom",
   "editor.renderLineHighlight": "line",
   "editor.acceptSuggestionOnEnter": "smart",
   "window.enableMenuBarMnemonics": false,
@@ -37,7 +36,7 @@
   "workbench.editor.labelFormat": "medium",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": -1.5,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "hidden",
   "workbench.colorCustomizations": {
@@ -324,7 +323,7 @@
   // // Typescript linter
   "tslint.autoFixOnSave": true,
   "tslint.run": "onSave",
-  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.updateImportsOnFileMove.enabled": "never",
   "typescript.autoImportSuggestions.enabled": false,
   "typescript.useCodeSnippetsOnMethodSuggest": true,
   // // Javascript linter
@@ -348,10 +347,9 @@
   "npm-intellisense.showBuildInLibs": true,
   // Path intellisense
   "path-intellisense.autoSlashAfterDirectory": true,
-  "materialTheme.fixIconsRunning": false,
-  "workbench.iconTheme": "eq-material-theme-icons",
   "workbench.statusBar.visible": true,
   "git.confirmSync": false,
   "gitlens.mode.active": "zen",
-  "materialTheme.accentPrevious": "Yellow",
+  "workbench.iconTheme": "minimalistic-icons",
+  "vim.disableExtension": false,
 }

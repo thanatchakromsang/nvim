@@ -286,12 +286,6 @@ shell:
 # (e.g. "\x1b[5~") is? Open another terminal (like xterm) without tmux,
 # then run `showkey -a` to get the sequence associated to a key combination.
 key_bindings:
-  # Ctrl + O forward
-  - { key: O,        mods: Control,          chars: "\x1bf"              }
-  # # Ctrl + P Arrow Up
-  # - { key: P,        mods: Control,          chars: "\x1b[A",            }
-  # # Ctrl + N Arrow Up
-  # - { key: N,        mods: Control,          chars: "\x1b[B",            }
   - { key: V,        mods: Control|Shift,    action: Paste               }
   - { key: C,        mods: Control|Shift,    action: Copy                }
   - { key: Q,        mods: Command, action: Quit                         }

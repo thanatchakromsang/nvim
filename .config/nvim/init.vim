@@ -13,55 +13,61 @@ set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
 if dein#load_state(('~/.config/nvim'))
   call dein#begin(expand('~/.config/nvim'))
 
-" Plugin Manager
+" Plugin Manager {{{
   call dein#add('Shougo/dein.vim')
   call dein#add('haya14busa/dein-command.vim')
+" }}}
 
-" Command Interface
+" Command Interface {{{
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('chemzqm/denite-git')
   call dein#add('chemzqm/denite-extra')
   call dein#add('Shougo/unite.vim')
+" }}}
 
-" File Manager
+" File Manager {{{
   " call dein#add('mhinz/vim-startify')
   call dein#add('scrooloose/nerdtree')
   call dein#add('Shougo/vimfiler.vim')
   " Search in Denite?
   call dein#add('junegunn/fzf')
+" }}}
 
-" Sensible
+" Sensible {{{
   call dein#add('wellle/targets.vim')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('tpope/vim-commentary')
   call dein#add('justinmk/vim-sneak')
+" }}}
 
-" Fast Motion
+" Fast Motion {{{
   call dein#add('easymotion/vim-easymotion')
   " call dein#add('haya14busa/incsearch-easymotion.vim')
   call dein#add('haya14busa/incsearch.vim')
   call dein#add('terryma/vim-multiple-cursors')
+" }}}
 
-" Colorscheme
-  call dein#add('dracula/vim')
+" Colorscheme {{{
   call dein#add('morhetz/gruvbox')
-  call dein#add('majutsushi/tagbar')
+" }}}
 
-" Appearance
+" Appearance {{{
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('Yggdroot/indentLine')
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('drzel/vim-line-no-indicator')
+" }}}
 
-" Terminal
+" Terminal {{{
   call dein#add('Shougo/deol.nvim')
   call dein#add('christoomey/vim-tmux-navigator')
+" }}}
 
-" Git
+" Git {{{
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
   call dein#add('jreybert/vimagit', {'on_cmd': ['Magit', 'MagitOnly']})
@@ -73,8 +79,9 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('mattn/webapi-vim')
   call dein#add('mattn/gist-vim')
   call dein#add('junegunn/gv.vim')
+" }}}
 
-" Syntax and Language Specific
+" Syntax and Language Specific {{{
   " HTML
   call dein#add('othree/html5.vim')
   call dein#add('mattn/emmet-vim')
@@ -111,25 +118,30 @@ if dein#load_state(('~/.config/nvim'))
   " Golang
   call dein#add('fatih/vim-go')
   call dein#add('zchee/deoplete-go', {'build': 'make'})
+" }}}
 
-" Linter
+" Linter {{{
   call dein#add('w0rp/ale')
+" }}}
 
-" Code Completion
+" Code Completion {{{
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('Shougo/neco-vim')
   call dein#add('Shougo/neoinclude.vim')
   call dein#add('Shougo/echodoc.vim')
+" }}}
 
-" Snippets
+" Snippets {{{
   call dein#add('honza/vim-snippets')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+" }}}
 
-" Formatter
+" Formatter {{{
   call dein#add('sbdchd/neoformat')
+" }}}
 
-" Misc plugin
+" Misc plugin {{{
   call dein#add('Konfekt/FastFold')
   call dein#add('junegunn/limelight.vim')
   call dein#add('chakrit/vim-thai-keys')
@@ -142,8 +154,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('mhinz/vim-sayonara')
   call dein#add('junegunn/goyo.vim')
   call dein#add('amix/vim-zenroom2')
-  " Search and Replace <leader>ff
-  " call dein#add('eugen0329/vim-esearch')
+  call dein#add('majutsushi/tagbar')
+" }}}
 
 " iTerm
   call dein#add('sjl/vitality.vim')
@@ -547,8 +559,8 @@ endif
     " hi StatusLine ctermbg=235
 
   " " Custom ALE
-  "   hi ALEErrorSign ctermfg=88 ctermbg=none
-  "   hi ALEWarningSign ctermfg=228 ctermbg=none
+    hi ALEErrorSign ctermbg=none
+    hi ALEWarningSign ctermbg=none
   " " Search
   "   hi Search ctermfg=15 ctermbg=61 cterm=NONE
 
@@ -611,11 +623,11 @@ endif
 
       " autocmd FileType typescript setl omnifunc=TSComplete
       " let g:nvim_typescript#signature_complete=1
-      let g:nvim_typescript#max_completion_detail=100
+      let g:nvim_typescript#max_completion_detail=50
       let g:nvim_typescript#completion_mark=''
       " let g:nvim_typescript#default_mappings=1
       " let g:nvim_typescript#type_info_on_hold=1
-      " let g:nvim_typescript#javascript_support=1
+      let g:nvim_typescript#javascript_support=1
 
       let g:nvim_typescript#kind_symbols = {
           \ 'keyword': 'keyword',
@@ -661,6 +673,7 @@ endif
         \ ]
         \ }
 
+      nnoremap <m-Enter> :TSGetCodeFix<CR>
   "}}}
 
   " --------------------------  MarkDown  -----------------------------------{{{
@@ -713,7 +726,6 @@ endif
 
   let g:ale_fixers = {
         \ 'javascript': ['eslint'],
-        \ 'typescript': ['tslint'],
         \ 'css': ['stylelint'],
         \ }
 
@@ -932,12 +944,13 @@ endif
 " enable deoplete
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_delay = 50
+  let g:deoplete#auto_refresh_delay = 200
   let g:echodoc_enable_at_startup=1
   let g:deoplete#enable_smart_case = 1
 
   set completeopt+=noselect,menuone
   set completeopt-=preview
-  autocmd CompleteDone * pclose
+  " autocmd CompleteDone * pclose
 
   function! Multiple_cursors_before()
     let b:deoplete_disable_auto_complete=2
@@ -962,8 +975,9 @@ endif
      endif
   endfunction
   autocmd WinEnter * call Preview_func()
-  let g:deoplete#ignore_sources = {}
-  let g:deoplete#ignore_sources._ = ['around']
+  " let g:deoplete#ignore_sources = {}
+  " let g:deoplete#ignore_sources._ = ['around']
+  let g:deoplete#ignore_sources = {'_': ['around', 'buffer' ]}
 
   " let g:deoplete#enable_debug = 1
   " let g:deoplete#enable_profile = 1
@@ -979,6 +993,7 @@ endif
   let g:neosnippet#enable_snipmate_compatibility = 1
   " let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
   let g:neosnippet#expand_word_boundary = 1
+  let g:neosnippet#snippets_directory='~/.dotfiles/nvim/snippets'
 
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
   smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -1000,8 +1015,8 @@ endif
   let s:menus = {}
   call denite#custom#option('_', {
         \ 'prompt': '❯',
-        \ 'winheight': 13,
-        \ 'updatetime': 100,
+        \ 'winheight': 10,
+        \ 'updatetime': 1,
         \ 'auto_resize': 0,
         \ 'highlight_matched_char': 'Character',
         \ 'highlight_matched_range': 'Character',
@@ -1011,30 +1026,42 @@ endif
 
   call denite#custom#option('TSDocumentSymbol', {
         \ 'prompt': ' @' ,
-        \ 'reversed': 0,
         \})
   call denite#custom#option('TSWorkspaceSymbol', {
-        \ 'reversed': 0,
         \ 'prompt': ' #' ,
         \})
 
+  " call denite#custom#source('file_rec', 'vars', {
+  "       \ 'command': [
+  "       \ 'ag', '--follow','--nogroup', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules',
+  "       \ '--ignore', '*.jpg', '--ignore', '*.desktop'
+  "       \] })
   call denite#custom#source('file_rec', 'vars', {
-        \ 'command': [
-        \ 'ag', '--follow','--nogroup', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules',
-        \ '--ignore', '*.jpg', '--ignore', '*.desktop'
-        \] })
+      \'command': ['rg', '--files', '--glob', '!.git'],
+      \'sorters':['sorter_sublime'],
+      \'matchers': ['matches_cpsm']
+      \})
 
   call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
   call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
 
-      call denite#custom#var('grep', 'command', [
-            \ 'ag', '--ignore', 'node_modules', '--ignore', '.git'
-            \ ])
-      call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-      call denite#custom#var('grep', 'recursive_opts', [])
-      call denite#custom#var('grep', 'pattern_opt', [])
-      call denite#custom#var('grep', 'separator', ['--'])
-      call denite#custom#var('grep', 'final_opts', [])
+      " call denite#custom#var('grep', 'command', [
+      "       \ 'rg', '--ignore', 'node_modules', '--ignore', '.git'
+      "       \ ])
+      " call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+      " call denite#custom#var('grep', 'recursive_opts', [])
+      " call denite#custom#var('grep', 'pattern_opt', [])
+      " call denite#custom#var('grep', 'separator', ['--'])
+      " call denite#custom#var('grep', 'final_opts', [])
+
+  call denite#custom#source('grep', 'vars', {
+    \'command': ['rg'],
+    \'default_opts': ['-i', '--vimgrep'],
+    \'recursive_opts': [],
+    \'pattern_opt': [],
+    \'separator': ['--'],
+    \'final_opts': [],
+    \})
 
       nnoremap <silent> <leader>e :Denite file_rec<CR>
       nnoremap <silent> <C-p> :Denite file_rec<CR>
@@ -1225,10 +1252,9 @@ endif
   " Vimwiki
 
   let g:vimwiki_list = [{'path': '~/Notes/'}]
-  let g:vimwiki_folding = 'expr'
+  let g:vimwiki_folding = 'list'
   " let g:vimwiki_list = [{'path': '~/Notes/',
   "                      \ 'syntax': 'markdown', 'ext': '.md'}]
-
   hi VimwikiHeader1 ctermfg=1
   hi VimwikiHeader2 ctermfg=2
   hi VimwikiHeader3 ctermfg=3

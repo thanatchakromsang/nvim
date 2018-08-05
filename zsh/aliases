@@ -36,6 +36,7 @@ alias dotfiles='cd ~/.dotfiles'
 # other
 alias r='ranger'
 alias open='xdg-open'
+alias t='task'
 
 if [ "$PACKAGE_MANAGER" = pacman ]; then
   alias u="sudo pacman --sync --refresh --sysupgrade"

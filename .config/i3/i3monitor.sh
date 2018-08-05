@@ -28,7 +28,7 @@ case "$2" in
         i3-msg restart
         ;;
     extend)
-        xrandr --output $INTERN --auto --output $EXTERN --auto --above $INTERN --output $EXTERN2 --off
+        xrandr --output $INTERN --auto --output $EXTERN --auto --right-of $INTERN --output $EXTERN2 --off
         # sh ~/.dotfiles/i3/i3/random_wallpaper.sh single
         i3-msg restart
         ;;
