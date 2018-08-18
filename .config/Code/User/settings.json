@@ -1,7 +1,7 @@
 {
   // Editor setting
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "MesloLGM Nerd Font Mono",
+  "editor.fontFamily": "Fantasque Sans Mono",
   "editor.fontWeight": "normal",
   "editor.fontSize": 14,
   "editor.wordWrap": "off",
@@ -10,14 +10,13 @@
   "editor.glyphMargin": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.lightbulb.enabled": false,
-  "editor.minimap.enabled": false,
-  "editor.renderLineHighlight": "line",
   "editor.acceptSuggestionOnEnter": "smart",
   "window.enableMenuBarMnemonics": false,
   "editor.selectionHighlight": false,
   "editor.lineNumbers": "relative",
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": true,
+  "editor.highlightActiveIndentGuide": false,
   "editor.quickSuggestionsDelay": 100,
   "editor.rulers": [
     80,
@@ -26,19 +25,19 @@
   // Workbench
   "workbench.colorTheme": "Gruvbox Dark (Medium)",
   "workbench.activityBar.visible": false,
-  "workbench.commandPalette.preserveInput": true,
+  "workbench.commandPalette.preserveInput": false,
   // "workbench.editor.openPositioning": "right",
   "workbench.tips.enabled": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.list.openMode": "doubleClick",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.editor.labelFormat": "medium",
+  "workbench.editor.labelFormat": "short",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1.5,
+  "window.zoomLevel": -1,
   "window.closeWhenEmpty": true,
-  "window.menuBarVisibility": "hidden",
+  "window.menuBarVisibility": "toggle",
   "workbench.colorCustomizations": {
     "statusBar.background": "#3c3836",
     "statusBar.noFolderBackground": "#282828",
@@ -48,7 +47,7 @@
   // Vim
   "vim.easymotion": false,
   "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
-  "vim.easymotionMarkerFontFamily": "MesloLGM Nerd Font mono",
+  "vim.easymotionMarkerFontFamily": "Fantasque Sans Mono",
   "vim.searchHighlightColor": "#a89984",
   "vim.easymotionMarkerYOffset": 5,
   "vim.enableNeovim": true,
@@ -266,7 +265,7 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
-    "**/.DS_Store": true
+    "**/.DS_Store": true,
   },
   // Search
   "search.smartCase": true,
@@ -335,6 +334,7 @@
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
   "python.jediMemoryLimit": -1,
+  "python.jediEnabled": true,
   // // Dart
   "dart.flutterSdkPath": "flutter",
   // Emmet
@@ -349,7 +349,13 @@
   "path-intellisense.autoSlashAfterDirectory": true,
   "workbench.statusBar.visible": true,
   "git.confirmSync": false,
-  "gitlens.mode.active": "zen",
   "workbench.iconTheme": "minimalistic-icons",
-  "vim.disableExtension": false,
+  "vsintellicode.python.completionsEnabled": false,
+  "editor.minimap.enabled": false,
+  "editor.minimap.maxColumn": 100,
+  // Zen mode
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.restore": true,
 }
