@@ -241,6 +241,8 @@ endif
   " Fix backspace indent
   set backspace=indent,eol,start
 
+  set autoindent
+
   " Sayonara as :x
   cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
   " Open new split panes to right and bottom, which feels more natural
@@ -441,7 +443,7 @@ endif
       \ 'c'  : 'C',
       \ 'v'  : 'V',
       \ 'V'  : 'V',
-      \ '' : 'V',
+      \ '' : 'V',
       \ 's'  : 'S',
       \ 'S'  : 'S',
       \ '' : 'S',
@@ -554,13 +556,16 @@ endif
     " " Override autocomplete colorscheme
     " hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
     " hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
-    " hi Normal ctermbg=NONE ctermfg=NONE
+
+    " wallpaper background color
+    hi Normal ctermbg=NONE ctermfg=NONE
+
     " hi CursorLine ctermbg=236
     " hi StatusLine ctermbg=235
 
   " " Custom ALE
-    hi ALEErrorSign ctermbg=none
-    hi ALEWarningSign ctermbg=none
+    hi ALEErrorSign ctermbg=237
+    hi ALEWarningSign ctermbg=237
   " " Search
   "   hi Search ctermfg=15 ctermbg=61 cterm=NONE
 
@@ -707,8 +712,8 @@ endif
   let g:ale_set_highlights = 0
   let g:ale_sign_error = '●'
   let g:ale_sign_warning = '•'
-  let g:ale_echo_msg_error_str = 'E'
-  let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_error_str = '[E]'
+  let g:ale_echo_msg_warning_str = '[W]'
 
   let g:airline#extensions#ale#error_symbol='● '
   let g:airline#extensions#ale#warning_symbol='•  '
@@ -719,7 +724,7 @@ endif
   let g:ale_fix_on_save = 1
   let g:ale_linters = {
         \ 'javascript': ['eslint'],
-        \ 'typescript': ['tslint', 'tsserver'],
+        \ 'typescript': ['tslint'],
         \ 'python': ['flake8'],
         \ 'css': ['stylelint'],
         \ }
@@ -1279,3 +1284,4 @@ endif
   " let g:gitgutter_highlight_lines = 1
 
 "}}}
+

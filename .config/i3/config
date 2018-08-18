@@ -419,6 +419,16 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
+set $mode_delete (delete) randomwall.sh
+bindsym Delete mode "$mode_delete"
+mode "$mode_delete" {
+    bindsym Delete exec "/home/thanatchaya/randomwall.sh", mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 #######################################
 ### move floating windows with keys ###
 #######################################

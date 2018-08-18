@@ -1,9 +1,9 @@
 #!/bin/bash
-PICTURES="$HOME/Pictures/Wallpaper"
+PICTURES="$HOME/Pictures/Wallpaper/Nayeon/"
 
 case "$1" in
     single)
-        PICTURES="$HOME/Pictures/Wallpaper"
+        PICTURES="$HOME/Pictures/Wallpaper/"
         ;;
     dual)
         PICTURES="$HOME/Pictures/Wallpaper/Dual"
