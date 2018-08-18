@@ -6,6 +6,7 @@ set smooth-scroll true
 set selection-clipboard clipboard
 map k scroll half-up
 map j scroll half-down
+map i recolor
 
 set adjust-open best-fit
 
