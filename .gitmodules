@@ -1,9 +1,0 @@
-[submodule "zsh-autosuggestions"]
-	path = zsh-autosuggestions
-	url = /home/thanatchaya/.dotfiles/zsh/plugins/zsh-autosuggestions
-[submodule "/home/thanatchaya/.dotfiles/zsh/plugins/zsh-autosuggestions"]
-	path = /home/thanatchaya/.dotfiles/zsh/plugins/zsh-autosuggestions
-	url = /home/thanatchaya/zsh-autosuggestions
-[submodule "/home/thanatchaya/.dotfiles/zsh/plugins/zsh-syntax-highlighting"]
-	path = /home/thanatchaya/.dotfiles/zsh/plugins/zsh-syntax-highlighting
-	url = /home/thanatchaya/zsh-syntax-highlighting

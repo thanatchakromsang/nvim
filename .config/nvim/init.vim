@@ -168,8 +168,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#end()
   call dein#save_state()
 endif
-  filetype plugin indent on
-  syntax enable
 
 " }}}
 
@@ -178,87 +176,148 @@ endif
 " Neovim Settings
   set encoding=utf-8
 
-	" if &term =~ '256color'
-	" 	" disable background color erase
-	" 	set t_ut=
-	" endif
-  "
-	if has('mouse')
-		set mouse=a
-	endif
+  if has('mouse')
+    set mouse=a
+  endif
 
-  filetype on
-  " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  " set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+  let uname = system('uname')
+
+  if uname =~ 'Linux'
+    if (has('nvim'))
+      let g:python_host_prog = '/usr/bin/python2'
+      let g:python3_host_prog = '/usr/bin/python3'
+    endif
+  elseif uname =~ 'Darwin'
+    if (has('nvim'))
+      let g:python_host_prog = '/usr/local/bin/python2.7'
+      let g:python3_host_prog = '/usr/local/bin/python3.7'
+    endif
+  endif
+
+" show results of substition as they're happening
+" but don't open a split
+  set inccommand=nosplit
+
+" file type determines whether any plugins for scripts,
+" indenting rules, or syntax highlighting are loaded
+  filetype plugin indent on
+
+" enable syntax highlight
+  syntax enable
+
+" default config
   set tabstop=2 shiftwidth=2 expandtab softtabstop=2
+
   set scrolloff=10
+
+" set case-insensitive search
   set ignorecase
   set smartcase
-  set clipboard+=unnamedplus
+
+" yank to system clipboard
+  set clipboard^=unnamed,unnamedplus
   set nopaste
+
+" hidden no write since last change (add ! to override)
   set hidden
+" automatic set title
   set title
+
+" remove unwanted space
   autocmd BufWritePre * %s/\s\+$//e
+
+" hide mode in statusline
   set noshowmode
+
+" disable backup files
   set nobackup
   set noswapfile
+
+" set width of gutter
   set numberwidth=1
+
+" disable syntax conceal
   set conceallevel=0
-  set virtualedit=
+
+" commandline completion
   set wildmenu
-  set laststatus=2                    " display incomplete commands
-  set wrap linebreak
-  set wildmode=list:longest,list:full
   set wildignore+=*/tmp/*,*.so,*.swp,
         \*.zip,*.pyc,*.db,*.sqlite
-  set autoread                        " Reload unchanged files automatically.
+
+" display incomplete commands
+  set laststatus=2
+
+" word wrapping, but only line breaks inserted when explicitly press enter
+  set wrap
+  set linebreak
+  set nolist
+
+  set formatoptions+=t
+
+" reload unchanged files automatically
+  set autoread
+
+" set update time for some plugins (default is 4000)
   set updatetime=500
+
+" set 256color support
   set t_Co=256
-  let mapleader = ','                 " Leader key
+
+" save undo info
+  if !isdirectory($HOME."/.vim")
+      call mkdir($HOME."/.vim", "", 0770)
+  endif
+  if !isdirectory($HOME."/.vim/undo-dir")
+      call mkdir($HOME."/.vim/undo-dir", "", 0700)
+  endif
+  set undodir="$HOME/.vim/undo-dir"
   set undofile
-  set undodir="$HOME/.VIM_UNDO_FILES"
-" Remember cursor position between vim sessions
+
+" leader key
+  let mapleader = ','
+
+" remember cursor position between vim sessions
   autocmd BufReadPost *
               \ if line("'\"") > 0 && line ("'\"") <= line("$") |
               \   exe "normal! g'\"" |
               \ endif
-              " center buffer around cursor when opening files
+
+" center buffer around cursor when opening files
   autocmd BufRead * normal zz
-  set complete=.,w,b,u,t,k
+
+" .: Scan the current buffer
+" w: Scan buffers from other windows
+" b: Scan buffers from the buffer list
+" u: Scan buffers that have been unloaded from the buffer list
+" t: Tag completion
+" i: Scan the current and included files
+  set complete=.,w,b,u,t,i
+
+" when enter insert mode change to current files dir
   autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
   autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
-  set formatoptions+=t
-  set shortmess=atIc
-  set isfname-==
 
-  " Use modeline overrides
-  " set modeline
+" disable short messages
+  set shortmess=|
+
+" recognize filename in vim
+" default isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,=
+  set isfname+={,}
+
+" set variable specific to a files
+" eg. /* vim: tw=60 ts=2: */
   set modelines=10
 
+" special character for tab, trail, eol etc..
   set listchars=tab:‣\ ,trail:·,precedes:«,extends:»,eol:¬
   set list
 
-  " Fix backspace indent
+" fix backspace indent
   set backspace=indent,eol,start
 
-  set autoindent
-
-  " Sayonara as :x
-  cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
-  " Open new split panes to right and bottom, which feels more natural
+" open new split panes to right and bottom, which feels more natural
   set splitright
   set splitbelow
-
-	if (has('nvim'))
-		let g:python_host_prog = '/usr/bin/python2'
-		let g:python3_host_prog = '/usr/bin/python3'
-		" show results of substition as they're happening
-		" but don't open a split
-		set inccommand=nosplit
-	endif
-
-  autocmd FileType vimwiki :ALEDisable
-  autocmd FileType vimwiki :GitGutterDisable
 
 " }}}
 
@@ -276,7 +335,7 @@ endif
   cnoreabbrev Q q
   cnoreabbrev Qall qall
 
-" Command history
+" command history
   nnoremap q: <nop>
   nnoremap q/ <nop>
   nnoremap q? <nop>
@@ -284,11 +343,11 @@ endif
   " nnoremap Q/ q/
   " nnoremap Q? q?
 
-" No need for ex mode
+" no need for ex mode
   nnoremap Q <nop>
   vnoremap // y/<C-R>"<CR>
 
-" Split
+" split
   noremap <leader>b :<C-u>split<CR>
   noremap <leader>v :<C-u>vsplit<CR>
 
@@ -330,14 +389,6 @@ endif
   noremap <C-l> <C-w>l
   noremap <C-h> <C-w>h
 
-" this is the best, let me tell you why
-" how annoying is that everytime you want to do something in vim
-" you have to do shift-; to get :, can't we just do ;?
-" Plus what does ; do anyways??
-" if you do have a plugin that needs ;, you can just swap the mapping
-" nnoremap : ;
-" give it a try and you will like it
-  " nnoremap ; :
   inoremap <c-f> <c-x><c-f>
 
 " Copy to osx clipboard
@@ -376,17 +427,17 @@ endif
   map ?  <Plug>(incsearch-backward)
   map s/ <Plug>(incsearch-stay)
 
-" " Disable Arrow keys in Escape mode
-" map <up> <nop>
-" map <down> <nop>
-" map <left> <nop>
-" map <right> <nop>
+" disable Arrow keys in Escape mode
+  map <up> <nop>
+  map <down> <nop>
+  map <left> <nop>
+  map <right> <nop>
 
-" " Disable Arrow keys in Insert mode
-" imap <up> <nop>
-" imap <down> <nop>
-" imap <left> <nop>
-" imap <right> <nop>
+" disable Arrow keys in Insert mode
+  imap <up> <nop>
+  imap <down> <nop>
+  imap <left> <nop>
+  imap <right> <nop>
 
 " Tagbar
   nmap <silent> <F3> :TagbarToggle<CR>
@@ -406,7 +457,8 @@ endif
 
 " Appearance settings  ------------------------------------------------------{{{
 
-  set ruler         " show the cursor position all the time
+" show the cursor position all the time
+  set ruler
   set cursorline
   set relativenumber
   set number
@@ -628,7 +680,7 @@ endif
 
       " autocmd FileType typescript setl omnifunc=TSComplete
       " let g:nvim_typescript#signature_complete=1
-      let g:nvim_typescript#max_completion_detail=50
+      let g:nvim_typescript#max_completion_detail=25
       let g:nvim_typescript#completion_mark=''
       " let g:nvim_typescript#default_mappings=1
       " let g:nvim_typescript#type_info_on_hold=1
@@ -701,14 +753,6 @@ endif
 
 " Linting -------------------------------------------------------------------{{{
 
-  " call neomake#configure#automake({
-  " \ 'BufWritePost': {'delay': 0},
-  " \ }, 1000)
-
-  " \ 'BufWinEnter': {},
-  " \ 'TextChanged': {},
-  " \ 'InsertLeave': { },
-
   let g:ale_set_highlights = 0
   let g:ale_sign_error = '●'
   let g:ale_sign_warning = '•'
@@ -750,77 +794,25 @@ endif
 
 " NERDTree ------------------------------------------------------------------{{{
 
-		" Toggle NERDTree
-		function! ToggleNerdTree()
-			if @% != "" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
-				:NERDTreeFind
-			else
-				:NERDTreeToggle
-			endif
-		endfunction
-
-  let g:vimfiler_ignore_pattern = ""
-  " map <silent> - :VimFiler<CR>
-  nnoremap <silent> <F2> :call ToggleNerdTree()<CR>
-	let g:vimfiler_tree_leaf_icon = ''
-	" let g:vimfiler_tree_opened_icon = ''
-	" let g:vimfiler_tree_closed_icon = ''
-	let g:vimfiler_file_icon = ''
-	let g:vimfiler_marked_file_icon = '*'
-  let g:vimfiler_expand_jump_to_first_child = 0
-  " let g:vimfiler_as_default_explorer = 1
-  call unite#custom#profile('default', 'context', {
-              \'direction': 'botright',
-              \ })
-  call vimfiler#custom#profile('default', 'context', {
-              \ 'explorer' : 1,
-              \ 'winwidth' : 45,
-              \ 'winminwidth' : 45,
-              \ 'toggle' : 1,
-              \ 'auto_expand': 0,
-              \ 'parent': 1,
-              \ 'explorer_columns': 'devicons:git',
-              \ 'status' : 0,
-              \ 'safe' : 0,
-              \ 'split' : 1,
-              \ 'hidden': 1,
-              \ 'no_quit' : 1,
-              \ 'force_hide' : 0,
-              \ })
-  augroup vfinit
-    autocmd FileType vimfiler call s:vimfilerinit()
-    autocmd FileType unite call s:uniteinit()
-  augroup END
-  function! s:uniteinit()
-    nmap <buffer> <Esc> <Plug>(unite_exit)
+" Toggle NERDTree
+  function! ToggleNERDTree()
+    if @% != "" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
+      :NERDTreeFind
+    else
+      :NERDTreeToggle
+    endif
   endfunction
-  function! s:vimfilerinit()
-      set nonumber
-      set norelativenumber
-      nmap <silent><buffer><expr> <CR> vimfiler#smart_cursor_map(
-            \ "\<Plug>(vimfiler_expand_tree)",
-            \ "\<Plug>(vimfiler_edit_file)"
-            \)
-      nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('vsplit')
-      nmap <silent> m :call NerdUnite()<cr>
-      " nmap <silent> p <Plug>(vimfiler_jump_first_child)
-      nmap <silent> r <Plug>(vimfiler_redraw_screen)
-    endf
-  let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
-  let g:webdevicons_enable_vimfiler = 0
-  let g:vimfiler_no_default_key_mappings=1
-  function! NerdUnite() abort "{{{
-    let marked_files =  vimfiler#get_file(b:vimfiler)
-    call unite#start(['nerd'], {'file': marked_files})
-	endfunction "}}}
 
   augroup ntinit
     autocmd FileType nerdtree call s:nerdtreeinit()
   augroup END
   function! s:nerdtreeinit() abort
-      nunmap <buffer> K
-      nunmap <buffer> J
-  endf
+    nunmap <buffer> K
+    nunmap <buffer> J
+  endfunction
+
+  nnoremap <silent> <F2> :call ToggleNERDTree()<CR>
+
   let NERDTreeShowHidden=1
   let g:NERDTreeWinSize=35
   let NERDTreeMinimalUI=1
@@ -837,8 +829,8 @@ endif
   let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
   let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 
-	let g:NERDTreeDirArrowExpandable = ''
-	let g:NERDTreeDirArrowCollapsible = ''
+  let g:NERDTreeDirArrowExpandable = ''
+  let g:NERDTreeDirArrowCollapsible = ''
   let g:NERDTreeGitStatusIndicatorMap = {
           \ 'Modified'  : '✹',
           \ 'Staged'    : '✚',
@@ -934,7 +926,6 @@ endif
   autocmd FileType html setl foldmethod=expr
   autocmd FileType html setl foldexpr=HTMLFolds()
 
-  " autocmd FileType javascript,typescript,json setl foldmethod=syntax
   autocmd FileType javascript,typescript,typescriptreact,json setl foldmethod=syntax
 
   autocmd FileType graphql setl foldmethod=syntax
@@ -1093,48 +1084,6 @@ endif
 
 "}}}
 
-"" Unite  -------------------------------------------------------------------{{{
-
-"  let g:unite_winheight = 10
-"  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"  call unite#filters#sorter_default#use(['sorter_rank'])
-
-"  let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
-
-"  let g:unite_source_menu_menus.git = {
-"      \ 'description' : ' Git Interface'
-"      \}
-"  let g:unite_source_menu_menus.git.command_candidates = [
-"      \[' git status', 'Gstatus'],
-"      \[' git diff', 'Gvdiff'],
-"      \[' git commit', 'Gcommit'],
-"      \[' git stage/add', 'Gwrite'],
-"      \[' git checkout', 'Gread'],
-"      \[' git rm', 'Gremove'],
-"      \[' git cd', 'Gcd'],
-"      \[' git push', 'exe "Git! push " input("remote/branch: ")'],
-"      \[' git pull', 'exe "Git! pull " input("remote/branch: ")'],
-"      \[' git pull rebase', 'exe "Git! pull --rebase " input("branch: ")'],
-"      \[' git checkout branch', 'exe "Git! checkout " input("branch: ")'],
-"      \[' git fetch', 'Gfetch'],
-"      \[' git merge', 'Gmerge'],
-"      \[' git browse', 'Gbrowse'],
-"      \[' git blame', 'Gblame'],
-"      \[' git head', 'Gedit HEAD^'],
-"      \[' git parent', 'edit %:h'],
-"      \[' git branch', 'Denite gitbranch'],
-"      \[' git log current file', 'Denite gitlog:file'],
-"      \[' git log current repository', 'GV'],
-"      \[' git log search by word', 'exe "GV -S " input("word: ")'],
-"      \[' git manage by visualization', 'Magit'],
-"      \[' git index', 'exe "Gedit " input("branchname\:filename: ")'],
-"      \[' git mv', 'exe "Gmove " input("destination: ")'],
-"      \[' git grep',  'exe "Ggrep " input("string: ")'],
-"      \[' git prompt', 'exe "Git! " input("command: ")']
-"      \]
-
-""}}}
-
 " Denite : Git  -------------------------------------------------------------{{{
 
   let s:menus.git = {
@@ -1254,12 +1203,18 @@ endif
 
 " Text   --------------------------------------------------------------------{{{
 
-  " Vimwiki
+" Vimwiki
+
+" disable Ale, Gutter
+  autocmd FileType vimwiki :ALEDisable
+  autocmd FileType vimwiki :GitGutterDisable
+
 
   let g:vimwiki_list = [{'path': '~/Notes/'}]
   let g:vimwiki_folding = 'list'
   " let g:vimwiki_list = [{'path': '~/Notes/',
   "                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
   hi VimwikiHeader1 ctermfg=1
   hi VimwikiHeader2 ctermfg=2
   hi VimwikiHeader3 ctermfg=3
@@ -1281,7 +1236,7 @@ endif
 " GitGutter ------------------------------------------------------------------{{{
 
   let g:gitgutter_map_keys = 0
-  " let g:gitgutter_highlight_lines = 1
+  let g:gitgutter_highlight_lines = 0
 
 "}}}
 
