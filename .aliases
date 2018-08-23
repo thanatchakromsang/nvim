@@ -1,13 +1,8 @@
 #!/bin/zsh
 
 # build-in commands and core utilities
-alias f1='fg %1'
-alias f2='fg %2'
-alias f3='fg %3'
-alias f4='fg %4'
-alias f5='fg %5'
 alias df='df -h'
-alias f=fg
+
 # alias j=jobs
 # alias la='ls -A'
 # alias l='ls -CF'
@@ -22,13 +17,14 @@ alias ll.='exa -dlg .*'
 alias l1='exa -1'
 alias ll='exa -glh --group-directories-first --git'
 alias c='clear'
+
 alias tmux='tmux -2'
 
 alias dev='./dev'
 
 # editors
 alias vim='nvim'
-alias f='open $(fzf)'
+alias f='vim $(fzf)'
 alias wiki='nvim -c VimwikiIndex'
 alias diary='nvim -c VimwikiMakeDiaryNote'
 alias magit='nvim -c MagitOnly'       # manage git folder with magit

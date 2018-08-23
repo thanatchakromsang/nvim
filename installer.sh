@@ -22,17 +22,6 @@ function program_is_installed {
 OS="$(uname -a)"
 DOT=$HOME/.dotfiles
 
-
-# if [[ "$OS" = *"Darwin"* ]]; then
-#   source ./brew.sh
-# elif [[ "$OS" = *"ARCH"* ]]; then
-#   source ./pacman.sh
-# elif [[ "$OS" =~ *"Ubuntu|Debian"* ]]; then
-#   source ./apt.sh
-# else
-#   echo "Unsupport OS"
-# fi
-
 case "$OS" in
   *Darwin*)
     source ./brew.sh
@@ -47,3 +36,6 @@ esac
 
 # symlink
 
+# install zsh prezto
+git submodule update --init --recursive
+source ./prezto.sh

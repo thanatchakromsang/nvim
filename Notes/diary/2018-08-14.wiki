@@ -1,0 +1,21 @@
+=14 Aug 2018 - *Planning day*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-14+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+#
+#
+#
+
+== OTHER NOTES ==
+# Archive Things
+# Squadbeat: Keep url?
+# Timezone

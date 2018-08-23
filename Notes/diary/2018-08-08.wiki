@@ -1,0 +1,30 @@
+=08 Aug 2018 - *Wednesday Unittest Day*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-08+22hour +diary ==
+* [ ] Finish up issue#1970 (unit test) (2018-08-08 22:00)  #512d97c5
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+# issue#1970
+  - Test case
+    1) get_sendgrid_email_template_should_called_once()
+  - Fix all old Test case in service_email or Delete unusable Test case
+
+# issue#1973
+  - Update is_authenticate when Authorization is successful
+  - patch fields in ConnectwiseAuthCredential models?
+    1) If we patch some of fields in ConnectwiseAuthCredential Models we should use olds one in models which we don't receive from frontend? (We patch only is_authenticated)
+    2) is_authenticated = true is mean authorization is valid
+    3) Should use function ticket to check if all data fields is still valid on connectwise side
+    4) Trigger task after authen is true

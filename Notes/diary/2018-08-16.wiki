@@ -1,0 +1,78 @@
+=16 Aug 2018 - *Thursday Working day at Prontotools*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-16+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+#
+#
+#
+
+== OTHER NOTES ==
+# [ ] Receive json body in views
+  {{{python
+  def post(self, request)
+    data = request.body.decode('utf-8')
+    received_json_data = json.loads(data)
+
+    customer_list = process_audience_rule_by_raw_data(received_json_data)
+
+    return Response(
+      status=status.HTTP_200_OK,
+      data=customer_list
+    )
+  }}}
+
+# [ ] Process rules method
+  {{{python
+  def process_audience_rule_by_raw_data(params):
+  return range(unique_list())
+  }}}
+
+# [ ] Objects from FE
+  {{{json
+    {
+        "survey": {
+            "id": 9,
+            "created": "2018-08-08T08:52:31.359534Z",
+            "modified": "2018-08-16T03:27:24.253791Z",
+            "audience_rule_operator": "and",
+            "survey_url": "http://gateway:8000/api/survey/survey/04roa2L_SljgzcMrFBmpf2yVagAtx9nZtj8iPfZwJfE/"
+        },
+        "audience_rules": [
+            {
+                "id": 12,
+                "created": "2018-08-16T03:27:24.279174Z",
+                "modified": "2018-08-16T03:27:24.279202Z",
+                "field": "is_active",
+                "condition": "is",
+                "value": "true",
+                "owned_by": "http://gateway:8000/api/account/company/1000/"
+            },
+            {
+                "id": 11,
+                "created": "2018-08-16T03:27:24.274764Z",
+                "modified": "2018-08-16T03:27:24.274788Z",
+                "field": "contact_type",
+                "condition": "is",
+                "value": "customer",
+                "owned_by": "http://gateway:8000/api/account/company/1000/"
+            }
+        ]
+    }
+  }}}
+
+# [ ] Ask p'phawin
+# [X] Create urls, Views in service email
+  - [X] create query params to send to service email from request.body
+# [X] Create urls, Views in gateway to get len(customer_list) from service_email
+# [ ] Test Views in gateway
+# [ ] Test Views in email
+# [ ] Test Utils in email

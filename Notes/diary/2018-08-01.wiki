@@ -1,0 +1,22 @@
+=01 Aug 2018 - *Co-op Training day 1*=
+TODAY EVENT:
+09:24: Open ceremony at slope 3
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-01+22hour +diary ==
+* [X] implement omise charge api in senator (2018-08-01 22:00)  #1fe293df
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+* Co-op 304 grade by company (40%)
+* Co-op 201 grade by professor (20%)
+* Co-op 203 grade by projects (40%)

@@ -31,7 +31,7 @@ brew install screen
 brew install fontconfig
 
 # Install other useful binaries.
-declare -a bin=("git" "exa" "rg" "stow")
+declare -a bin=("git" "exa" "rg" "stow" "tig")
 
 for i in "${bin[@]}"
 do

@@ -1,0 +1,20 @@
+=13 Aug 2018 - *Omise Revisit*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-13+22hour +diary ==
+* [ ] OmiseCharge in tournament (2018-08-13 22:00)  #f79d0eaa
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+#
+#
+#
+
+== OTHER NOTES ==
+# [ ] Tournament Charge Resolver
+  - [ ] Get tournament slug and userId

@@ -1,0 +1,22 @@
+=--------------------------------------------------=
+== College Tasks || project:college ==
+Tags: intern
+
+=== Incompleted Tasks || !-COMPLETED !-WAITING ===
+
+==== Overdue tasks | +OVERDUE ====
+* [ ] finish coop 102 report (ask p'kan about project) (2018-08-15 22:00)  #cf40635c
+
+==== Today tasks | +TODAY | due:today+22hour ====
+
+==== Tomorrow tasks | +TOMORROW | due:tomorrow+22hour ====
+
+=== Completed Tasks || !+COMPLETED ===
+
+==== today | end:today ====
+
+==== yesterday | end:yesterday ====
+
+=== Waiting Tasks | +WAITING ===
+
+=--------------------------------------------------=

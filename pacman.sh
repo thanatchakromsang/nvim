@@ -3,7 +3,7 @@
 # Terminal packages
 declare -a pkgs=("curl" "neovim" "python-pip" "python-neovim"
                 "tmux" "ctags" "htop" "npm" "docker" "ranger"
-                "zsh" "scrot")
+                "zsh" "scrot" "tig")
 
 for i in "${pkgs[@]}"
 do

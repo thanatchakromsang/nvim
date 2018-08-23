@@ -1,0 +1,19 @@
+=19 Aug 2018 - *Relax day with Toey*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-19+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+#
+#
+#
+
+== OTHER NOTES ==
+# [ ] Write review change for signup user

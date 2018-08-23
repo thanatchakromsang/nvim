@@ -1,0 +1,31 @@
+=03 Aug 2018 - *Friday Implementation Day!*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-03+22hour +diary ==
+* [X] Add dotenv in storm to manage .env ! (2018-08-03 22:00)  #77854194
+* [ ] finish college report !! (2018-08-03 22:00)  #e853ca26
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+# [X] pay ta back 70 bath
+# [ ] Export env from circleCI before build
+# [O] env
+  - [X] mixpanel
+  - [X] segmentApi
+  - [X] googleAnalytics
+  - [X] backend
+  - [X] omisePublicKey
+  - [X] facebookApi
+  - [X] googleApi
+# [ ] Upload File Resolver
+  - [ ] implement resolver, typeDef
+  - [ ] have utils that recieve filestream and upload file to google storage and return url of that files

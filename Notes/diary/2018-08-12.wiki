@@ -1,0 +1,25 @@
+=12 Aug 2018 - *Invitation Implementation Day*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-12+22hour +diary ==
+* [X] Create organization invitation function #EMP-152 (2018-08-12 22:00)  #c4488bba
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+#
+#
+#
+
+== OTHER NOTES ==
+# [X] Invitation resolver
+  - [X] generate link with shortid (app.squadbeat.com/r/ew3RefE)
+    1) [X] 7 Characters
+    2) [X] Invitation Models *connect 1-1* with Organization
+# [X] Accept Invitation Resolver
+  - [X] Check if invitation exist
+  - [X] if exist check User id if not throw `you need to sign up`

@@ -1,0 +1,33 @@
+= Diary =
+
+== 2018 ==
+
+=== August ===
+  * [[2018-08-22|22 Aug 2018 - *Wednesday Workday*]]
+  * [[2018-08-21|21 Aug 2018 - *Close FE day*]]
+  * [[2018-08-19|19 Aug 2018 - *Relax day with Toey*]]
+  * [[2018-08-18|18 Aug 2018 - *Senator Day*]]
+  * [[2018-08-17|17 Aug 2018 - *GO BACK TO SQUADBEAT DAY!*]]
+  * [[2018-08-16|16 Aug 2018 - *Thursday Working day at Prontotools*]]
+  * [[2018-08-15|15 Aug 2018 - *Miss Work day1*]]
+  * [[2018-08-14|14 Aug 2018 - *Planning day*]]
+  * [[2018-08-13|13 Aug 2018 - *Omise Revisit*]]
+  * [[2018-08-12|12 Aug 2018 - *Invitation Implementation Day*]]
+  * [[2018-08-11|11 Aug 2018 - *Senator Polish day 1*]]
+  * [[2018-08-10|10 Aug 2018 - *The end of release 4 sprint 2*]]
+  * [[2018-08-09|09 Aug 2018 - *Thursday Unittest day!*]]
+  * [[2018-08-08|08 Aug 2018 - *Wednesday Unittest Day*]]
+  * [[2018-08-07|07 Aug 2018 - *Tuesday 1:1 Day*]]
+  * [[2018-08-06|06 Aug 2018 - *Co-op Day1*]]
+  * [[2018-08-05|05 Aug 2018 - *Sunday Implementation day*]]
+  * [[2018-08-04|04 Aug 2018 - *Implmentation Day 2*]]
+  * [[2018-08-03|03 Aug 2018 - *Friday Implementation Day!*]]
+  * [[2018-08-02|02 Aug 2018 - *Co-op Training day 2*]]
+  * [[2018-08-01|01 Aug 2018 - *Co-op Training day 1*]]
+
+=== July ===
+  * [[2018-07-31|31 Jul 2018 - *Back to life days!*]]
+  * [[2018-07-30|30 Jul 2018 - *LAST DAY OF 4 DAY SENATOR*]]
+  * [[2018-07-29|29 Jul 2018 - *DevOps Days*]]
+  * [[2018-07-28|28 Jul 2018 - *Squadbeat work day 2*]]
+

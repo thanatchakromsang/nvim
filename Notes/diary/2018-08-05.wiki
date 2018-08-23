@@ -1,0 +1,22 @@
+=05 Aug 2018 - *Sunday Implementation day*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-05+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+* Upload client in senator
+*
+*
+
+== OTHER NOTES ==
+# Datamodels for games
+  -
+  -
+# File should have type that get from Storm

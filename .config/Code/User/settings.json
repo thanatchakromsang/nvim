@@ -35,7 +35,7 @@
   "workbench.editor.labelFormat": "short",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 0,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "toggle",
   "workbench.colorCustomizations": {
@@ -358,4 +358,5 @@
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": false,
   "zenMode.restore": true,
+  "jest.autoEnable": false,
 }

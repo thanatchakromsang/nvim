@@ -1,0 +1,21 @@
+=11 Aug 2018 - *Senator Polish day 1*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-11+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+# [X] Resolver for create Tournament
+# [X] Resolver for create Organization
+#
+
+== OTHER NOTES ==
+# [ ] Add invite user to organization
+# [ ] Add invite user to team
+

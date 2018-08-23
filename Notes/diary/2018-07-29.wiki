@@ -1,0 +1,19 @@
+=29 Jul 2018 - *DevOps Days*=
+TODAY NOTES:
+17:43 :Feeling SLEEPY as fuck :S might need some nap in 1 hour idk.
+20:37 : NEED TO SLEEP NOW DAMNIT T_T
+21:38 : Not sleepy anymore but kinda naive
+
+== [[WHAT I WANT TODO TODAY]] ==
+* Make everything in ENV more dynamic change between PRODUCTION, DEVELOPMENTS
+* Provision Server with Ansible via CircleCI
+* PUSH UP :D
+
+== [[WHAT ELSE I DID TODAY]] ==
+* Deploy, refactor some stuff in senator
+*
+*
+
+== [[OTHER NOTES]] ==
+* Must store Development Server env in CircleCI?
+* Must Update [[docker-compose.dev.yml]]
