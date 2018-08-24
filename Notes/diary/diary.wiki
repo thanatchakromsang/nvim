@@ -3,6 +3,8 @@
 == 2018 ==
 
 === August ===
+  * [[2018-08-24|24 Aug 2018 - *CLOSE SPRINT DAY! (Cory's Birthday)*]]
+  * [[2018-08-23|23 Aug 2018 - *title*]]
   * [[2018-08-22|22 Aug 2018 - *Wednesday Workday*]]
   * [[2018-08-21|21 Aug 2018 - *Close FE day*]]
   * [[2018-08-19|19 Aug 2018 - *Relax day with Toey*]]
