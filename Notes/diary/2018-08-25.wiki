@@ -1,0 +1,20 @@
+=25 Aug 2018 - *Squadbeat Workday*=
+TODAY EVENT:
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-25+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+#
+#
+#
+
+== OTHER NOTES ==
+# [ ] new packages.json script for prisma reset w/ senator/test endpoint (prisma reset -f)
+# [ ] new .env.test for test environment

@@ -1,0 +1,44 @@
+=27 Aug 2018 - *Monday Workday*=
+TODAY EVENT:
+13:11: Planning part 2
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+== WHAT I WANT TO DO TODAY | due:2018-08-27+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+#
+#
+#
+
+== OTHER NOTES ==
+- issue#2007
+  # Open modal to view individual customer in feedback pages?
+- issue#2105
+  # Sync intercom with simplesat (like connectwise)
+- issue#2103
+  # Need to choose authentication zone because they have seperate db for each zone
+- issue#2040
+  # Leaderboard need to update instantly (for create it's already is) so we have to do for deleted, changed too
+- issue#1986
+  # Export feedback
+- issue#1971
+  # Import vs Sync customer list
+- issue#1739
+
+- Goal for this sprint
+  # Clean up and housing keeping
+- Next sprint we will clean up and focusing on feature that is not on a release
+- Sprint refinement
+  # Focus on refinement
+- Plannng part one shouldn't be long
+
+- Check pricing for gcp and aws
+  # gcp 3 node, gcp 2 node
+  # aws 3 node, manage master
+  # storage price
