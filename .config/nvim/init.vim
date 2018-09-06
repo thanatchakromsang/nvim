@@ -95,8 +95,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
   call dein#add('mxw/vim-jsx')
   " Typescript
-  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'}, {'build': './install.sh'})
   call dein#add('HerringtonDarkholme/yats.vim')
+  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'}, {'build': './install.sh'})
   call dein#add('ianks/vim-tsx')
   " Graphql
   call dein#add('jparise/vim-graphql')
