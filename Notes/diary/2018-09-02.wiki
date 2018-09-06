@@ -1,0 +1,27 @@
+=02 Sep 2018 - *Squadbeat workday day2!*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-09-02+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+- [X] use password to change email
+- Update user API
+  - [X] changeBirthday
+  - [X] changeEmail
+  - [X] changeGender
+  - [X] changePhone
+  - [X] changeName
+  - [X] changeUsername

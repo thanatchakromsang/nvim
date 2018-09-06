@@ -1,0 +1,24 @@
+=30 Aug 2018 - *Thursday To the dream day!*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-08-30+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+- [ ] run 2 replicas of one services in production [[build]]
+- Have to change from redis port to simplesat-redis :(
+- Worker only use production setting >>>
+- If change simplesat-redis to redis (service use localsetting) ---> Worker will not connect (service will be able to use shared_task but no worker)
+- If not change simplesat-redis to redis \\\ services will not recognize redis (worker will work)

@@ -1,0 +1,24 @@
+=03 Sep 2018 - *Sprint planning part 2*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-09-03+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+https://github.com/kdzch/docker-swarm-starter
+
+Conclusion:
+- beat and worker must run seperately in production environment
+- conclusion is to update to celery 4.2 and test things out
