@@ -35,7 +35,7 @@
   "workbench.editor.labelFormat": "short",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "toggle",
   "workbench.colorCustomizations": {
@@ -333,8 +333,6 @@
   "autoDocstring.docstringFormat": "google",
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
-  "python.jediMemoryLimit": -1,
-  "python.jediEnabled": true,
   // // Dart
   "dart.flutterSdkPath": "flutter",
   // Emmet
