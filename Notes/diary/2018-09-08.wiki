@@ -1,0 +1,20 @@
+=08 Sep 2018 - *DevOps Day*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-09-08+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+- [ ] on-premises kubernetes
