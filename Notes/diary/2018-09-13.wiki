@@ -1,0 +1,23 @@
+=13 Sep 2018 - *Thursday Ability to export feedback day!*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-09-13+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+- [ ] Ask cory to test https://github.com/prontotools/simplesat/issues/2109
+- [X] ADD ENV TO DOCKER
+- [ ] Testcase for send_exported_feedback
+  - [ ] test_should_call_email_service_once

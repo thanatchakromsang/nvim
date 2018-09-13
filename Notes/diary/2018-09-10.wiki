@@ -1,0 +1,61 @@
+=10 Sep 2018 - *Planning day!*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-09-10+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+
+
+== OTHER NOTES ==
+issue#2019
+- Show as much as possible in modal
+issue#2159
+- Test paginate api
+issue#2196
+- Fix in gateway api
+- Handle in frontend
+issue#2154
+- Upgrade last task
+issue#2188
+- UI like connectwise
+- Use Autotask Id, password from Gateway
+- Fix constraint database
+issue#2179
+- Implement for new user
+- Migrate old user
+issue#2146
+- Sideload Call api
+issue#2224
+- Check tag that back from zendesk which from survey settings
+issue#1986
+- Export
+issue#2067
+- Change everything dynamically
+issue#2024
+- Fix NPS bug key mapping
+- In feedback modal
+issue#2207
+- For generic embed
+- Way to import team member
+- Add team member in member in survey api
+- Add team member in member detail in survey api
+issue#2198
+- Show in UI
+issue#2236
+- Use django rest filter
+issue#
+- Api view
+[[issue#]]
+- csat/mixin\

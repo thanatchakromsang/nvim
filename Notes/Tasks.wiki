@@ -5,14 +5,12 @@
 * [ ] add recur task viewport in taskwiki (2018-07-19 17:00)  #e26c01a6
 * [ ] write blog review internship in prontotools (2018-07-30 11:02)  #846b3a85
 * [ ] Fix p'ann Nexus 5x (2018-08-10 22:00)  #2d7fdd0d
-* [X] OmiseCharge in tournament (2018-08-13 22:00)  #f79d0eaa
+* [ ] finish coop 102 report (ask p'kan about project) (2018-08-15 22:00)  #cf40635c
 * [W] use nfs for postgres data (2018-06-27 17:00)  #ef873437
 == Today tasks | +TODAY ==
 == Tomorrow tasks | +TOMORROW ==
 == Current Week tasks | -TODAY -TOMORROW +WEEK ==
-* [ ] OmiseCharge in tournament (2018-08-13 22:00)  #f79d0eaa
 == Current Month tasks | -TODAY -TOMORROW -WEEK +MONTH ==
-* [ ] Fix p'ann Nexus 5x (2018-08-10 22:00)  #2d7fdd0d
 =------------------------------------=
 = Personal Tasks =
 * [[Personal Tasks|Personal Tasks Portal]]
