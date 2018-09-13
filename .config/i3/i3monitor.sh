@@ -1,6 +1,7 @@
 #!/bin/sh
 
 INTERN="eDP1"
+DOTFILES=$HOME/.dotfiles
 
 case "$1" in
     hdmi)
