@@ -154,12 +154,12 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Audio controls
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute        exec --no-startup-id  pactl set-sink-mute 0 toggle
-bindsym $mod+F9              exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym $mod+F10             exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym $mod+F11             exec --no-startup-id  pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec ~/.config/i3/i3volume.sh -5%
+bindsym XF86AudioRaiseVolume exec ~/.config/i3/i3volume.sh +5%
+bindsym XF86AudioMute        exec ~/.config/i3/i3volume.sh toggle
+bindsym $mod+F9              exec ~/.config/i3/i3volume.sh -5%
+bindsym $mod+F10             exec ~/.config/i3/i3volume.sh +5%
+bindsym $mod+F11             exec ~/.config/i3/i3volume.sh toggle
 
 # Screen brightness controls
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
