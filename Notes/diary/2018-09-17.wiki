@@ -1,0 +1,20 @@
+=17 Sep 2018 - *Refinement day*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-09-17+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+- [ ] sticker line

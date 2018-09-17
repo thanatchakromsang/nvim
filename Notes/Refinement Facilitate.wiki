@@ -6,13 +6,15 @@ Move on to Sprint backlog
 
 = Refinement Facilitate =
 
-Normally we would start with updating the current half of a sprint and do as follow
+%% Normally we would start with updating the current half of a sprint and do as follow
 
-- Update Progress in Done lane, Ready to test lane, Doing lane and Sprint Backlog
+%% - Update Progress in Done lane, Ready to test lane, Doing lane and Sprint Backlog
 
-If everythings in above condition is finished we will move on to ask `PO` about current release and let `PO` explain about what has to be done in cards
+%% If everythings in above condition is finished we will move on to ask `PO` about current release and let `PO` explain about what has to be done in cards
 
-- Ask `PO` about card in current release to know more about what to be done.
+%% - Ask `PO` about card in current release to know more about what to be done.
+
+== Change scheme to Facilitate ==
 
 = End half day refinement =
 
