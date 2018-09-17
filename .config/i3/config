@@ -127,6 +127,9 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
+# 0x5b -> ], 0x5d -> [
+bindsym $mod+0x5b workspace prev_on_output
+bindsym $mod+0x5d workspace next_on_output
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
 
@@ -164,8 +167,8 @@ bindsym $mod+F11             exec ~/.config/i3/i3volume.sh toggle
 # Screen brightness controls
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
-# bindsym $mod+F2 exec "xbacklight -dec 5"
-# bindsym $mod+F3 exec "xbacklight -inc 5"
+bindsym $mod+F2 exec --no-startup-id "xbacklight -dec 5"
+bindsym $mod+F3 exec --no-startup-id "xbacklight -inc 5"
 
 ###########################
 ### Scratch pad binding ###
@@ -390,13 +393,14 @@ mode "$logout_system" {
 ### Multi monitor ###
 #####################
 
-set $mode_output (i) intern, (e) extern, (c) clone, (x) extend
+set $mode_output (i) intern, (e) extern, (c) clone, (x) extend (r) rotate
 bindsym $mod+F4 mode "$mode_output"
 mode "$mode_output" {
     bindsym i exec $psst ~/.config/i3/i3monitor.sh hdmi intern, mode "default"
     bindsym e exec $psst ~/.config/i3/i3monitor.sh hdmi extern, mode "default"
     bindsym c exec $psst ~/.config/i3/i3monitor.sh hdmi clone, mode "default"
     bindsym x exec $psst ~/.config/i3/i3monitor.sh hdmi extend, mode "default"
+    bindsym r exec $psst ~/.config/i3/i3monitor.sh rotate, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -469,16 +473,16 @@ mode "$application" {
     bindsym Escape mode "default"
 }
 
-set $organize open:todo (1) wiki (2) diary (3) today (4) yesterday (5) tomorrow
-bindsym $mod+F2 mode "$organize"
-mode "$organize" {
-    bindsym 1 exec --no-startup-id i3-sensible-terminal --class Wiki\ Index -e nvim -c VimwikiIndex, mode "default"
-    bindsym 2 exec --no-startup-id i3-sensible-terminal --class Diary\ Index -e nvim -c "VimwikiDiaryIndex" -c "VimwikiDiaryGenerateLinks", mode "default"
-    bindsym 3 exec --no-startup-id i3-sensible-terminal --class Today\ Diary -e nvim -c VimwikiMakeDiaryNote, mode "default"
-    bindsym 4 exec --no-startup-id i3-sensible-terminal --class Yesterday\ Diary -e nvim -c VimwikiMakeYesterdayDiaryNote, mode "default"
-    bindsym 5 exec --no-startup-id i3-sensible-terminal --class Tomorrow\ Diary -e nvim -c VimwikiMakeTomorrowDiaryNote, mode "default"
+# set $organize open:todo (1) wiki (2) diary (3) today (4) yesterday (5) tomorrow
+# bindsym $mod+F2 mode "$organize"
+# mode "$organize" {
+#     bindsym 1 exec --no-startup-id i3-sensible-terminal --class Wiki\ Index -e nvim -c VimwikiIndex, mode "default"
+#     bindsym 2 exec --no-startup-id i3-sensible-terminal --class Diary\ Index -e nvim -c "VimwikiDiaryIndex" -c "VimwikiDiaryGenerateLinks", mode "default"
+#     bindsym 3 exec --no-startup-id i3-sensible-terminal --class Today\ Diary -e nvim -c VimwikiMakeDiaryNote, mode "default"
+#     bindsym 4 exec --no-startup-id i3-sensible-terminal --class Yesterday\ Diary -e nvim -c VimwikiMakeYesterdayDiaryNote, mode "default"
+#     bindsym 5 exec --no-startup-id i3-sensible-terminal --class Tomorrow\ Diary -e nvim -c VimwikiMakeTomorrowDiaryNote, mode "default"
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }

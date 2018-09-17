@@ -8,6 +8,14 @@ case "$1" in
         EXTERN="HDMI1"
         EXTERN2="HDMI2"
         ;;
+    rotate)
+        IS_INVERTED=`xrandr --query | awk /^${INTERN}*/'{ print $5 }'`
+        if [[ "${IS_INVERTED}" == "inverted" ]]; then
+          xrandr --output $INTERN --rotate normal
+        else
+          xrandr --output $INTERN --rotate inverted
+        fi
+        ;;
     *)
 esac
 
