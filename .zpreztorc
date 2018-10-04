@@ -38,9 +38,9 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'docker' \
   'node' \
-  'autosuggestions' \
   'pacman' \
   'git' \
   'tmux' \
