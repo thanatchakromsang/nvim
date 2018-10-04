@@ -46,3 +46,4 @@ alias nvmload='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
 # git
 alias gst='git status'
+alias gc='git commit'
