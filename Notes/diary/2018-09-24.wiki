@@ -1,0 +1,25 @@
+=24 Sep 2018 - *Sprint Planning*=
+
+== Template ==
+%% * [ ] <text> -- project:<name> +<tag>
+project: personal, pronto, squadbeat, college
+
+- -> - -> 1. -> a)...
+
+== WHAT I WANT TO DO TODAY | due:2018-09-24+22hour +diary ==
+*
+*
+*
+
+== WHAT ELSE I DID TODAY ==
+*
+*
+*
+
+== OTHER NOTES ==
+Doing
+[[issue#2319]]
+[[issue#2317]]
+[[issue#2320]]
+[[issue#2249]]
+[[issue#2105]]

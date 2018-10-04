@@ -1,17 +1,13 @@
-=--------------------------------------------------=
-== Squadbeat Tasks || project:squadbeat ==
+= Squadbeat Tasks || project:squadbeat =
 Tags: infra, frontend, backend
-======----------------------------------------======
-=== Incompleted Tasks || !-COMPLETED !-WAITING ===
-==== Overdue tasks | +OVERDUE ====
-==== Today tasks | +TODAY | due:today+22hour ====
-==== Tomorrow tasks | +TOMORROW | due:tomorrow+22hour ====
-======----------------------------------------======
-=== Completed Tasks || !+COMPLETED ===
-==== today | end:today ====
-* [X] fix nginx deployment in server to be with docker-compose !  #988841ab
-==== yesterday | end:yesterday ====
-======----------------------------------------======
-=== Waiting Tasks | +WAITING ===
-======----------------------------------------======
-=--------------------------------------------------=
+== Incompleted Tasks || !-COMPLETED !-WAITING ==
+=== Overdue tasks | +OVERDUE ===
+* [ ] write blog review internship in prontotools (2018-07-30 11:02)  #846b3a85
+=== Today tasks | +TODAY | due:today+22hour ===
+=== Tomorrow tasks || +TOMORROW || due:tomorrow+22hour ===
+* [ ] Retrospective @10:00 (2018-10-05 22:00)  #cc49f2f2
+== Completed Tasks || !+COMPLETED ==
+=== today | end:today ===
+* [X] Prof. nok will visit prontools  #4a39ff16
+=== yesterday | end:yesterday ===
+== Waiting Tasks | +WAITING ==

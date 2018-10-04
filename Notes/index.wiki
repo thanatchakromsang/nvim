@@ -1,6 +1,17 @@
-= [[Tasks]] || !-COMPLETED=
+= Tasks || !-COMPLETED=
+
+== Overdue tasks | +OVERDUE ==
+* [ ] write blog review internship in prontotools (2018-07-30 11:02)  #846b3a85
+
+== Today tasks | +TODAY ==
+
+== Tomorrow tasks | +TOMORROW ==
+* [ ] Retrospective @10:00 (2018-10-05 22:00)  #cc49f2f2
+
+== Current Week tasks | -TODAY -TOMORROW +WEEK ==
+
+== Current Month tasks | -TODAY -TOMORROW -WEEK +MONTH ==
 
 = [[Knowledges]] =
 
 = [[Books]] =
-

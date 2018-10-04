@@ -1,43 +1,20 @@
-=--------------------------------------------------=
-
 == Pronto Tasks || project:pronto ==
 
 === Incompleted Tasks || !-COMPLETED !-WAITING ===
 
 ==== Overdue tasks | +OVERDUE ====
+* [ ] write blog review internship in prontotools (2018-07-30 11:02)  #846b3a85
 
 ==== Today tasks | +TODAY | due:today+22hour ====
 
-==== Tomorrow tasks | +TOMORROW | due:tomorrow+22hour ====
+==== Tomorrow tasks || +TOMORROW || due:tomorrow+22hour ====
+* [ ] Retrospective @10:00 (2018-10-05 22:00)  #cc49f2f2
 
 === Completed Tasks || !+COMPLETED ===
 
 ==== today | end:today ====
+* [X] Prof. nok will visit prontools  #4a39ff16
 
 ==== yesterday | end:yesterday ====
 
 === Waiting Tasks | +WAITING ===
-* [W] use nfs for postgres data (2018-06-27 17:00)  #ef873437
-=--------------------------------------------------=
-
-== Simplesat Tasks || project:pronto.simplesat ==
-Tags: infra, frontend, backend
-
-=== Incompleted Tasks || !-COMPLETED !-WAITING ===
-
-==== Overdue tasks | +OVERDUE ====
-
-==== Today tasks | +TODAY | due:today+22hour ====
-
-==== Tomorrow tasks | +TOMORROW | due:tomorrow+22hour ====
-
-=== Completed Tasks || !+COMPLETED ===
-
-==== today | end:today ====
-
-==== yesterday | end:yesterday ====
-
-=== Waiting Tasks | +WAITING ===
-* [W] use nfs for postgres data (2018-06-27 17:00)  #ef873437
-
-=--------------------------------------------------=

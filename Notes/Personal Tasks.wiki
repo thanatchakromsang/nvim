@@ -1,44 +1,21 @@
-=--------------------------------------------------=
 == Personal Tasks || project:personal ==
 Tags: study, debt
 
 === Incompleted Tasks || !-COMPLETED !-WAITING ===
 
 ==== Overdue tasks | +OVERDUE ====
-* [ ] add recur task viewport in taskwiki (2018-07-19 17:00)  #e26c01a6
 * [ ] write blog review internship in prontotools (2018-07-30 11:02)  #846b3a85
-* [ ] Fix p'ann Nexus 5x (2018-08-10 22:00)  #2d7fdd0d
 
 ==== Today tasks | +TODAY | due:today+22hour ====
 
-==== Tomorrow tasks | +TOMORROW | due:tomorrow+22hour ====
+==== Tomorrow tasks | +TOMORROW K due:tomorrow+22hour ====
 
 === Completed Tasks || !+COMPLETED ===
 
 ==== today | end:today ====
+* [X] Prof. nok will visit prontools  #4a39ff16
 
 ==== yesterday | end:yesterday ====
 
 === Waiting Tasks | +WAITING ===
 
-== Dotfile Tasks || project:personal.dotfile ==
-Tags: vimrc, i3, wiki, alacritty
-
-=== Incompleted Tasks || !-COMPLETED !-WAITING ===
-
-==== Overdue tasks | +OVERDUE ====
-* [ ] add recur task viewport in taskwiki (2018-07-19 17:00)  #e26c01a6
-
-==== Today tasks | +TODAY | due:today+22hour ====
-
-==== Tomorrow tasks | +TOMORROW | due:tomorrow+22hour ====
-
-=== Completed Tasks || !+COMPLETED ===
-
-==== today | end:today ====
-
-==== yesterday | end:yesterday ====
-
-=== Waiting Tasks | +WAITING ===
-
-=--------------------------------------------------=
