@@ -89,9 +89,10 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('hail2u/vim-css3-syntax')
   call dein#add('othree/csscomplete.vim')
   " Javascript
-  call dein#add('othree/yajs.vim')
-  call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
-  call dein#add('othree/es.next.syntax.vim', {'on_ft': ['javascript.jsx', 'javascript']})
+  " call dein#add('othree/yajs.vim')
+  " call dein#add('othree/jspc.vim', {'on_ft': ['javascript.jsx', 'javascript']})
+  " call dein#add('othree/es.next.syntax.vim', {'on_ft': ['javascript.jsx', 'javascript']})
+  call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript.jsx', 'javascript']})
   call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern'})
   call dein#add('mxw/vim-jsx')
   " Typescript
@@ -113,7 +114,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('dhruvasagar/vim-table-mode')
   " Python
   "" Need to fix override <leader>g
-  call dein#add('zchee/deoplete-jedi')
+  call dein#add('hdima/python-syntax', {'on_ft': 'python'})
+  call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
   call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
   " Golang
   call dein#add('fatih/vim-go')
@@ -201,6 +203,7 @@ endif
 " file type determines whether any plugins for scripts,
 " indenting rules, or syntax highlighting are loaded
   filetype plugin indent on
+  filetype plugin on
 
 " enable syntax highlight
   syntax enable
@@ -398,6 +401,10 @@ endif
   vnoremap y myy`y
   vnoremap Y myY`y
   noremap YY "+yy<CR>
+
+" Override default behavior where vim will replace default register with copy
+" from pasted
+  xnoremap p pgvy
 
 " Navigate buffer
   noremap <leader>z :bp<CR>
@@ -661,8 +668,8 @@ endif
 
       let python_highlight_all = 1
       " let g:jedi#auto_vim_configuration = 0
-      let g:jedi#documentation_command = "<leader>k"
-      let g:jedi#goto_assignments_command = "<leader>h"
+      " let g:jedi#documentation_command = "<leader>k"
+      " let g:jedi#goto_assignments_command = "<leader>h"
       " let g:jedi#completions_enabled = 0
 
   "}}}
@@ -872,11 +879,11 @@ endif
   nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
   nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-  tmap <C-j> <C-\><C-n>:TmuxNavigateDown<cr>
+  tmap <C-h> <C-\><C-n>:TmuxNavigateDown<cr>
   tmap <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
   tmap <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
   tmap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
-  " tmap <C-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
+  tmap <C-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
 
 "}}}
 
@@ -939,7 +946,7 @@ endif
 
 " enable deoplete
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_delay = 50
   let g:deoplete#auto_refresh_delay = 200
   let g:echodoc_enable_at_startup=1
   let g:deoplete#enable_smart_case = 1
@@ -1011,7 +1018,7 @@ endif
   let s:menus = {}
   call denite#custom#option('_', {
         \ 'prompt': '❯',
-        \ 'winheight': 10,
+        \ 'winheight': 15,
         \ 'updatetime': 1,
         \ 'auto_resize': 0,
         \ 'highlight_matched_char': 'Character',
@@ -1223,6 +1230,7 @@ endif
   hi VimwikiHeader6 ctermfg=6
 
   " TaskWiki
+  " let g:taskwiki_syntax = 'markdown'
   let g:taskwiki_dont_preserve_folds="yes"
 
 "}}}
