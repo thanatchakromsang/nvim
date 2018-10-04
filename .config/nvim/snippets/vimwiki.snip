@@ -1,28 +1,34 @@
 snippet     diary
 abbr        *diary template*
 options     head
-  =`strftime("%d %b %Y")` - *${1:title}*=
+  =`strftime("%d %b %Y")` - *${0:title}*=
 
   == Template ==
-  %% * [ ] <text> -- project:<name> +<tag>
-  project: personal, pronto, squadbeat, college
+  %% | * [ ] <text> -- project:<name> +<tag>
+  %% | project: personal, pronto, squadbeat, college
+  %% | -> - -> a) -> 1)...
 
-  - -> - -> 1. -> a)...
+  == DAILY LOG ==
 
-  == WHAT I WANT TO DO TODAY | due:`strftime("%Y-%m-%d")`+22hour +diary ==
-  *
-  *
-  *
+  | time  | event |
+  |-------|-------|
+  |       |       |
+
+  == WHAT I WILL DO TODAY | due:`strftime("%Y-%m-%d")`+22hour !-COMPLETED ==
+
+  == WHAT I DID TODAY | end:`strftime("%Y-%m-%d")` ==
 
   == WHAT ELSE I DID TODAY ==
-  *
-  *
-  *
 
-  == OTHER NOTES ==
+  == WHAT I WILL DO TOMORROW | due:`strftime("%Y-%m-%d")`+46hour ==
+
+  == WHAT I DID YESTERDAY | end:`strftime("%Y-%m-%d")`-24hour ==
+
+  =---------------------------------=
+
+  == TODAY NOTES ==
 
 snippet     issue
 abbr        *github issue template*
 options     head
   [[issue#${1:number}]]
-
