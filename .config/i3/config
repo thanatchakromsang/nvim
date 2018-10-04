@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Noto Sans 0
+font pango:Noto Sans 4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -316,10 +316,10 @@ set $darkgray #1d2021
 
 # green gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $green $green $darkgray $purple $green
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+client.focused          $darkgray $green $green $purple $green
+client.focused_inactive $darkgray $green $green $purple $darkgray
+client.unfocused        $darkgray $gray $gray $purple $darkgray
+client.urgent           $darkgray $red $red $red $red
 
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
@@ -423,15 +423,15 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
-set $mode_delete (delete) randomwall.sh
-bindsym Delete mode "$mode_delete"
-mode "$mode_delete" {
-    bindsym Delete exec "/home/thanatchaya/randomwall.sh", mode "default"
+# set $mode_delete (delete) randomwall.sh
+# bindsym Delete mode "$mode_delete"
+# mode "$mode_delete" {
+#     bindsym Delete exec "/home/thanatchaya/randomwall.sh", mode "default"
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
 
 #######################################
 ### move floating windows with keys ###
@@ -464,7 +464,6 @@ set $application open (1) tmux (2) bluetooth-manager (3) sound-manager
 bindsym $mod+F1 mode "$application"
 mode "$application" {
     bindsym 1 exec --no-startup-id i3-sensible-terminal --class Coding -e tmux, mode "default"
-    bindsym 2 exec --no-startup-id i3-sensible-terminal --class Vimwiki -e nvim -c VimwikiIndex, mode "default"
     bindsym 2 exec --no-startup-id blueman-applet, mode "default"
     bindsym 3 exec --no-startup-id pavucontrol, mode "default"
 
