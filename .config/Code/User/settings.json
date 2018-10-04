@@ -1,27 +1,25 @@
 {
   // Editor setting
+  "breadcrumbs.enabled": true,
+  "editor.acceptSuggestionOnEnter": "smart",
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "Fantasque Sans Mono",
-  "editor.fontWeight": "normal",
   "editor.fontSize": 14,
-  "editor.wordWrap": "off",
-  "editor.wordWrapColumn": 80,
+  "editor.fontWeight": "normal",
   "editor.formatOnSave": false,
   "editor.glyphMargin": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.lightbulb.enabled": false,
-  "editor.acceptSuggestionOnEnter": "smart",
-  "window.enableMenuBarMnemonics": false,
-  "editor.selectionHighlight": false,
   "editor.lineNumbers": "relative",
+  "editor.quickSuggestionsDelay": 100,
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": true,
-  "editor.highlightActiveIndentGuide": false,
-  "editor.quickSuggestionsDelay": 100,
-  "editor.rulers": [
-    80,
-    100,
-  ],
+  "editor.selectionHighlight": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "editor.wordWrapColumn": 80,
+  "window.enableMenuBarMnemonics": false,
+  "editor.rulers": [80, 100],
   // Workbench
   "workbench.colorTheme": "Gruvbox Dark (Medium)",
   "workbench.activityBar.visible": false,
@@ -45,7 +43,7 @@
     "statusBar.foreground": "#a89984"
   },
   // Vim
-  "vim.easymotion": false,
+  "vim.easymotion": true,
   "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
   "vim.easymotionMarkerFontFamily": "Fantasque Sans Mono",
   "vim.searchHighlightColor": "#a89984",
@@ -65,46 +63,26 @@
   "vim.useSystemClipboard": true,
   "vim.incsearch": true,
   "vim.showcmd": true,
-  "vim.insertModeKeyBindings": [
+  "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    },
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
   ],
-  "vim.normalModeKeyBindings": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     // gh - show the hover tooltip.
     // gb - add an additional cursor at the next place that matches *
     {
-      "before": [
-        "j"
-      ],
-      "after": [
-        "g",
-        "j"
-      ]
+      "before": ["j"],
+      "after": ["g", "j"]
     },
     {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "g",
-        "k"
-      ]
+      "before": ["k"],
+      "after": ["g", "k"]
     },
     {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "5",
-        "j"
-      ]
+      "before": ["J"],
+      "after": ["5", "j"]
       // // Fix unfold by accident
       // "before": [
       //   "J"
@@ -116,13 +94,8 @@
       // ]
     },
     {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "5",
-        "k"
-      ]
+      "before": ["K"],
+      "after": ["5", "k"]
       // // Fix unfold by accident
       // "before": [
       //   "K"
@@ -135,10 +108,7 @@
     },
     // gf behavior in vim
     {
-      "before": [
-        "g",
-        "f"
-      ],
+      "before": ["g", "f"],
       "after": [],
       "commands": [
         {
@@ -147,10 +117,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "c"
-      ],
+      "before": ["leader", "c"],
       "commands": [
         {
           "command": "workbench.action.closeActiveEditor"
@@ -158,10 +125,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "r"
-      ],
+      "before": ["leader", "r"],
       "commands": [
         {
           "command": "workbench.action.gotoSymbol"
@@ -169,10 +133,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "t"
-      ],
+      "before": ["leader", "t"],
       "commands": [
         {
           "command": "workbench.action.showAllSymbols"
@@ -180,11 +141,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "s",
-        "h"
-      ],
+      "before": ["leader", "s", "h"],
       "commands": [
         {
           "command": "workbench.action.terminal.toggleTerminal"
@@ -192,10 +149,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "f"
-      ],
+      "before": ["leader", "f"],
       "commands": [
         {
           "command": "workbench.action.findInFiles"
@@ -203,10 +157,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "e"
-      ],
+      "before": ["leader", "e"],
       "commands": [
         {
           "command": "workbench.action.quickOpen"
@@ -214,10 +165,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "v"
-      ],
+      "before": ["leader", "v"],
       "commands": [
         {
           "command": ":split"
@@ -225,10 +173,7 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "b"
-      ],
+      "before": ["leader", "b"],
       "commands": [
         {
           "command": "workbench.action.splitEditorOrthogonal"
@@ -236,15 +181,9 @@
       ]
     },
     {
-      "before": [
-        "leader",
-        "h"
-      ],
-      "after": [
-        "g",
-        "h"
-      ]
-    },
+      "before": ["<C-n"],
+      "after": ["g", "b"]
+    }
     // // Easymotion search instead of /
     // {
     //   "before": [
@@ -257,6 +196,21 @@
     //   ]
     // },
   ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    // Bind p in visual mode to paste without overriding the current register
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
   // Scrolloff (vim-like behavior)
   "scrolloff.scrolloff": 5,
   // Files
@@ -266,6 +220,8 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
+    "**/.vscode": true,
+    "**/__pycache__": true
   },
   // Search
   "search.smartCase": true,
@@ -295,10 +251,7 @@
   "gitlens.defaultDateStyle": "absolute",
   "gitlens.keymap": "none",
   "gitlens.historyExplorer.enabled": false,
-  "gitlens.codeLens.scopes": [
-    "document",
-    "containers"
-  ],
+  "gitlens.codeLens.scopes": ["document", "containers"],
   "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
@@ -306,16 +259,10 @@
   "gitlens.explorers.avatars": false,
   "gitlens.blame.avatars": false,
   "gitlens.blame.compact": false,
-  "gitlens.blame.highlight.locations": [
-    "gutter"
-  ],
+  "gitlens.blame.highlight.locations": ["gutter"],
   "gitlens.hovers.annotations.over": "annotation",
   "gitlens.hovers.annotations.details": false,
-  "gitlens.recentChanges.highlight.locations": [
-    "line",
-    "gutter",
-    "overview"
-  ],
+  "gitlens.recentChanges.highlight.locations": ["line", "gutter", "overview"],
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.statusBar.format": "${authorAgo}",
   // Language Specific
@@ -330,7 +277,6 @@
   "eslint.run": "onSave",
   "prettier.eslintIntegration": true,
   // // Python
-  "autoDocstring.docstringFormat": "google",
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
   // // Dart
@@ -347,7 +293,7 @@
   "path-intellisense.autoSlashAfterDirectory": true,
   "workbench.statusBar.visible": true,
   "git.confirmSync": false,
-  "workbench.iconTheme": "minimalistic-icons",
+  "workbench.iconTheme": "simple-icons",
   "vsintellicode.python.completionsEnabled": false,
   "editor.minimap.enabled": false,
   "editor.minimap.maxColumn": 100,
@@ -356,5 +302,11 @@
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": false,
   "zenMode.restore": true,
-  "jest.autoEnable": false,
+  "vim.disableExtension": false,
+  "files.associations": {
+    "*.js": "javascript"
+  },
+  "python.unitTest.pyTestEnabled": true,
+  "terminal.integrated.rendererType": "dom",
+  "window.openFoldersInNewWindow": "off"
 }
