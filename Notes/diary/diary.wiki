@@ -2,7 +2,22 @@
 
 == 2018 ==
 
+=== October ===
+  * [[2018-10-11|11 Oct 2018 - *Sprint refinemnet day*]]
+  * [[2018-10-10|10 Oct 2018 - *AND OR rules improvement day 2*]]
+  * [[2018-10-09|09 Oct 2018 - *AND OR Rules improve*]]
+  * [[2018-10-08|08 Oct 2018 - *Sprint planning day*]]
+  * [[2018-10-07|07 Oct 2018 - *Sunday Onepice!*]]
+  * [[2018-10-06|06 Oct 2018 - *Squadbeat working day 1*]]
+  * [[2018-10-05|05 Oct 2018 - *Retrospective day*]]
+  * [[2018-10-04|04 Oct 2018 - *Hello Thursday*]]
+
 === September ===
+  * [[2018-09-24|24 Sep 2018 - *Sprint Planning*]]
+  * [[2018-09-21|21 Sep 2018 - *Friday Retrospective day!*]]
+  * [[2018-09-19|19 Sep 2018 - *Wednesday Migration day!*]]
+  * [[2018-09-17|17 Sep 2018 - *Refinement day*]]
+  * [[2018-09-14|14 Sep 2018 - *Refinement day!*]]
   * [[2018-09-13|13 Sep 2018 - *Thursday Ability to export feedback day!*]]
   * [[2018-09-12|12 Sep 2018 - *Export feedback day*]]
   * [[2018-09-11|11 Sep 2018 - *Audience Rules show list Day!*]]

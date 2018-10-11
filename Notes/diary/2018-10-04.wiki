@@ -26,3 +26,4 @@
 =---------------------------------=
 
 == TODAY NOTES ==
+- Will create task later for `coop` paper

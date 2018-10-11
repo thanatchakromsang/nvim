@@ -14,6 +14,11 @@ Move on to Sprint backlog
 
 %% - Ask `PO` about card in current release to know more about what to be done.
 
+= Backlong refinement =
+
+Ask about card in sprint backlong
+Question lane
+
 == Change scheme to Facilitate ==
 
 = End half day refinement =
@@ -23,3 +28,4 @@ What need to do before to get an effective and fast refinement
 
 = Refinement Part 2 (Monday after half sprint) =
 
+= Sprint Review =

@@ -1,0 +1,27 @@
+=07 Oct 2018 - *Sunday Onepice!*=
+
+== Template ==
+%% | * [ ] <text> -- project:<name> +<tag>
+%% | project: personal, pronto, squadbeat, college
+%% | -> - -> a) -> 1)...
+
+== DAILY LOG ==
+
+| time  | event |
+|-------|-------|
+|       |       |
+
+== WHAT I WILL DO TODAY | due:2018-10-07+22hour !-COMPLETED ==
+
+== WHAT I DID TODAY | end:2018-10-07 ==
+
+== WHAT ELSE I DID TODAY ==
+
+== WHAT I WILL DO TOMORROW | due:2018-10-07+46hour ==
+* [ ] print coop sheets !! (2018-10-08)  #ee806a7f
+
+== WHAT I DID YESTERDAY | end:2018-10-07-24hour ==
+
+=---------------------------------=
+
+== TODAY NOTES ==

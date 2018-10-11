@@ -1,6 +1,5 @@
 = Shell =
 
 To shell into services with extra power
-{{{bash
-python manage.py -i ipython
-}}}
+
+`python manage.py -i ipython`
