@@ -1,5 +1,0 @@
-= Shell =
-
-To shell into services with extra power
-
-`python manage.py -i ipython`

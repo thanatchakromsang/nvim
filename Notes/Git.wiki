@@ -1,3 +1,0 @@
-= Clear all branch except develop and master =
-
-`git branch | grep -v "develop" | grep -v "master" | xargs git branch -D`
