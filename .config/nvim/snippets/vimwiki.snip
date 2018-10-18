@@ -1,34 +1,32 @@
 snippet     diary
 abbr        *diary template*
 options     head
-  =`strftime("%d %b %Y")` - *${0:title}*=
+  # `strftime("%d %b %Y")` - *${0:title}*
 
-  == Template ==
-  %% | * [ ] <text> -- project:<name> +<tag>
-  %% | project: personal, pronto, squadbeat, college
-  %% | -> - -> a) -> 1)...
-
-  == DAILY LOG ==
+  ## DAILY LOG
 
   | time  | event |
   |-------|-------|
   |       |       |
 
-  == WHAT I WILL DO TODAY | due:`strftime("%Y-%m-%d")`+22hour !-COMPLETED ==
+  ## WHAT I WILL DO TODAY | due:`strftime("%Y-%m-%d")`+22hour !-COMPLETED
 
-  == WHAT I DID TODAY | end:`strftime("%Y-%m-%d")` ==
+  ## WHAT I DID TODAY | end:`strftime("%Y-%m-%d")`
 
-  == WHAT ELSE I DID TODAY ==
+  ## WHAT ELSE I DID TODAY
 
-  == WHAT I WILL DO TOMORROW | due:`strftime("%Y-%m-%d")`+46hour ==
+  ## WHAT I WILL DO TOMORROW | due:`strftime("%Y-%m-%d")`+46hour !-COMPLETED
 
-  == WHAT I DID YESTERDAY | end:`strftime("%Y-%m-%d")`-24hour ==
+  ## WHAT I DID YESTERDAY | end:`strftime("%Y-%m-%d")`-24hour
 
-  =---------------------------------=
-
-  == TODAY NOTES ==
+  # TODAY NOTES
 
 snippet     issue
 abbr        *github issue template*
 options     head
-  [[issue#${1:number}]]
+  (issue#${0:number})[]
+
+snippet     task
+abbr        *Taskwarrior Task*
+options     head
+  * [ ] ${1:Description} -- project:${2:Project} +${3:Tag}
