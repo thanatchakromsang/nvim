@@ -108,10 +108,10 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('lervag/vimtex', {'on_ft': ['plaintex', 'tex']})
   call dein#add('moll/vim-node')
   " Markdown
-  " call dein#add('euclio/vim-markdown-composer', {'build': 'cargo build --release'})
   call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
   call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
   call dein#add('dhruvasagar/vim-table-mode')
+  call dein#add('JamshedVesuna/vim-markdown-preview', {'on_ft': 'markdown'})
   " Python
   "" Need to fix override <leader>g
   call dein#add('hdima/python-syntax', {'on_ft': 'python'})
@@ -627,9 +627,13 @@ endif
     hi ALEWarningSign ctermbg=237
   " " Search
   "   hi Search ctermfg=15 ctermbg=61 cterm=NONE
+  "
 
   " " Sneak
   "   hi link Sneak Search
+
+  " Taskwiki
+  hi TaskWikiTaskPriority ctermbg=NONE ctermfg=1
 
 "}}}
 
@@ -746,6 +750,12 @@ endif
       let g:table_mode_corner="|"
       let g:markdown_fold_override_foldtext = 0
       let g:markdown_syntax_conceal = 0
+
+    " Vim markdown preview
+      let vim_markdown_preview_hotkey='<C-k>'
+      let vim_markdown_preview_use_xdg_open=1
+      let vim_markdown_preview_github=1
+
 
   "}}}
 
@@ -1073,11 +1083,10 @@ endif
       nnoremap <silent> <F4> :Denite grep:::!<CR>
 
       " nnoremap <silent> <leader>h :Denite help<CR>
-      nnoremap <silent>  B :Denite buffer<CR>
+      nnoremap <silent> B :Denite buffer<CR>
       nnoremap <silent> <leader>u :call dein#update()<CR>
 
-      nnoremap <silent> <leader>m :Denite menu:commands<CR>
-      nnoremap <silent> <leader>g :Denite menu:git<CR>
+      nnoremap <silent> <F1> :Denite menu:commands<CR>
 
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
 	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
@@ -1091,87 +1100,40 @@ endif
 
 "}}}
 
-" Denite : Git  -------------------------------------------------------------{{{
-
-  let s:menus.git = {
-    \ 'description' : 'Git interface',
-    \}
-
-  let s:menus.git.command_candidates = [
-    \[' [1]  ❯ :Magit                             | git status', 'Magit'],
-    \[' [2]  ❯ :Gvdiff                            | git diff', 'Gvdiff'],
-    \[' [3]  ❯ :Gcommit                           | git commit', 'Gcommit'],
-    \[' [4]  ❯ :Gwrite                            | git stage/add', 'Gwrite'],
-    \[' [5]  ❯ :Gread                             | git checkout', 'Gread'],
-    \[' [6]  ❯ :Gremove                           | git rm', 'Gremove'],
-    \[' [7]  ❯ :Gcd                               | git cd', 'Gcd'],
-    \[' [8]  ❯ :Git! push (current branch)        | git push current directory', 'Git! push'],
-    \[' [9]  ❯ :Git! push (pick branch)           | git push (remote/branch:)', 'exe "Git! push " input("Push remote/branch: ")'],
-    \[' [10] ❯ :Git! pull (current branch)        | git pull current directory', 'Git! pull'],
-    \[' [11] ❯ :Git! pull (pick branch)           | git pull (remote/branch:)', 'exe "Git! pull " input("Pull remote/branch: ")'],
-    \[' [12] ❯ :Git! checkout (pick branch)       | git checkout (branch:)', 'exe "Git! checkout " input("Checkout branch: ")'],
-    \[' [13] ❯ :Gfetch                            | git fetch', 'Gfetch'],
-    \[' [14] ❯ :Gmerge                            | git merge', 'Gmerge'],
-    \[' [15] ❯ :Gbrowse                           | git browse', 'Gbrowse'],
-    \[' [16] ❯ :Gblame                            | git blame', 'Gblame'],
-    \[' [17] ❯ :Gedit HEAD^                       | git head', 'Gedit HEAD^'],
-    \[' [18] ❯ :Denite gitbranch                  | git branch', 'Denite gitbranch'],
-    \[' [19] ❯ :Denite gitlog:file                | git log current file', 'Denite gitlog:file'],
-    \[' [20] ❯ :GV                                | git log current repository', 'GV'],
-    \[' [21] ❯ :Git! (input)                      | git prompt', 'exe "Git! " input("Git command: ")'],
-    \[' [22] ❯ :Glog                              | git log last commit', 'Glog --'],
-    \[' [23] ❯ :MagitOnly                         | manage git commit', 'MagitOnly'],
-    \] " Append ' --' after log to get commit info commit buffers
-    " \[' git log current file', 'Glog -- %'],
-    " \[' git log last n commits', 'exe "Glog -" input("num: ")'],
-    " \[' git log first n commits', 'exe "Glog --reverse -" input("num: ")'],
-    " \[' git log until date', 'exe "Glog --until=" input("day: ")'],
-    " \[' git log grep commits',  'exe "Glog --grep= " input("string: ")'],
-    " \[' git log pickaxe',  'exe "Glog -S" input("string: ")'],
-
-"}}}
-
-" Denite : General  ---------------------------------------------------------{{{
+" Denite : Commands  ---------------------------------------------------------{{{
 
   let s:menus.commands = {
     \ 'description' : 'General command',
     \}
   let s:menus.commands.command_candidates = [
-    \[' [1]  ❯ :Gist                              | Upload current file to gist.github', 'Gist'],
-    \[' [2]  ❯ :Limelight!!                       | Dim surrounding light', 'Limelight!!'],
-    \[' [3]  ❯ :Goyo                              | Toggle Focus mode', 'Goyo'],
-    \[' [4]  ❯ :LeadingSpaceToggle                | Toggle leading dots', 'LeadingSpaceToggle'],
-    \[' [5]  ❯ :IndentLinesToggle                 | Toggle indent line', 'IndentLinesToggle'],
-    \[' [6]  ❯ :colorscheme                       | Change colourscheme', 'Denite colorscheme'],
-    \[' [7]  ❯ :TableModeToggle       ⌘ [,][t][m] | Toggle table mode markdown', 'TableModeToggle'],
-    \[' [8]  ❯ :Vimwiki Bindings                  | Vimwiki key bindings', 'Denite menu:vimwiki'],
-    \]
-
-"}}}
-
-" Denite : Vimwiki  ---------------------------------------------------------{{{
-
-  let s:menus.vimwiki = {
-    \ 'description' : 'Vimwiki key bindings',
-    \}
-  let s:menus.vimwiki.command_candidates = [
-    \[' [1]   ❯ Command                ⌘ [,][w][w] | Open default wiki index file',''],
-    \[' [2]   ❯ Command                ⌘ [,][w][t] | Open default wiki index file in a new tab',''],
-    \[' [3]   ❯ Command                ⌘ [,][w][s] | Select and open wiki index file',''],
-    \[' [4]   ❯ Command                ⌘ [,][w][d] | Delete wiki file you are in',''],
-    \[' [5]   ❯ Command                ⌘ [,][w][r] | Rename wiki file you are in',''],
-    \[' [6]   ❯ Command                ⌘ [S-Enter] | Split and follow/create wiki link',''],
-    \[' [7]   ❯ Command                ⌘ [C-Enter] | Vertical split and follow/create wiki link',''],
-    \[' [8]   ❯ Command             ⌘ [,][w][h][h] | Convert current wiki page to HTML and open it in browser',''],
-    \[' [9]   ❯ Command                      ⌘ [=] | Add header level',''],
-    \[' [10]  ❯ Command                      ⌘ [-] | Remove header level',''],
-    \[' [11]  ❯ Command                      ⌘ [+] | Create and/or decorate links',''],
-    \[' [12]  ❯ Command                ⌘ [C-Space] | Toggle checkbox of a list item on/off',''],
-    \[' [13]  ❯ Command            ⌘ [g][l][Space] | Remove checkbox from list',''],
-    \[' [14]  ❯ Command                ⌘ [g][l][n] | Increase done status from [ ] to [.] to [o]',''],
-    \[' [15]  ❯ Command                ⌘ [g][l][p] | Decrease done status from [o] to [.] to [ ]',''],
-    \[' [16]  ❯ Command             ⌘ [,][w][,][i] | Generate VimwikiDiary Index', 'VimwikiDiaryGenerateLinks'],
-    \[' [17]  ❯ Command             ⌘ [,][w][,][w] | Generate Today Diary', 'VimwikiMakeDiaryNote'],
+    \[' ❯ :Gist                              | Upload current file to gist.github',  'Gist'],
+    \[' ❯ :Limelight!!                       | Dim surrounding light',               'Limelight!!'],
+    \[' ❯ :Goyo                              | Toggle Focus mode',                   'Goyo'],
+    \[' ❯ :LeadingSpaceToggle                | Toggle leading dots',                 'LeadingSpaceToggle'],
+    \[' ❯ :IndentLinesToggle                 | Toggle indent line',                  'IndentLinesToggle'],
+    \[' ❯ :colorscheme                       | Change colourscheme',                 'Denite colorscheme'],
+    \[' ❯ :Magit                             | git status',                          'Magit'],
+    \[' ❯ :Gvdiff                            | git diff',                            'Gvdiff'],
+    \[' ❯ :Gcommit                           | git commit',                          'Gcommit'],
+    \[' ❯ :Gwrite                            | git stage/add',                       'Gwrite'],
+    \[' ❯ :Gread                             | git checkout',                        'Gread'],
+    \[' ❯ :Git! push (current branch)        | git push current directory',          'Git! push'],
+    \[' ❯ :Git! push (pick branch)           | git push (remote/branch:)',           'exe "Git! push " input("Push remote/branch: ")'],
+    \[' ❯ :Git! pull (current branch)        | git pull current directory',          'Git! pull'],
+    \[' ❯ :Git! pull (pick branch)           | git pull (remote/branch:)',           'exe "Git! pull " input("Pull remote/branch: ")'],
+    \[' ❯ :Git! checkout (pick branch)       | git checkout (branch:)',              'exe "Git! checkout " input("Checkout branch: ")'],
+    \[' ❯ :Gfetch                            | git fetch',                           'Gfetch'],
+    \[' ❯ :Gbrowse                           | git browse',                          'Gbrowse'],
+    \[' ❯ :Gblame                            | git blame',                           'Gblame'],
+    \[' ❯ :Gedit HEAD^                       | git HEAD^',                            'Gedit HEAD^'],
+    \[' ❯ :Denite gitbranch                  | git branch',                          'Denite gitbranch'],
+    \[' ❯ :Denite gitlog:file                | git log current file',                'Denite gitlog:file'],
+    \[' ❯ :GV                                | git log current repository',          'GV'],
+    \[' ❯ :Glog                              | git log last commit',                 'Glog --'],
+    \[' ❯ :MagitOnly                         | manage git commit',                   'MagitOnly'],
+    \[' ❯ preview markdown           ⌘ [C-K] | Preview markdown',                    'call Vim_Markdown_Preview()'],
+    \[' ❯ Vimwiki             ⌘ [,][w][,][i] | Generate VimwikiDiary Index', 'VimwikiDiaryGenerateLinks'],
+    \[' ❯ Vimwiki             ⌘ [,][w][,][w] | Generate Today Diary', 'VimwikiMakeDiaryNote']
     \]
 
 "}}}
@@ -1217,10 +1179,10 @@ endif
   autocmd FileType vimwiki :GitGutterDisable
 
 
-  let g:vimwiki_list = [{'path': '~/Notes/'}]
-  let g:vimwiki_folding = 'list'
-  " let g:vimwiki_list = [{'path': '~/Notes/',
-  "                      \ 'syntax': 'markdown', 'ext': '.md'}]
+  " let g:vimwiki_folding = 'list'
+  let g:vimwiki_list = [{'path': '~/Notes/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+  let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 
   hi VimwikiHeader1 ctermfg=1
   hi VimwikiHeader2 ctermfg=2
@@ -1230,8 +1192,9 @@ endif
   hi VimwikiHeader6 ctermfg=6
 
   " TaskWiki
-  " let g:taskwiki_syntax = 'markdown'
   let g:taskwiki_dont_preserve_folds="yes"
+  let g:taskwiki_disable_concealcursor = 'yes'
+  let g:taskwiki_markup_syntax = 'markdown'
 
 "}}}
 
