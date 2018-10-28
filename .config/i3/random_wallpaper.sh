@@ -13,7 +13,7 @@ case "$1" in
 esac
 
 # Random pictures in folder
-find "$PICTURES" -type f | shuf -n 1 | xargs feh --bg-fill &> /dev/null
+# find "$PICTURES" -type f | shuf -n 1 | xargs feh --bg-fill &> /dev/null
 
-# feh --bg-fill $HOME/Pictures/Wallpaper/gruvbox1.png
+feh --bg-fill $HOME/Pictures/Wallpaper/gruvbox1.png
 
