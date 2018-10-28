@@ -18,8 +18,6 @@ alias l1='exa -1'
 alias ll='exa -glh --group-directories-first --git'
 alias c='clear'
 
-alias tmux='tmux -2'
-
 alias dev='./dev'
 
 # editors
@@ -42,7 +40,7 @@ if [ "$PACKAGE_MANAGER" = pacman ]; then
 fi
 
 # nvm alias for nodejs
-alias nvmload='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+alias nvmload='nvm use 8.11.4'
 
 # git
 alias gst='git status'
