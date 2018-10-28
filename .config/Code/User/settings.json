@@ -223,7 +223,8 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/.vscode": true,
-    "**/__pycache__": true
+    "**/__pycache__": true,
+    "**/dist": true
   },
   // Search
   "search.smartCase": true,
@@ -272,8 +273,8 @@
   "tslint.autoFixOnSave": true,
   "tslint.run": "onSave",
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "typescript.autoImportSuggestions.enabled": false,
-  "typescript.useCodeSnippetsOnMethodSuggest": true,
+  "typescript.suggest.autoImports": false,
+  "typescript.suggest.completeFunctionCalls": true,
   // // Javascript linter
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
@@ -311,4 +312,5 @@
   "python.unitTest.pyTestEnabled": true,
   "terminal.integrated.rendererType": "dom",
   "window.openFoldersInNewWindow": "off",
+  "latex-workshop.view.pdf.viewer": "tab",
 }
