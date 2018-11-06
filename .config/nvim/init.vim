@@ -1029,7 +1029,7 @@ endif
 
 "}}}
 
-" Denite  -------------------------------------------------------------------{{{
+" Denite --------------------------------------------------------------------{{{
 
   let s:menus = {}
   call denite#custom#option('_', {
@@ -1144,7 +1144,7 @@ endif
 
 "}}}
 
-" Emmet   -------------------------------------------------------------------{{{
+" Emmet ----------------------------------------------------------------------{{{
 
 " Remapping <C-y>, just doesn't cut it.
   function! s:expand_html_tab()
@@ -1176,9 +1176,7 @@ endif
 
 "}}}
 
-" Text   --------------------------------------------------------------------{{{
-
-" Vimwiki
+" Vimwiki --------------------------------------------------------------------{{{
 
 " disable Ale, Gutter
   autocmd FileType vimwiki :ALEDisable
@@ -1187,7 +1185,10 @@ endif
 
   " let g:vimwiki_folding = 'list'
   let g:vimwiki_list = [{'path': '~/Notes/',
-                       \ 'syntax': 'markdown', 'ext': '.md'}]
+                       \ 'syntax': 'markdown',
+                       \ 'ext': '.md',
+                       \ 'auto_diary_index': 1}]
+
   let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 
   hi VimwikiHeader1 ctermfg=1
@@ -1204,7 +1205,7 @@ endif
 
 "}}}
 
-" Magit  --------------------------------------------------------------------{{{
+" Magit ----------------------------------------------------------------------{{{
 
   let g:magit_discard_untracked_do_delete=1
 
