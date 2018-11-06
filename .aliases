@@ -24,7 +24,8 @@ alias dev='./dev'
 alias vim='nvim'
 alias f='vim $(fzf)'
 alias wiki='nvim -c VimwikiIndex'
-alias diary='nvim -c VimwikiMakeDiaryNote'
+alias note='nvim -c VimwikiMakeDiaryNote'
+alias diary='nvim -c VimwikiDiaryIndex'
 alias magit='nvim -c MagitOnly'       # manage git folder with magit
 
 # dotfiles
