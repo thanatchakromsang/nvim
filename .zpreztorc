@@ -35,15 +35,15 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
-  'syntax-highlighting' \
-  'history-substring-search' \
   'autosuggestions' \
   'docker' \
   'node' \
   'pacman' \
   'git' \
   'tmux' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt' \
 
 #
 # Autosuggestions
