@@ -22,7 +22,7 @@ fi
   export TERM=xterm-256color
 
 # SSH_KEY
-  export SSH_KEY_PATH="~/.ssh"
+  export SSH_KEY_PATH="$HOME/.ssh"
 
   export FZF_DEFAULT_OPTS='--height 100% --border --preview "[[ $(file --mime {}) =~ binary ]] &&
                  echo {} is a binary file ||
