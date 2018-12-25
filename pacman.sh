@@ -1,9 +1,20 @@
 #!/bin/bash
 
 # Terminal packages
-declare -a pkgs=("curl" "neovim" "python-pip" "python-neovim"
-                "tmux" "ctags" "htop" "npm" "docker" "ranger"
-                "zsh" "scrot" "tig")
+declare -a pkgs=("curl"
+                 "neovim"
+                 "python-pip"
+                 "python-neovim"
+                 "tmux"
+                 "ctags"
+                 "htop"
+                 "npm"
+                 "docker"
+                 "ranger"
+                 "zsh"
+                 "scrot"
+                 "tig"
+                 "bat")
 
 for i in "${pkgs[@]}"
 do
