@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Noto Sans 4
+font pango:Noto Sans 7
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,7 +34,7 @@ font pango:Noto Sans 4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal --class Terminal -t Terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal --class Terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -44,6 +44,9 @@ focus_follows_mouse yes
 
 # smart popup
 popup_during_fullscreen smart
+
+# layout for new container
+workspace_layout tabbed
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -237,22 +240,16 @@ assign [class="Chromium" instance="crx_hcfcmgpnmpinpidjdgejehjchlbglpde"] $ws9
 assign [class="Chromium" instance="crx_hhfiljfkackbfbokpmngfpjffnlmjljd"] $ws5
 # Google Slides
 assign [class="Chromium" instance="crx_dldepjmdjhebnigpngjochkdkajcfilo"] $ws5
+# Google Sheets
+assign [class="Chromium" instance="crx_lcahnhkcfaikkapifpaenbabamhfnecc"] $ws5
 # Google Docs
 assign [class="Chromium" instance="crx_bojccfnmcnekjgjhcaklmcgofnngpjcl"] $ws5
-# Twitch
-assign [class="Chromium" instance="crx_comkdlimbkhemidbbpchhepidbmjpnhh"] $ws7
-# Inbox
-assign [class="Chromium" instance="crx_egddcdhcadfhcbheacnhikllgjokeico"] $ws8
 # Google Classroom
 assign [class="Chromium" instance="crx_bnjfdainlhllipmmlagcfpdmcckiehng"] $ws9
 # Google Calendar
 assign [class="Chromium" instance="crx_jdbojlaicachcbjoddbcbnhomkmkcfld"] $ws9
 # Line
 assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws7
-# Netflix
-assign [class="Chromium" instance="crx_eppojlglocelodeimnohnlnionkobfln"] $ws6
-# Slack prontotools
-assign [class="Chromium" instance="crx_holnenfpomhkndhdglnnfbfockijaofe"] $ws7
 # Slack squadbeat
 assign [class="Chromium" instance="crx_nacnooigdkcajefhhchobeeacinkpojl"] $ws7
 # Jira
@@ -264,9 +261,7 @@ for_window [class="Chromium"] border pixel 1
 for_window [class="^Simplescreenrecorder$"] floating enable
 for_window [class="^Wine$"] floating enable
 
-# Scratchpad instance
-# Rainy mood
-for_window [class="Chromium" instance="crx_jpaffdimlcjijhmahjmmfofpbenjocpl"] move scratchpad
+# for_window [class="Chromium"] fullscreen enable
 
 # # gimp
 # assign [class="Gimp"] gimp
@@ -286,7 +281,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dunst &
 
 # Eyecandy shadow
-exec --no-startup-id compton &
+exec_always --no-startup-id compton &
 
 # Auto suspend
 # exec --no-startup-id xautolock -time 15 -locker "systemctl suspend"
@@ -316,9 +311,9 @@ set $darkgray #1d2021
 
 # green gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $darkgray $green $green $purple $green
-client.focused_inactive $darkgray $green $green $purple $darkgray
-client.unfocused        $darkgray $gray $gray $purple $darkgray
+client.focused          $darkgray $green $darkgray $purple $green
+client.focused_inactive $darkgray $green $darkgray $purple $darkgray
+client.unfocused        $darkgray $gray $darkgray $purple $darkgray
 client.urgent           $darkgray $red $red $red $red
 
 # blue gruvbox
