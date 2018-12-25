@@ -1,41 +1,56 @@
 #!/bin/zsh
 
+exists()
+{
+  command -v "$1" >/dev/null 2>&1
+}
+
 # build-in commands and core utilities
 alias df='df -h'
 
-# alias j=jobs
-# alias la='ls -A'
-# alias l='ls -CF'
-# alias l.='ls -d .*' #ls hidden files
-# alias l1='ls -1'
-# alias ls='ls -Fh'
-alias ls='exa -Fh'
-alias la='exa -aglh --group-directories-first --git'
-alias l='exa -GF'
-alias l.='exa -d .*'
-alias ll.='exa -dlg .*'
-alias l1='exa -1'
-alias ll='exa -glh --group-directories-first --git'
-alias c='clear'
+# exa instead of ls
+if exists exa; then
+  alias ls='exa -Fh'
+  alias la='exa -aglh --group-directories-first --git'
+  alias l='exa -GF'
+  alias l.='exa -d .*'
+  alias ll.='exa -dlg .*'
+  alias l1='exa -1'
+  alias ll='exa -glh --group-directories-first --git'
+else
+  alias la='ls -A'
+  alias l='ls -CF'
+  alias l.='ls -d .*' #ls hidden files
+  alias l1='ls -1'
+  alias ls='ls -Fh'
+fi
 
-alias dev='./dev'
+# bat instead of cat
+if exists bat; then
+  alias cat='bat'
+fi
 
-# editors
-alias vim=nvim
-alias f='vim $(fzf)'
-alias wiki='vim -c VimwikiIndex'
-alias note='vim -c VimwikiMakeDiaryNote'
-alias diary='vim -c VimwikiDiaryIndex'
-alias magit='vim -c MagitOnly'       # manage git folder with magit
-alias bookmark="vim -c ':e $HOME/.NERDTreeBookmarks'"
+# editors (assume nvim with plugin)
+if exists nvim; then
+  alias vim=nvim
+  alias f='vim $(fzf)'
+  alias wiki='vim -c VimwikiIndex'
+  alias note='vim -c VimwikiMakeDiaryNote'
+  alias diary='vim -c VimwikiDiaryIndex'
+  alias magit='vim -c MagitOnly'       # manage git folder with magit
+  alias bookmark="vim -c ':e $HOME/.NERDTreeBookmarks'"
+fi
 
 # dotfiles
 alias dotfiles='cd ~/.dotfiles'
+alias dev="$DOTFILES/dev"
 
 # other
 alias r='ranger'
 alias open='xdg-open'
+
 alias t='task'
+alias tw='task waiting'
 
 if [ "$PACKAGE_MANAGER" = pacman ]; then
   alias u="sudo pacman --sync --refresh --sysupgrade"
@@ -44,6 +59,4 @@ fi
 # nvm alias for nodejs
 alias nvmload='nvm use 8.11.4'
 
-# git
-alias gst='git status'
-alias gc='git commit'
+$*
