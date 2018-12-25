@@ -57,9 +57,9 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.iso14755:false
 URxvt.iso14755_52:false
 
-######################
-### One dark theme ###
-######################
+#####################
+### Gruvbox theme ###
+#####################
 
 ! hard contrast: *background: #1d2021
 *background: #282828
