@@ -12,10 +12,14 @@ active_task_check=`task rc.verbose: rc.report.active.columns:start.active rc.rep
 
 current_active_task=`task rc.verbose: rc.report.active.columns:description rc.report.active.labels: active limit:1`
 
+pending_task=`task status:pending count`
+
+waiting_task=`task status:waiting count`
+
 if [ "$active_task_check" = "*" ]; then
-    echo -n "$current_active_task | started: $active_task_age"
+    echo -n " active: $current_active_task | started: $active_task_age"
 else
-    echo -n " $most_urgent_desc | due: $most_urgent_due"
+    echo -n "  urg: $most_urgent_desc | due: $most_urgent_due | pending: $pending_task | waiting: $waiting_task"
 fi
 
 

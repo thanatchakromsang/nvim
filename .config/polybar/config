@@ -337,6 +337,7 @@ screenchange-reload = true
 type = custom/script
 format = <label>
 label =   %output%
+label-maxlen = 50
 
 exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:artist; echo -n " - "; playerctl metadata xesam:title; else echo -n " Play music"; fi
 exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
