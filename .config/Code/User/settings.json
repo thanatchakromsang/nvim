@@ -35,7 +35,7 @@
   "workbench.editor.labelFormat": "short",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 1,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "hidden",
   "workbench.colorCustomizations": {
@@ -367,5 +367,8 @@
   ],
   "gitlens.views.fileHistory.enabled": false,
   "gitlens.views.lineHistory.enabled": false,
-  "gitlens.views.avatars": false
+  "gitlens.views.avatars": false,
+  "gitlens.views.compare.avatars": false,
+  "gitlens.views.repositories.avatars": false,
+  "gitlens.views.search.avatars": false
 }
