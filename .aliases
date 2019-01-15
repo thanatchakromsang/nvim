@@ -1,9 +1,6 @@
 #!/bin/zsh
 
-exists()
-{
-  command -v "$1" >/dev/null 2>&1
-}
+source $DOTFILES/script/exist.sh
 
 # build-in commands and core utilities
 alias df='df -h'
@@ -42,7 +39,7 @@ if exists nvim; then
 fi
 
 # dotfiles
-alias dotfiles='cd ~/.dotfiles'
+alias dot="cd $HOME/.dotfiles"
 alias dev="$DOTFILES/dev"
 
 # other
@@ -51,12 +48,5 @@ alias open='xdg-open'
 
 alias t='task'
 alias tw='task waiting'
-
-if [ "$PACKAGE_MANAGER" = pacman ]; then
-  alias u="sudo pacman --sync --refresh --sysupgrade"
-fi
-
-# nvm alias for nodejs
-alias nvmload='nvm use 8.11.4'
 
 $*
