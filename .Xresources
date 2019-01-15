@@ -23,9 +23,11 @@ URxvt.cursorColor:      green
 URxvt.letterSpace:      0
 
 /* URxvt.background:       #000000 */
-URxvt.font:             xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
+URxvt*font:             xft:Fantasque Sans Mono:size=10, \
+                        xft: Tlwg Mono:size=10, \
 URxvt.italicFont:
-URxvt.boldFont:         xft:MesloLGM Nerd Font Mono:size=10,xft: Tlwg Mono
+URxvt*boldFont:         xft:Fantasque Sans Mono:size=10, \
+                        xft: Tlwg Mono:size=10, \
 URxvt.scrollBar:        false
 
 /* ! Scrollbar */
