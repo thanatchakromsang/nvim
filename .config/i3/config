@@ -46,7 +46,7 @@ focus_follows_mouse yes
 popup_during_fullscreen smart
 
 # layout for new container
-workspace_layout tabbed
+workspace_layout default
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -224,9 +224,6 @@ assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
 assign [class="okular" instance="okular"] $ws5
 assign [class="^libreoffice" instance="^libreoffice"] $ws5
 for_window [class="Spotify"] move to workspace $ws6
-# assign [instance="__run"] $ws1
-# assign [instance="__config"] $ws1
-# assign [instance="__show"] $ws1
 
 # Chrome instance
 
@@ -259,14 +256,10 @@ for_window [class="Chromium"] border pixel 1
 
 # make floating apps
 for_window [class="^Simplescreenrecorder$"] floating enable
-for_window [class="^Wine$"] floating enable
 
-# for_window [class="Chromium"] fullscreen enable
-
-# # gimp
-# assign [class="Gimp"] gimp
-# for_window [title="GIMP Startup"] move workspace gimp
-# for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
+# gimp
+assign [title="GIMP Startup"] $ws9
+assign [class="Gimp"] $ws9
 
 ##############################
 ### Autostart applications ###
@@ -283,14 +276,8 @@ exec --no-startup-id dunst &
 # Eyecandy shadow
 exec_always --no-startup-id compton &
 
-# Auto suspend
+# # Auto suspend
 # exec --no-startup-id xautolock -time 15 -locker "systemctl suspend"
-
-# Terminal
-# exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
-# exec --no-startup-id termite --name __config --title 'Configuration' -e 'nvim .dotfiles/i3/config' &
-# exec --no-startup-id termite --name __run --title 'Run Task' &
-# exec --no-startup-id termite --name __show --title 'Miscellaneous' &
 
 ########################
 ### Docorate i3-gaps ###
