@@ -10,22 +10,27 @@ options     head
   | morning   |       |
   | afternoon |       |
 
-  ### WHAT I WILL DO TODAY
+  ### TODAY TASK
 
-  ### WHAT I DID TODAY
-
-  ### WHAT I WILL DO TOMORROW
+  ### TOMORROW TASK
 
   ----
 
   ## TODAY NOTES
 
-snippet     issue
-abbr        *github issue template*
-options     head
-  (issue#${0:number})[]
-
 snippet     task
-abbr        *Taskwarrior Task*
+abbr        *create taskwarrior task*
 options     head
   * [ ] ${1:Description} -- project:${2:Project} +${3:Tag}
+
+snippet     note
+abbr        *college note template*
+options     head
+  # `strftime("%d %b %Y")`
+
+  ## TOPIC: ${0:topic}
+
+snippet     date
+abbr        *college date template*
+options     head
+  * [`strftime("%d %b %Y")`](`strftime("%Y-%m-%d")`)
