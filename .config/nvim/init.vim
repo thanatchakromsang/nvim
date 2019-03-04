@@ -97,8 +97,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('mxw/vim-jsx')
   " Typescript
   call dein#add('HerringtonDarkholme/yats.vim')
-  call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'}, {'build': './install.sh'})
-  call dein#add('ianks/vim-tsx')
+  " call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'}, {'build': './install.sh'})
+  " call dein#add('ianks/vim-tsx')
   " Graphql
   call dein#add('jparise/vim-graphql')
   " JSON
@@ -117,9 +117,11 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('hdima/python-syntax', {'on_ft': 'python'})
   call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
   call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
-  " Golang
-  call dein#add('fatih/vim-go')
-  call dein#add('zchee/deoplete-go', {'build': 'make'})
+  " " Golang
+  " call dein#add('fatih/vim-go')
+  " call dein#add('zchee/deoplete-go', {'build': 'make'})
+  " " Haskell
+  call dein#add('neovimhaskell/haskell-vim', {'on_ft': 'haskell'})
 " }}}
 
 " Linter {{{
@@ -301,7 +303,7 @@ endif
   autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 
 " disable short messages
-  set shortmess=|
+  set shortmess=at
 
 " recognize filename in vim
 " default isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,=
@@ -458,7 +460,6 @@ endif
   map F <Plug>Sneak_F
   map t <Plug>Sneak_t
   map T <Plug>Sneak_T
-
 
 "}}}"
 
@@ -775,6 +776,18 @@ endif
   " --------------------------  Groovy  -------------------------------------{{{
 
       autocmd BufNewFile,BufRead Jenkinsfile setf groovy
+
+  "}}}
+
+  " --------------------------  Haskell  ------------------------------------{{{
+
+      let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+      let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+      let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+      let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+      let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+      let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+      let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
   "}}}
 
