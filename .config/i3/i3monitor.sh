@@ -1,4 +1,4 @@
-#Links!/bin/sh
+#!/usr/bin/env sh
 
 INTERN="eDP1"
 DOTFILES=$HOME/.dotfiles
