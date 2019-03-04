@@ -19,8 +19,9 @@ Xft.font:               MesloLGM Nerd Font:size=12
 URxvt.saveLines:        10000
 URxvt.urgentOnBell:     True
 URxvt.cursorBlink:      False
-URxvt.cursorColor:      green
+URxvt.cursorColor:      white
 URxvt.letterSpace:      0
+URxvt.scrollBar:        false
 
 /* URxvt.background:       #000000 */
 URxvt*font:             xft:Fantasque Sans Mono:size=10, \
