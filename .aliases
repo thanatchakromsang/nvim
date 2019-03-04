@@ -49,4 +49,9 @@ alias open='xdg-open'
 alias t='task'
 alias tw='task waiting'
 
+if exists xclip; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
+
 $*
