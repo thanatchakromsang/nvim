@@ -35,7 +35,7 @@
   "workbench.editor.labelFormat": "short",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": -1,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "hidden",
   "workbench.colorCustomizations": {
@@ -50,8 +50,6 @@
   "vim.easymotionMarkerFontFamily": "Fantasque Sans Mono",
   "vim.searchHighlightColor": "#a89984",
   "vim.easymotionMarkerYOffset": 5,
-  "vim.enableNeovim": true,
-  "vim.neovimPath": "nvim",
   "vim.handleKeys": {
     "<C-f>": false,
     "<C-d>": true,
@@ -253,13 +251,11 @@
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.defaultDateStyle": "absolute",
   "gitlens.keymap": "none",
-  "gitlens.historyExplorer.enabled": false,
   "gitlens.codeLens.scopes": ["document", "containers"],
   "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm:ss",
-  "gitlens.explorers.avatars": false,
   "gitlens.blame.avatars": false,
   "gitlens.blame.compact": false,
   "gitlens.blame.highlight.locations": ["gutter"],
@@ -311,63 +307,10 @@
   },
   "python.unitTest.pyTestEnabled": true,
   "terminal.integrated.rendererType": "dom",
-  "latex-workshop.view.pdf.viewer": "tab",
   "window.openFilesInNewWindow": "default",
 
-  // Latex
-  "latex-workshop.docker.enabled": true,
-  "latex-workshop.docker.image.latex": "thanatchaya/latex",
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "latexmk",
-      "tools": [
-        "latexmk"
-      ]
-    },
-    {
-      "name": "pdflatex -> bibtex -> pdflatex*2",
-      "tools": [
-        "pdflatex",
-        "bibtex",
-        "pdflatex",
-        "pdflatex"
-      ]
-    }
-  ],
-  "latex-workshop.latex.tools": [
-    {
-      "name": "latexmk",
-      "command": "latexmk",
-      "args": [
-        "-xelatex",
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "%DOC%"
-      ]
-    },
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ]
-    },
-    {
-      "name": "bibtex",
-      "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ]
-    }
-  ],
   "gitlens.views.fileHistory.enabled": false,
   "gitlens.views.lineHistory.enabled": false,
-  "gitlens.views.avatars": false,
   "gitlens.views.compare.avatars": false,
   "gitlens.views.repositories.avatars": false,
   "gitlens.views.search.avatars": false
