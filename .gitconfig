@@ -1,6 +1,6 @@
 [user]
 	email = thanatchakromsang@gmail.com
-	name = thanatchakromsang
+	name = Thanatchaya Kromsaeng
 [github]
 	user = thanatchakromsang
 [merge]
@@ -19,4 +19,7 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com
+
 
