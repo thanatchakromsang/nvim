@@ -219,10 +219,13 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ### Open applications on specific workspaces ###
 ################################################
 assign [class="Code" instance="^code"] $ws3
-assign [class="Coding"] $ws1
+assign [class="jetbrains-idea"] $ws3
+assign [class="jetbrains-goland"] $ws3
+assign [class="jetbrains-pycharm"] $ws3
 assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
 assign [class="okular" instance="okular"] $ws5
 assign [class="^libreoffice" instance="^libreoffice"] $ws5
+assign [class="TelegramDesktop" instance="telegram-desktop"] $ws7
 for_window [class="Spotify"] move to workspace $ws6
 
 # Chrome instance
