@@ -3,9 +3,9 @@
 case "$1" in
     --toggle)
         if [ "$(systemctl is-active bluetooth.service)" = "active" ]; then
-          systemctl stop bluetooth.service
+          sudo systemctl stop bluetooth.service
         else
-          systemctl start bluetooth.service
+          sudo systemctl start bluetooth.service
           bluetoothctl << EOF
           power on
 EOF
