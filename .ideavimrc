@@ -75,9 +75,9 @@
 
 " System mappings  ----------------------------------------------------------{{{
 
-" Use ; for : in normal and visual mode, less keystrokes
-  nnoremap ; :
-  vnoremap ; :
+" " Use ; for : in normal and visual mode, less keystrokes
+"   nnoremap ; :
+"   vnoremap ; :
 
 " no one is really happy until you have this shortcuts
   cnoreabbrev W! w!

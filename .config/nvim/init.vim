@@ -41,6 +41,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('tpope/vim-unimpaired')
   call dein#add('tpope/vim-commentary')
   call dein#add('justinmk/vim-sneak')
+  call dein#add('sgur/vim-editorconfig')
 " }}}
 
 " Fast Motion {{{
@@ -82,6 +83,8 @@ if dein#load_state(('~/.config/nvim'))
 " }}}
 
 " Syntax and Language Specific {{{
+  " i3
+  call dein#add('PotatoesMaster/i3-vim-syntax')
   " HTML
   call dein#add('othree/html5.vim')
   call dein#add('mattn/emmet-vim')
@@ -104,9 +107,6 @@ if dein#load_state(('~/.config/nvim'))
   " JSON
   call dein#add('elzr/vim-json')
   call dein#add('Quramy/vison')
-  " LaTex
-  call dein#add('lervag/vimtex', {'on_ft': ['plaintex', 'tex']})
-  call dein#add('moll/vim-node')
   " Markdown
   call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
   call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
@@ -324,6 +324,13 @@ endif
   set splitright
   set splitbelow
 
+" Silently execute an external command
+" No 'Press Any Key to Contiue BS'
+" from: http://vim.wikia.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
+  command! -nargs=1 SilentCmd
+  \ | execute ':silent !'.<q-args>
+  \ | execute ':redraw!'
+
 " }}}
 
 " System mappings  ----------------------------------------------------------{{{
@@ -375,9 +382,9 @@ endif
 
 " Move around 'normal mode'
   noremap H ^
-  noremap L g_
-  nnoremap <silent>J 5j
-  nnoremap <silent>K 5k
+  noremap L $
+  nnoremap <silent>J 5gj
+  nnoremap <silent>K 5gk
 
 " Move visual block 'visual mode'
   vnoremap J :m '>+1<CR>gv=gv
