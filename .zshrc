@@ -7,22 +7,23 @@ export ZSH="$HOME/.oh-my-zsh"
 # fi
 #
 
-ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 
 plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
   yarn
-  autojump
   docker
   node
   npm
-  taskwarrior
   tig
+  kubectl
+  dotenv
+  z
 )
 
-source $DOTFILES/spaceship_config.sh
+# source $DOTFILES/spaceship_config.sh
 source $ZSH/oh-my-zsh.sh
 
 source $DOTFILES/.aliases
@@ -33,15 +34,12 @@ bindkey '^[k' clear-screen
 
 # bind ctrl meta
 bindkey '^ ' autosuggest-accept
+
 # bindkey '^M' autosuggest-execute
 bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey '^o' vi-forward-word
 bindkey '^H' backward-kill-word
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# direnv
-eval "$(direnv hook zsh)"
+# check if z is installed
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
