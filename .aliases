@@ -27,6 +27,14 @@ if exists bat; then
   alias cat='bat'
 fi
 
+if exists z; then
+  alias j='z'
+fi
+
+if exists lpass; then
+  alias lastpass='lpass'
+fi
+
 # editors (assume nvim with plugin)
 if exists nvim; then
   alias vim=nvim
@@ -53,5 +61,8 @@ if exists xclip; then
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
 fi
+
+export NVM_DIR="$HOME/.nvm"
+alias nvmload='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
 $*
