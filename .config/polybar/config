@@ -93,7 +93,7 @@ cursor-click = pointer
 ; cursor-scroll = ns-resize
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 ; Soundcard to be used
 master-soundcard = default
@@ -338,8 +338,8 @@ format = <label>
 label =   %output%
 label-maxlen = 50
 
-exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:artist; echo -n " - "; playerctl metadata xesam:title; else echo -n " Play music"; fi
-exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
+exec = $HOME/.config/polybar/playerctl.sh
+exec-if = $HOME/.config/polybar/playerctl.sh --toggle
 click-left = playerctl play-pause
 click-right = playerctl next
 
