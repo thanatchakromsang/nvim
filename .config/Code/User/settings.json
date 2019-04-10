@@ -37,7 +37,7 @@
   "window.titleBarStyle": "native",
   "window.zoomLevel": -1,
   "window.closeWhenEmpty": true,
-  "window.menuBarVisibility": "hidden",
+  "window.menuBarVisibility": "default",
   "workbench.colorCustomizations": {
     "statusBar.background": "#3c3836",
     "statusBar.noFolderBackground": "#282828",
@@ -313,5 +313,7 @@
   "gitlens.views.lineHistory.enabled": false,
   "gitlens.views.compare.avatars": false,
   "gitlens.views.repositories.avatars": false,
-  "gitlens.views.search.avatars": false
+  "gitlens.views.search.avatars": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
