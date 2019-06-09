@@ -42,7 +42,7 @@ bindsym $mod+Return exec $term --class Terminal
 bindsym $mod+q kill
 
 # focus on mouse
-focus_follows_mouse yes
+focus_follows_mouse on
 
 # smart popup
 popup_during_fullscreen smart
@@ -227,6 +227,7 @@ assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
 assign [class="okular" instance="okular"] $ws5
 assign [class="^libreoffice" instance="^libreoffice"] $ws5
 assign [class="TelegramDesktop" instance="telegram-desktop"] $ws7
+assign [class="mpv"] $ws6
 for_window [class="Spotify"] move to workspace $ws6
 
 # Chrome instance
@@ -379,13 +380,14 @@ mode "$logout_system" {
 ### Multi monitor ###
 #####################
 
-set $mode_output (i) intern, (e) extern, (c) clone, (x) extend (r) rotate
+set $mode_output (i) intern, (e) extern, (c) clone, (x) extend (v) virtual (r) rotate
 bindsym $mod+F4 mode "$mode_output"
 mode "$mode_output" {
     bindsym i exec --no-startup-id $psst ~/.config/i3/i3monitor.sh hdmi intern, mode "default"
     bindsym e exec --no-startup-id $psst ~/.config/i3/i3monitor.sh hdmi extern, mode "default"
     bindsym c exec --no-startup-id $psst ~/.config/i3/i3monitor.sh hdmi clone, mode "default"
     bindsym x exec --no-startup-id $psst ~/.config/i3/i3monitor.sh hdmi extend, mode "default"
+    bindsym v exec --no-startup-id $psst ~/.config/i3/i3monitor.sh hdmi virtual, mode "default"
     bindsym r exec --no-startup-id $psst ~/.config/i3/i3monitor.sh rotate, mode "default"
 
     # back to normal: Enter or Escape
