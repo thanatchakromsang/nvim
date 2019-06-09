@@ -19,7 +19,6 @@ SPACESHIP_PROMPT_ORDER=(
   julia         # Julia section
   docker        # Docker section
   pyenv         # Pyenv section
-  aws           # Amazon Web Services section
   conda         # conda virtualenv section
   dotnet        # .NET section
   ember         # Ember.js section
@@ -35,6 +34,7 @@ SPACESHIP_PROMPT_ORDER=(
 
 SPACESHIP_RPROMPT_ORDER=(
   node          # Node.js section
+  aws           # Amazon Web Services section
   kubecontext   # Kubectl context section
   venv          # virtualenv section
 )
@@ -47,3 +47,6 @@ SPACESHIP_GIT_STATUS_AHEAD="⇡ "
 SPACESHIP_GIT_STATUS_BEHIND="⇣ "
 SPACESHIP_VENV_SYMBOL=' '
 SPACESHIP_CHAR_SYMBOL="-> "
+
+SPACESHIP_AWS_SHOW=true
+SPACESHIP_AWS_PREFIX="using."
