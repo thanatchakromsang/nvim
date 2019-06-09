@@ -7,15 +7,12 @@
 ;=====================================================
 
 [colors]
-; grey
-background = ${xrdb:background:#000000}
+# ; grey
+# background = ${xrdb:background:#000000}
+; transparent
+background = #00
 ; white
 foreground = ${xrdb:foreground:#000000}
-
-; ; transparent
-; background = #00
-; ; white
-; foreground = ${xrdb:foreground:#000000}
 ; black
 base00 = ${xrdb:color0:#000000}
 ; light green
@@ -83,7 +80,7 @@ module-margin-left = 0
 module-margin-right = 0
 
 ; The separator will be inserted between the output of each module
-; separator = \
+separator = /
 
 font-0 = FontAwesome:pixelsize=11;1
 font-1 = icons\-in\-terminal:pixelsize=11;3
@@ -93,7 +90,7 @@ font-4 = Noto Sans Thai:size=10:weight=bold;3
 
 modules-left = i3 title
 modules-center = music
-modules-right = vpn-openvpn-status keyboard volume backlight-acpi battery wireless-network date
+modules-right = bluetooth vpn-openvpn-status keyboard volume backlight-acpi battery wireless-network date
 cursor-click = pointer
 ; cursor-scroll = ns-resize
 
@@ -161,12 +158,12 @@ mapped = false
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
-format-volume-background = ${colors.base0F}
-format-volume-foreground = ${colors.base00}
+format-volume-background = ${colors.background}
+format-volume-foreground = ${colors.base0F}
 
 label-muted =  muted
 label-muted-padding = 2
-label-muted-background = ${colors.base0F}
+label-muted-background = ${colors.background}
 label-muted-foreground = ${colors.base03}
 
 ; Only applies if <ramp-volume> is used
@@ -185,8 +182,8 @@ format-spacing = 0
 
 label-layout =  %layout%
 label-layout-padding = 2
-label-layout-background = ${colors.base09}
-label-layout-foreground = ${colors.base00}
+label-layout-background = ${colors.background}
+label-layout-foreground = ${colors.base09}
 
 [module/i3]
 type = internal/i3
@@ -210,25 +207,25 @@ padding = 3
 
 ; label in i3 command
 label-mode-padding = 2
-label-mode-foreground = ${colors.base00}
-label-mode-background = ${colors.base0D}
+label-mode-foreground = ${colors.base09}
+label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index% :%icon%
-label-focused-foreground = ${colors.base00}
-label-focused-background = ${colors.base0D}
+label-focused-foreground = ${colors.base0E}
+label-focused-background = ${colors.background}
 label-focused-padding = ${self.padding}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index% :%icon%
-label-visible-background = ${colors.base0E}
-label-visible-foreground = ${colors.base00}
+label-visible-foreground = ${colors.base0E}
+label-visible-background = ${colors.background}
 label-visible-padding = ${self.padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index% :%icon%
-label-urgent-background = ${colors.alert}
-label-urgent-foreground = ${colors.base00}
+label-urgent-background = ${colors.background}
+label-urgent-foreground = ${colors.alert}
 label-urgent-padding = ${self.padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -241,8 +238,8 @@ enable-scroll = true
 
 format = <ramp> <label>
 format-padding = 2
-format-background = ${colors.base0A}
-format-foreground = ${colors.base00}
+format-background = ${colors.background}
+format-foreground = ${colors.base0A}
 
 label = %percentage%%
 ramp-0 = 
@@ -261,15 +258,15 @@ ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-padding = 2
-format-connected-background = ${colors.base0E}
-format-connected-foreground = ${colors.base00}
+format-connected-background = ${colors.background}
+format-connected-foreground = ${colors.base0E}
 
 label-connected = %essid%
 
 label-disconnected =  not connected
 label-disconnected-padding = 2
-label-disconnected-background = ${colors.base0E}
-label-disconnected-foreground = ${colors.base03}
+label-disconnected-background = ${colors.background}
+label-disconnected-foreground = ${colors.base0E}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -279,8 +276,8 @@ ramp-signal-4 = 
 
 format-packetloss = <animation-packetloss> <label-connected>
 format-packetloss-padding = 2
-format-packetloss-background = ${colors.base0E}
-format-packetloss-foreground = ${colors.base00}
+format-packetloss-background = ${colors.background}
+format-packetloss-foreground = ${colors.base03}
 animation-packetloss-0 = 
 animation-packetloss-1 = 
 animation-packetloss-framerate = 500
@@ -294,8 +291,8 @@ time = %H:%M
 
 format = <label>
 format-padding = 2
-format-background = ${colors.base0D}
-format-foreground = ${colors.base00}
+format-background = ${colors.background}
+format-foreground = ${colors.base0D}
 label =  %date% %time%
 
 [module/battery]
@@ -307,19 +304,19 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 
 format-charging-padding = 2
-format-charging-background = ${colors.base0B}
-format-charging-foreground = ${colors.base00}
+format-charging-background = ${colors.background}
+format-charging-foreground = ${colors.base0B}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-padding = 2
-format-discharging-background = ${colors.base0B}
-format-discharging-foreground = ${colors.base00}
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.base0B}
 
 
 label-full =  Full
 label-full-padding = 2
-label-full-background = ${colors.base0B}
-label-full-foreground = ${colors.base00}
+label-full-background = ${colors.background}
+label-full-foreground = ${colors.base0B}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 

@@ -760,7 +760,8 @@ endif
       let g:markdown_syntax_conceal = 0
 
     " Vim markdown preview
-      let vim_markdown_preview_hotkey='<C-k>'
+    " FIXME: Disable due to tmux switch pane override
+      " let vim_markdown_preview_hotkey='<C-k>'
       let vim_markdown_preview_use_xdg_open=1
       let vim_markdown_preview_github=1
 
