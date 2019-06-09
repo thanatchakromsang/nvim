@@ -16,6 +16,7 @@ declare -a pkgs=("curl"
                  "tig"
                  "bat"
                  "z"
+                 "xcape"
                  )
 
 for i in "${pkgs[@]}"

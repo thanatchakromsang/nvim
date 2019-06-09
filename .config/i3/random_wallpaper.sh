@@ -15,5 +15,5 @@ esac
 # Random pictures in folder
 # find "$PICTURES" -type f | shuf -n 1 | xargs feh --bg-fill &> /dev/null
 
-feh --bg-fill $HOME/Pictures/Wallpaper/anime/monogatari-hitaki.jpg --bg-fill $HOME/Pictures/Wallpaper/anime/monogatari-araragi2.jpg
+feh --bg-fill $HOME/Pictures/Wallpaper/abstract/wallhaven-760704_1920x1080.png --bg-fill $HOME/Pictures/Wallpaper/abstract/wallhaven-760704_1920x1080.png
 

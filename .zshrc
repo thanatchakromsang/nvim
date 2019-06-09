@@ -26,6 +26,9 @@ plugins=(
 # source $DOTFILES/spaceship_config.sh
 source $ZSH/oh-my-zsh.sh
 
+# source useful script
+source $DOTFILES/script/exists.sh
+
 source $DOTFILES/.aliases
 source $DOTFILES/.zshenv
 
