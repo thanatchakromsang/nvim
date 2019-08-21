@@ -6,16 +6,57 @@ GREEN="\033[32m"
 NORMAL="\033[0;39m"
 CYAN="\033[36m"
 
-echo -e "$RED Start symlinks using stow.. $CYAN"
-echo -e "////////////////////////////////////////"
-echo -e "//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//"
-echo -e "////////////////////////////////////////"
-echo -e "$NORMAL"
+symlink () {
+  local location=$1
+  local flag=$2
 
-stow --verbose=2 .config -t $HOME/.config
+  stow --verbose=2 $flag -t $HOME $location
 
-echo -e "$CYAN"
-echo -e "////////////////////////////////////////"
-echo -e "//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//"
-echo -e "////////////////////////////////////////"
-echo -e "$GREEN Finish symlinks $NORMAL"
+}
+
+OS="$(uname -a)"
+DOTFILES=$HOME/.dotfiles
+STATE=$HOME/.dotstate
+
+if [ -f "$STATE" ]; then
+  echo -e "/////////////////////////////////"
+  echo -e "// Unsymlinks using stow..     //"
+  echo -e "/////////////////////////////////"
+
+  case "$OS" in
+    *Darwin*)
+      symlink @macos -D
+      symlink @general -D
+      ;;
+    *Linux*)
+      symlink @linux -D
+      symlink @general -D
+      ;;
+  esac
+
+  # Remove dotfiles symlink state
+  rm -f $STATE
+
+  echo -e "/////////////////////////////////"
+else
+  echo -e "/////////////////////////////////"
+  echo -e "// symlinks using stow..       //"
+  echo -e "/////////////////////////////////"
+
+  case "$OS" in
+    *Darwin*)
+      symlink @macos
+      symlink @general
+      ;;
+    *Linux*)
+      symlink @linux
+      symlink @general
+      ;;
+  esac
+
+  # Create dotfiles symlink state
+  touch $STATE
+
+  echo -e "/////////////////////////////////"
+fi
+
