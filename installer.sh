@@ -20,22 +20,16 @@ function program_is_installed {
 }
 
 OS="$(uname -a)"
-DOT=$HOME/.dotfiles
+DOTFILES=$HOME/.dotfiles
 
 case "$OS" in
   *Darwin*)
-    source ./brew.sh
+    source $DOTFILES/scripts/brew.sh
     ;;
   *ARCH*)
-    source ./pacman.sh
+    source $DOTFILES/scripts/pacman.sh
     ;;
   *Ubuntu|Debian*)
-    source ./apt.sh
+    source $DOTFILES/scripts/apt.sh
     ;;
 esac
-
-# symlink
-
-# install zsh prezto
-git submodule update --init --recursive
-source ./prezto.sh

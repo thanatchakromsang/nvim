@@ -20,14 +20,13 @@ plugins=(
   tig
   kubectl
   dotenv
-  z
 )
 
 # source $DOTFILES/spaceship_config.sh
 source $ZSH/oh-my-zsh.sh
 
 # source useful script
-source $DOTFILES/script/exists.sh
+source $DOTFILES/scripts/exists.sh
 
 source $DOTFILES/.aliases
 source $DOTFILES/.zshenv
@@ -43,6 +42,3 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey '^o' vi-forward-word
 bindkey '^H' backward-kill-word
-
-# check if z is installed
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
