@@ -20,11 +20,8 @@ plugins=(
   tig
   kubectl
   dotenv
-<<<<<<< Updated upstream
-=======
   wd
   fzf
->>>>>>> Stashed changes
 )
 
 # source $DOTFILES/spaceship_config.sh
@@ -33,8 +30,8 @@ source $ZSH/oh-my-zsh.sh
 # source useful script
 source $DOTFILES/scripts/exists.sh
 
-source $DOTFILES/.aliases
-source $DOTFILES/.zshenv
+source .aliases
+source .zshenv
 
 # bind alt meta
 bindkey '^[k' clear-screen
