@@ -35,7 +35,7 @@
   "workbench.editor.labelFormat": "short",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 0,
   "window.closeWhenEmpty": true,
   "window.menuBarVisibility": "default",
   "workbench.colorCustomizations": {

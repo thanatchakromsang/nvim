@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # fi
 #
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="afowler"
 
 plugins=(
   git
@@ -20,6 +20,11 @@ plugins=(
   tig
   kubectl
   dotenv
+<<<<<<< Updated upstream
+=======
+  wd
+  fzf
+>>>>>>> Stashed changes
 )
 
 # source $DOTFILES/spaceship_config.sh

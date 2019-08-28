@@ -228,6 +228,7 @@ assign [class="okular" instance="okular"] $ws5
 assign [class="^libreoffice" instance="^libreoffice"] $ws5
 assign [class="TelegramDesktop" instance="telegram-desktop"] $ws7
 assign [class="mpv"] $ws6
+assign [class="slack"] $ws7
 for_window [class="Spotify"] move to workspace $ws6
 
 # Chrome instance
@@ -252,8 +253,10 @@ assign [class="Chromium" instance="crx_bnjfdainlhllipmmlagcfpdmcckiehng"] $ws9
 assign [class="Chromium" instance="crx_jdbojlaicachcbjoddbcbnhomkmkcfld"] $ws9
 # Line
 assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws7
-# Slack squadbeat
-assign [class="Chromium" instance="crx_nacnooigdkcajefhhchobeeacinkpojl"] $ws7
+# Robowealth slack
+assign [class="Chromium" instance="crx_hkhdnbobbfokdldillcgfnjamdobfckg"] $ws7
+# Notion
+assign [class="Chromium" instance="crx_jnfkmbimlkpahpcdcibipmfgedbnmphl"] $ws5
 # Jira
 assign [class="Chromium" instance="crx_mgpdnmcalffaongdaeeoonaocchbiafa"] $ws9
 

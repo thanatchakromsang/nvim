@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source $DOTFILES/script/exists.sh
+source $HOME/.dotfiles/scripts/exists.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -22,6 +22,8 @@ export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin/:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export TERM=xterm-256color
+
+export HISTCONTROL=ignoredups
 
 # SSH_KEY
 export SSH_KEY_PATH="$HOME/.ssh"

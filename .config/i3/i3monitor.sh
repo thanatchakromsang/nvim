@@ -11,9 +11,9 @@ case "$1" in
     rotate)
         IS_INVERTED=`xrandr --query | awk /^${INTERN}*/'{ print $5 }'`
         if [[ "${IS_INVERTED}" == "inverted" ]]; then
-          xrandr --output $INTERN --rotate normal
+          xrandr --output $EXTERN --rotate normal
         else
-          xrandr --output $INTERN --rotate inverted
+          xrandr --output $EXTERN --rotate inverted
         fi
         ;;
     *)

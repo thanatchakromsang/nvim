@@ -15,25 +15,31 @@ declare -a pkgs=("curl"
                  "scrot"
                  "tig"
                  "bat"
-                 "z"
-                 "xcape"
                  )
 
-for i in "${pkgs[@]}"
-do
-   sudo pacman -S "$i"
-done
-
 # Graphic packages
-declare -a g_pkgs=("dunst" "compton" "rofi" "zathura", "kubectl", "kubectx")
+declare -a g_pkgs=("dunst"
+                   "compton"
+                   "rofi"
+                   "zathura"
+                   "kubectl"
+                   "kubectx"
+                   )
+
+declare -a aur_pkgs=("zsh-plugin-wd-git")
 
 if [[ $(program_is_installed X) -eq 1 ]]; then
   for i in "${g_pkgs[@]}"
   do
-     sudo pacman -S "$i"
+    sudo pacman -S "$i"
   done
 
-  for i in "${g_yurt[@]}"
+  for i in "${pkgs[@]}"
+  do
+    sudo pacman -S "$i"
+  done
+
+  for i in "${aur_pkgs[@]}"
   do
     yay -S --noconfirm "$i"
   done

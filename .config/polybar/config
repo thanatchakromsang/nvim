@@ -253,7 +253,7 @@ card = intel_backlight
 
 [module/wireless-network]
 type = internal/network
-interface = wlo1
+interface = wlp6s0
 ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
