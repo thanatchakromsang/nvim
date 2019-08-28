@@ -30,8 +30,8 @@ source $ZSH/oh-my-zsh.sh
 # source useful script
 source $DOTFILES/scripts/exists.sh
 
-source .aliases
-source .zshenv
+source $DOTFILES/@general/.aliases
+source $DOTFILES/@general/.zshenv
 
 # bind alt meta
 bindkey '^[k' clear-screen
