@@ -43,8 +43,10 @@ declare -a extensions=(
   "quicktype.quicktype"
   "Gruntfuggly.todo-tree"
   "aaron-bond.better-comments"
-  "HookyQR.beautify"
   "eg2.vscode-npm-script"
+  "tomphilbin.gruvbox-themes"
+  "vscode-icons-team.vscode-icons"
+  "esbenp.prettier-vscode"
 )
 
 if exists code; then

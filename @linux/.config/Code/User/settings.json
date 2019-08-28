@@ -1,4 +1,5 @@
 {
+  // TODO: Add Scrolloff feature from https://github.com/Microsoft/vscode/issues/12048#issuecomment-518892617
   // Editor setting
   "breadcrumbs.enabled": true,
   "editor.acceptSuggestionOnEnter": "smart",
@@ -30,12 +31,12 @@
   "workbench.tips.enabled": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.list.openMode": "doubleClick",
-  "workbench.sideBar.location": "right",
+  "workbench.sideBar.location": "left",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.labelFormat": "short",
   // Window
   "window.titleBarStyle": "native",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "window.closeWhenEmpty": true,
   "workbench.colorCustomizations": {
     "statusBar.background": "#3c3836",
@@ -262,20 +263,17 @@
   "gitlens.statusBar.reduceFlicker": true,
   "gitlens.statusBar.format": "${authorAgo}",
   // Language Specific
-  // // Typescript linter
-  "tslint.autoFixOnSave": true,
-  "tslint.run": "onSave",
+  // Typescript linter
   "typescript.updateImportsOnFileMove.enabled": "never",
   "typescript.suggest.autoImports": false,
   "typescript.suggest.completeFunctionCalls": true,
-  // // Javascript linter
+  // Javascript linter
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
-  "prettier.eslintIntegration": true,
-  // // Python
+  // Python
   "python.linting.flake8Enabled": true,
   "python.linting.pylintEnabled": false,
-  // // Dart
+  // Dart
   "dart.flutterSdkPath": "flutter",
   // Emmet
   "emmet.includeLanguages": {
@@ -283,14 +281,12 @@
     "vue-html": "html"
   },
   "emmet.showSuggestionsAsSnippets": true,
-  // NPM
-  "npm-intellisense.showBuildInLibs": true,
   // Path intellisense
   "path-intellisense.autoSlashAfterDirectory": true,
   "workbench.statusBar.visible": true,
   "git.confirmSync": false,
-  "workbench.iconTheme": "simple-icons",
-  "vsintellicode.python.completionsEnabled": false,
+  "workbench.iconTheme": "vscode-icons",
+  "vsintellicode.python.completionsEnabled": true,
   "editor.minimap.enabled": false,
   "editor.minimap.maxColumn": 100,
 
