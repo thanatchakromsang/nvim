@@ -1,62 +1,77 @@
-#!/bin/bash
-
-# Output colors
-RED="\033[31m"
-GREEN="\033[32m"
-NORMAL="\033[0;39m"
-CYAN="\033[36m"
-
-symlink () {
-  local location=$1
-  local flag=$2
-
-  stow --verbose=2 $flag -t $HOME $location
-
-}
+#!/usr/bin/env bash
 
 OS="$(uname -a)"
 DOTFILES=$HOME/.dotfiles
 STATE=$HOME/.dotstate
 
 if [ -f "$STATE" ]; then
+  echo -e
+  echo -e
   echo -e "/////////////////////////////////"
-  echo -e "// Unsymlinks using stow..     //"
-  echo -e "/////////////////////////////////"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//    Unsymlinks using stow..  //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
 
+  stow -v -D -t "$HOME" @general
   case "$OS" in
     *Darwin*)
-      symlink @macos -D
-      symlink @general -D
+      stow -v -D -t "$HOME" @macos
       ;;
     *Linux*)
-      symlink @linux -D
-      symlink @general -D
+      stow -v -D -t "$HOME" @linux
       ;;
   esac
 
   # Remove dotfiles symlink state
   rm -f $STATE
 
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
   echo -e "/////////////////////////////////"
+  echo -e
+  echo -e
 else
+  echo -e
+  echo -e
   echo -e "/////////////////////////////////"
-  echo -e "// symlinks using stow..       //"
-  echo -e "/////////////////////////////////"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//    symlinks using stow..    //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
 
+  stow -v -t "$HOME" @general
   case "$OS" in
     *Darwin*)
-      symlink @macos
-      symlink @general
+      stow -v -t "$HOME" @macos
       ;;
     *Linux*)
-      symlink @linux
-      symlink @general
+      stow -v -t "$HOME" @linux
       ;;
   esac
 
   # Create dotfiles symlink state
   touch $STATE
 
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
+  echo -e "//                             //"
   echo -e "/////////////////////////////////"
+  echo -e
+  echo -e
 fi
 
+echo ""
+echo "Stowing apps for user: ${whoami}"
