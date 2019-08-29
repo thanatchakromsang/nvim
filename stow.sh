@@ -72,6 +72,3 @@ else
   echo -e
   echo -e
 fi
-
-echo ""
-echo "Stowing apps for user: ${whoami}"
