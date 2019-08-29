@@ -37,7 +37,6 @@
   "window.titleBarStyle": "native",
   "window.zoomLevel": 0,
   "window.closeWhenEmpty": true,
-  "window.menuBarVisibility": "default",
   "workbench.colorCustomizations": {
     "statusBar.background": "#3c3836",
     "statusBar.noFolderBackground": "#282828",
@@ -211,8 +210,6 @@
       "after": ["p", "g", "v", "y"]
     }
   ],
-  // Scrolloff (vim-like behavior)
-  "scrolloff.scrolloff": 5,
   // Files
   "files.exclude": {
     "**/.git": true,
@@ -305,7 +302,6 @@
   "files.associations": {
     "*.js": "javascript"
   },
-  "python.unitTest.pyTestEnabled": true,
   "terminal.integrated.rendererType": "dom",
   "window.openFilesInNewWindow": "default",
 

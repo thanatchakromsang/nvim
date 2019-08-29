@@ -45,14 +45,15 @@ alias c=clear
 
 # dotfiles
 alias dot="cd $HOME/.dotfiles"
-alias dev="$DOTFILES/dev"
 
 # other
-alias r='ranger'
-alias open='xdg-open'
+if exists ranger; then
+  alias r='ranger'
+fi
 
-alias t='task'
-alias tw='task waiting'
+if exists xdg-open; then
+  alias open='xdg-open'
+fi
 
 if exists xclip; then
   alias pbcopy='xclip -selection clipboard'
