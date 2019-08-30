@@ -307,5 +307,6 @@
   "gitlens.views.repositories.avatars": false,
   "gitlens.views.search.avatars": false,
   "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vsicons.dontShowNewVersionMessage": true
 }
