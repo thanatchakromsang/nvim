@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # fi
 #
 
-ZSH_THEME="afowler"
+ZSH_THEME="robbyrussell"
 
 plugins=(
   git
