@@ -24,6 +24,14 @@ plugins=(
   fzf
 )
 
+
+OS="$(uname -a)"
+case "$OS" in
+  *Darwin*)
+    source /etc/profile
+  ;;
+esac
+
 # source $DOTFILES/spaceship_config.sh
 source $ZSH/oh-my-zsh.sh
 
