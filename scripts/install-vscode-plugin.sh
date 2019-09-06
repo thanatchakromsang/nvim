@@ -26,6 +26,7 @@ declare -a extensions=(
   "Dart-Code.dart-code"
   "mauve.terraform"
   "DavidAnson.vscode-markdownlint"
+  "shd101wyy.markdown-preview-enhanced"
 
   ###
   # Linter
