@@ -311,5 +311,7 @@
   "vsicons.dontShowNewVersionMessage": true,
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
-  }
+  },
+  "markdown-preview-enhanced.liveUpdate": true,
+  "markdown-preview-enhanced.mermaidTheme": "forest"
 }
