@@ -22,6 +22,7 @@ plugins=(
   dotenv
   wd
   fzf
+  helm
 )
 
 
