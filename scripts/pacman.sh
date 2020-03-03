@@ -6,7 +6,6 @@ declare -a pkgs=("curl"
                  "python-pip"
                  "python-neovim"
                  "tmux"
-                 "ctags"
                  "htop"
                  "npm"
                  "docker"
@@ -15,6 +14,7 @@ declare -a pkgs=("curl"
                  "scrot"
                  "tig"
                  "bat"
+		 "stow"
                  )
 
 # Graphic packages
@@ -28,7 +28,7 @@ declare -a g_pkgs=("dunst"
 
 declare -a aur_pkgs=("zsh-plugin-wd-git")
 
-if [[ $(program_is_installed X) -eq 1 ]]; then
+#if [[ $(program_is_installed X) -eq 1 ]]; then
   for i in "${g_pkgs[@]}"
   do
     sudo pacman -S "$i"
@@ -43,13 +43,13 @@ if [[ $(program_is_installed X) -eq 1 ]]; then
   do
     yay -S --noconfirm "$i"
   done
-fi
+#fi
 
-# pip
-declare -a pip=("pipenv" "jedi")
-
-for i in "${pip[@]}"
-do
-   pip install -S "$i"
-done
+## pip
+#declare -a pip=("pipenv" "jedi")
+#
+#for i in "${pip[@]}"
+#do
+#   pip install -S "$i"
+#done
 

@@ -26,7 +26,7 @@ case "$OS" in
   *Darwin*)
     source $DOTFILES/scripts/brew.sh
     ;;
-  *ARCH*)
+  *arch*)
     source $DOTFILES/scripts/pacman.sh
     ;;
   *Ubuntu|Debian*)
