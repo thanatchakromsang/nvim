@@ -313,5 +313,10 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "markdown-preview-enhanced.liveUpdate": true,
-  "markdown-preview-enhanced.mermaidTheme": "forest"
+  "markdown-preview-enhanced.mermaidTheme": "forest",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "todo-tree.highlights.enabled": true,
+  "todo-tree.tree.showScanModeButton": false
 }
