@@ -36,7 +36,7 @@ font pango:Noto Sans 7
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec $term --class Terminal
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+q kill
@@ -405,8 +405,8 @@ mode "$mode_output" {
 set $mode_print (f) fullscreen, (s) select, (r) record
 bindsym Print mode "$mode_print"
 mode "$mode_print" {
-    bindsym f exec --no-startup-id "escrotum -e 'mv $f ~/Pictures/Screenshots/; xdg-open ~/Pictures/Screenshots/$f'", mode "default"
-    bindsym --release s exec --no-startup-id "escrotum -s -e 'mv $f ~/Pictures/Screenshots/; xdg-open ~/Pictures/Screenshots/$f'", mode "default"
+    bindsym f exec --no-startup-id "scrot -e 'mv $f ~/Pictures/Screenshots/; xdg-open ~/Pictures/Screenshots/$f'", mode "default"
+    bindsym --release s exec --no-startup-id "scrot -s -e 'mv $f ~/Pictures/Screenshots/; xdg-open ~/Pictures/Screenshots/$f'", mode "default"
     bindsym --release r exec --no-startup-id "simplescreenrecorder", mode "default"
 
     # back to normal: Enter or Escape
