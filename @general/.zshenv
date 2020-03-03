@@ -19,7 +19,7 @@ fi
 export EDITOR=$VISUAL
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin/:/snap/bin/:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export TERM=xterm-256color
 
