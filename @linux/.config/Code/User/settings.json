@@ -268,7 +268,6 @@
   "typescript.suggest.autoImports": false,
   "typescript.suggest.completeFunctionCalls": true,
   // Javascript linter
-  "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
   // Python
   "python.linting.flake8Enabled": true,
@@ -281,14 +280,32 @@
     "vue-html": "html"
   },
   "emmet.showSuggestionsAsSnippets": true,
+  // Terraform
+  "terraform.languageServer": {
+    "enabled": true,
+    "args": []
+  },
+  "terraform.indexing": {
+      "enabled": false
+  },
+  "[terraform]": {
+    "editor.formatOnSave": true
+  },
   // Path intellisense
   "path-intellisense.autoSlashAfterDirectory": true,
   "workbench.statusBar.visible": true,
   "git.confirmSync": false,
   "workbench.iconTheme": "vscode-icons",
   "vsintellicode.python.completionsEnabled": true,
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "editor.minimap.maxColumn": 100,
+
+  // grammarly
+  "grammarly.diagnostics": {
+    "[markdown]": {
+      "ignore": ["inlineCode", "code"]
+    }
+  },
 
   // Zen mode
   "zenMode.centerLayout": false,
@@ -318,5 +335,9 @@
     "source.fixAll.eslint": true
   },
   "todo-tree.highlights.enabled": true,
-  "todo-tree.tree.showScanModeButton": false
+  "todo-tree.tree.showScanModeButton": false,
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "explorer.confirmDelete": false,
+  "python.jediEnabled": false,
 }

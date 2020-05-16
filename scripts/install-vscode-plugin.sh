@@ -27,6 +27,12 @@ declare -a extensions=(
   "mauve.terraform"
   "DavidAnson.vscode-markdownlint"
   "shd101wyy.markdown-preview-enhanced"
+  "yzhang.markdown-all-in-one"
+  "bierner.markdown-mermaid"
+  "ipedrazas.kubernetes-snippets"
+  "ms-kubernetes-tools.vscode-kubernetes-tools"
+  "rust-lang.rust"
+  "tomoyukim.vscode-mermaid-editor"
 
   ###
   # Linter

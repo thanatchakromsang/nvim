@@ -14,7 +14,8 @@ declare -a pkgs=("curl"
                  "scrot"
                  "tig"
                  "bat"
-		 "stow"
+                 "rustup"
+                 "stow"
                  )
 
 # Graphic packages

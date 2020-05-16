@@ -24,9 +24,12 @@ export NVM_DIR="$HOME/.nvm"
 export TERM=xterm-256color
 
 export HISTCONTROL=ignoredups
+export HISTFILESIZE=50000
 
 # SSH_KEY
 export SSH_KEY_PATH="$HOME/.ssh"
+
+export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 
 # FZF Config
   export FZF_DEFAULT_OPTS='--height 100% --border --preview "[[ $(file --mime {}) =~ binary ]] &&
