@@ -19,19 +19,22 @@ fi
 export EDITOR=$VISUAL
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export PATH="$HOME/.local/bin/:/snap/bin/:$PATH"
-export NVM_DIR="$HOME/.nvm"
 export TERM=xterm-256color
 
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=50000
-
-# SSH_KEY
 export SSH_KEY_PATH="$HOME/.ssh"
 
-export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
+# Program specific
+if exists gcloud; then
+  export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
+fi
 
-# FZF Config
+if exists nvm; then
+  export NVM_DIR="$HOME/.nvm"
+fi
+
+if exists fzf; then
   export FZF_DEFAULT_OPTS='--height 100% --border --preview "[[ $(file --mime {}) =~ binary ]] &&
                  echo {} is a binary file ||
                  (highlight -O ansi -l {} ||
@@ -42,3 +45,19 @@ export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
     (git ls-tree -r --name-only HEAD ||
      find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
         sed s/^..//) 2> /dev/null'
+fi
+
+if exists snap; then
+  export PATH="$HOME/.local/bin/:/snap/bin/:$PATH"
+fi
+
+# OS Specific
+case "$(uname -a)" in
+  *Darwin*)
+    export PATH="/usr/local/bin/:$PATH"
+    ;;
+  *arch*)
+    ;;
+  *Ubuntu|Debian*)
+    ;;
+esac

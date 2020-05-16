@@ -17,7 +17,7 @@ brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+brew install gnu-sed
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
@@ -31,7 +31,7 @@ brew install screen
 brew install fontconfig
 
 # Install other useful binaries.
-declare -a bin=("git" "exa" "rg" "stow" "tig")
+declare -a bin=("git" "exa" "rg" "stow" "tig" "bat" "fzf")
 
 for i in "${bin[@]}"
 do
@@ -40,11 +40,20 @@ done
 
 
 # development
-declare -a dev=("node" "python3" "python2.7" "pip3" "neovim --with-override-system-vi")
+declare -a dev=("node" "python3" "neovim" "tmux")
 
 for i in "${dev[@]}"
 do
    brew install "$i"
+done
+
+# cask install
+
+declare -a cask=("alacritty")
+
+for i in "${cask[@]}"
+do
+   brew cask install "$i"
 done
 
 # Remove outdated versions from the cellar.

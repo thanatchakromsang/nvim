@@ -33,3 +33,9 @@ case "$OS" in
     source $DOTFILES/scripts/apt.sh
     ;;
 esac
+
+source $DOTFILES/scripts/oh-my-zsh.sh
+
+# remove default zshrc
+rm -f $HOME/.zshrc
+source $DOTFILES/stow.sh
