@@ -31,6 +31,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('justinmk/vim-sneak')
   call dein#add('sgur/vim-editorconfig')
   call dein#add('sheerun/vim-polyglot')
+  call dein#add('vimwiki/vimwiki')
 " }}}
 
 " Fast Motion {{{
