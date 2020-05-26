@@ -19,10 +19,10 @@ if [ -f "$STATE" ]; then
   stow -v -D -t "$HOME" @general
   case "$OS" in
     *Darwin*)
-      stow -v -D -t "$HOME" @macos
+      stow -v -D -t "$HOME" @macos --adopt
       ;;
     *Linux*)
-      stow -v -D -t "$HOME" @linux
+      stow -v -D -t "$HOME" @linux --adopt
       ;;
   esac
 

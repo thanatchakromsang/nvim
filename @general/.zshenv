@@ -25,18 +25,19 @@ export HISTCONTROL=ignoredups
 export HISTFILESIZE=50000
 export SSH_KEY_PATH="$HOME/.ssh"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Program specific
 if exists gcloud; then
   export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 fi
 
-if exists nvm; then
-  export NVM_DIR="$HOME/.nvm"
-fi
+export NVM_DIR="$HOME/.nvm"
 
 if exists fzf; then
   export FZF_DEFAULT_OPTS='--height 100% --border --preview "[[ $(file --mime {}) =~ binary ]] &&
                  echo {} is a binary file ||
+
                  (highlight -O ansi -l {} ||
                   coderay {} ||
                   rougify {} ||
@@ -55,6 +56,7 @@ fi
 case "$(uname -a)" in
   *Darwin*)
     export PATH="/usr/local/bin/:$PATH"
+    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
     ;;
   *arch*)
     ;;

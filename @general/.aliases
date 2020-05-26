@@ -53,9 +53,6 @@ if exists xclip; then
   alias pbpaste='xclip -selection clipboard -o'
 fi
 
-if exists nvm; then
-  export NVM_DIR="$HOME/.nvm"
-  alias nvmload='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
-fi
+alias nvmload='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
 $*

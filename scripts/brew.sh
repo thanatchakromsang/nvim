@@ -59,7 +59,9 @@ done
 # Remove outdated versions from the cellar.
 brew cleanup
 
-pip3 -q install neovim
+# Install fonts
+brew tap homebrew/cask-fonts
+brew cask install font-fantasque-sans-mono
 
 if [[ $(program_is_installed fc-cache) -eq 1 ]]; then
   fc-cache $DOT/.font

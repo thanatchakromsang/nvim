@@ -23,6 +23,7 @@ plugins=(
   wd
   fzf
   helm
+  rust
 )
 
 
