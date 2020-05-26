@@ -26,6 +26,7 @@ export HISTFILESIZE=50000
 export SSH_KEY_PATH="$HOME/.ssh"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Program specific
 if exists gcloud; then

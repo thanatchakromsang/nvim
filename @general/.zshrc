@@ -54,3 +54,9 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey '^o' vi-forward-word
 bindkey '^H' backward-kill-word
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/thanatchaya.K/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/thanatchaya.K/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
