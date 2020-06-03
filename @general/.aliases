@@ -55,4 +55,8 @@ fi
 
 alias nvmload='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
+# scripts
+
+alias gitall='ls -D | xargs -P10 -I{} git -C {}'
+
 $*
