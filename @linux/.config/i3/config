@@ -256,7 +256,9 @@ assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws7
 # Robowealth slack
 assign [class="Chromium" instance="crx_hkhdnbobbfokdldillcgfnjamdobfckg"] $ws7
 # Notion
-assign [class="Chromium" instance="crx_jnfkmbimlkpahpcdcibipmfgedbnmphl"] $ws5
+assign [class="Chromium" instance="crx_embbmhlnkmaglgimmfegjljognpbfehi"] $ws5
+assign [class="Chromium" instance="crx_nllgpaolceofdaoocgnfnegieeclgamh"] $ws5
+
 # Jira
 assign [class="Chromium" instance="crx_mgpdnmcalffaongdaeeoonaocchbiafa"] $ws9
 

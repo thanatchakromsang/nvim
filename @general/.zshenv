@@ -27,6 +27,7 @@ export SSH_KEY_PATH="$HOME/.ssh"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$HOME/.dotfiles/scripts/bin:$PATH"
 
 # Program specific
 if exists gcloud; then

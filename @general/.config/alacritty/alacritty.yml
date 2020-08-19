@@ -44,6 +44,8 @@ window:
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
 
+  dynamic_title: true
+
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
@@ -187,7 +189,7 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -249,8 +251,6 @@ selection:
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: false
-
-dynamic_title: true
 
 cursor:
   # Style of the cursor
