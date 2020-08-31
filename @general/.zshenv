@@ -29,9 +29,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Program specific
-if exists gcloud; then
-  export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
-fi
+export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 
 export NVM_DIR="$HOME/.nvm"
 
@@ -58,6 +56,7 @@ case "$(uname -a)" in
   *Darwin*)
     export PATH="/usr/local/bin/:$PATH"
     export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    export PATH="/usr/local/opt/python@3.8/bin:$PATH"
     ;;
   *arch*)
     ;;

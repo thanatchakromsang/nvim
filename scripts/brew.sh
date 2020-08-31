@@ -40,7 +40,7 @@ done
 
 
 # development
-declare -a dev=("node" "python3" "neovim" "tmux")
+declare -a dev=("node" "python3" "neovim" "tmux" "koekeishiya/formulae/yabai" "koekeishiya/formulae/skhd" "cmacrae/formulae/spacebar")
 
 for i in "${dev[@]}"
 do
@@ -48,12 +48,19 @@ do
 done
 
 # cask install
-
 declare -a cask=("alacritty")
 
 for i in "${cask[@]}"
 do
    brew cask install "$i"
+done
+
+# Autostart services
+declare -a service=("skhd" "yabai" "spacebar")
+
+for i in "${service[@]}"
+do
+  brew services start "$i"
 done
 
 # Remove outdated versions from the cellar.

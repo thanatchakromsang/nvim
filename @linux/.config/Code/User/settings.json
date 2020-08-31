@@ -282,11 +282,10 @@
   "emmet.showSuggestionsAsSnippets": true,
   // Terraform
   "terraform.languageServer": {
-    "enabled": true,
-    "args": []
-  },
-  "terraform.indexing": {
-      "enabled": false
+    "external": true,
+    "args": [
+      "serve"
+    ]
   },
   "[terraform]": {
     "editor.formatOnSave": true
