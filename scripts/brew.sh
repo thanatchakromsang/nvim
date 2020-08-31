@@ -69,6 +69,7 @@ brew cleanup
 # Install fonts
 brew tap homebrew/cask-fonts
 brew cask install font-fantasque-sans-mono
+brew cask install font-fontawesome
 
 if [[ $(program_is_installed fc-cache) -eq 1 ]]; then
   fc-cache $DOT/.font
