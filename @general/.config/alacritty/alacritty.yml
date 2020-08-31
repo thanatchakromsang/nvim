@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: full
+  decorations: buttonless
   # Faux Scrolling
   #
   # The `faux_multiplier` setting controls the number of lines the terminal
