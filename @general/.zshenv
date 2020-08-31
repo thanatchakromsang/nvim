@@ -27,6 +27,7 @@ export SSH_KEY_PATH="$HOME/.ssh"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$HOME/.dotfiles/scripts/bin:$PATH"
 
 # Program specific
 export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR

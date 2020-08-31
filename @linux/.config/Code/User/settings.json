@@ -287,6 +287,9 @@
       "serve"
     ]
   },
+  "terraform.indexing": {
+      "enabled": false
+  },
   "[terraform]": {
     "editor.formatOnSave": true
   },
