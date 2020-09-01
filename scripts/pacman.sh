@@ -23,6 +23,7 @@ declare -a g_pkgs=("dunst"
                    "compton"
                    "rofi"
                    "zathura"
+                   "zathura-pdf-mupdf"
                    "kubectl"
                    "helm"
                    )
