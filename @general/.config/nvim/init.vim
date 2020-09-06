@@ -353,17 +353,17 @@ endif
   map ?  <Plug>(incsearch-backward)
   map s/ <Plug>(incsearch-stay)
 
-" disable Arrow keys in Escape mode
-  map <up> <nop>
-  map <down> <nop>
-  map <left> <nop>
-  map <right> <nop>
+" " disable Arrow keys in Escape mode
+"   map <up> <nop>
+"   map <down> <nop>
+"   map <left> <nop>
+"   map <right> <nop>
 
-" disable Arrow keys in Insert mode
-  imap <up> <nop>
-  imap <down> <nop>
-  imap <left> <nop>
-  imap <right> <nop>
+" " disable Arrow keys in Insert mode
+"   imap <up> <nop>
+"   imap <down> <nop>
+"   imap <left> <nop>
+"   imap <right> <nop>
 
 " Sneak
   map s <Plug>Sneak_s
