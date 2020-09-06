@@ -26,6 +26,7 @@ declare -a g_pkgs=("dunst"
                    "zathura-pdf-mupdf"
                    "kubectl"
                    "helm"
+                   "maim"
                    )
 
 declare -a aur_pkgs=("zsh-plugin-wd-git")
