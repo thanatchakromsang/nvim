@@ -16,6 +16,7 @@ declare -a pkgs=("curl"
                  "bat"
                  "rustup"
                  "stow"
+                 "w3m"
                  )
 
 # Graphic packages
