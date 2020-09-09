@@ -94,6 +94,7 @@ alt - up : yabai -m window --focus north
 alt - right : yabai -m window --focus east
 
 # move managed window
+
 alt + shift - h : yabai -m window --warp west
 alt + shift - j : yabai -m window --warp south
 alt + shift - k : yabai -m window --warp north
@@ -128,8 +129,13 @@ alt + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6
 alt + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7
 alt + shift - 8 : yabai -m window --space 8; yabai -m space --focus 8
 alt + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9
-alt - 0x1E : yabai -m space --focus next
-alt - 0x21 : yabai -m space --focus prev
+
+# Cycle between spaces in current display using '[' and ']'
+# alt - 0x1E : index="$(yabai -m query --spaces --display | jq '.[$(yabai -m query --spaces --display | jq 'map(select(.visible == 1))[].index')+1].index')" && \
+#               yabai -m space --focus "${index}"
+
+alt - 0x1E : yabai -m space --focus next || yabai -m space --focus first
+alt - 0x21 : yabai -m space --focus prev || yabai -m space --focus last
 
 # Switch workspace
 alt - 1 : yabai -m space --focus 1

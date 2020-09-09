@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # fi
 #
 
-ZSH_THEME="spaceship"
+ZSH_THEME="af-magic"
 
 plugins=(
   git
@@ -26,44 +26,9 @@ plugins=(
   rust
 )
 
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stamps section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  package       # Package version
-  node          # Node.js section
-  ruby          # Ruby section
-  elixir        # Elixir section
-  xcode         # Xcode section
-  swift         # Swift section
-  golang        # Go section
-  php           # PHP section
-  rust          # Rust section
-  haskell       # Haskell Stack section
-  julia         # Julia section
-  docker        # Docker section
-  aws           # Amazon Web Services section
-  venv          # virtualenv section
-  conda         # conda virtualenv section
-  pyenv         # Pyenv section
-  dotnet        # .NET section
-  ember         # Ember.js section
-  kubectl       # Kubectl context section
-  terraform     # Terraform workspace section
-  exec_time     # Execution time
-  line_sep      # Line break
-  battery       # Battery level and status
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-
-SPACESHIP_RPROMPT_ORDER=(
-  kubectl_context
-)
+# af-magic shorten dir prompt
+PS1="$FG[237]${(l.$(afmagic_dashes)..-.)}%{$reset_color%}
+$FG[032]%3~$(git_prompt_info)$(hg_prompt_info) $FG[105]%(!.#.»)%{$reset_color%} "
 
 OS="$(uname -a)"
 case "$OS" in
@@ -92,9 +57,3 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey '^o' vi-forward-word
 bindkey '^H' backward-kill-word
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/thanatchaya.K/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/thanatchaya.K/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
