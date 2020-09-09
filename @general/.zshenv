@@ -35,13 +35,7 @@ export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 export NVM_DIR="$HOME/.nvm"
 
 if exists fzf; then
-  export FZF_DEFAULT_OPTS='--height 100% --border --preview "[[ $(file --mime {}) =~ binary ]] &&
-                 echo {} is a binary file ||
-
-                 (highlight -O ansi -l {} ||
-                  coderay {} ||
-                  rougify {} ||
-                  cat {}) 2> /dev/null | head -500" --preview-window top'
+  export FZF_DEFAULT_OPTS='--height 40% --border'
   export FZF_DEFAULT_COMMAND='
     (git ls-tree -r --name-only HEAD ||
      find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
