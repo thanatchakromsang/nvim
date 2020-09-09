@@ -40,7 +40,7 @@ done
 
 
 # development
-declare -a dev=("node" "python3" "neovim" "tmux" "koekeishiya/formulae/yabai" "koekeishiya/formulae/skhd" "cmacrae/formulae/spacebar")
+declare -a dev=("node" "python3" "neovim" "tmux" "koekeishiya/formulae/yabai" "koekeishiya/formulae/skhd" "cmacrae/formulae/spacebar" "knqyf263/pet/pet" "ranger")
 
 for i in "${dev[@]}"
 do

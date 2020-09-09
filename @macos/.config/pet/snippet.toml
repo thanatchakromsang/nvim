@@ -1,0 +1,4 @@
+[[snippets]]
+  description = "connect to asw-stg vpn"
+  command = "scutil --nc start asw-stg"
+  output = ""

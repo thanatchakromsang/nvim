@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # fi
 #
 
-ZSH_THEME="af-magic"
+ZSH_THEME="robbyrussell"
 
 plugins=(
   git
@@ -25,10 +25,6 @@ plugins=(
   helm
   rust
 )
-
-# af-magic shorten dir prompt
-PS1="$FG[237]${(l.$(afmagic_dashes)..-.)}%{$reset_color%}
-$FG[032]%3~$(git_prompt_info)$(hg_prompt_info) $FG[105]%(!.#.»)%{$reset_color%} "
 
 OS="$(uname -a)"
 case "$OS" in
@@ -57,3 +53,19 @@ bindkey '^p' up-line-or-beginning-search
 bindkey '^n' down-line-or-beginning-search
 bindkey '^o' vi-forward-word
 bindkey '^H' backward-kill-word
+
+# Pet binding
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new `printf %q "$PREV"`"
+}
+
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+
+bindkey '^s' pet-select
