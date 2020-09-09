@@ -1,9 +1,23 @@
 [[snippets]]
-  description = "connect to asw-stg vpn"
-  command = "scutil --nc start asw-stg"
+  description = "connect to vpn on macOS"
+  command = "scutil --nc start <vpn=cloud-mgmt>"
+  tag = ["macOS", "vpn"]
+  output = ""
+
+[[snippets]]
+  description = "disconnect from vpn on macOS"
+  command = "scutil --nc stop <vpn=cloud-mgmt>"
+  tag = ["macOS", "vpn"]
   output = ""
 
 [[snippets]]
   description = "list available network connection"
   command = "scutil --nc list"
+  tag = ["macOS", "vpn"]
+  output = ""
+
+[[snippets]]
+  description = "SIGKILL bugged tmux"
+  command = "killall -9 tmux"
+  tag = ["tmux"]
   output = ""

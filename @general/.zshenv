@@ -35,11 +35,9 @@ export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 export NVM_DIR="$HOME/.nvm"
 
 if exists fzf; then
-  export FZF_DEFAULT_OPTS='--height 40% --border'
-  export FZF_DEFAULT_COMMAND='
-    (git ls-tree -r --name-only HEAD ||
-     find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-        sed s/^..//) 2> /dev/null'
+  export FZF_DEFAULT_OPTS='--height 40% --border --reverse'
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{node_modules,.git}"'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
 if exists snap; then

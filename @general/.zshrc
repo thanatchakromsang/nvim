@@ -69,3 +69,21 @@ zle -N pet-select
 stty -ixon
 
 bindkey '^s' pet-select
+
+# fzf function
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+f() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0 --preview "([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200"))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# fd - Find any directory and cd to selected directory
+fd() {
+ local dir
+ dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
+      -print 2> /dev/null | fzf +m) &&
+ cd "$dir"
+}

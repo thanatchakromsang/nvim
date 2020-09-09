@@ -20,6 +20,10 @@ else
   alias ls='ls -Fh'
 fi
 
+if exists rg; then
+  alias grep='rg'
+fi
+
 # bat instead of cat
 if exists bat; then
   alias cat='bat'
@@ -41,10 +45,6 @@ alias dot="cd $HOME/.dotfiles"
 # other
 if exists ranger; then
   alias r='ranger'
-fi
-
-if exists fzf; then
-  alias f='fzf --preview "([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200" | pbcopy'
 fi
 
 if exists xdg-open; then

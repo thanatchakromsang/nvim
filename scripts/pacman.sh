@@ -17,6 +17,7 @@ declare -a pkgs=("curl"
                  "rustup"
                  "stow"
                  "w3m"
+                 "ripgrep"
                  )
 
 # Graphic packages
