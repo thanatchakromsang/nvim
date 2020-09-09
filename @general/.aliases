@@ -28,7 +28,6 @@ fi
 # editors (assume nvim with plugin)
 if exists nvim; then
   alias vim=nvim
-  alias f='vim $(fzf)'
   alias tmp='vim ~/.tmp.md'
   alias magit='vim -c MagitOnly'       # manage git folder with magit
   alias bookmark="vim -c ':e $HOME/.NERDTreeBookmarks'"
@@ -42,6 +41,10 @@ alias dot="cd $HOME/.dotfiles"
 # other
 if exists ranger; then
   alias r='ranger'
+fi
+
+if exists fzf; then
+  alias f='fzf --preview "([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200" | pbcopy'
 fi
 
 if exists xdg-open; then
@@ -58,5 +61,6 @@ alias nvmload='[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 # scripts
 
 alias gitall='ls -D | xargs -P10 -I{} git -C {}'
+
 
 $*
