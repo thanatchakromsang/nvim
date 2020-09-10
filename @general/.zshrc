@@ -70,6 +70,8 @@ stty -ixon
 
 bindkey '^s' pet-select
 
+set -o ignoreeof
+
 # fzf function
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
