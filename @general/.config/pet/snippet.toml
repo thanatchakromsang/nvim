@@ -11,7 +11,7 @@
   output = ""
 
 [[snippets]]
-  description = "list available network connection"
+  description = "list available network connection / check VPN status"
   command = "scutil --nc list"
   tag = ["macOS", "vpn"]
   output = ""
@@ -20,4 +20,16 @@
   description = "SIGKILL bugged tmux"
   command = "killall -9 tmux"
   tag = ["tmux"]
+  output = ""
+
+[[snippets]]
+  description = "connect inv-stg gke cluster"
+  command = "gcloud container clusters get-credentials inv-stg-cluster --zone asia-southeast1 --project asw-th-staging"
+  tag = ["gke"]
+  output = ""
+
+[[snippets]]
+  description = "forward argocd -> local"
+  command = "kubectl port-forward svc/argocd-server -n argocd <port=8080>:443 --address 0.0.0.0"
+  tag = ["k8s"]
   output = ""
