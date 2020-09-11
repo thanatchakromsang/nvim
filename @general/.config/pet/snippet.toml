@@ -33,3 +33,15 @@
   command = "kubectl port-forward svc/argocd-server -n argocd <port=8080>:443 --address 0.0.0.0"
   tag = ["k8s"]
   output = ""
+
+[[snippets]]
+  description = "connect bastion investment platform nonprod (enduring-stage-253308)"
+  command = "gcloud config set account thanatchaya@robowealth.co.th; gcloud compute ssh bastion --internal-ip --zone asia-southeast1-a --project enduring-stage-253308"
+  tag = ["gcp"]
+  output = ""
+
+[[snippets]]
+  description = "connect bastion robowealth open api nonprod (robowealth-open-api)"
+  command = "gcloud config set account thanatchaya@robowealth.co.th; gcloud compute ssh bastion --internal-ip --zone asia-southeast1-a --project robowealth-open-api"
+  tag = ["gcp"]
+  output = ""

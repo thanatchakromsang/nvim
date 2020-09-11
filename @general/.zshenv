@@ -38,6 +38,9 @@ if exists fzf; then
   export FZF_DEFAULT_OPTS='--height 40% --border --reverse'
   export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{node_modules,.git}"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+  # fzf color
+  export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#d5c4a1,bg:#282828,hl:#fbf1c7 --color=fg+:#d5c4a1,bg+:#7c6f64,hl+:#d79921 --color=info:#928374,prompt:#d79921,pointer:#d79921 --color=marker:#d79921,spinner:#cc241d,header:#458588'
 fi
 
 if exists snap; then
