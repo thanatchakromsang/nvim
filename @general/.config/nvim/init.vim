@@ -623,7 +623,7 @@ endif
   let g:NERDTreeAutoDeleteBuffer=1
   let g:NERDTreeChDirMode=2
   let g:NERDTreeWinPos="right"
-  let g:NERDTreeShowIgnoredStatus = 0
+  let g:NERDTreeGitStatusShowIgnored = 0
   let NERDTreeAutoDeleteBuffer = 1
   let NERDTreeQuitOnOpen = 1
   let g:nerdtree_tabs_focus_on_files=1
