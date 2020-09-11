@@ -90,5 +90,11 @@ fd() {
  cd "$dir"
 }
 
+fw() {
+  IFS=$'\n' files=($(rg -i -l "$1" | fzf --preview "([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200"))
+
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
 if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
