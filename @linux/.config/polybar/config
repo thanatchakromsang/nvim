@@ -143,18 +143,9 @@ cursor-click = pointer
 ##############
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 
-; Stopoundcard to be used
-master-soundcard = default
-
-; Name of the master mixer
-; Default: Master
-master-mixer = Master
-
-; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
-; Default: false
-mapped = false
+use-ui-max = true
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
@@ -171,6 +162,8 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
+click-right = pavucontrol &
+
 [module/keyboard]
 type = internal/xkeyboard
 
@@ -180,7 +173,7 @@ blacklist-1 = scroll lock
 format =  <label-layout>
 format-spacing = 0
 
-label-layout =  %layout%
+label-layout =  %name%
 label-layout-padding = 2
 label-layout-background = ${colors.background}
 label-layout-foreground = ${colors.base09}
