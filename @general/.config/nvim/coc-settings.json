@@ -3,8 +3,24 @@
     "go": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
+      "disableWorkspaceFolders": true,
       "filetypes": ["go"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {}
     }
   }
 }

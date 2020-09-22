@@ -31,7 +31,11 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('justinmk/vim-sneak')
   call dein#add('sgur/vim-editorconfig')
   call dein#add('sheerun/vim-polyglot')
-  call dein#add('vimwiki/vimwiki')
+" }}}
+
+" Autocomplete {{{
+  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+	let g:coc_global_extensions = ['coc-json', 'coc-go', 'coc-rls', 'coc-sh', 'coc-python', 'coc-solargraph', 'coc-docker', 'coc-snippets', 'coc-yaml', 'coc-tsserver']
 " }}}
 
 " Fast Motion {{{
@@ -60,7 +64,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
   call dein#add('jreybert/vimagit', {'on_cmd': ['Magit', 'MagitOnly']})
-  call dein#add('neoclide/vim-easygit')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
 " }}}
@@ -72,9 +75,6 @@ if dein#load_state(('~/.config/nvim'))
 " Misc plugin {{{
   call dein#add('Konfekt/FastFold')
   call dein#add('chakrit/vim-thai-keys')
-  call dein#add('xolox/vim-misc')
-  call dein#add('tmux-plugins/vim-tmux')
-  call dein#add('sgeb/vim-diff-fold')
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('mhinz/vim-sayonara')
 " }}}
@@ -102,6 +102,9 @@ endif
     set mouse=a
   endif
 
+" Give more space for displaying messages.
+  set cmdheight=2
+
   let uname = system('uname')
 
   if uname =~ 'Linux'
@@ -112,7 +115,7 @@ endif
   elseif uname =~ 'Darwin'
     if (has('nvim'))
       let g:python_host_prog = '/usr/local/bin/python2.7'
-      let g:python3_host_prog = '/usr/local/bin/python3.7'
+      let g:python3_host_prog = '/usr/local/bin/python3.8'
     endif
   endif
 
@@ -154,6 +157,7 @@ endif
 
 " disable backup files
   set nobackup
+	set nowritebackup
   set noswapfile
 
 " set width of gutter
@@ -170,6 +174,9 @@ endif
 " display incomplete commands
   set laststatus=2
 
+" Give more space for displaying messages.
+  set cmdheight=2
+
 " word wrapping, but only line breaks inserted when explicitly press enter
   set wrap
   set linebreak
@@ -181,7 +188,7 @@ endif
   set autoread
 
 " set update time for some plugins (default is 4000)
-  set updatetime=500
+  set updatetime=300
 
 " set 256color support
   set t_Co=256
@@ -221,7 +228,16 @@ endif
   autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 
 " disable short messages
-  set shortmess=at
+  set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+	if has("patch-8.1.1564")
+		" Recently vim can merge signcolumn and number column into one
+		set signcolumn=number
+	else
+		set signcolumn=yes
+	endif
 
 " recognize filename in vim
 " default isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,=
@@ -310,7 +326,7 @@ endif
 
 " Align blocks of text and keep them selected
   vmap < <gv
-  vmap > >gv
+	vmap > >gv
   nnoremap <silent> <esc> :noh<cr>
 
 " Switching windows
@@ -375,6 +391,69 @@ endif
 
 " Dein update
   nnoremap <silent> <leader>u :call dein#update()<CR>
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+	inoremap <silent><expr> <TAB>
+				\ pumvisible() ? "\<C-n>" :
+				\ <SID>check_back_space() ? "\<TAB>" :
+				\ coc#refresh()
+	inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+	function! s:check_back_space() abort
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~# '\s'
+	endfunction
+
+" Use <c-space> to trigger completion.
+	if has('nvim')
+		inoremap <silent><expr> <c-space> coc#refresh()
+	else
+		inoremap <silent><expr> <c-@> coc#refresh()
+	endif
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+	if exists('*complete_info')
+		inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+	else
+		inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+	endif
+
+	" Use `[g` and `]g` to navigate diagnostics
+	" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+	nmap <silent> [g <Plug>(coc-diagnostic-prev)
+	nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+	" GoTo code navigation.
+	nmap <silent> gd <Plug>(coc-definition)
+	nmap <silent> gy <Plug>(coc-type-definition)
+	nmap <silent> gi <Plug>(coc-implementation)
+	nmap <silent> gr <Plug>(coc-references)
+
+	" " Use K to show documentation in preview window.
+	" nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+	function! s:show_documentation()
+		if (index(['vim','help'], &filetype) >= 0)
+			execute 'h '.expand('<cword>')
+		else
+			call CocActionAsync('doHover')
+		endif
+	endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+
+	augroup mygroup
+		autocmd!
+		" Setup formatexpr specified filetype(s).
+		autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+		" Update signature help on jump placeholder.
+		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	augroup end
 
 "}}}"
 

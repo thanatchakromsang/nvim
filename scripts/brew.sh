@@ -83,3 +83,5 @@ fi
 
 # # make sure input file exits; else die with an error message
 # [ -f $INFILE ] || { echo "$INFILE input file not found. set \$INFILE in $0"; exit 2; }
+
+npm config set prefix $HOME/.local

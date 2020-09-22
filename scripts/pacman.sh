@@ -61,3 +61,4 @@ declare -a aur_pkgs=("zsh-plugin-wd-git")
 #   pip install -S "$i"
 #done
 
+npm config set prefix $HOME/.local
