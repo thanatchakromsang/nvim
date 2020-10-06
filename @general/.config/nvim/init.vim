@@ -35,7 +35,7 @@ if dein#load_state(('~/.config/nvim'))
 
 " Autocomplete {{{
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
-	let g:coc_global_extensions = ['coc-json', 'coc-go', 'coc-rls', 'coc-sh', 'coc-python', 'coc-solargraph', 'coc-docker', 'coc-snippets', 'coc-yaml', 'coc-tsserver']
+	let g:coc_global_extensions = ['coc-json', 'coc-go', 'coc-rls', 'coc-sh', 'coc-python', 'coc-solargraph', 'coc-docker', 'coc-snippets', 'coc-yaml', 'coc-tsserver', 'coc-pairs', 'coc-prettier']
 " }}}
 
 " Fast Motion {{{
@@ -134,7 +134,10 @@ endif
 " default config
   set tabstop=2 shiftwidth=2 expandtab softtabstop=2
 
-  set scrolloff=10
+" set scroll to be used with CTRL-U and CTRL-D
+  autocmd BufEnter * :set scroll=5
+
+  set scrolloff=999
 
 " set case-insensitive search
   set ignorecase
@@ -317,8 +320,6 @@ endif
 " Move around 'normal mode'
   noremap H ^
   noremap L $
-  nnoremap <silent>J 5gj
-  nnoremap <silent>K 5gk
 
 " Move visual block 'visual mode'
   vnoremap J :m '>+1<CR>gv=gv
@@ -433,8 +434,8 @@ endif
 	nmap <silent> gi <Plug>(coc-implementation)
 	nmap <silent> gr <Plug>(coc-references)
 
-	" " Use K to show documentation in preview window.
-	" nnoremap <silent> K :call <SID>show_documentation()<CR>
+	" Use K to show documentation in preview window.
+	nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 	function! s:show_documentation()
 		if (index(['vim','help'], &filetype) >= 0)
@@ -454,6 +455,9 @@ endif
 		" Update signature help on jump placeholder.
 		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 	augroup end
+
+  " Use `:Format` to format current buffer
+  command! -nargs=0 Format :call CocAction('format')
 
 "}}}"
 
