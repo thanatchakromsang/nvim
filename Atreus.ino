@@ -65,52 +65,52 @@ KEYMAPS(
   (
        Key_Q      ,Key_W      ,LT(ARROW, E)   ,Key_R            ,Key_T
       ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(D)       ,SFT_T(F)         ,Key_G
-      ,Key_Z      ,Key_X      ,Key_C          ,Key_V            ,Key_B                ,LGUI(Key_Space)
-      ,___        ,___        ,___            ,Key_Esc          ,LT(NUMBER, Space)    ,Key_Tab
+      ,Key_Z      ,Key_X      ,Key_C          ,Key_V            ,Key_B                    ,LGUI(Key_Space)
+      ,___        ,___        ,___            ,Key_Esc          ,LT(NUMBER, Backspace)    ,Key_Tab
 
                               ,Key_Y                  ,Key_U          ,LT(MOUSE, I)     ,Key_O         ,Key_P
                               ,Key_H                  ,SFT_T(J)       ,GUI_T(K)         ,ALT_T(L)      ,CTL_T(Semicolon)
       ,MoveToLayer(WORKMAN)   ,Key_N                  ,Key_M          ,Key_Comma        ,Key_Period    ,Key_Slash
-      ,LSHIFT(Key_Tab)        ,LT(NUMBER, Backspace)  ,Key_Enter      ,___              ,___           ,___
+      ,LSHIFT(Key_Tab)        ,LT(NUMBER, Space)  ,Key_Enter      ,___              ,___           ,___
   ),
 
   [WORKMAN] = KEYMAP_STACKED
   (
        Key_Q      ,Key_D      ,LT(ARROW, R)   ,Key_W            ,Key_B
       ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(H)       ,SFT_T(T)         ,Key_G
-      ,Key_Z      ,Key_X      ,Key_M          ,Key_C            ,Key_V                  ,LGUI(Key_Space)
-      ,___        ,___        ,___            ,Key_Esc          ,LT(NUMBER, Space)      ,Key_Tab
+      ,Key_Z      ,Key_X      ,Key_M          ,Key_C            ,Key_V                      ,LGUI(Key_Space)
+      ,___        ,___        ,___            ,Key_Esc          ,LT(NUMBER, Backspace)      ,Key_Tab
 
                               ,Key_J                  ,Key_F      ,LT(MOUSE, U)     ,Key_P      ,Key_Semicolon
                               ,Key_Y                  ,SFT_T(N)   ,GUI_T(E)         ,ALT_T(O)   ,CTL_T(I)
       ,MoveToLayer(QWERTY)    ,Key_K                  ,Key_L      ,Key_Comma        ,Key_Period ,Key_Slash
-      ,LSHIFT(Key_Tab)        ,LT(NUMBER, Backspace)  ,Key_Enter  ,___              ,___        ,___
+      ,LSHIFT(Key_Tab)        ,LT(NUMBER, Space)  ,Key_Enter  ,___              ,___        ,___
   ),
 
   [NUMBER] = KEYMAP_STACKED
   (
        Key_F1         ,Key_F2         ,Key_F3         ,Key_F4       ,Key_F5
       ,CTL_T(1)       ,ALT_T(2)       ,GUI_T(3)       ,SFT_T(4)     ,Key_5
-      ,Key_Backtick   ,Key_Backslash  ,Key_Semicolon  ,Key_Equals   ,Key_Minus    ,___
-      ,___            ,___            ,___            ,Key_Esc      ,Key_Space    ,Key_F11
+      ,Key_Backtick   ,Key_Backslash  ,Key_Semicolon  ,Key_Equals   ,Key_Minus        ,___
+      ,___            ,___            ,___            ,Key_Esc      ,Key_Backspace    ,Key_F11
 
                       ,Key_F6           ,Key_F7               ,Key_F8       ,Key_F9       ,Key_F10
                       ,Key_6            ,SFT_T(7)             ,GUI_T(8)     ,ALT_T(9)     ,CTL_T(0)
       ,___            ,Key_LeftBracket  ,Key_RightBracket     ,Key_Comma    ,Key_Period   ,Key_Quote
-      ,Key_F12        ,Key_Backspace    ,Key_Enter            ,___          ,___          ,___
+      ,Key_F12        ,Key_Space        ,Key_Enter            ,___          ,___          ,___
   ),
 
   [ARROW] = KEYMAP_STACKED
   (
        LGUI(Key_Delete)     ,Key_PrintScreen  ,XXX          ,XXX            ,XXX
       ,Key_LeftControl      ,Key_LeftAlt      ,Key_LeftGui  ,Key_LeftShift  ,XXX
-      ,XXX                  ,XXX              ,XXX          ,XXX            ,XXX          ,XXX
-      ,___                  ,___              ,___          ,Key_Esc        ,Key_Space    ,XXX
+      ,XXX                  ,XXX              ,XXX          ,XXX            ,XXX              ,XXX
+      ,___                  ,___              ,___          ,Key_Esc        ,Key_Backspace    ,XXX
 
                   ,XXX            ,XXX            ,XXX          ,XXX                ,XXX
                   ,Key_LeftArrow  ,Key_DownArrow  ,Key_UpArrow  ,Key_RightArrow     ,XXX
       ,___        ,XXX            ,XXX            ,XXX          ,XXX                ,XXX
-      ,XXX        ,Key_Backspace  ,Key_Enter      ,___          ,___                ,___
+      ,XXX        ,Key_Space      ,Key_Enter      ,___          ,___                ,___
   ),
 
   [MOUSE] = KEYMAP_STACKED
@@ -170,9 +170,9 @@ void setup() {
   Qukeys.setOverlapThreshold(90);
 
   // MouseKeys Configuration
-  MouseKeys.speed = 15;
-  MouseKeys.accelDelay = 120;
-  MouseKeys.wheelSpeed = 2;
+  MouseKeys.speed = 40;
+  MouseKeys.accelDelay = 200;
+  MouseKeys.wheelSpeed = 4;
   SpaceCadet.disable();
   EEPROMKeymap.setup(10);
 }
