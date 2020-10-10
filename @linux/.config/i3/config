@@ -361,7 +361,7 @@ mode "resize" {
 }
 
 set $logout_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
-bindsym $mod+Delete mode "$logout_system"
+bindsym Delete mode "$logout_system"
 mode "$logout_system" {
     bindsym l exec --no-startup-id $psst ~/.config/i3/i3exit.sh lock, mode "default"
     bindsym o exec --no-startup-id $psst ~/.config/i3/i3exit.sh logout, mode "default"
