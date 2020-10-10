@@ -44,6 +44,8 @@ alias dot="cd $HOME/.dotfiles"
 
 # other
 if exists ranger; then
+  # source current ranger dir
+  alias ranger='. ranger'
   alias r='ranger'
 fi
 
