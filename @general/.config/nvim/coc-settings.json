@@ -1,26 +1,7 @@
 {
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "disableWorkspaceFolders": true,
-      "filetypes": ["go"]
-    },
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    },
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["terraform", "tf"],
-      "initializationOptions": {}
-    }
-  }
+  "diagnostic.virtualText": true,
+  "codeLens.enable": true,
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.format": "[%source%code] [%severity] %message",
+  "coc.preferences.extensionUpdateCheck": "weekly"
 }
