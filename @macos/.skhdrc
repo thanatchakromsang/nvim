@@ -77,7 +77,7 @@
 # ############################################################### #
 
 # Open terminal
-alt - return : open -a alacritty
+alt - return : open -a kitty
 
 # Destroy desktop
 cmd + alt - w : yabai -m space --destroy

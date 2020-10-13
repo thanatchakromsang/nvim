@@ -48,7 +48,7 @@ do
 done
 
 # cask install
-declare -a cask=("alacritty")
+declare -a cask=("kitty")
 
 for i in "${cask[@]}"
 do

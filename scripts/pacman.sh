@@ -33,6 +33,7 @@ declare -a g_pkgs=("dunst"
                    "kubectl"
                    "helm"
                    "maim"
+                   "kitty"
                    )
 
 declare -a aur_pkgs=("zsh-plugin-wd-git")
