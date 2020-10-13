@@ -3,5 +3,47 @@
   "codeLens.enable": true,
   "diagnostic.messageTarget": "echo",
   "diagnostic.format": "[%source%code] [%severity] %message",
-  "coc.preferences.extensionUpdateCheck": "weekly"
+  "coc.preferences.extensionUpdateCheck": "weekly",
+
+  // explorer
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": true,
+  "explorer.keyMappings": {
+    "i": false, // cancel default mapkey
+
+    "<esc>": "esc",
+    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+    "o": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+    "v": "open:vsplit",
+    "b": "open:split",
+    "t": "open:tab",
+    "<bs>": "gotoParent",
+
+    "y": "copyFilepath",
+    "Y": "copyFilename",
+    "c": "copyFile",
+    "x": "cutFile",
+    "p": "pasteFile",
+    "d": "delete",
+    "D": "deleteForever",
+
+    "a": "addFile",
+    "A": "addDirectory",
+    "r": "rename",
+
+    "f": "search",
+    "F": "searchRecursive",
+
+    ".": "toggleHidden",
+    "R": "refresh",
+
+    "?": "help",
+    "q": "quit",
+
+    "[c": "gitPrev",
+    "]c": "gitNext",
+    ">>": "gitStage",
+    "<<": "gitUnstage"
+  }
 }
