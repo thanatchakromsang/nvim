@@ -33,16 +33,16 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('sheerun/vim-polyglot')
 " }}}
 
-" Autocomplete {{{
+" COC {{{
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
   call dein#add('antoinemadec/coc-fzf', {'merged':0, 'rev': 'release'})
 	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 	call dein#add('junegunn/fzf.vim')
+	call dein#add('airblade/vim-rooter')
   call dein#add('honza/vim-snippets')
 	let g:coc_global_extensions = [
 				\		'coc-json',
 				\		'coc-go',
-				\		'coc-rls',
 				\		'coc-sh',
 				\		'coc-python',
 				\		'coc-solargraph',
@@ -52,6 +52,8 @@ if dein#load_state(('~/.config/nvim'))
 				\		'coc-tsserver',
 				\		'coc-pairs',
 				\		'coc-rust-analyzer',
+				\		'coc-vimlsp',
+				\		'coc-explorer',
 				\		'coc-prettier'
 				\	]
 " }}}
@@ -69,13 +71,11 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('Yggdroot/indentLine')
-  call dein#add('ryanoasis/vim-devicons')
-  call dein#add('drzel/vim-line-no-indicator')
 " }}}
 
 " Terminal {{{
   call dein#add('Shougo/deol.nvim')
-  call dein#add('christoomey/vim-tmux-navigator')
+  " call dein#add('christoomey/vim-tmux-navigator')
 " }}}
 
 " Git {{{
@@ -83,7 +83,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('tpope/vim-rhubarb')
   call dein#add('jreybert/vimagit', {'on_cmd': ['Magit', 'MagitOnly']})
   call dein#add('airblade/vim-gitgutter')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
 " }}}
 
 " Linter {{{
@@ -96,9 +95,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('mhinz/vim-sayonara')
 " }}}
-
-" iTerm
-  call dein#add('sjl/vitality.vim')
 
   if dein#check_install()
     call dein#install()
@@ -441,7 +437,10 @@ endif
 
   " Airline  -------------------------------------------------------------{{{
 
-    let g:airline_section_z ='%{LineNoIndicator()}%\ :%2c'
+		call airline#parts#define_raw('linenr', '%l')
+		call airline#parts#define_accent('linenr', 'bold')
+		let g:airline_section_z = airline#section#create(['%3p%% ',
+								\ g:airline_symbols.linenr .' ', 'linenr', ':%c'])
 		let g:airline#extensions#coc#enabled = 1
     let g:airline#extensions#default#layout = [
       \ [ 'a', 'b', 'c' ],
@@ -495,7 +494,6 @@ endif
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamemod = ':t'
     let g:airline_powerline_fonts = 1
-    let g:airline_symbols.branch = ''
     let g:airline_symbols.readonly = ''
 
     " powerline symbols
@@ -517,29 +515,6 @@ endif
       " let g:line_no_indicator_chars = [
       "   \  '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁', ' '
       "   \  ]
-
-  "}}}
-
-  " Vim-Devicons  --------------------------------------------------------{{{
-
-    let g:NERDTreeGitStatusNodeColorization = 1
-    " 
-    let g:webdevicons_enable_denite = 0
-    " let g:WebDevIconsOS = 'Darwin'
-    " let g:WebDevIconsUnicodeDecorateFileNodes = 1
-    " let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
-    " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-    " let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tsx'] = ''
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
-    let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sql'] = ''
-    let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-    let g:webdevicons_conceal_nerdtree_brackets = 1
 
   "}}}
 
@@ -571,28 +546,73 @@ endif
 
 "}}}
 
+" FZF -----------------------------------------------------------------------{{{
+
+	" This is the default extra key bindings
+	let g:fzf_action = {
+		\ 'ctrl-t': 'tab split',
+		\ 'ctrl-x': 'split',
+		\ 'ctrl-v': 'vsplit' }
+
+	" Enable per-command history.
+	" CTRL-N and CTRL-P will be automatically bound to next-history and
+	" previous-history instead of down and up. If you don't like the change,
+	" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+	let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+	nnoremap <space>g :Rg<CR>
+	nnoremap <space>G :RG<CR>
+	nnoremap <space>f :Files<CR>
+
+	let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+	let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow -g '!{node_modules,.git}'"
+
+	" Customize fzf colors to match your color scheme
+	let g:fzf_colors =
+	\ { 'fg':      ['fg', 'Normal'],
+		\ 'bg':      ['bg', 'Normal'],
+		\ 'hl':      ['fg', 'Comment'],
+		\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+		\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+		\ 'hl+':     ['fg', 'Statement'],
+		\ 'info':    ['fg', 'PreProc'],
+		\ 'border':  ['fg', 'Ignore'],
+		\ 'prompt':  ['fg', 'Conditional'],
+		\ 'pointer': ['fg', 'Exception'],
+		\ 'marker':  ['fg', 'Keyword'],
+		\ 'spinner': ['fg', 'Label'],
+		\ 'header':  ['fg', 'Comment'] }
+
+	"Get Files
+	command! -bang -nargs=? -complete=dir Files
+			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+	" Get text in files with Rg
+	command! -bang -nargs=* Rg
+		\ call fzf#vim#grep(
+		\   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+		\   fzf#vim#with_preview(), <bang>0)
+
+	" Ripgrep advanced
+	function! RipgrepFzf(query, fullscreen)
+		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+		let initial_command = printf(command_fmt, shellescape(a:query))
+		let reload_command = printf(command_fmt, '{q}')
+		let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+		call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+	endfunction
+
+	command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+"}}}
+
 " Programing language settings  ---------------------------------------------{{{
-
-  " --------------------------  Javascript  ---------------------------------{{{
-
-      augroup javascript
-        autocmd!
-        autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 colorcolumn=100
-      augroup END
-
-  "}}}
-
-  " --------------------------  Python  -------------------------------------{{{
-
-      let python_highlight_all = 1
-
-  "}}}
 
 "}}}
 
 " COC -----------------------------------------------------------------------{{{
 
-  nnoremap <silent> <F1> :CocCommand<CR>
+  nnoremap <silent> <F1> :CocFzfList commands<CR>
+  nnoremap <space>c :CocFzfList commands<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -689,7 +709,38 @@ endif
 	call coc#add_command('format imports', ':OR',
 			\ ':OR Organize imports of the current buffer')
 	call coc#add_command('rename', ':execute "normal \<Plug>(coc-rename)"',
-			\ ':OR Organize imports of the current buffer')
+			\ 'Rename hightlight symbols')
+	call coc#add_command('git:diff', ':Gdiff',
+			\ ':Gdiff Git diff current pane')
+	call coc#add_command('git:manager', ':Magit',
+			\ ':Magit Git manager')
+	call coc#add_command('fzf:files', ':Files',
+			\ ':Files Search through files in fzt')
+	call coc#add_command('fzf:Rg', ':Rg',
+			\ ':Rg Ripgrep through keywords')
+	call coc#add_command('fzf:RG', ':RG',
+			\ ':RG Advanced Ripgrep through keywords')
+
+
+	" Coc Explorer ------------------------------------------------------------ {{{
+		nmap <space>e :CocCommand explorer<CR>
+		nmap <space>ef :CocCommand explorer --preset floating<CR>
+		autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+		let g:coc_explorer_global_presets = {
+		\   'tab': {
+		\     'position': 'tab',
+		\     'quit-on-open': v:true,
+		\   },
+		\   'floating': {
+		\     'position': 'floating',
+		\     'open-action-strategy': 'sourceWindow',
+		\     'quit-on-open': v:true,
+		\   }
+		\ }
+
+	"}}}
+
 
 "}}}
 
@@ -734,93 +785,25 @@ endif
 
 " }}}
 
-" NERDTree ------------------------------------------------------------------{{{
+"" Tmux  ---------------------------------------------------------------------{{{
 
-" Toggle NERDTree
-  function! ToggleNERDTree()
-    if @% != "" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
-      :NERDTreeFind
-    else
-      :NERDTreeToggle
-    endif
-  endfunction
+"  let g:tmux_navigator_no_mappings = 1
+"  " let g:tmux_navigator_save_on_switch = 2
+"  let g:tmux_navigator_disable_when_zoomed = 1
 
-  augroup ntinit
-    autocmd FileType nerdtree call s:nerdtreeinit()
-  augroup END
-  function! s:nerdtreeinit() abort
-    nunmap <buffer> K
-    nunmap <buffer> J
-  endfunction
+"  nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+"  nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+"  nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+"  nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+"  nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-  nnoremap <silent> <F2> :call ToggleNERDTree()<CR>
+"  tmap <C-h> <C-\><C-n>:TmuxNavigateDown<cr>
+"  tmap <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
+"  tmap <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
+"  tmap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
+"  tmap <C-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
 
-  let NERDTreeShowHidden=1
-  let g:NERDTreeWinSize=35
-  let NERDTreeMinimalUI=1
-  let NERDTreeHijackNetrw=1
-  let NERDTreeCascadeSingleChildDir=0
-  let NERDTreeCascadeOpenSingleChildDir=0
-  let g:NERDTreeAutoDeleteBuffer=1
-  let g:NERDTreeChDirMode=2
-  let g:NERDTreeWinPos="right"
-  let g:NERDTreeGitStatusShowIgnored = 0
-  let NERDTreeAutoDeleteBuffer = 1
-  let NERDTreeQuitOnOpen = 1
-  let g:nerdtree_tabs_focus_on_files=1
-  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-  let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-
-  let g:NERDTreeDirArrowExpandable = ''
-  let g:NERDTreeDirArrowCollapsible = ''
-  let g:NERDTreeGitStatusIndicatorMap = {
-          \ 'Modified'  : '✹',
-          \ 'Staged'    : '✚',
-          \ 'Untracked' : '✭',
-          \ 'Renamed'   : '➜',
-          \ 'Unmerged'  : '═',
-          \ 'Deleted'   : '✖',
-          \ 'Dirty'     : '✗',
-          \ 'Clean'     : '✔︎',
-          \ 'Ignored'   : '',
-          \ 'Unknown'   : '?'
-          \ }
-
-" esearch settings {{{
-
-  " let g:esearch#cmdline#help_prompt = 1
-  "   let g:esearch#cmdline#dir_icon = '  '
-  "   let g:esearch = {
-  "   \ 'adapter':    'ag',
-  "   \ 'backend':    'nvim',
-  "   \ 'out':        'win',
-  "   \ 'batch_size': 1000,
-  "   \ 'use':        ['visual', 'hlsearch', 'last'],
-  "   \}
-
-" }}}
-
-"}}}
-
-" Tmux  ---------------------------------------------------------------------{{{
-
-  let g:tmux_navigator_no_mappings = 1
-  " let g:tmux_navigator_save_on_switch = 2
-  let g:tmux_navigator_disable_when_zoomed = 1
-
-  nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-  nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-  nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-  nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-  nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
-
-  tmap <C-h> <C-\><C-n>:TmuxNavigateDown<cr>
-  tmap <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
-  tmap <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
-  tmap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
-  tmap <C-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
-
-"}}}
+""}}}
 
 " Fold function  ------------------------------------------------------------{{{
 
@@ -850,9 +833,9 @@ endif
   " autocmd FileType vim setlocal fdc=1
   set foldlevel=99
 
-  " Space to toggle folds.
-  nnoremap <Space> za
-  vnoremap <Space> za
+  " Backspace to toggle folds.
+  nnoremap <BS> za
+  vnoremap <BS> za
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType vim setlocal foldlevel=0
 

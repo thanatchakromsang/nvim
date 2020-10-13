@@ -21,6 +21,7 @@ declare -a pkgs=("curl"
                  "stow"
                  "w3m"
                  "ripgrep"
+                 "watchman"
                  )
 
 # Graphic packages
