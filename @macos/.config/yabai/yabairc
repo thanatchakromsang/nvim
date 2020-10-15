@@ -30,7 +30,7 @@ yabai -m config window_gap                   06
 
 # Manage Window
 yabai -m rule --add title='Preferences$' manage=off
-yabai -m rule --add app='LINE' title='\/' manage=off layer=above
+yabai -m rule --add app='LINE' manage=off layer=above
 yabai -m rule --add title='Opening$' manage=off layer=above
 # yabai -m rule --add app='System Preferences' manage=off layer=above
 yabai -m rule --add app='System Preferences' manage=off
