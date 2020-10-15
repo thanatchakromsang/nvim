@@ -77,7 +77,7 @@
 # ############################################################### #
 
 # Open terminal
-cmd - return : open -a kitty
+cmd - return : open -a kitty --single-instance
 
 # Destroy desktop
 cmd + ctrl - w : yabai -m space --destroy
