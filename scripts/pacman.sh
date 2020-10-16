@@ -64,3 +64,5 @@ declare -a aur_pkgs=("zsh-plugin-wd-git")
 #done
 
 npm config set prefix $HOME/.local
+
+sudo pacman -S ttf-fira-code
