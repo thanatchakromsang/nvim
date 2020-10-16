@@ -341,5 +341,6 @@
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
   "explorer.confirmDelete": false,
-  "python.jediEnabled": false,
+"python.jediEnabled": false,
+"python.languageServer": "Microsoft",
 }
