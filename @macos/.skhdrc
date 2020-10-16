@@ -77,7 +77,7 @@
 # ############################################################### #
 
 # Open terminal
-cmd - return : open -a kitty --single-instance
+cmd - return : open -a kitty
 
 # Destroy desktop
 cmd + ctrl - w : yabai -m space --destroy
@@ -120,15 +120,15 @@ cmd + alt - n : yabai -m space --create && \
                  yabai -m space --focus "${index}"
 
 # Move current window to workspace
-cmd + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
-cmd + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
-cmd + shift - 3 : yabai -m window --space 3; yabai -m space --focus 3
-cmd + shift - 4 : yabai -m window --space 4; yabai -m space --focus 4
-cmd + shift - 5 : yabai -m window --space 5; yabai -m space --focus 5
-cmd + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6
-cmd + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7
-cmd + shift - 8 : yabai -m window --space 8; yabai -m space --focus 8
-cmd + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9
+cmd + shift - 1 : yabai -m window --space 1; # yabai -m space --focus 1
+cmd + shift - 2 : yabai -m window --space 2; # yabai -m space --focus 2
+cmd + shift - 3 : yabai -m window --space 3; # yabai -m space --focus 3
+cmd + shift - 4 : yabai -m window --space 4; # yabai -m space --focus 4
+cmd + shift - 5 : yabai -m window --space 5; # yabai -m space --focus 5
+cmd + shift - 6 : yabai -m window --space 6; # yabai -m space --focus 6
+cmd + shift - 7 : yabai -m window --space 7; # yabai -m space --focus 7
+cmd + shift - 8 : yabai -m window --space 8; # yabai -m space --focus 8
+cmd + shift - 9 : yabai -m window --space 9; # yabai -m space --focus 9
 
 # Cycle between spaces in current display using '[' and ']'
 # alt - 0x1E : index="$(yabai -m query --spaces --display | jq '.[$(yabai -m query --spaces --display | jq 'map(select(.visible == 1))[].index')+1].index')" && \

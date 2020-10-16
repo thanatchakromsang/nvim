@@ -70,6 +70,7 @@ brew cleanup
 brew tap homebrew/cask-fonts
 brew cask install font-fantasque-sans-mono
 brew cask install font-fontawesome
+brew cask install font-fira-code
 
 if [[ $(program_is_installed fc-cache) -eq 1 ]]; then
   fc-cache $DOT/.font
