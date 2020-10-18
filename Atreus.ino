@@ -183,10 +183,10 @@ KEYMAPS(
 
   [NAVIGATION] = KEYMAP_STACKED
   (
-       Key_End          ,Key_PageUp       ,Key_PageDown     ,Key_Home         ,Key_Insert
-      ,Key_LeftArrow    ,Key_DownArrow    ,Key_UpArrow      ,Key_RightArrow   ,Key_CapsLock
-      ,LockLayer(BASE)  ,XXX              ,XXX              ,XXX              ,LockLayer(WORKMAN) ,___
-      ,___              ,___              ,___              ,Key_Esc          ,Key_Backspace      ,Key_Tab
+       Key_End          ,Key_PageUp           ,Key_PageDown     ,Key_Home         ,Key_Insert
+      ,Key_LeftArrow    ,Key_DownArrow        ,Key_UpArrow      ,Key_RightArrow   ,Key_CapsLock
+      ,LockLayer(BASE)  ,LockLayer(WORKMAN)   ,XXX              ,XXX              ,XXX                ,___
+      ,___              ,___                  ,___              ,Key_Esc          ,Key_Backspace      ,Key_Tab
 
                 ,___      ,___      ,___      ,___      ,___
                 ,___      ,___      ,___      ,___      ,___
@@ -198,7 +198,7 @@ KEYMAPS(
   (
        Key_mouseScrollL   ,Key_mouseScrollDn    ,Key_mouseScrollUp    ,Key_mouseScrollR   ,XXX
       ,Key_mouseL         ,Key_mouseDn          ,Key_mouseUp          ,Key_mouseL         ,XXX
-      ,LockLayer(BASE)    ,XXX                  ,XXX                  ,XXX                ,LockLayer(WORKMAN) ,___
+      ,LockLayer(BASE)    ,LockLayer(WORKMAN)   ,XXX                  ,XXX                ,XXX                ,___
       ,___                ,___                  ,___                  ,Key_mouseBtnM      ,Key_mouseBtnL      ,Key_mouseBtnR
 
                 ,___      ,___      ,___      ,___      ,___
@@ -209,10 +209,10 @@ KEYMAPS(
 
   [MEDIA] = KEYMAP_STACKED
   (
-       XXX                          ,XXX              ,XXX            ,XXX                      ,XXX
-      ,Consumer_ScanPreviousTrack   ,Key_VolumeDown   ,Key_VolumeUp   ,Consumer_ScanNextTrack   ,XXX
-      ,LockLayer(BASE)              ,XXX              ,XXX            ,XXX                      ,LockLayer(WORKMAN) ,___
-      ,___                          ,___              ,___            ,Consumer_Mute            ,Consumer_Play      ,Consumer_Pause
+       XXX                          ,XXX                  ,XXX            ,XXX                      ,XXX
+      ,Consumer_ScanPreviousTrack   ,Key_VolumeDown       ,Key_VolumeUp   ,Consumer_ScanNextTrack   ,XXX
+      ,LockLayer(BASE)              ,LockLayer(WORKMAN)   ,XXX            ,XXX                      ,XXX                ,___
+      ,___                          ,___                  ,___            ,Consumer_Mute            ,Consumer_Play      ,Consumer_Pause
 
                 ,___      ,___      ,___      ,___      ,___
                 ,___      ,___      ,___      ,___      ,___
