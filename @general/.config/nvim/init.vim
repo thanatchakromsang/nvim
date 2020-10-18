@@ -283,9 +283,6 @@ endif
 
 " System mappings  ----------------------------------------------------------{{{
 
-" Remap ; :
-	nmap ; :
-
 " no one is really happy until you have this shortcuts
   cnoreabbrev W! w!
   cnoreabbrev Q! q!
@@ -384,7 +381,7 @@ endif
   map g# <Plug>(incsearch-nohl-g#)
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
-  map s/ <Plug>(incsearch-stay)
+  " map s/ <Plug>(incsearch-stay)
 
 " " disable Arrow keys in Escape mode
 "   map <up> <nop>
