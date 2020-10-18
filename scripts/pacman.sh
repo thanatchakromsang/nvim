@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Add us workman and th pattachote as keyboard layout
-localectl --no-convert set-x11-keymap us,th pc104 workman,pat grp:win_space_toggle,caps:escape
+localectl --no-convert set-x11-keymap us,th pc104 workman,pat grp:win_space_toggle
 
 # Terminal packages
 declare -a pkgs=("curl"
