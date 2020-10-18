@@ -49,96 +49,176 @@ enum {
 #define Key_Caret LSHIFT(Key_6)
 #define Key_And LSHIFT(Key_7)
 #define Key_Star LSHIFT(Key_8)
+#define Key_LeftParenthesis LSHIFT(Key_9)
+#define Key_RightParenthesis LSHIFT(Key_0)
+
+#define Key_LeftCurlyBracket LSHIFT(Key_LeftBracket)
+#define Key_RightCurlyBracket LSHIFT(Key_RightBracket)
 #define Key_Plus LSHIFT(Key_Equals)
+#define Key_Pipe LSHIFT(Key_Backslash)
+#define Key_Tlide LSHIFT(Key_Backtick)
+#define Key_Colon LSHIFT(Key_Semicolon)
+#define Key_Underscore LSHIFT(Key_Minus)
 
 enum {
-  QWERTY,
+  BASE,
+  NSL,
+  NSSL,
   WORKMAN,
-  NUMBER,
-  MEDIA,
-  ARROW,
-  MOUSE
+  NSL_WORKMAN,
+  NSSL_WORKMAN,
+  FUNCTION,
+  NAVIGATION,
+  MOUSE,
+  MEDIA
 };
 
 /* *INDENT-OFF* */
 KEYMAPS(
-  [QWERTY] = KEYMAP_STACKED
-  (
-       Key_Q      ,Key_W      ,LT(ARROW, E)   ,Key_R            ,Key_T
-      ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(D)       ,SFT_T(F)         ,Key_G
-      ,Key_Z      ,Key_X      ,LT(MEDIA, C)   ,Key_V            ,Key_B                    ,XXX
-      ,___        ,___        ,___            ,Key_Esc          ,LT(NUMBER, Backspace)    ,Key_Tab
 
-                              ,Key_Y                  ,Key_U          ,LT(MOUSE, I)     ,Key_O         ,Key_P
-                              ,Key_H                  ,SFT_T(J)       ,GUI_T(K)         ,ALT_T(L)      ,CTL_T(Semicolon)
-      ,XXX                    ,Key_N                  ,Key_M          ,Key_Comma        ,Key_Period    ,Key_Slash
-      ,LSHIFT(Key_Tab)        ,LT(NUMBER, Space)      ,Key_Enter      ,___              ,___           ,___
+  /* [EXAMPLE] = KEYMAP_STACKED */
+  /* ( */
+  /*      ___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___      ,___ */
+
+  /*               ,___      ,___      ,___      ,___      ,___ */
+  /*               ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___      ,___ */
+  /* ), */
+
+  // Remapped some keys for Workman using OS Dependent Layout
+  [BASE] = KEYMAP_STACKED
+  (
+       Key_Q      ,Key_W      ,Key_E          ,Key_R              ,Key_T
+      ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(D)       ,SFT_T(F)           ,Key_G
+      ,Key_Z      ,Key_X      ,Key_C          ,Key_V              ,Key_B                    ,___
+      ,___        ,___        ,___            ,LT(FUNCTION, Esc)  ,LT(NSL, Backspace)       ,LT(NSSL, Tab)
+
+                              ,Key_Y                  ,Key_U                 ,Key_I            ,Key_O         ,Key_Quote
+                              ,Key_H                  ,SFT_T(J)              ,GUI_T(K)         ,ALT_T(L)      ,CTL_T(Semicolon)
+      ,___                    ,Key_N                  ,Key_M                 ,Key_Comma        ,Key_Period    ,Key_Slash
+      ,LT(MOUSE, P) /* ; */   ,LT(NAVIGATION, Space)  ,LT(MEDIA, Enter)      ,___              ,___           ,___
+  ),
+
+  [NSL] = KEYMAP_STACKED
+  (
+       ___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,XXX      ,___
+
+                              ,Key_LeftBracket        ,Key_7                 ,Key_8             ,Key_9          ,Key_RightBracket
+                              ,Key_Equals             ,SFT_T(4)              ,GUI_T(5)          ,ALT_T(6)       ,CTL_T(P) /* ; */
+      ,___                    ,Key_Backslash          ,Key_1                 ,Key_2             ,Key_3          ,Key_Backtick
+      ,Key_Minus              ,Key_0                  ,Key_Period            ,___              ,___           ,___
+  ),
+
+  [NSSL] = KEYMAP_STACKED
+  (
+       ___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,XXX
+
+                              ,Key_LeftCurlyBracket   ,Key_And              ,Key_Star         ,Key_LeftParenthesis      ,Key_RightCurlyBracket
+                              ,Key_Plus               ,Key_Dollar           ,Key_Percent      ,Key_Caret                ,LSHIFT(Key_P)
+      ,___                    ,Key_Pipe               ,Key_Exclamation      ,Key_At           ,Key_Hash                 ,Key_Tlide
+      ,Key_Underscore         ,Key_RightParenthesis   ,Key_LeftParenthesis  ,___              ,___           ,___
   ),
 
   [WORKMAN] = KEYMAP_STACKED
   (
-       Key_Q      ,Key_D      ,LT(ARROW, R)   ,Key_W            ,Key_B
-      ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(H)       ,SFT_T(T)         ,Key_G
-      ,Key_Z      ,Key_X      ,LT(MEDIA, M)   ,Key_C            ,Key_V                      ,XXX
-      ,___        ,___        ,___            ,Key_Esc          ,LT(NUMBER, Backspace)      ,Key_Tab
+       Key_Q      ,Key_D      ,Key_R      ,Key_W            ,Key_B
+      ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(H)   ,SFT_T(T)         ,Key_G
+      ,Key_Z      ,Key_X      ,Key_M      ,Key_C            ,Key_V                            ,___
+      ,___        ,___        ,___        ,___              ,LT(NSL_WORKMAN, Backspace)       ,LT(NSSL_WORKMAN, Tab)
 
-                              ,Key_J              ,Key_F      ,LT(MOUSE, U)     ,Key_P      ,Key_Semicolon
-                              ,Key_Y              ,SFT_T(N)   ,GUI_T(E)         ,ALT_T(O)   ,CTL_T(I)
-      ,XXX                    ,Key_K              ,Key_L      ,Key_Comma        ,Key_Period ,Key_Slash
-      ,LSHIFT(Key_Tab)        ,LT(NUMBER, Space)  ,Key_Enter  ,___              ,___        ,___
+                                      ,Key_J                  ,Key_F            ,Key_U            ,Key_P        ,Key_Quote
+                                      ,Key_Y                  ,SFT_T(N)         ,GUI_T(E)         ,ALT_T(O)     ,CTL_T(I)
+      ,___                            ,Key_K                  ,Key_L            ,Key_Comma        ,Key_Period   ,Key_Slash
+      ,LT(MOUSE, Semicolon)           ,LT(NAVIGATION, Space)  ,LT(MEDIA, Enter) ,___              ,___          ,___
   ),
 
-  [NUMBER] = KEYMAP_STACKED
+  [NSL_WORKMAN] = KEYMAP_STACKED
   (
-       Key_F1         ,Key_F2         ,Key_F3         ,Key_F4       ,Key_F5
-      ,CTL_T(1)       ,ALT_T(2)       ,GUI_T(3)       ,SFT_T(4)     ,Key_5
-      ,Key_Backtick   ,Key_Backslash  ,Key_Slash      ,Key_Equals   ,Key_Minus        ,___
-      ,___            ,___            ,___            ,Key_Esc      ,Key_Backspace    ,Key_F11
+       ___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,XXX      ,___
 
-                      ,Key_F6           ,Key_F7               ,Key_F8       ,Key_F9       ,Key_F10
-                      ,Key_6            ,SFT_T(7)             ,GUI_T(8)     ,ALT_T(9)     ,CTL_T(0)
-      ,___            ,Key_LeftBracket  ,Key_RightBracket     ,Key_Comma    ,Key_Period   ,Key_Quote
-      ,Key_F12        ,Key_Space        ,Key_Enter            ,___          ,___          ,___
+                              ,Key_LeftBracket        ,Key_7                 ,Key_8             ,Key_9          ,Key_RightBracket
+                              ,Key_Equals             ,SFT_T(4)              ,GUI_T(5)          ,ALT_T(6)       ,CTL_T(Semicolon)
+      ,___                    ,Key_Backslash          ,Key_1                 ,Key_2             ,Key_3          ,Key_Backtick
+      ,Key_Minus              ,Key_0                  ,Key_Period            ,___              ,___           ,___
   ),
 
-  [MEDIA] = KEYMAP_STACKED
+  [NSSL_WORKMAN] = KEYMAP_STACKED
   (
-       XXX ,XXX ,XXX ,XXX ,XXX
-      ,XXX ,XXX ,XXX ,XXX ,XXX
-      ,XXX ,XXX ,XXX ,XXX ,XXX ,XXX
-      ,___ ,___ ,___ ,Key_Esc ,MoveToLayer(QWERTY) ,___
+       ___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,XXX
 
-                  ,XXX                          ,Consumer_Play    ,Consumer_Pause ,XXX                    ,XXX
-                  ,Consumer_ScanPreviousTrack   ,Key_VolumeDown   ,Key_VolumeUp   ,Consumer_ScanNextTrack ,Consumer_Mute
-      ,___        ,XXX                          ,XXX              ,XXX            ,XXX                    ,XXX
-      ,___        ,MoveToLayer(WORKMAN)         ,Key_Enter        ,___            ,___                    ,___
+                              ,Key_LeftCurlyBracket   ,Key_And              ,Key_Star         ,Key_LeftParenthesis      ,Key_RightCurlyBracket
+                              ,Key_Plus               ,Key_Dollar           ,Key_Percent      ,Key_Caret                ,Key_Colon
+      ,___                    ,Key_Pipe               ,Key_Exclamation      ,Key_At           ,Key_Hash                 ,Key_Tlide
+      ,Key_Underscore         ,Key_RightParenthesis   ,Key_LeftParenthesis  ,___              ,___           ,___
   ),
 
-  [ARROW] = KEYMAP_STACKED
+  [FUNCTION] = KEYMAP_STACKED
   (
-       Key_Insert           ,Key_Delete       ,XXX          ,Key_PrintScreen,XXX
-      ,Key_LeftControl      ,Key_LeftAlt      ,Key_LeftGui  ,Key_LeftShift  ,XXX
-      ,XXX                  ,XXX              ,XXX          ,XXX            ,XXX              ,XXX
-      ,___                  ,___              ,___          ,Key_Esc        ,Key_Backspace    ,___
+       ___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,XXX      ,___      ,___
 
-                  ,Key_Home       ,Key_PageDown   ,Key_PageUp   ,Key_End            ,XXX
-                  ,Key_LeftArrow  ,Key_DownArrow  ,Key_UpArrow  ,Key_RightArrow     ,XXX
-      ,___        ,XXX            ,XXX            ,XXX          ,XXX                ,XXX
-      ,___        ,Key_Space      ,Key_Enter      ,___          ,___                ,___
+                              ,Key_PrintScreen    ,Key_F7       ,Key_F8       ,Key_F9       ,Key_F12
+                              ,Key_Delete         ,SFT_T(F4)    ,GUI_T(F5)    ,ALT_T(F6)    ,CTL_T(F11)
+      ,___                    ,Key_Pause          ,Key_F1       ,Key_F2       ,Key_F3       ,Key_F10
+      ,Key_PcApplication      ,Key_Space          ,Key_Enter    ,___          ,___          ,___
+  ),
+
+  [NAVIGATION] = KEYMAP_STACKED
+  (
+       Key_End          ,Key_PageUp       ,Key_PageDown     ,Key_Home         ,Key_Insert
+      ,Key_LeftArrow    ,Key_DownArrow    ,Key_UpArrow      ,Key_RightArrow   ,Key_CapsLock
+      ,LockLayer(BASE)  ,XXX              ,XXX              ,XXX              ,LockLayer(WORKMAN) ,___
+      ,___              ,___              ,___              ,Key_Esc          ,Key_Backspace      ,Key_Tab
+
+                ,___      ,___      ,___      ,___      ,___
+                ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,___      ,XXX      ,___      ,___      ,___      ,___
   ),
 
   [MOUSE] = KEYMAP_STACKED
   (
-       XXX      ,XXX              ,Key_mouseUp            ,XXX              ,XXX
-      ,XXX      ,Key_mouseL       ,Key_mouseDn            ,Key_mouseR       ,XXX
-      ,XXX      ,XXX              ,XXX                    ,XXX              ,XXX                  ,XXX
-      ,___      ,___              ,___                    ,Key_mouseScrollL ,Key_mouseScrollUp    ,___
+       Key_mouseScrollL   ,Key_mouseScrollDn    ,Key_mouseScrollUp    ,Key_mouseScrollR   ,XXX
+      ,Key_mouseL         ,Key_mouseDn          ,Key_mouseUp          ,Key_mouseL         ,XXX
+      ,LockLayer(BASE)    ,XXX                  ,XXX                  ,XXX                ,LockLayer(WORKMAN) ,___
+      ,___                ,___                  ,___                  ,Key_mouseBtnM      ,Key_mouseBtnL      ,Key_mouseBtnR
 
-                ,XXX                ,Key_mouseBtnL    ,XXX          ,Key_mouseBtnR      ,XXX
-                ,XXX                ,XXX              ,XXX          ,XXX                ,XXX
-      ,___      ,XXX                ,XXX              ,XXX          ,XXX                ,XXX
-      ,___      ,Key_mouseScrollDn  ,Key_mouseScrollR ,___          ,___                ,___
-   )
+                ,___      ,___      ,___      ,___      ,___
+                ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,XXX      ,___      ,___      ,___      ,___      ,___
+  ),
+
+  [MEDIA] = KEYMAP_STACKED
+  (
+       XXX                          ,XXX              ,XXX            ,XXX                      ,XXX
+      ,Consumer_ScanPreviousTrack   ,Key_VolumeDown   ,Key_VolumeUp   ,Consumer_ScanNextTrack   ,XXX
+      ,LockLayer(BASE)              ,XXX              ,XXX            ,XXX                      ,LockLayer(WORKMAN) ,___
+      ,___                          ,___              ,___            ,Consumer_Mute            ,Consumer_Play      ,Consumer_Pause
+
+                ,___      ,___      ,___      ,___      ,___
+                ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,___      ,___      ,___      ,___
+      ,___      ,___      ,XXX      ,___      ,___      ,___
+  ),
 )
 /* *INDENT-ON* */
 
@@ -162,7 +242,7 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     // reasons. We used to use it in place of `MoveToLayer(QWERTY)`, but no
     // longer do. We keep it so that if someone still has the old layout with
     // the macro in EEPROM, it will keep working after a firmware update.
-    Layer.move(QWERTY);
+    Layer.move(BASE);
     break;
   case MACRO_VERSION_INFO:
     if (keyToggledOn(keyState)) {
