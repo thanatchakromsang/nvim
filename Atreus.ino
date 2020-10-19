@@ -37,7 +37,7 @@
 #define TG(n) LockLayer(n)
 
 enum {
-  MACRO_QWERTY,
+  MACRO_BASE,
   MACRO_VERSION_INFO
 };
 
@@ -61,10 +61,10 @@ enum {
 #define Key_Underscore LSHIFT(Key_Minus)
 
 enum {
+  /* QWERTY, */
+  /* NSL, */
+  /* NSSL, */
   BASE,
-  NSL,
-  NSSL,
-  WORKMAN,
   NSL_WORKMAN,
   NSSL_WORKMAN,
   FUNCTION,
@@ -89,47 +89,47 @@ KEYMAPS(
   /*     ,___      ,___      ,___      ,___      ,___      ,___ */
   /* ), */
 
-  // Remapped some keys for Workman using OS Dependent Layout
+  /* // Remapped some keys for Workman using OS Dependent Layout */
+  /* [QWERTY] = KEYMAP_STACKED */
+  /* ( */
+  /*      Key_Q      ,Key_W      ,Key_E          ,Key_R              ,Key_T */
+  /*     ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(D)       ,SFT_T(F)           ,Key_G */
+  /*     ,Key_Z      ,Key_X      ,Key_C          ,Key_V              ,Key_B                    ,___ */
+  /*     ,___        ,___        ,___            ,LT(FUNCTION, Esc)  ,LT(NSL, Backspace)       ,LT(NSSL, Tab) */
+
+  /*                             ,Key_Y                  ,Key_U                 ,Key_I            ,Key_O         ,Key_Quote */
+  /*                             ,Key_H                  ,SFT_T(J)              ,GUI_T(K)         ,ALT_T(L)      ,CTL_T(Semicolon) */
+  /*     ,___                    ,Key_N                  ,Key_M                 ,Key_Comma        ,Key_Period    ,Key_Slash */
+  /*     ,LT(MOUSE, P) /1* ; *1/   ,LT(NAVIGATION, Space)  ,LT(MEDIA, Enter)      ,___              ,___           ,___ */
+  /* ), */
+
+  /* [NSL] = KEYMAP_STACKED */
+  /* ( */
+  /*      ___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,XXX      ,___ */
+
+  /*                             ,Key_LeftBracket        ,Key_7                 ,Key_8             ,Key_9          ,Key_RightBracket */
+  /*                             ,Key_Equals             ,SFT_T(4)              ,GUI_T(5)          ,ALT_T(6)       ,CTL_T(P) /1* ; *1/ */
+  /*     ,___                    ,Key_Backslash          ,Key_1                 ,Key_2             ,Key_3          ,Key_Backtick */
+  /*     ,Key_Minus              ,Key_0                  ,Key_Period            ,___              ,___           ,___ */
+  /* ), */
+
+  /* [NSSL] = KEYMAP_STACKED */
+  /* ( */
+  /*      ___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___      ,___ */
+  /*     ,___      ,___      ,___      ,___      ,___      ,XXX */
+
+  /*                             ,Key_LeftCurlyBracket   ,Key_And              ,Key_Star         ,Key_LeftParenthesis      ,Key_RightCurlyBracket */
+  /*                             ,Key_Plus               ,Key_Dollar           ,Key_Percent      ,Key_Caret                ,LSHIFT(Key_P) */
+  /*     ,___                    ,Key_Pipe               ,Key_Exclamation      ,Key_At           ,Key_Hash                 ,Key_Tlide */
+  /*     ,Key_Underscore         ,Key_RightParenthesis   ,Key_LeftParenthesis  ,___              ,___           ,___ */
+  /* ), */
+
   [BASE] = KEYMAP_STACKED
-  (
-       Key_Q      ,Key_W      ,Key_E          ,Key_R              ,Key_T
-      ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(D)       ,SFT_T(F)           ,Key_G
-      ,Key_Z      ,Key_X      ,Key_C          ,Key_V              ,Key_B                    ,___
-      ,___        ,___        ,___            ,LT(FUNCTION, Esc)  ,LT(NSL, Backspace)       ,LT(NSSL, Tab)
-
-                              ,Key_Y                  ,Key_U                 ,Key_I            ,Key_O         ,Key_Quote
-                              ,Key_H                  ,SFT_T(J)              ,GUI_T(K)         ,ALT_T(L)      ,CTL_T(Semicolon)
-      ,___                    ,Key_N                  ,Key_M                 ,Key_Comma        ,Key_Period    ,Key_Slash
-      ,LT(MOUSE, P) /* ; */   ,LT(NAVIGATION, Space)  ,LT(MEDIA, Enter)      ,___              ,___           ,___
-  ),
-
-  [NSL] = KEYMAP_STACKED
-  (
-       ___      ,___      ,___      ,___      ,___
-      ,___      ,___      ,___      ,___      ,___
-      ,___      ,___      ,___      ,___      ,___      ,___
-      ,___      ,___      ,___      ,___      ,XXX      ,___
-
-                              ,Key_LeftBracket        ,Key_7                 ,Key_8             ,Key_9          ,Key_RightBracket
-                              ,Key_Equals             ,SFT_T(4)              ,GUI_T(5)          ,ALT_T(6)       ,CTL_T(P) /* ; */
-      ,___                    ,Key_Backslash          ,Key_1                 ,Key_2             ,Key_3          ,Key_Backtick
-      ,Key_Minus              ,Key_0                  ,Key_Period            ,___              ,___           ,___
-  ),
-
-  [NSSL] = KEYMAP_STACKED
-  (
-       ___      ,___      ,___      ,___      ,___
-      ,___      ,___      ,___      ,___      ,___
-      ,___      ,___      ,___      ,___      ,___      ,___
-      ,___      ,___      ,___      ,___      ,___      ,XXX
-
-                              ,Key_LeftCurlyBracket   ,Key_And              ,Key_Star         ,Key_LeftParenthesis      ,Key_RightCurlyBracket
-                              ,Key_Plus               ,Key_Dollar           ,Key_Percent      ,Key_Caret                ,LSHIFT(Key_P)
-      ,___                    ,Key_Pipe               ,Key_Exclamation      ,Key_At           ,Key_Hash                 ,Key_Tlide
-      ,Key_Underscore         ,Key_RightParenthesis   ,Key_LeftParenthesis  ,___              ,___           ,___
-  ),
-
-  [WORKMAN] = KEYMAP_STACKED
   (
        Key_Q      ,Key_D      ,Key_R      ,Key_W            ,Key_B
       ,CTL_T(A)   ,ALT_T(S)   ,GUI_T(H)   ,SFT_T(T)         ,Key_G
@@ -185,7 +185,8 @@ KEYMAPS(
   (
        Key_End          ,Key_PageUp           ,Key_PageDown     ,Key_Home         ,Key_Insert
       ,Key_LeftArrow    ,Key_DownArrow        ,Key_UpArrow      ,Key_RightArrow   ,Key_CapsLock
-      ,LockLayer(BASE)  ,LockLayer(WORKMAN)   ,XXX              ,XXX              ,XXX                ,___
+      ,XXX              ,XXX                  ,XXX              ,XXX              ,XXX                ,___
+      /* ,LockLayer(BASE)  ,LockLayer(WORKMAN)   ,XXX              ,XXX              ,XXX                ,___ */
       ,___              ,___                  ,___              ,Key_Esc          ,Key_Backspace      ,Key_Tab
 
                 ,___      ,___      ,___      ,___      ,___
@@ -198,7 +199,8 @@ KEYMAPS(
   (
        Key_mouseScrollL   ,Key_mouseScrollDn    ,Key_mouseScrollUp    ,Key_mouseScrollR   ,XXX
       ,Key_mouseL         ,Key_mouseDn          ,Key_mouseUp          ,Key_mouseL         ,XXX
-      ,LockLayer(BASE)    ,LockLayer(WORKMAN)   ,XXX                  ,XXX                ,XXX                ,___
+      ,XXX                ,XXX                  ,XXX                  ,XXX                ,XXX                ,___
+      /* ,LockLayer(BASE)    ,LockLayer(WORKMAN)   ,XXX                  ,XXX                ,XXX                ,___ */
       ,___                ,___                  ,___                  ,Key_mouseBtnM      ,Key_mouseBtnL      ,Key_mouseBtnR
 
                 ,___      ,___      ,___      ,___      ,___
@@ -211,7 +213,8 @@ KEYMAPS(
   (
        XXX                          ,XXX                  ,XXX            ,XXX                      ,XXX
       ,Consumer_ScanPreviousTrack   ,Key_VolumeDown       ,Key_VolumeUp   ,Consumer_ScanNextTrack   ,XXX
-      ,LockLayer(BASE)              ,LockLayer(WORKMAN)   ,XXX            ,XXX                      ,XXX                ,___
+      ,XXX                          ,XXX                  ,XXX            ,XXX                      ,XXX                ,___
+      /* ,LockLayer(BASE)              ,LockLayer(WORKMAN)   ,XXX            ,XXX                      ,XXX                ,___ */
       ,___                          ,___                  ,___            ,Consumer_Mute            ,Consumer_Play      ,Consumer_Pause
 
                 ,___      ,___      ,___      ,___      ,___
@@ -237,7 +240,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   switch (macroIndex) {
-  case MACRO_QWERTY:
+  case MACRO_BASE:
     // This macro is currently unused, but is kept around for compatibility
     // reasons. We used to use it in place of `MoveToLayer(QWERTY)`, but no
     // longer do. We keep it so that if someone still has the old layout with
@@ -267,8 +270,9 @@ void setup() {
   MouseKeys.speed = 40;
   MouseKeys.accelDelay = 200;
   MouseKeys.wheelSpeed = 4;
-  SpaceCadet.disable();
   EEPROMKeymap.setup(10);
+
+  SpaceCadet.disable();
 }
 
 void loop() {
