@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+# Custom Shortcut for chrome and kitty to behave more like Linux
 defaults write -g NSUserKeyEquivalents '{
     Copy = "^c";
     Cut = "^x";
@@ -35,3 +37,7 @@ defaults write -g NSUserKeyEquivalents '{
     "Hide Google Chrome" = "@~^$l";
     "Hide kitty" = "@~^$l";
 }'
+
+# # Export current macOS shortcut to symbolichotkeys
+# defaults export com.apple.symbolichotkeys $HOME/.dotfiles/scripts/symbolichotkeys.plist
+defaults import com.apple.symbolichotkeys $HOME/.dotfiles/scripts/symbolichotkeys.plist

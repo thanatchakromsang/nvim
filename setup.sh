@@ -25,6 +25,8 @@ DOTFILES=$HOME/.dotfiles
 case "$OS" in
   *Darwin*)
     source $DOTFILES/scripts/brew.sh
+    source $DOTFILES/scripts/macos-setting.sh
+    echo "Restart macOS after installation"
     ;;
   *arch*)
     source $DOTFILES/scripts/pacman.sh
