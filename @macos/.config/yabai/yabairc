@@ -39,7 +39,8 @@ yabai -m rule --add app='Contexts' manage=off layer=above
 
 yabai -m rule --add app='Code' space=1
 yabai -m rule --add app='IntelliJ$' space=1
-yabai -m rule --add app='Google Chrome' space=2
+yabai -m rule --add app='kitty' space=2
+yabai -m rule --add app='Google Chrome' space=4
 # yabai -m rule --add app='Alacritty' space=4
 yabai -m rule --add app='Notion' space=5
 yabai -m rule --add app='LINE' space=6
