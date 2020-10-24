@@ -31,6 +31,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('justinmk/vim-sneak')
   call dein#add('sgur/vim-editorconfig')
   call dein#add('sheerun/vim-polyglot')
+  call dein#add('mhinz/vim-startify')
 " }}}
 
 " COC {{{
@@ -604,6 +605,13 @@ endif
 
 " Programing language settings  ---------------------------------------------{{{
 
+	" Markdown settings  ------------------------------------------------------{{{
+
+		let g:vim_markdown_conceal = 0
+		let g:vim_markdown_conceal_code_blocks = 0
+
+	"}}}
+
 "}}}
 
 " COC -----------------------------------------------------------------------{{{
@@ -718,6 +726,15 @@ endif
 	call coc#add_command('fzf:RG', ':RG',
 			\ ':RG Advanced Ripgrep through keywords')
 
+	call coc#add_command('startify:SSave', ':SSave',
+			\ ':SSave Save a session')
+	call coc#add_command('startify:SLoad', ':SLoad',
+			\ ':SLoad Load a session')
+	call coc#add_command('startify:SDelete', ':SDelete',
+			\ ':SLoad Delete a session')
+	call coc#add_command('startify:SClose', ':SClose',
+			\ ':SClose Close a session')
+
 
 	" Coc Explorer ------------------------------------------------------------ {{{
 		nmap <space>e :CocCommand explorer<CR>
@@ -782,7 +799,7 @@ endif
 
 " }}}
 
-"" Tmux  ---------------------------------------------------------------------{{{
+" Tmux  ---------------------------------------------------------------------{{{
 
 "  let g:tmux_navigator_no_mappings = 1
 "  " let g:tmux_navigator_save_on_switch = 2
@@ -868,5 +885,24 @@ endif
   let g:gitgutter_map_keys = 0
   let g:gitgutter_highlight_lines = 0
 
+"}}}
+
+" Startify -------------------------------------------------------------------{{{
+
+	let g:startify_session_dir = '~/.config/nvim/session'
+	let g:startify_lists = [
+						\ { 'type': 'files',     'header': ['   Files']            },
+						\ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+						\ { 'type': 'sessions',  'header': ['   Sessions']       },
+						\ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+						\ ]
+	let g:startify_session_autoload = 1
+	let g:startify_session_persistence = 1
+	let g:startify_bookmarks = [
+							\ { 'c': '~/.config/i3/config' },
+							\ { 'i': '~/.config/nvim/init.vim' },
+							\ { 'z': '~/.zshrc' },
+							\ '~/Developer',
+							\ ]
 "}}}
 
