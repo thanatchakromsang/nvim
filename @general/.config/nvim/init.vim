@@ -17,10 +17,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('Shougo/dein.vim')
 " }}}
 
-" File Manager {{{
-  call dein#add('scrooloose/nerdtree')
-" }}}
-
 " Sensible {{{
   call dein#add('wellle/targets.vim')
   call dein#add('tpope/vim-surround')
@@ -32,6 +28,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('sgur/vim-editorconfig')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('mhinz/vim-startify')
+  call dein#add('unblevable/quick-scope')
 " }}}
 
 " COC {{{
@@ -60,7 +57,6 @@ if dein#load_state(('~/.config/nvim'))
 " }}}
 
 " Fast Motion {{{
-  call dein#add('easymotion/vim-easymotion')
   call dein#add('haya14busa/incsearch.vim')
 " }}}
 
@@ -92,7 +88,7 @@ if dein#load_state(('~/.config/nvim'))
 
 " Misc plugin {{{
   call dein#add('Konfekt/FastFold')
-  call dein#add('chakrit/vim-thai-keys')
+  " call dein#add('chakrit/vim-thai-keys')
   call dein#add('Shougo/context_filetype.vim')
   call dein#add('mhinz/vim-sayonara')
 " }}}
@@ -522,9 +518,6 @@ endif
 
   colorscheme gruvbox
   set background=dark
-    " " Override autocomplete colorscheme
-    " hi Pmenu ctermfg=15 ctermbg=61 cterm=NONE
-    " hi PmenuSel ctermfg=16 ctermbg=84 cterm=bold
 
     " wallpaper background color
     hi Normal ctermbg=NONE ctermfg=NONE
@@ -532,15 +525,20 @@ endif
     " hi CursorLine ctermbg=236
     " hi StatusLine ctermbg=235
 
-  " " Custom ALE
+  " Custom ALE
     hi ALEErrorSign ctermbg=237
     hi ALEWarningSign ctermbg=237
-  " " Search
-  "   hi Search ctermfg=15 ctermbg=61 cterm=NONE
-  "
 
-  " " Sneak
-  "   hi link Sneak Search
+   " Search
+    hi Search cterm=bold,inverse
+
+
+   " Sneak
+    hi link Sneak Search
+
+	 " QuickScope
+		hi QuickScopePrimary cterm=bold,underline
+		hi QuickScopeSecondary cterm=bold,underline
 
 "}}}
 
@@ -874,20 +872,20 @@ endif
 
 " }}}
 
-" Magit ----------------------------------------------------------------------{{{
+" Magit ---------------------------------------------------------------------{{{
 
   let g:magit_discard_untracked_do_delete=1
 
 "}}}
 
-" GitGutter ------------------------------------------------------------------{{{
+" GitGutter -----------------------------------------------------------------{{{
 
   let g:gitgutter_map_keys = 0
   let g:gitgutter_highlight_lines = 0
 
 "}}}
 
-" Startify -------------------------------------------------------------------{{{
+" Startify ------------------------------------------------------------------{{{
 
 	let g:startify_session_dir = '~/.config/nvim/session'
 	let g:startify_lists = [
@@ -906,3 +904,11 @@ endif
 							\ ]
 "}}}
 
+" Quick Scope ---------------------------------------------------------------{{{
+
+	" " Trigger a highlight in the appropriate direction when pressing these keys:
+	" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T', 's', 'S']
+
+	let g:qs_max_chars=150
+
+"}}}
