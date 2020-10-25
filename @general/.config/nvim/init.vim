@@ -911,4 +911,6 @@ endif
 
 	let g:qs_max_chars=150
 
+	let g:qs_buftype_blacklist = ['terminal', 'nofile']
+
 "}}}
