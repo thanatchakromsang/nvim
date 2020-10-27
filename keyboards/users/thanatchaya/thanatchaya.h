@@ -42,42 +42,54 @@ enum user_layers {
   /* ---------------------------------------------------------------------
    *
    *   Qwerty Layout (Switched Quote and Slash)
+   *
+   *             TG(NAVIGATION_LAYER)              TG(MOUSE_LAYER)
+   *                    ↑                                 ↑
+   *                    |                                 |
+   *                    |                                 |
+   *                    |                                 |
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
    *     │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │ A/^ │ S/⌥ │ D/⌘ │ F/⇧ │  G  │   │  H  │ J/⇧ │ K/⌘ │ L/⌥ │ ;/^ │
+   *     │ A/⇧ │ S/^ │ D/⌥ │ F/⌘ │  G  │   │  H  │ J/⌘ │ K/⌥ │ L/^ │ ;/⇧ │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  '  │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    */
 
-#define _________________QWERTY_L1_________________ KC_Q,             KC_W,            KC_E,            KC_R,             KC_T
-#define _________________QWERTY_L2_________________ LSFT_T(KC_A),     LCTL_T(KC_S),    LALT_T(KC_D),    LGUI_T(KC_F),     KC_G
-#define _________________QWERTY_L3_________________ KC_Z,             KC_X,            KC_C,            KC_V,             KC_B
+#define _________________QWERTY_L1_________________ KC_Q,             KC_W,            LT(NAVIGATION_LAYER, KC_E),      KC_R,             KC_T
+#define _________________QWERTY_L2_________________ LSFT_T(KC_A),     LCTL_T(KC_S),    LALT_T(KC_D),                    LGUI_T(KC_F),     KC_G
+#define _________________QWERTY_L3_________________ KC_Z,             KC_X,            KC_C,                            KC_V,             KC_B
 
-#define _________________QWERTY_R1_________________ KC_Y,    KC_U,            KC_I,             KC_O,             KC_P
-#define _________________QWERTY_R2_________________ KC_H,    LGUI_T(KC_J),    LALT_T(KC_K),     LCTL_T(KC_L),     LSFT_T(KC_SCLN)
-#define _________________QWERTY_R3_________________ KC_N,    KC_M,            KC_COMM,          KC_DOT,           KC_QUOT
+#define _________________QWERTY_R1_________________ KC_Y,    KC_U,            LT(MOUSE_LAYER, KC_I),      KC_O,             KC_P
+#define _________________QWERTY_R2_________________ KC_H,    LGUI_T(KC_J),    LALT_T(KC_K),               LCTL_T(KC_L),     LSFT_T(KC_SCLN)
+#define _________________QWERTY_R3_________________ KC_N,    KC_M,            KC_COMM,                    KC_DOT,           KC_QUOT
 
   /* ---------------------------------------------------------------------
    *
    *   Workman Layout (Switched Quote and Slash)
+   *
+   *             TG(NAVIGATION_LAYER)              TG(MOUSE_LAYER)
+   *                    ↑                                 ↑
+   *                    |                                 |
+   *                    |                                 |
+   *                    |                                 |
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
    *     │  Q  │  D  │  R  │  W  │  B  │   │  J  │  F  │  U  │  P  │  ;  │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │ A/^ │ S/⌥ │ H/⌘ │ T/⇧ │  G  │   │  Y  │ N/⇧ │ E/⌘ │ O/⌥ │ I/^ │
+   *     │ A/⇧ │ S/^ │ H/⌥ │ T/⌘ │  G  │   │  Y  │ N/⌘ │ E/⌥ │ O/^ │ I/⇧ │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │  Z  │  X  │  M  │  C  │  V  │   │  K  │  L  │  ,  │  .  │  '  │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    */
 
-#define _________________WORKMAN_L1________________ KC_Q,             KC_D,            KC_R,            KC_W,             KC_B
-#define _________________WORKMAN_L2________________ LSFT_T(KC_A),     LCTL_T(KC_S),    LALT_T(KC_H),    LGUI_T(KC_T),     KC_G
-#define _________________WORKMAN_L3________________ KC_Z,             KC_X,            KC_M,            KC_C,             KC_V
+#define _________________WORKMAN_L1________________ KC_Q,             KC_D,            LT(NAVIGATION_LAYER, KC_R),      KC_W,             KC_B
+#define _________________WORKMAN_L2________________ LSFT_T(KC_A),     LCTL_T(KC_S),    LALT_T(KC_H),                    LGUI_T(KC_T),     KC_G
+#define _________________WORKMAN_L3________________ KC_Z,             KC_X,            KC_M,                            KC_C,             KC_V
 
-#define _________________WORKMAN_R1________________ KC_J,    KC_F,            KC_U,             KC_P,             KC_SCLN
-#define _________________WORKMAN_R2________________ KC_Y,    LGUI_T(KC_N),    LALT_T(KC_E),     LCTL_T(KC_O),     LSFT_T(KC_I)
-#define _________________WORKMAN_R3________________ KC_K,    KC_L,            KC_COMM,          KC_DOT,           KC_QUOT
+#define _________________WORKMAN_R1________________ KC_J,    KC_F,            LT(MOUSE_LAYER, KC_U),   KC_P,             KC_SCLN
+#define _________________WORKMAN_R2________________ KC_Y,    LGUI_T(KC_N),    LALT_T(KC_E),            LCTL_T(KC_O),     LSFT_T(KC_I)
+#define _________________WORKMAN_R3________________ KC_K,    KC_L,            KC_COMM,                 KC_DOT,           KC_QUOT
 
   /* ---------------------------------------------------------------------
    *
@@ -90,14 +102,14 @@ enum user_layers {
    *              TG(MEDIA_LAYER)   | TG(SYMBOL_LAYER)    |
    *                          |     |               |     |
    *                          V     |               V     |
-   *                  TG(NAVIGATION_LAYER)    TG(NUMBER_LAYER)
+   *                  TG(NUMBER_LAYER)        TG(NUMBER_LAYER)
    *                                |                     |
    *                                V                     V
-   *                            TG(MOUSE_LAYER)   TG(FUNCTION_LAYER)
+   *                        TG(FUNCTION_LAYER)     TG(FUNCTION_LAYER)
    */
 
 #define _MODL1_ LT(MEDIA_LAYER, KC_ESC)
-#define ______MODL2_____ LT(NAVIGATION_LAYER, KC_BSPC), LT(MOUSE_LAYER, KC_TAB)
+#define ______MODL2_____ LT(NUMBER_LAYER, KC_BSPC), LT(FUNCTION_LAYER, KC_TAB)
 #define _______MODIFIER_L________ _MODL1_, ______MODL2_____
 
 #define ______MODR2_____ LT(SYMBOL_LAYER, KC_SLSH), LT(NUMBER_LAYER, KC_SPC)
@@ -110,7 +122,7 @@ enum user_layers {
    *      ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
    *      │  `  │  \  │  {  │  }  │  -  │  │  =  │  [  │  ]  │  (  │  )  │
    *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
-   *      │ 1/^=│ 2/⌥ │ 3/⌘ │ 4/⇧ │  5  │  │  6  │  7  │  8  │  9  │  0  │
+   *      │ 1/⇧ │ 2/^ │ 3/⌥ │ 4/⌘ │  5  │  │  6  │ 7/⌘ │ 8/⌥ │ 9/^ │ 0/⇧ │
    *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
    *      │     │     │     │     │     │  │     │     │     │     │     │
    *      └─────┴─────┴─────┴─────┴─────┘  └─────┴─────┴─────┴─────┴─────┘
@@ -169,14 +181,15 @@ enum user_layers {
 
   /* ---------------------------------------------------------------------
    *
-   *   Function Layer
+   *   Function / Window Layer
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-   *     │ F12 │ F7  │ F8  │ F9  │PrScn│   │     │     │     │     │     │
+   *     │ F12 │ F7  │ F8  │ F9  │PrScn│   │⌘([) │⌘(7) │⌘(8) │⌘(9) │⌘(]) │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │ F11 │ F4  │ F5  │ F6  │ Del │   │     │     │     │     │     │
+   *     │ F11 │ F4  │ F5  │ F6  │ Del │   │⌘(←) │⌘(4) │⌘(5) │⌘(6) │⌘(→) │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │ F10 │ F1  │ F2  │ F3  │Pause│   │     │     │     │     │     │
+   *     │ F10 │ F1  │ F2  │ F3  │Pause│   │ XXX │⌘(1) │⌘(2) │⌘(3) │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
+   *
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
    *                │ Esc ││BSpc │ App │   │     │     ││     │
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
@@ -190,9 +203,9 @@ enum user_layers {
 #define ______FUNL2_____ KC_BSPC, KC_APP
 #define _______FUNCTION_L4_______ _FUNL1_, ______FUNL2_____
 
-#define _________________FUNCTION_R1_______________ _________________TRANSPARENT_______________
-#define _________________FUNCTION_R2_______________ _________________TRANSPARENT_______________
-#define _________________FUNCTION_R3_______________ _________________TRANSPARENT_______________
+#define _________________FUNCTION_R1_______________ LCMD(KC_LBRC),    LCMD(KC_7),     LCMD(KC_8),       LCMD(KC_9),       LCMD(KC_RBRC)
+#define _________________FUNCTION_R2_______________ LCMD(KC_LEFT),    LCMD(KC_4),     LCMD(KC_5),       LCMD(KC_6),       LCMD(KC_RGHT)
+#define _________________FUNCTION_R3_______________ XXXXXXX,          LCMD(KC_1),     LCMD(KC_2),       LCMD(KC_3),       XXXXXXX
 
 #define ______FUNR2_____ _______, _______
 #define _FUNR1_ _______
@@ -232,14 +245,14 @@ enum user_layers {
    *
    *   Navigation Layer
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-   *     │     │     │     │     │     │   │Home │PgDn │PgUp │ End │ Ins │
+   *     │     │     │ XXX │     │     │   │Home │PgDn │PgUp │ End │ Ins │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │     │     │     │     │     │   │  ←  │  ↓  │  ↑  │  →  │BSpc │
+   *     │  ⇧  │  ^  │  ⌥  │  ⌘  │     │   │  ←  │  ↓  │  ↑  │  →  │ XXX │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │     │     │     │     │     │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │     ││     │     │   │  /  │ Spc ││Enter│
+   *                │ ESC ││BSpc │ Tab │   │  /  │ Spc ││Enter│
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
@@ -247,12 +260,12 @@ enum user_layers {
 #define _________________NAVIGATION_L2_____________ _________________TRANSPARENT_______________
 #define _________________NAVIGATION_L3_____________ _________________TRANSPARENT_______________
 
-#define _NAVL1_ _______
-#define ______NAVL2_____ _______, _______
+#define _NAVL1_ KC_ESC
+#define ______NAVL2_____ KC_BSPC, KC_TAB
 #define _______NAVIGATION_L4_____ _NAVL1_, ______NAVL2_____
 
 #define _________________NAVIGATION_R1_____________ KC_HOME,    KC_PGDN,   KC_PGUP,     KC_END,     KC_INS
-#define _________________NAVIGATION_R2_____________ KC_LEFT,    KC_DOWN,   KC_UP,       KC_RGHT,    KC_BSPC
+#define _________________NAVIGATION_R2_____________ KC_LEFT,    KC_DOWN,   KC_UP,       KC_RGHT,    XXXXXXX
 #define _________________NAVIGATION_R3_____________ _________________DISABLED__________________
 
 #define ______NAVR2_____ KC_SLSH, KC_SPC
@@ -263,31 +276,31 @@ enum user_layers {
    *
    *   Mouse Layer
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-   *     │ XXX │ XXX │ XXX │ XXX │ XXX │   │ XXX │ WH← │ M ↑ │ WH→ │ XXX │
+   *     │ XXX │ WH← │ M ↑ │ WH→ │ XXX │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │ XXX │M-BTN│R-BTN│L-BTN│ XXX │   │ XXX │ M ← │ M ↓ │ M → │ XXX │
+   *     │ XXX │ M ← │ M ↓ │ M → │ XXX │   │ XXX │L-BTN│ XXX │R-BTN│M-BTN│
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │ XXX │ XXX │ XXX │ XXX │ XXX │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │     ││     │     │   │ WH↑ │ WH↓ ││     │
+   *                │     ││ WH↑ │     │   │     │ WH↓ ││     │
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
-#define _________________MOUSE_L1__________________ _________________LANGUAGE_SWITCHER_________
-#define _________________MOUSE_L2__________________ XXXXXXX,    KC_BTN3,   KC_BTN2,     KC_BTN1,    XXXXXXX
+#define _________________MOUSE_L1__________________ XXXXXXX,    KC_WH_L,   KC_MS_U,     KC_WH_R,    XXXXXXX
+#define _________________MOUSE_L2__________________ XXXXXXX,    KC_MS_L,   KC_MS_D,     KC_MS_R,    XXXXXXX
 #define _________________MOUSE_L3__________________ _________________DISABLED__________________
 
 #define _MOUL1_ _______
-#define ______MOUL2_____ _______, _______
+#define ______MOUL2_____ KC_WH_U, _______
 #define _______MOUSE_L4__________ _MOUL1_, ______MOUL2_____
 
-#define _________________MOUSE_R1__________________ XXXXXXX,    KC_WH_L,   KC_MS_U,     KC_WH_R,    XXXXXXX
-#define _________________MOUSE_R2__________________ XXXXXXX,    KC_MS_L,   KC_MS_D,     KC_MS_R,    XXXXXXX
+#define _________________MOUSE_R1__________________ _________________LANGUAGE_SWITCHER_________
+#define _________________MOUSE_R2__________________ XXXXXXX,    KC_BTN1,   XXXXXXX,     KC_BTN2,    KC_BTN3
 #define _________________MOUSE_R3__________________ _________________DISABLED__________________
 
 #define _MOUR1_ _______
-#define ______MOUR2_____ KC_WH_U, KC_WH_D
+#define ______MOUR2_____ _______, KC_WH_D
 #define _______MOUSE_R4__________ ______MOUR2_____, _MOUR1_
 
   /* ---------------------------------------------------------------------
@@ -305,7 +318,7 @@ enum user_layers {
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
-#define _________________MEDIA_L1__________________ _________________LANGUAGE_SWITCHER_________
+#define _________________MEDIA_L1__________________ _________________TRANSPARENT_______________
 #define _________________MEDIA_L2__________________ _________________TRANSPARENT_______________
 #define _________________MEDIA_L3__________________ _________________TRANSPARENT_______________
 
