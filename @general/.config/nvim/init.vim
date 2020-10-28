@@ -28,7 +28,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('sgur/vim-editorconfig')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('mhinz/vim-startify')
-  call dein#add('unblevable/quick-scope')
 " }}}
 
 " COC {{{
@@ -51,13 +50,15 @@ if dein#load_state(('~/.config/nvim'))
 				\		'coc-pairs',
 				\		'coc-rust-analyzer',
 				\		'coc-vimlsp',
-				\		'coc-explorer',
 				\		'coc-prettier'
 				\	]
+  call dein#add('voldikss/vim-floaterm')
+  call dein#add('liuchengxu/vim-which-key')
 " }}}
 
 " Fast Motion {{{
   call dein#add('haya14busa/incsearch.vim')
+  call dein#add('unblevable/quick-scope')
 " }}}
 
 " Colorscheme {{{
@@ -102,6 +103,9 @@ if dein#load_state(('~/.config/nvim'))
   call dein#save_state()
 endif
 
+" Dein update
+  nnoremap <silent> <leader>u :call dein#update()<CR>
+
 " }}}
 
 " System settings  ----------------------------------------------------------{{{
@@ -145,7 +149,7 @@ endif
 " default config
   set tabstop=2 shiftwidth=2 expandtab softtabstop=2
 
-  set scrolloff=999
+  set scrolloff=10
 
 " set case-insensitive search
   set ignorecase
@@ -215,7 +219,9 @@ endif
   set undofile
 
 " leader key
-  let mapleader = ','
+  nnoremap <SPACE> <Nop>
+  let mapleader = " "
+  let maplocalleader = ","
 
 " remember cursor position between vim sessions
   autocmd BufReadPost *
@@ -305,11 +311,14 @@ endif
   vnoremap // y/<C-R>"<CR>
 
 " split
-  noremap <leader>b :<C-u>split<CR>
-  noremap <leader>v :<C-u>vsplit<CR>
+  noremap <localleader>b :<C-u>split<CR>
+  noremap <localleader>v :<C-u>vsplit<CR>
 
 " Set working directory
-  nnoremap <leader>. :lcd %:p:h<CR>
+  nnoremap <localleader>. :lcd %:p:h<CR>
+
+" copy current files path to clipboard
+  nnoremap <localleader>cp :let @+= expand("%") <cr>
 
 " Navigate between display lines
   nnoremap <silent><expr> k      v:count == 0 ? 'gk' : 'k'
@@ -319,12 +328,8 @@ endif
 " PageUp PageDown to move up/down 5 lines
 	map <silent> <PageUp> 5<C-U>
 	map <silent> <PageDown> 5<C-D>
-" copy current files path to clipboard
-  nmap cp :let @+= expand("%") <cr>
 
 " Neovim terminal mapping
-" terminal 'normal mode'
-  nnoremap <silent> <leader>sh :Deol<CR>
   tmap <esc> <c-\><c-n><esc><cr>
 
 " Move around 'normal mode'
@@ -361,12 +366,11 @@ endif
   xnoremap p pgvy
 
 " Navigate buffer
-  noremap <leader>z :bp<CR>
   noremap <S-Tab> :bp<CR>
-  noremap <leader>x :bn<CR>
   noremap <Tab> :bn<CR>
+
 "" Close buffer
-  noremap <leader>c :bd!<CR>
+  noremap <localleader>d :bd!<CR>
 
 " Incsearch
   let g:incsearch#auto_nohlsearch = 1
@@ -374,8 +378,8 @@ endif
   map N  <Plug>(incsearch-nohl-N)
   map *  <Plug>(incsearch-nohl-*)
   map #  <Plug>(incsearch-nohl-#)
-  map g* <Plug>(incsearch-nohl-g*)
-  map g# <Plug>(incsearch-nohl-g#)
+  " map g* <Plug>(incsearch-nohl-g*)
+  " map g# <Plug>(incsearch-nohl-g#)
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   " map s/ <Plug>(incsearch-stay)
@@ -399,9 +403,6 @@ endif
   map F <Plug>Sneak_F
   map t <Plug>Sneak_t
   map T <Plug>Sneak_T
-
-" Dein update
-  nnoremap <silent> <leader>u :call dein#update()<CR>
 
 "}}}"
 
@@ -556,10 +557,6 @@ endif
 	" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 	let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-	nnoremap <space>g :Rg<CR>
-	nnoremap <space>G :RG<CR>
-	nnoremap <space>f :Files<CR>
-
 	let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 	let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow -g '!{node_modules,.git}'"
 
@@ -614,9 +611,6 @@ endif
 
 " COC -----------------------------------------------------------------------{{{
 
-  nnoremap <silent> <F1> :CocFzfList commands<CR>
-  nnoremap <space>c :CocFzfList commands<CR>
-
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -652,20 +646,6 @@ endif
 		inoremap <silent><expr> <c-@> coc#refresh()
 	endif
 
-	" Use `g[` and `g]` to navigate diagnostics
-	" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-	nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-	nmap <silent> g] <Plug>(coc-diagnostic-next)
-
-	" GoTo code navigation.
-	nmap <silent> gd <Plug>(coc-definition)
-	nmap <silent> gy <Plug>(coc-type-definition)
-	nmap <silent> gi <Plug>(coc-implementation)
-	nmap <silent> gr <Plug>(coc-references)
-
-	" Use K to show documentation in preview window.
-	nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 	function! s:show_documentation()
 		if (index(['vim','help'], &filetype) >= 0)
 			execute 'h '.expand('<cword>')
@@ -684,9 +664,6 @@ endif
 		" Update signature help on jump placeholder.
 		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 	augroup end
-
-" Rename
-	nmap <leader>rn <Plug>(coc-rename)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 	xmap if <Plug>(coc-funcobj-i)
@@ -732,27 +709,6 @@ endif
 			\ ':SLoad Delete a session')
 	call coc#add_command('startify:SClose', ':SClose',
 			\ ':SClose Close a session')
-
-
-	" Coc Explorer ------------------------------------------------------------ {{{
-		nmap <space>e :CocCommand explorer<CR>
-		nmap <space>ef :CocCommand explorer --preset floating<CR>
-		autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-
-		let g:coc_explorer_global_presets = {
-		\   'tab': {
-		\     'position': 'tab',
-		\     'quit-on-open': v:true,
-		\   },
-		\   'floating': {
-		\     'position': 'floating',
-		\     'open-action-strategy': 'sourceWindow',
-		\     'quit-on-open': v:true,
-		\   }
-		\ }
-
-	"}}}
-
 
 "}}}
 
@@ -914,3 +870,123 @@ endif
 	let g:qs_buftype_blacklist = ['terminal', 'nofile']
 
 "}}}
+
+" Floaterm ------------------------------------------------------------------{{{
+
+  " Configuration example
+  let g:floaterm_keymap_new    = '<F7>'
+  let g:floaterm_keymap_prev   = '<F8>'
+  let g:floaterm_keymap_next   = '<F9>'
+  let g:floaterm_keymap_toggle = '<F12>'
+
+  " Floaterm
+  let g:floaterm_autoinsert=1
+  let g:floaterm_width=0.7
+  let g:floaterm_height=0.7
+  let g:floaterm_wintitle=0
+  let g:floaterm_autoclose=1
+
+  nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+  vnoremap <silent> <leader>      :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+  nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+
+  " Create map to add keys to
+  let g:which_key_map =  {}
+  " Define a separator
+  let g:which_key_sep = '→'
+  " By default timeoutlen is 1000 ms
+  set timeoutlen=100
+
+  " Not a fan of floating windows for this
+  let g:which_key_use_floating_win = 0
+
+  " Change the colors if you want
+  highlight default link WhichKey          Operator
+  highlight default link WhichKeySeperator DiffAdded
+  highlight default link WhichKeyGroup     Identifier
+  highlight default link WhichKeyDesc      Function
+
+  " Hide status line
+  autocmd! FileType which_key
+  autocmd  FileType which_key set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
+  let g:which_key_map['u'] = 'dein update'
+  let g:which_key_map['r'] = [ ':call Rg_input()',  'text rg' ]
+
+  function Rg_input()
+      call inputsave()
+      let name = input("rg filter: ")
+      exec ":Rg ".name
+      call inputrestore()
+  endfunction
+
+" s is for search
+  let g:which_key_map['s'] = {
+      \ 'name' : '+search' ,
+      \ '/' : [':History/'     , 'history'],
+      \ ';' : [':Commands'     , 'commands'],
+      \ 'b' : [':BLines'       , 'current buffer'],
+      \ 'B' : [':Buffers'      , 'open buffers'],
+      \ 'c' : [':Commits'      , 'commits'],
+      \ 'C' : [':BCommits'     , 'current file commits'],
+      \ 'f' : [':Files'        , 'files'],
+      \ 'g' : [':GFiles'       , 'git files'],
+      \ 'h' : [':History'      , 'file history'],
+      \ 'H' : [':History:'     , 'command history'],
+      \ 'l' : [':Lines'        , 'lines'] ,
+      \ 'm' : [':Marks'        , 'marks'] ,
+      \ 'M' : [':Maps'         , 'normal maps'] ,
+      \ 't' : [':call Rg_input()', 'text Rg'],
+      \ 'w' : [':Windows'      , 'search windows'],
+      \ }
+
+  let g:which_key_map.t = {
+      \ 'name' : '+terminal' ,
+      \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
+      \ 't' : [':FloatermToggle'                                , 'toggle'],
+      \ 'n' : [':FloatermNew'                                   , 'new'],
+      \ 'h' : [':FloatermNew htop'                              , 'htop'],
+      \ }
+
+ let g:which_key_map.l = {
+      \ 'name' : '+lsp',
+      \ 'd' : [':CocFzfList diagnostics'              , 'diagnostic list']  ,
+      \ 'f' : [':Format'                              , 'formatting']       ,
+      \ 'r' : ['<Plug>(coc-references)'               , 'references']       ,
+      \ 'R' : ['<Plug>(coc-rename)'                   , 'rename'    ]       ,
+      \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
+      \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'] ,
+      \ 'g' : {
+        \ 'name': '+goto',
+        \ 'd' : ['<Plug>(coc-definition)'      , 'definition']      ,
+        \ 't' : ['<Plug>(coc-type-definition)' , 'type-definition'] ,
+        \ 'i' : ['<Plug>(coc-implementation)'  , 'implementation']  ,
+        \ 'n' : ['<Plug>(coc-diagnostic-next)' , 'next diagnostic']  ,
+        \ 'p' : ['<Plug>(coc-diagnostic-prev)' , 'prev diagnostic']  ,
+        \ },
+      \ }
+
+ let g:which_key_map.g = {
+      \ 'name' : '+git',
+      \ 't' : [':FloatermNew tig'        , 'git']    ,
+      \ 'c' : [':Commits'                , 'commits'],
+      \ 'C' : [':BCommits'               , 'current file commits'],
+      \ }
+
+let g:which_key_map.b = {
+      \ 'name' : '+buffer' ,
+      \ 'd' : ['bd'        , 'delete-buffer']   ,
+      \ 'f' : ['bfirst'    , 'first-buffer']    ,
+      \ 'h' : ['Startify'  , 'home-buffer']     ,
+      \ 'l' : ['blast'     , 'last-buffer']     ,
+      \ 'n' : ['bnext'     , 'next-buffer']     ,
+      \ 'p' : ['bprevious' , 'previous-buffer'] ,
+      \ '?' : ['Buffers'   , 'fzf-buffer']      ,
+      \ }
+
+" Register which key map
+call which_key#register('<Space>', "g:which_key_map")
+
+"}}}
+
