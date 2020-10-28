@@ -23,7 +23,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('tpope/vim-commentary')
-  call dein#add('tpope/vim-abolish')
+	call dein#add('tpope/vim-abolish')
   call dein#add('justinmk/vim-sneak')
   call dein#add('sgur/vim-editorconfig')
   call dein#add('sheerun/vim-polyglot')
@@ -79,7 +79,7 @@ if dein#load_state(('~/.config/nvim'))
 " Git {{{
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
-  call dein#add('jreybert/vimagit', {'on_cmd': ['Magit', 'MagitOnly']})
+  call dein#add('jreybert/vimagit')
   call dein#add('airblade/vim-gitgutter')
 " }}}
 
@@ -102,9 +102,6 @@ if dein#load_state(('~/.config/nvim'))
   call dein#end()
   call dein#save_state()
 endif
-
-" Dein update
-  nnoremap <silent> <leader>u :call dein#update()<CR>
 
 " }}}
 
@@ -149,7 +146,7 @@ endif
 " default config
   set tabstop=2 shiftwidth=2 expandtab softtabstop=2
 
-  set scrolloff=10
+  set scrolloff=999
 
 " set case-insensitive search
   set ignorecase
@@ -586,6 +583,13 @@ endif
 		\   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
 		\   fzf#vim#with_preview(), <bang>0)
 
+  function Rg_input()
+      call inputsave()
+      let name = input("Rg filter: ")
+      exec ":Rg ".name
+      call inputrestore()
+  endfunction
+
 	" Ripgrep advanced
 	function! RipgrepFzf(query, fullscreen)
 		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
@@ -596,6 +600,13 @@ endif
 	endfunction
 
 	command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+  function RG_input()
+      call inputsave()
+      let name = input("RG filter: ")
+      exec ":RG ".name
+      call inputrestore()
+  endfunction
 "}}}
 
 " Programing language settings  ---------------------------------------------{{{
@@ -665,11 +676,16 @@ endif
 		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 	augroup end
 
-" Create mappings for function text object, requires document symbols feature of languageserver.
-	xmap if <Plug>(coc-funcobj-i)
-	xmap af <Plug>(coc-funcobj-a)
-	omap if <Plug>(coc-funcobj-i)
-	omap af <Plug>(coc-funcobj-a)
+  " Map function and class text objects
+  " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+  xmap if <Plug>(coc-funcobj-i)
+  omap if <Plug>(coc-funcobj-i)
+  xmap af <Plug>(coc-funcobj-a)
+  omap af <Plug>(coc-funcobj-a)
+  xmap ic <Plug>(coc-classobj-i)
+  omap ic <Plug>(coc-classobj-i)
+  xmap ac <Plug>(coc-classobj-a)
+  omap ac <Plug>(coc-classobj-a)
 
   " Use `:Format` to format current buffer
   command! -nargs=0 Format :call CocAction('format')
@@ -679,36 +695,6 @@ endif
 
 	" Add `:OR` command for organize imports of the current buffer.
 	command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Custom Command
-" coc#add_command({id}, {command}, [{title}])
-	call coc#add_command('fold', ':Fold',
-			\ ':Fold current buffer')
-	call coc#add_command('format', ':Format',
-			\ ':Format current buffer')
-	call coc#add_command('format imports', ':OR',
-			\ ':OR Organize imports of the current buffer')
-	call coc#add_command('rename', ':execute "normal \<Plug>(coc-rename)"',
-			\ 'Rename hightlight symbols')
-	call coc#add_command('git:diff', ':Gdiff',
-			\ ':Gdiff Git diff current pane')
-	call coc#add_command('git:manager', ':Magit',
-			\ ':Magit Git manager')
-	call coc#add_command('fzf:files', ':Files',
-			\ ':Files Search through files in fzt')
-	call coc#add_command('fzf:Rg', ':Rg',
-			\ ':Rg Ripgrep through keywords')
-	call coc#add_command('fzf:RG', ':RG',
-			\ ':RG Advanced Ripgrep through keywords')
-
-	call coc#add_command('startify:SSave', ':SSave',
-			\ ':SSave Save a session')
-	call coc#add_command('startify:SLoad', ':SLoad',
-			\ ':SLoad Load a session')
-	call coc#add_command('startify:SDelete', ':SDelete',
-			\ ':SLoad Delete a session')
-	call coc#add_command('startify:SClose', ':SClose',
-			\ ':SClose Close a session')
 
 "}}}
 
@@ -911,15 +897,11 @@ endif
   autocmd  FileType which_key set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
-  let g:which_key_map['u'] = 'dein update'
-  let g:which_key_map['r'] = [ ':call Rg_input()',  'text rg' ]
-
-  function Rg_input()
-      call inputsave()
-      let name = input("rg filter: ")
-      exec ":Rg ".name
-      call inputrestore()
-  endfunction
+  let g:which_key_map['u'] = [ ':call dein#update()',  'dein update' ]
+  let g:which_key_map['r'] = [ ':call Rg_input()',  'text ripgrep' ]
+  let g:which_key_map['R'] = [ ':call RG_input()',  'text advanced ripgrep' ]
+  let g:which_key_map['c'] = [ ':close',  'close floatint window' ]
+  let g:which_key_map['F'] = [ ':Files',  'files' ]
 
 " s is for search
   let g:which_key_map['s'] = {
@@ -941,12 +923,22 @@ endif
       \ 'w' : [':Windows'      , 'search windows'],
       \ }
 
+  let g:which_key_map['S'] = {
+      \ 'name' : '+Startify' ,
+      \ 's' : [':SSave'        , 'save session'],
+      \ 'l' : [':SLoad'        , 'load session'],
+      \ 'd' : [':SDelete'      , 'delete session'],
+      \ 'c' : [':SClose'       , 'close session'],
+      \ }
+
   let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ 'n' : [':FloatermNew'                                   , 'new'],
       \ 'h' : [':FloatermNew htop'                              , 'htop'],
+      \ 'd' : [':FloatermNew lazydocker'                        , 'lazydocker'],
+      \ 'g' : [':FloatermNew lazygit'														, 'lazygit'],
       \ }
 
  let g:which_key_map.l = {
@@ -969,9 +961,12 @@ endif
 
  let g:which_key_map.g = {
       \ 'name' : '+git',
-      \ 't' : [':FloatermNew tig'        , 'git']    ,
-      \ 'c' : [':Commits'                , 'commits'],
-      \ 'C' : [':BCommits'               , 'current file commits'],
+      \ 't' : [':FloatermNew tig'        , 'tig']        ,
+      \ 'g' : [':FloatermNew lazygit'    , 'lazygit']    ,
+      \ 'm' : [':Magit'                  , 'magit']    ,
+      \ 'c' : [':Commits'                , 'commits log'],
+      \ 'd' : [':Gdiff'                  , 'diff']       ,
+      \ 'C' : [':BCommits'               , 'current file commits log'],
       \ }
 
 let g:which_key_map.b = {
