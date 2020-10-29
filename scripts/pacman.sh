@@ -37,7 +37,10 @@ declare -a g_pkgs=("dunst"
                    "redshift"
                    )
 
-declare -a aur_pkgs=("zsh-plugin-wd-git")
+declare -a aur_pkgs=("zsh-plugin-wd-git"
+                     "lazydocker"
+                     "lazygit"
+                    )
 
 #if [[ $(program_is_installed X) -eq 1 ]]; then
   for i in "${g_pkgs[@]}"

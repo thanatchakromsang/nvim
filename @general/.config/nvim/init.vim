@@ -38,6 +38,7 @@ if dein#load_state(('~/.config/nvim'))
 	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 	call dein#add('junegunn/fzf.vim')
 	call dein#add('airblade/vim-rooter')
+  call dein#add('liuchengxu/vista.vim')
   call dein#add('honza/vim-snippets')
 	let g:coc_global_extensions = [
 				\		'coc-json',
@@ -359,9 +360,6 @@ endif
   noremap <S-Tab> :bp<CR>
   noremap <Tab> :bn<CR>
 
-"" Close buffer
-  noremap <localleader>d :bd!<CR>
-
 " Incsearch
   let g:incsearch#auto_nohlsearch = 1
   map n  <Plug>(incsearch-nohl-n)
@@ -662,10 +660,20 @@ endif
   command! -nargs=0 Format :call CocAction('format')
 
 	" Add `:Fold` command to fold current buffer.
-	command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+	command! -nargs=? Fold   :call CocAction('fold', <f-args>)
 
 	" Add `:OR` command for organize imports of the current buffer.
-	command!r-nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+	command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
+
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gt <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+  nmap <silent> gn <Plug>(coc-diagnostic-next)
+  nmap <silent> gp <Plug>(coc-diagnostic-prev)
+
+  " " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 "}}}
 
@@ -866,94 +874,99 @@ endif
   autocmd  FileType which_key set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
-  let g:which_key_map_leader['u'] = [ ':call dein#update()',  'dein update' ]
-  let g:which_key_map_leader['r'] = [ ':call Rg_input()',  'text ripgrep' ]
-  let g:which_key_map_leader['R'] = [ ':call RG_input()',  'text advanced ripgrep' ]
-  let g:which_key_map_leader['c'] = [ ':close',  'close floatint window' ]
-  let g:which_key_map_leader['f'] = [ ':Files',  'search files' ]
-  let g:which_key_map_leader['?'] = [ ':Maps', 'show-keybindings' ]
-  let g:which_key_map_leader[' '] = [ 'za', 'fold toggle' ]
+  let g:which_key_map_leader['u'] = [ ':call dein#update()',  'dein update'           ]
+  let g:which_key_map_leader['r'] = [ ':call Rg_input()'   ,  'text ripgrep'          ]
+  let g:which_key_map_leader['R'] = [ ':call RG_input()'   ,  'text advanced ripgrep' ]
+  let g:which_key_map_leader['c'] = [ ':close'             ,  'close floatint window' ]
+  let g:which_key_map_leader['f'] = [ ':Files'             ,  'search files'          ]
+  let g:which_key_map_leader['?'] = [ ':Maps'              ,  'show-keybindings'      ]
+  let g:which_key_map_leader[' '] = [ 'za'                 ,  'fold toggle'           ]
+  let g:which_key_map_leader['d'] = [ 'bd'                 ,  'delete-buffer'         ]
 
 " s is for search
   let g:which_key_map_leader['s'] = {
-      \ 'name' : '+search' ,
-      \ '/' : [':History/'     , 'history'],
-      \ ';' : [':Commands'     , 'commands'],
-      \ 'b' : [':BLines'       , 'current buffer'],
-      \ 'B' : [':Buffers'      , 'open buffers'],
-      \ 'c' : [':Commits'      , 'commits'],
-      \ 'C' : [':BCommits'     , 'current file commits'],
-      \ 'f' : [':Files'        , 'files'],
-      \ 'g' : [':GFiles'       , 'git files'],
-      \ 'h' : [':History'      , 'file history'],
-      \ 'H' : [':History:'     , 'command history'],
-      \ 'l' : [':Lines'        , 'lines'] ,
-      \ 'm' : [':Marks'        , 'marks'] ,
-      \ 'M' : [':Maps'         , 'normal maps'] ,
-      \ 't' : [':call Rg_input()', 'text Rg'],
-      \ 'w' : [':Windows'      , 'search windows'],
+      \ 'name' : '+search',
+      \ '/' : [':History/'              , 'history'             ],
+      \ ';' : [':Commands'              , 'commands'            ],
+      \ 'b' : [':BLines'                , 'current buffer'      ],
+      \ 'B' : [':Buffers'               , 'open buffers'        ],
+      \ 'c' : [':Commits'               , 'commits'             ],
+      \ 'C' : [':BCommits'              , 'current file commits'],
+      \ 's' : [':Vista finder'          , 'symbol fzf search'   ],
+      \ 'd' : [':CocFzfList diagnostics', 'diagnostic list'     ],
+      \ 'f' : [':Files'                 , 'files'               ],
+      \ 'g' : [':GFiles'                , 'git files'           ],
+      \ 'h' : [':History'               , 'file history'        ],
+      \ 'H' : [':History:'              , 'command history'     ],
+      \ 'l' : [':Lines'                 , 'lines'               ],
+      \ 'm' : [':Marks'                 , 'marks'               ],
+      \ 'M' : [':Maps'                  , 'normal maps'         ],
+      \ 't' : [':call Rg_input()'       , 'text ripgrep'        ],
+      \ 'w' : [':Windows'               , 'search windows'      ],
       \ }
 
   let g:which_key_map_leader['S'] = {
-      \ 'name' : '+startify' ,
-      \ 's' : [':SSave'        , 'save session'],
-      \ 'l' : [':SLoad'        , 'load session'],
-      \ 'd' : [':SDelete'      , 'delete session'],
-      \ 'c' : [':SClose'       , 'close session'],
+      \ 'name' : '+startify',
+      \ 's' : [':SSave'        , 'save session'                 ],
+      \ 'l' : [':SLoad'        , 'load session'                 ],
+      \ 'd' : [':SDelete'      , 'delete session'               ],
+      \ 'c' : [':SClose'       , 'close session'                ],
+      \ 'h' : [':Startify'     , 'home (startify)'              ],
       \ }
 
-  let g:which_key_map_leader.t = {
+  let g:which_key_map_leader['t'] = {
       \ 'name' : '+terminal' ,
-      \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-      \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'n' : [':FloatermNew'                                   , 'new'],
-      \ 'h' : [':FloatermNew htop'                              , 'htop'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'lazydocker'],
-      \ 'g' : [':FloatermNew lazygit'														, 'lazygit'],
+      \ 'r' : [':FloatermNew ranger'           , 'ranger'    ],
+      \ 't' : [':FloatermToggle'               , 'toggle'    ],
+      \ 'n' : [':FloatermNew'                  , 'new'       ],
+      \ 'h' : [':FloatermNew htop'             , 'htop'      ],
+      \ 'd' : [':FloatermNew lazydocker'       , 'lazydocker'],
+      \ 'g' : [':FloatermNew lazygit'          , 'lazygit'   ],
       \ }
 
- let g:which_key_map_leader.l = {
+ let g:which_key_map_leader['l'] = {
       \ 'name' : '+lsp',
-      \ 'd' : [':CocFzfList diagnostics'              , 'diagnostic list']  ,
-      \ 'f' : [':Format'                              , 'formatting']       ,
-      \ 'r' : ['<Plug>(coc-references)'               , 'references']       ,
-      \ 'R' : ['<Plug>(coc-rename)'                   , 'rename'    ]       ,
-      \ 's' : [':call CocActionAsync(documentSymbols)', 'document-symbol']  ,
-      \ 'S' : [':call CocAction(workspaceSymbols)' , 'workspace-symbol'] ,
+      \ 'd' : [':CocFzfList diagnostics'       , 'diagnostic list'   ],
+      \ 'f' : [':Format'                       , 'formatting'        ],
+      \ 'o' : [':OR'                           , 'organize import'   ],
+      \ 'r' : ['<Plug>(coc-rename)'            , 'rename'            ],
+      \ 's' : [':Vista finder'                 , 'symbol fzf search' ],
+      \ 't' : [':Vista!!'                      , 'symbol view toggle'],
       \ 'g' : {
         \ 'name': '+goto',
-        \ 'd' : ['<Plug>(coc-definition)'      , 'definition']      ,
-        \ 't' : ['<Plug>(coc-type-definition)' , 'type-definition'] ,
-        \ 'i' : ['<Plug>(coc-implementation)'  , 'implementation']  ,
-        \ 'n' : ['<Plug>(coc-diagnostic-next)' , 'next diagnostic']  ,
-        \ 'p' : ['<Plug>(coc-diagnostic-prev)' , 'prev diagnostic']  ,
+        \ 'd' : ['<Plug>(coc-definition)'      , 'definition'        ],
+        \ 't' : ['<Plug>(coc-type-definition)' , 'type-definition'   ],
+        \ 'i' : ['<Plug>(coc-implementation)'  , 'implementation'    ],
+        \ 'r' : ['<Plug>(coc-references)'      , 'references'        ],
+        \ 'n' : ['<Plug>(coc-diagnostic-next)' , 'next diagnostic'   ],
+        \ 'p' : ['<Plug>(coc-diagnostic-prev)' , 'prev diagnostic'   ],
         \ },
       \ }
 
- let g:which_key_map_leader.g = {
+ let g:which_key_map_leader['g'] = {
       \ 'name' : '+git/version-control',
-      \ 't' : [':FloatermNew tig'        , 'tig']        ,
-      \ 'g' : [':FloatermNew lazygit'    , 'lazygit']    ,
-      \ 'd' : [':Gdiff'                  , 'fugitive-diff']       ,
-      \ 'b' : [':Gblame'                 , 'fugitive-blame']      ,
-      \ 'S' : [':Gstatus'                , 'fugitive-status']     ,
-      \ 'w' : [':Gwrite'                 , 'fugitive-write']             ,
+      \ 't' : [':FloatermNew tig'        , 'tig'                  ],
+      \ 'g' : [':FloatermNew lazygit'    , 'lazygit'              ],
+      \ 'd' : [':Gdiff'                  , 'fugitive-diff'        ],
+      \ 'b' : [':Gblame'                 , 'fugitive-blame'       ],
+      \ 'S' : [':Gstatus'                , 'fugitive-status'      ],
+      \ 'w' : [':Gwrite'                 , 'fugitive-write'       ],
       \ 's' : {
         \ 'name': '+git/search',
-        \ 'c' : [':Commits'                , 'commits log'],
-        \ 'C' : [':BCommits'               , 'current file commits log'],
+        \ 'c' : [':Commits'              , 'commits log'             ],
+        \ 'C' : [':BCommits'             , 'current file commits log'],
         \ },
       \ }
 
-let g:which_key_map_leader.b = {
+  let g:which_key_map_leader['b'] = {
       \ 'name' : '+buffer' ,
-      \ 'd' : ['bd'        , 'delete-buffer']   ,
-      \ 'f' : ['bfirst'    , 'first-buffer']    ,
-      \ 'h' : ['Startify'  , 'home-buffer']     ,
-      \ 'l' : ['blast'     , 'last-buffer']     ,
-      \ 'n' : ['bnext'     , 'next-buffer']     ,
-      \ 'p' : ['bprevious' , 'previous-buffer'] ,
-      \ '?' : ['Buffers'   , 'fzf-buffer']      ,
+      \ 'd' : ['bd'        , 'delete-buffer'   ],
+      \ 'f' : ['bfirst'    , 'first-buffer'    ],
+      \ 'h' : ['Startify'  , 'home-buffer'     ],
+      \ 'l' : ['blast'     , 'last-buffer'     ],
+      \ 'n' : ['bnext'     , 'next-buffer'     ],
+      \ 'p' : ['bprevious' , 'previous-buffer' ],
+      \ '?' : ['Buffers'   , 'fzf-buffer'      ],
       \ }
 
   call which_key#register(',', "g:which_key_map_localleader")
@@ -963,7 +976,15 @@ let g:which_key_map_leader.b = {
   nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
   vnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
 
-  let g:which_key_map_localleader['u'] = [ ':call dein', 'wow dein update']
+  let g:which_key_map_localleader['.'] = [ ':lcd %:p:h'          ,  'set working dir'               ]
+  let g:which_key_map_localleader['c'] = [ ':let @+= expand("%")',  'copy current dir to clipboard' ]
+  let g:which_key_map_localleader['b'] = [ ':<C-u>split'         ,  'horizontal split'              ]
+  let g:which_key_map_localleader['v'] = [ ':<C-u>vsplit'        ,  'vertical split'                ]
 
 "}}}
 
+" Vista ---------------------------------------------------------------------{{{
+
+  let g:vista_default_executive = 'coc'
+
+"}}}
