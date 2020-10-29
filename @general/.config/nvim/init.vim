@@ -28,6 +28,8 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('sgur/vim-editorconfig')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('mhinz/vim-startify')
+  call dein#add('voldikss/vim-floaterm')
+  call dein#add('liuchengxu/vim-which-key')
 " }}}
 
 " COC {{{
@@ -52,8 +54,6 @@ if dein#load_state(('~/.config/nvim'))
 				\		'coc-vimlsp',
 				\		'coc-prettier'
 				\	]
-  call dein#add('voldikss/vim-floaterm')
-  call dein#add('liuchengxu/vim-which-key')
 " }}}
 
 " Fast Motion {{{
@@ -79,7 +79,6 @@ if dein#load_state(('~/.config/nvim'))
 " Git {{{
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
-  call dein#add('jreybert/vimagit')
   call dein#add('airblade/vim-gitgutter')
 " }}}
 
@@ -113,9 +112,6 @@ endif
   if has('mouse')
     set mouse=a
   endif
-
-" Give more space for displaying messages.
-  set cmdheight=2
 
   let uname = system('uname')
 
@@ -187,7 +183,7 @@ endif
   set laststatus=2
 
 " Give more space for displaying messages.
-  set cmdheight=2
+  set cmdheight=1
 
 " word wrapping, but only line breaks inserted when explicitly press enter
   set wrap
@@ -326,9 +322,6 @@ endif
 	map <silent> <PageUp> 5<C-U>
 	map <silent> <PageDown> 5<C-D>
 
-" Neovim terminal mapping
-  tmap <esc> <c-\><c-n><esc><cr>
-
 " Move around 'normal mode'
   noremap H ^
   noremap L $
@@ -375,11 +368,10 @@ endif
   map N  <Plug>(incsearch-nohl-N)
   map *  <Plug>(incsearch-nohl-*)
   map #  <Plug>(incsearch-nohl-#)
-  " map g* <Plug>(incsearch-nohl-g*)
-  " map g# <Plug>(incsearch-nohl-g#)
+  map g* <Plug>(incsearch-nohl-g*)
+  map g# <Plug>(incsearch-nohl-g#)
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
-  " map s/ <Plug>(incsearch-stay)
 
 " " disable Arrow keys in Escape mode
 "   map <up> <nop>
@@ -392,14 +384,6 @@ endif
 "   imap <down> <nop>
 "   imap <left> <nop>
 "   imap <right> <nop>
-
-" Sneak
-  map s <Plug>Sneak_s
-  map S <Plug>Sneak_S
-  map f <Plug>Sneak_f
-  map F <Plug>Sneak_F
-  map t <Plug>Sneak_t
-  map T <Plug>Sneak_T
 
 "}}}"
 
@@ -416,14 +400,10 @@ endif
 
     let g:indentLine_enabled = 1
     let g:indentLine_color_term = 239
-    " let g:indentLine_bgcolor_term = 236
-    " let g:indentLine_leadingSpaceEnabled = 1
     let g:indentLine_concealcursor = 'inc'
     let g:indentLine_conceallevel = 2
     let g:indentLine_char = '│'
     let g:indentLine_leadingSpaceChar = '·'
-    let g:indentLine_fileTypeExclude = ['nerdtree']
-    autocmd FileType help,nerdtree,vimwiki IndentLinesDisable
 
   "}}}
 
@@ -501,15 +481,6 @@ endif
 
   "}}}
 
-  " LineNoIndicator  -----------------------------------------------------{{{
-
-      let g:line_no_indicator_chars = ['⎺', '⎻', '⎼', '⎽', '_']
-      " let g:line_no_indicator_chars = [
-      "   \  '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁', ' '
-      "   \  ]
-
-  "}}}
-
 "}}}
 
 " Themes  -------------------------------------------------------------------{{{
@@ -566,7 +537,7 @@ endif
 		\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
 		\ 'hl+':     ['fg', 'Statement'],
 		\ 'info':    ['fg', 'PreProc'],
-		\ 'border':  ['fg', 'Ignore'],
+		\ 'border':  ['fg', 'Normal'],
 		\ 'prompt':  ['fg', 'Conditional'],
 		\ 'pointer': ['fg', 'Exception'],
 		\ 'marker':  ['fg', 'Keyword'],
@@ -694,7 +665,7 @@ endif
 	command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 	" Add `:OR` command for organize imports of the current buffer.
-	command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+	command!r-nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 "}}}
 
@@ -814,12 +785,6 @@ endif
 
 " }}}
 
-" Magit ---------------------------------------------------------------------{{{
-
-  let g:magit_discard_untracked_do_delete=1
-
-"}}}
-
 " GitGutter -----------------------------------------------------------------{{{
 
   let g:gitgutter_map_keys = 0
@@ -836,8 +801,6 @@ endif
 						\ { 'type': 'sessions',  'header': ['   Sessions']       },
 						\ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
 						\ ]
-	let g:startify_session_autoload = 1
-	let g:startify_session_persistence = 1
 	let g:startify_bookmarks = [
 							\ { 'c': '~/.config/i3/config' },
 							\ { 'i': '~/.config/nvim/init.vim' },
@@ -872,16 +835,22 @@ endif
   let g:floaterm_wintitle=0
   let g:floaterm_autoclose=1
 
+"}}}
+
+" WhichKey ------------------------------------------------------------------{{{
+
+  " By default timeoutlen is 1000 ms
+  set timeoutlen=2500
+
+  " Register which key map
+  call which_key#register('<Space>', "g:which_key_map_leader")
   nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-  vnoremap <silent> <leader>      :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
-  nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+  vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
 
   " Create map to add keys to
-  let g:which_key_map =  {}
+  let g:which_key_map_leader = {}
   " Define a separator
   let g:which_key_sep = '→'
-  " By default timeoutlen is 1000 ms
-  set timeoutlen=100
 
   " Not a fan of floating windows for this
   let g:which_key_use_floating_win = 0
@@ -897,14 +866,16 @@ endif
   autocmd  FileType which_key set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
-  let g:which_key_map['u'] = [ ':call dein#update()',  'dein update' ]
-  let g:which_key_map['r'] = [ ':call Rg_input()',  'text ripgrep' ]
-  let g:which_key_map['R'] = [ ':call RG_input()',  'text advanced ripgrep' ]
-  let g:which_key_map['c'] = [ ':close',  'close floatint window' ]
-  let g:which_key_map['F'] = [ ':Files',  'files' ]
+  let g:which_key_map_leader['u'] = [ ':call dein#update()',  'dein update' ]
+  let g:which_key_map_leader['r'] = [ ':call Rg_input()',  'text ripgrep' ]
+  let g:which_key_map_leader['R'] = [ ':call RG_input()',  'text advanced ripgrep' ]
+  let g:which_key_map_leader['c'] = [ ':close',  'close floatint window' ]
+  let g:which_key_map_leader['f'] = [ ':Files',  'search files' ]
+  let g:which_key_map_leader['?'] = [ ':Maps', 'show-keybindings' ]
+  let g:which_key_map_leader[' '] = [ 'za', 'fold toggle' ]
 
 " s is for search
-  let g:which_key_map['s'] = {
+  let g:which_key_map_leader['s'] = {
       \ 'name' : '+search' ,
       \ '/' : [':History/'     , 'history'],
       \ ';' : [':Commands'     , 'commands'],
@@ -923,15 +894,15 @@ endif
       \ 'w' : [':Windows'      , 'search windows'],
       \ }
 
-  let g:which_key_map['S'] = {
-      \ 'name' : '+Startify' ,
+  let g:which_key_map_leader['S'] = {
+      \ 'name' : '+startify' ,
       \ 's' : [':SSave'        , 'save session'],
       \ 'l' : [':SLoad'        , 'load session'],
       \ 'd' : [':SDelete'      , 'delete session'],
       \ 'c' : [':SClose'       , 'close session'],
       \ }
 
-  let g:which_key_map.t = {
+  let g:which_key_map_leader.t = {
       \ 'name' : '+terminal' ,
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
@@ -941,14 +912,14 @@ endif
       \ 'g' : [':FloatermNew lazygit'														, 'lazygit'],
       \ }
 
- let g:which_key_map.l = {
+ let g:which_key_map_leader.l = {
       \ 'name' : '+lsp',
       \ 'd' : [':CocFzfList diagnostics'              , 'diagnostic list']  ,
       \ 'f' : [':Format'                              , 'formatting']       ,
       \ 'r' : ['<Plug>(coc-references)'               , 'references']       ,
       \ 'R' : ['<Plug>(coc-rename)'                   , 'rename'    ]       ,
-      \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
-      \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'] ,
+      \ 's' : [':call CocActionAsync(documentSymbols)', 'document-symbol']  ,
+      \ 'S' : [':call CocAction(workspaceSymbols)' , 'workspace-symbol'] ,
       \ 'g' : {
         \ 'name': '+goto',
         \ 'd' : ['<Plug>(coc-definition)'      , 'definition']      ,
@@ -959,17 +930,22 @@ endif
         \ },
       \ }
 
- let g:which_key_map.g = {
-      \ 'name' : '+git',
+ let g:which_key_map_leader.g = {
+      \ 'name' : '+git/version-control',
       \ 't' : [':FloatermNew tig'        , 'tig']        ,
       \ 'g' : [':FloatermNew lazygit'    , 'lazygit']    ,
-      \ 'm' : [':Magit'                  , 'magit']    ,
-      \ 'c' : [':Commits'                , 'commits log'],
-      \ 'd' : [':Gdiff'                  , 'diff']       ,
-      \ 'C' : [':BCommits'               , 'current file commits log'],
+      \ 'd' : [':Gdiff'                  , 'fugitive-diff']       ,
+      \ 'b' : [':Gblame'                 , 'fugitive-blame']      ,
+      \ 'S' : [':Gstatus'                , 'fugitive-status']     ,
+      \ 'w' : [':Gwrite'                 , 'fugitive-write']             ,
+      \ 's' : {
+        \ 'name': '+git/search',
+        \ 'c' : [':Commits'                , 'commits log'],
+        \ 'C' : [':BCommits'               , 'current file commits log'],
+        \ },
       \ }
 
-let g:which_key_map.b = {
+let g:which_key_map_leader.b = {
       \ 'name' : '+buffer' ,
       \ 'd' : ['bd'        , 'delete-buffer']   ,
       \ 'f' : ['bfirst'    , 'first-buffer']    ,
@@ -980,8 +956,14 @@ let g:which_key_map.b = {
       \ '?' : ['Buffers'   , 'fzf-buffer']      ,
       \ }
 
-" Register which key map
-call which_key#register('<Space>', "g:which_key_map")
+  call which_key#register(',', "g:which_key_map_localleader")
+
+  let g:which_key_map_localleader =  {}
+
+  nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+  vnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
+
+  let g:which_key_map_localleader['u'] = [ ':call dein', 'wow dein update']
 
 "}}}
 
