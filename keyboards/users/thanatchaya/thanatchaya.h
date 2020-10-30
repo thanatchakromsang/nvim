@@ -95,25 +95,25 @@ enum user_layers {
    *
    *   Modifier on base layer
    *                 ┌─────┬─────┬─────┐   ┌─────┬─────┬─────┐
-   *                 │ Esc │BSpc │ Tab │   │STab │ Spc │Enter│
+   *                 │ Esc │BSpc │ Tab │   │ Tab │ Spc │Enter│
    *                 └─────┴─────┴─────┘   └─────┴─────┴─────┘
    *                    |     |     |         |     |     |
    *                    V     |     |         V     |     |
-   *              TG(MEDIA_LAYER)   | TG(FUNCTION_LAYER)  |
+   *              TG(MEDIA_LAYER)   |   TG(SYMBOL_LAYER)  |
    *                          |     |               |     |
    *                          V     |               V     |
    *                  TG(NUMBER_LAYER)        TG(NUMBER_LAYER)
    *                                |                     |
    *                                V                     V
-   *                        TG(FUNCTION_LAYER)     TG(SYMBOL_LAYER)
+   *                        TG(FUNCTION_LAYER)     TG(FUNCTION_LAYER)
    */
 
 #define _MODL1_ LT(MEDIA_LAYER, KC_ESC)
 #define ______MODL2_____ LT(NUMBER_LAYER, KC_BSPC), LT(FUNCTION_LAYER, KC_TAB)
 #define _______MODIFIER_L________ _MODL1_, ______MODL2_____
 
-#define ______MODR2_____ LT(FUNCTION_LAYER, LSFT(KC_TAB)), LT(NUMBER_LAYER, KC_SPC)
-#define _MODR1_ LT(NUMBER_LAYER, KC_ENT)
+#define ______MODR2_____ LT(SYMBOL_LAYER, KC_TAB), LT(NUMBER_LAYER, KC_SPC)
+#define _MODR1_ LT(FUNCTION_LAYER, KC_ENT)
 #define _______MODIFIER_R________ ______MODR2_____, _MODR1_
 
   /* ---------------------------------------------------------------------
@@ -148,7 +148,6 @@ enum user_layers {
 #define _NUMR1_ _______
 #define _______NUMBER_R4_________ ______NUMR2_____, _NUMR1_
 
-
   /* ---------------------------------------------------------------------
    *
    *   Symbol Layer
@@ -180,14 +179,13 @@ enum user_layers {
 #define ______SYMR2_____ _______, _______
 #define _______SYMBOL_R4_________ ______SYMR2_____, _SYMR1_
 
-
   /* ---------------------------------------------------------------------
    *
    *   Function / Window Layer
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
    *     │ F12 │ F7  │ F8  │ F9  │PrScn│   │⌘([) │⌘(7) │⌘(8) │⌘(9) │⌘(]) │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │ F11 │ F4  │ F5  │ F6  │ Del │   │⌘(←) │⌘(4) │⌘(5) │⌘(6) │⌘(→) │
+   *     │F11/⇧│F4/^ │F5/⌥ │F6/⌘ │ Del │   │⌘(←) │⌘(4) │⌘(5) │⌘(6) │⌘(→) │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │ F10 │ F1  │ F2  │ F3  │Pause│   │ XXX │⌘(1) │⌘(2) │⌘(3) │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
@@ -198,7 +196,7 @@ enum user_layers {
    */
 
 #define _________________FUNCTION_L1_______________ KC_F12,    KC_F7,   KC_F8,     KC_F9,     KC_PSCR
-#define _________________FUNCTION_L2_______________ KC_F11,    KC_F4,   KC_F5,     KC_F6,     KC_DEL
+#define _________________FUNCTION_L2_______________ LSFT_T(KC_F11),   LCTL_T(KC_F4),   LALT_T(KC_F5),     LGUI(KC_F6),     KC_DEL
 #define _________________FUNCTION_L3_______________ KC_F10,    KC_F1,   KC_F2,     KC_F3,     KC_PAUSE
 
 #define _FUNL1_ _______
@@ -254,7 +252,7 @@ enum user_layers {
    *     │     │     │     │     │     │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │ ESC ││BSpc │ Tab │   │STab │ Spc ││Enter│
+   *                │ ESC ││BSpc │ Tab │   │ Tab │ Spc ││Enter│
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
