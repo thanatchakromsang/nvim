@@ -383,6 +383,11 @@ endif
 "   imap <left> <nop>
 "   imap <right> <nop>
 
+  map f <Plug>Sneak_f
+  map F <Plug>Sneak_F
+  map t <Plug>Sneak_t
+  map T <Plug>Sneak_T
+
 "}}}"
 
 " Appearance settings  ------------------------------------------------------{{{
@@ -505,7 +510,7 @@ endif
 
 	 " QuickScope
 		hi QuickScopePrimary cterm=bold,underline
-		hi QuickScopeSecondary cterm=bold,underline
+		hi QuickScopeSecondary cterm=underline
 
 "}}}
 
