@@ -95,25 +95,25 @@ enum user_layers {
    *
    *   Modifier on base layer
    *                 ┌─────┬─────┬─────┐   ┌─────┬─────┬─────┐
-   *                 │ Esc │BSpc │ Tab │   │  /  │ Spc │Enter│
+   *                 │ Esc │BSpc │ Tab │   │STab │ Spc │Enter│
    *                 └─────┴─────┴─────┘   └─────┴─────┴─────┘
    *                    |     |     |         |     |     |
    *                    V     |     |         V     |     |
-   *              TG(MEDIA_LAYER)   | TG(SYMBOL_LAYER)    |
+   *              TG(MEDIA_LAYER)   | TG(FUNCTION_LAYER)  |
    *                          |     |               |     |
    *                          V     |               V     |
    *                  TG(NUMBER_LAYER)        TG(NUMBER_LAYER)
    *                                |                     |
    *                                V                     V
-   *                        TG(FUNCTION_LAYER)     TG(FUNCTION_LAYER)
+   *                        TG(FUNCTION_LAYER)     TG(SYMBOL_LAYER)
    */
 
 #define _MODL1_ LT(MEDIA_LAYER, KC_ESC)
 #define ______MODL2_____ LT(NUMBER_LAYER, KC_BSPC), LT(FUNCTION_LAYER, KC_TAB)
 #define _______MODIFIER_L________ _MODL1_, ______MODL2_____
 
-#define ______MODR2_____ LT(SYMBOL_LAYER, KC_SLSH), LT(NUMBER_LAYER, KC_SPC)
-#define _MODR1_ LT(FUNCTION_LAYER, KC_ENT)
+#define ______MODR2_____ LT(FUNCTION_LAYER, LSFT(KC_TAB)), LT(NUMBER_LAYER, KC_SPC)
+#define _MODR1_ LT(NUMBER_LAYER, KC_ENT)
 #define _______MODIFIER_R________ ______MODR2_____, _MODR1_
 
   /* ---------------------------------------------------------------------
@@ -122,7 +122,7 @@ enum user_layers {
    *      ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
    *      │  `  │  \  │  {  │  }  │  -  │  │  =  │  [  │  ]  │  (  │  )  │
    *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
-   *      │ 1/⇧ │ 2/^ │ 3/⌥ │ 4/⌘ │  5  │  │  6  │ 7/⌘ │ 8/⌥ │ 9/^ │ 0/⇧ │
+   *      │ 1/⇧ │  2  │  3  │  4  │  5  │  │  6  │  7  │  8  │  9  │ 0/⇧ │
    *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
    *      │     │     │     │     │     │  │     │     │     │     │     │
    *      └─────┴─────┴─────┴─────┴─────┘  └─────┴─────┴─────┴─────┴─────┘
@@ -131,15 +131,17 @@ enum user_layers {
    *                 └─────┘└─────┴─────┘  └─────┴─────┘└─────┘
    */
 
-#define _________________NUMBER_L1_________________          KC_GRV,        KC_BSLS,         KC_LCBR,          KC_RCBR,     KC_MINS
-#define _________________NUMBER_L2_________________    LSFT_T(KC_1),   LCTL_T(KC_2),    LALT_T(KC_3),     LGUI_T(KC_4),     KC_5
+#define _________________NUMBER_L1_________________ KC_GRV,        KC_BSLS,         KC_LCBR,          KC_RCBR,     KC_MINS
+/* #define _________________NUMBER_L2_________________    LSFT_T(KC_1),   LCTL_T(KC_2),    LALT_T(KC_3),     LGUI_T(KC_4),     KC_5 */
+#define _________________NUMBER_L2_________________ LSFT_T(KC_1),   KC_2,    KC_3,     KC_4,     KC_5
 #define _________________NUMBER_L3_________________ _________________TRANSPARENT_______________
 #define _NUML1_ _______
 #define ______NUML2_____ _______, _______
 #define _______NUMBER_L4_________ _NUML1_, ______NUML2_____
 
-#define _________________NUMBER_R1_________________          KC_EQL,        KC_LBRC,         KC_RBRC,          KC_LPRN,     KC_RPRN
-#define _________________NUMBER_R2_________________            KC_6,   LGUI_T(KC_7),    LALT_T(KC_8),     LCTL_T(KC_9),     LSFT_T(KC_0)
+#define _________________NUMBER_R1_________________ KC_EQL,        KC_LBRC,         KC_RBRC,          KC_LPRN,     KC_RPRN
+/* #define _________________NUMBER_R2_________________            KC_6,   LGUI_T(KC_7),    LALT_T(KC_8),     LCTL_T(KC_9),     LSFT_T(KC_0) */
+#define _________________NUMBER_R2_________________ KC_6,   KC_7,    KC_8,     KC_9,     LSFT_T(KC_0)
 #define _________________NUMBER_R3_________________ _________________TRANSPARENT_______________
 
 #define ______NUMR2_____ _______, _______
@@ -191,7 +193,7 @@ enum user_layers {
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │ Esc ││BSpc │ App │   │     │     ││     │
+   *                │     ││     │     │   │     │     ││     │
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
@@ -199,8 +201,8 @@ enum user_layers {
 #define _________________FUNCTION_L2_______________ KC_F11,    KC_F4,   KC_F5,     KC_F6,     KC_DEL
 #define _________________FUNCTION_L3_______________ KC_F10,    KC_F1,   KC_F2,     KC_F3,     KC_PAUSE
 
-#define _FUNL1_ KC_ESC
-#define ______FUNL2_____ KC_BSPC, KC_APP
+#define _FUNL1_ _______
+#define ______FUNL2_____ _______, _______
 #define _______FUNCTION_L4_______ _FUNL1_, ______FUNL2_____
 
 #define _________________FUNCTION_R1_______________ LCMD(KC_LBRC),    LCMD(KC_7),     LCMD(KC_8),       LCMD(KC_9),       LCMD(KC_RBRC)
@@ -252,7 +254,7 @@ enum user_layers {
    *     │     │     │     │     │     │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │ ESC ││BSpc │ Tab │   │  /  │ Spc ││Enter│
+   *                │ ESC ││BSpc │ Tab │   │STab │ Spc ││Enter│
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
@@ -268,7 +270,7 @@ enum user_layers {
 #define _________________NAVIGATION_R2_____________ KC_LEFT,    KC_DOWN,   KC_UP,       KC_RGHT,    XXXXXXX
 #define _________________NAVIGATION_R3_____________ _________________DISABLED__________________
 
-#define ______NAVR2_____ KC_SLSH, KC_SPC
+#define ______NAVR2_____ LCTL(KC_TAB), KC_SPC
 #define _NAVR1_ KC_ENT
 #define _______NAVIGATION_R4_____ ______NAVR2_____, _NAVR1_
 
