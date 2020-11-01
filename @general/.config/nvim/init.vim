@@ -512,6 +512,14 @@ endif
 		hi QuickScopePrimary cterm=bold,underline
 		hi QuickScopeSecondary cterm=underline
 
+  " WhichKey
+    hi WhichKey ctermfg=214 ctermbg=NONE cterm=bold
+    hi WhichKeySeperator ctermfg=102 ctermbg=NONE cterm=NONE
+    hi WhichKeyGroup ctermfg=108 ctermbg=NONE cterm=NONE
+    hi WhichKeyDesc ctermfg=208 ctermbg=NONE cterm=NONE
+    hi WhichKeyFloating ctermfg=NONE ctermbg=239 cterm=NONE
+
+
 "}}}
 
 " FZF -----------------------------------------------------------------------{{{
@@ -817,6 +825,7 @@ endif
 	let g:startify_bookmarks = [
 							\ { 'c': '~/.config/i3/config' },
 							\ { 'i': '~/.config/nvim/init.vim' },
+							\ { 'k': '~/.dotfiles/keyboards/users/thanatchaya/thanatchaya.h' },
 							\ { 'z': '~/.zshrc' },
 							\ '~/Developer',
 							\ ]
@@ -867,12 +876,6 @@ endif
 
   " Not a fan of floating windows for this
   let g:which_key_use_floating_win = 0
-
-  " Change the colors if you want
-  highlight default link WhichKey          Operator
-  highlight default link WhichKeySeperator DiffAdded
-  highlight default link WhichKeyGroup     Identifier
-  highlight default link WhichKeyDesc      Function
 
   " Hide status line
   autocmd! FileType which_key
