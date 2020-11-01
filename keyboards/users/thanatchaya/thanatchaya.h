@@ -95,11 +95,11 @@ enum user_layers {
    *
    *   Modifier on base layer
    *                 ┌─────┬─────┬─────┐   ┌─────┬─────┬─────┐
-   *                 │ Esc │BSpc │ Tab │   │ Tab │ Spc │Enter│
+   *                 │ Esc │BSpc │ Tab │   │STab │ Spc │Enter│
    *                 └─────┴─────┴─────┘   └─────┴─────┴─────┘
-   *                    |     |     |         |     |     |
-   *                    V     |     |         V     |     |
-   *              TG(MEDIA_LAYER)   |   TG(SYMBOL_LAYER)  |
+   *                    |     |     |               |     |
+   *                    V     |     |               |     |
+   *              TG(MEDIA_LAYER)   |               |     |
    *                          |     |               |     |
    *                          V     |               V     |
    *                  TG(NUMBER_LAYER)        TG(NUMBER_LAYER)
@@ -112,7 +112,7 @@ enum user_layers {
 #define ______MODL2_____ LT(NUMBER_LAYER, KC_BSPC), LT(FUNCTION_LAYER, KC_TAB)
 #define _______MODIFIER_L________ _MODL1_, ______MODL2_____
 
-#define ______MODR2_____ LT(SYMBOL_LAYER, KC_TAB), LT(NUMBER_LAYER, KC_SPC)
+#define ______MODR2_____ LSFT(KC_TAB), LT(NUMBER_LAYER, KC_SPC)
 #define _MODR1_ LT(FUNCTION_LAYER, KC_ENT)
 #define _______MODIFIER_R________ ______MODR2_____, _MODR1_
 
@@ -252,7 +252,7 @@ enum user_layers {
    *     │     │     │     │     │     │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │ ESC ││BSpc │ Tab │   │ Tab │ Spc ││Enter│
+   *                │ ESC ││BSpc │ Tab │   │STab │ Spc ││Enter│
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
@@ -268,7 +268,7 @@ enum user_layers {
 #define _________________NAVIGATION_R2_____________ KC_LEFT,    KC_DOWN,   KC_UP,       KC_RGHT,    XXXXXXX
 #define _________________NAVIGATION_R3_____________ _________________DISABLED__________________
 
-#define ______NAVR2_____ LCTL(KC_TAB), KC_SPC
+#define ______NAVR2_____ LSFT(KC_TAB), KC_SPC
 #define _NAVR1_ KC_ENT
 #define _______NAVIGATION_R4_____ ______NAVR2_____, _NAVR1_
 
@@ -276,30 +276,30 @@ enum user_layers {
    *
    *   Mouse Layer
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-   *     │ XXX │ WH← │ M ↑ │ WH→ │ XXX │   │ XXX │ XXX │ XXX │ XXX │ XXX │
+   *     │ XXX │ XXX │ M ↑ │ XXX │ XXX │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │ XXX │ M ← │ M ↓ │ M → │ XXX │   │ XXX │L-BTN│ XXX │R-BTN│M-BTN│
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │ XXX │ XXX │ XXX │ XXX │ XXX │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │     ││ WH↑ │     │   │     │ WH↓ ││     │
+   *                │ WH← ││ WH↑ │     │   │     │ WH↓ ││ WH→ │
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
-#define _________________MOUSE_L1__________________ XXXXXXX,    KC_WH_L,   KC_MS_U,     KC_WH_R,    XXXXXXX
+#define _________________MOUSE_L1__________________ XXXXXXX,    XXXXXXX,   KC_MS_U,     XXXXXXX,    XXXXXXX
 #define _________________MOUSE_L2__________________ XXXXXXX,    KC_MS_L,   KC_MS_D,     KC_MS_R,    XXXXXXX
 #define _________________MOUSE_L3__________________ _________________DISABLED__________________
 
-#define _MOUL1_ _______
+#define _MOUL1_ KC_WH_L
 #define ______MOUL2_____ KC_WH_U, _______
 #define _______MOUSE_L4__________ _MOUL1_, ______MOUL2_____
 
-#define _________________MOUSE_R1__________________ _________________LANGUAGE_SWITCHER_________
+#define _________________MOUSE_R1__________________ _________________DISABLED__________________
 #define _________________MOUSE_R2__________________ XXXXXXX,    KC_BTN1,   XXXXXXX,     KC_BTN2,    KC_BTN3
 #define _________________MOUSE_R3__________________ _________________DISABLED__________________
 
-#define _MOUR1_ _______
+#define _MOUR1_ KC_WH_R
 #define ______MOUR2_____ _______, KC_WH_D
 #define _______MOUSE_R4__________ ______MOUR2_____, _MOUR1_
 
@@ -309,12 +309,12 @@ enum user_layers {
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
    *     │     │     │     │     │     │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │     │     │     │     │     │   │ XXX │  ◀  │    │    │  ▶  │
+   *     │     │     │     │     │     │   │  ◀  │    │    │  ▶  │    │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │     │     │     │     │     │   │ XXX │ XXX │ XXX │ XXX │ XXX │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    *                ┌─────┐┌─────┬─────┐   ┌─────┬─────┐┌─────┐
-   *                │     ││     │     │   │    │    ││    │
+   *                │     ││     │     │   │    │    ││     │
    *                └─────┘└─────┴─────┘   └─────┴─────┘└─────┘
    */
 
@@ -327,9 +327,9 @@ enum user_layers {
 #define _______MEDIA_L4__________ _MEDL1_, ______MEDL2_____
 
 #define _________________MEDIA_R1__________________ _________________DISABLED__________________
-#define _________________MEDIA_R2__________________ XXXXXXX,    KC_MPRV,    KC__VOLDOWN,   KC__VOLUP,     KC_MNXT
+#define _________________MEDIA_R2__________________ KC_MPRV,    KC__VOLDOWN,   KC__VOLUP,     KC_MNXT,    KC__MUTE
 #define _________________MEDIA_R3__________________ _________________DISABLED__________________
 
 #define ______MEDR2_____ KC_MSTP, KC_MPLY
-#define _MEDR1_ KC__MUTE
+#define _MEDR1_ _______
 #define _______MEDIA_R4__________ ______MEDL2_____, _MEDL1_
