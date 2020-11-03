@@ -142,8 +142,8 @@ cmd + shift - 9 : yabai -m window --space 9; # yabai -m space --focus 9
 # alt - 0x1E : index="$(yabai -m query --spaces --display | jq '.[$(yabai -m query --spaces --display | jq 'map(select(.visible == 1))[].index')+1].index')" && \
 #               yabai -m space --focus "${index}"
 
-cmd - 0x1E : yabai -m space --focus next || yabai -m space --focus first
-cmd - 0x21 : yabai -m space --focus prev || yabai -m space --focus last
+cmd - 0x1E : yabai -m space --focus next
+cmd - 0x21 : yabai -m space --focus prev
 
 # Switch workspace
 cmd - 1 : yabai -m space --focus 1
