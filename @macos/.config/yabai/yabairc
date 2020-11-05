@@ -2,7 +2,7 @@
 
 # global settings
 yabai -m config focus_follows_mouse          autofocus
-yabai -m config mouse_follows_focus          off
+yabai -m config mouse_follows_focus          on
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               on
 yabai -m config window_opacity               on
@@ -30,7 +30,6 @@ yabai -m config window_gap                   06
 
 # Manage Window
 yabai -m rule --add title='Preferences$' manage=off
-yabai -m rule --add app='LINE' manage=off layer=above
 yabai -m rule --add title='Opening$' manage=off layer=above
 # yabai -m rule --add app='System Preferences' manage=off layer=above
 yabai -m rule --add app='System Preferences' manage=off
@@ -38,14 +37,9 @@ yabai -m rule --add app='App Store' manage=off layer=above
 yabai -m rule --add app='Contexts' manage=off layer=above
 
 yabai -m rule --add app='Google Chrome' space=4
-# yabai -m rule --add app='Alacritty' space=4
 yabai -m rule --add app='Notion' space=5
 yabai -m rule --add app='LINE' space=6
 yabai -m rule --add title='Telegram Web' space=6
 yabai -m rule --add app='Spotify' space=7
-
-# yabai signals
-yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
 
 echo "yabai configuration loaded.."
