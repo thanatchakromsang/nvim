@@ -29,6 +29,11 @@ if exists bat; then
   alias cat='bat'
 fi
 
+# kubernetes
+if exists kubectl; then
+  alias k='kubectl'
+fi
+
 # editors (assume nvim with plugin)
 if exists nvim; then
   alias vim=nvim

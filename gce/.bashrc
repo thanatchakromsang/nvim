@@ -174,3 +174,4 @@ function check_kube_ns {
 
 PS1="\[\e[32m\]\h\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[32m\]$PROJECT\[\e[m\]:\w\[\e[34m\]\`parse_git_branch\`\[\e[m\] \nk8s\[\e[31m\]@\[\e[m\]\`check_kube_ns\`\[\e[37;40m\]\\$\[\e[m\] "
 
+alias k='kubectl'
