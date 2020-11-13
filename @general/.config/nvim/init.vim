@@ -30,6 +30,7 @@ if dein#load_state(('~/.config/nvim'))
   call dein#add('mhinz/vim-startify')
   call dein#add('voldikss/vim-floaterm')
   call dein#add('liuchengxu/vim-which-key')
+  call dein#add('pedrohdz/vim-yaml-folds')
 " }}}
 
 " COC {{{

@@ -90,6 +90,12 @@ fd() {
  cd "$dir"
 }
 
+pw() {
+  pw=$(lpass ls | fzf +m | awk -F' ' '{print $1}')
+  echo "username: $(lpass show $pw --username)"
+  lpass show $pw --password | pbcopy
+}
+
 fw() {
   IFS=$'\n' files=($(rg --trim --line-number "$1" | fzf --delimiter=: --preview '([[ -f {1} ]] && (bat --style=numbers --line-range {2}: --highlight-line {2} --color=always {1} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'))
 
