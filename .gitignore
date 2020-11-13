@@ -2,3 +2,5 @@
 *Code
 *nvim
 !*nvim/init.vim
+
+@linux/.config/polybar/redshift-env.sh
