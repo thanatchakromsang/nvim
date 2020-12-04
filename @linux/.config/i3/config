@@ -224,12 +224,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ################################################
 ### Open applications on specific workspaces ###
 ################################################
-assign [class="Code" instance="^code"] $ws3
-assign [class="jetbrains-idea"] $ws3
-assign [class="jetbrains-goland"] $ws3
-assign [class="jetbrains-pycharm"] $ws3
 assign [class="Chromium" instance="chromium" window_role="browser"] $ws2
-assign [class="okular" instance="okular"] $ws5
 assign [class="^libreoffice" instance="^libreoffice"] $ws5
 assign [class="TelegramDesktop" instance="telegram-desktop"] $ws7
 assign [class="mpv"] $ws6
@@ -284,8 +279,8 @@ exec --no-startup-id dunst &
 # Eyecandy shadow
 exec_always --no-startup-id picom -b &
 
-# # Auto suspend
-# exec --no-startup-id xautolock -time 15 -locker "systemctl suspend"
+# Auto suspend
+exec --no-startup-id xautolock -time 15 -locker "systemctl suspend"
 
 ########################
 ### Docorate i3-gaps ###
