@@ -30,6 +30,7 @@ case "$OS" in
     ;;
   *arch*)
     source $DOTFILES/scripts/pacman.sh
+    source $DOTFILES/scripts/systemctl.sh
     ;;
   *Ubuntu|Debian*)
     source $DOTFILES/scripts/apt.sh
