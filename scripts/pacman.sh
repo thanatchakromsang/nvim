@@ -20,10 +20,16 @@ declare -a pkgs=("curl"
                  "xautolock"
                  "xclip"
                  "terraform"
+                 "openssh"
 
                  "docker"
                  "kubectl"
                  "helm"
+                 "minikube"
+
+                 # Bluetooth related packages
+                 "bluez"
+                 "bluez-utils"
 
                  "go"
                  "gcc"
@@ -32,6 +38,8 @@ declare -a pkgs=("curl"
                  "neovim"
                  "python-pip"
                  "python-neovim"
+
+                 "virtualbox"
                  )
 
 # Graphic packages
@@ -56,6 +64,9 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
                      "lazygit"
                      "polybar"
                      "networkmanager-dmenu-git"
+                     "pet-bin"
+
+                     "rofi-bluetooth-git"
 
                      # Fonts
                      "fonts-tlwg"
