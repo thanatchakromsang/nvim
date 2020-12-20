@@ -91,9 +91,20 @@ fd() {
 }
 
 pw() {
-  pw=$(lpass ls | fzf +m | awk -F' ' '{print $1}')
-  echo "username: $(lpass show $pw --username)"
-  lpass show $pw --password | pbcopy
+  INF=$(lpass ls $1 | fzf +m)
+  ID=$(echo $INF | awk -F ":" '{print $NF}' | tr -dc '[:digit:]\n')
+
+  echo $INF
+
+  USER=$(lpass show $ID --username)
+  if [[ ! -z "$USER" ]]
+  then
+    echo "username: $(lpass show $ID --username)"
+    lpass show -cp $ID
+    echo "password: *copied to clipboard*"
+  else
+    lpass show $ID
+  fi
 }
 
 fw() {
