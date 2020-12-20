@@ -7,3 +7,7 @@
   KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" &&
   "$KREW" install krew
 )
+
+kubectl krew install ns
+kubectl krew install ctx
+kubectl krew install images
