@@ -20,9 +20,9 @@ else
   alias ls='ls -Fh'
 fi
 
-if exists rg; then
-  alias grep='rg'
-fi
+# if exists rg; then
+#   alias grep='rg'
+# fi
 
 # bat instead of cat
 if exists bat; then
