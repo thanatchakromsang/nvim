@@ -201,9 +201,9 @@ for_window [instance="__scratchpad"] move scratchpad
 ### Applications binding ###
 ###########################s
 
-bindsym $mod+d exec --no-startup-id "rofi -width 30 -show drun"
+bindsym $mod+d exec --no-startup-id rofi -width 30 -show drun
 bindsym $mod+w exec --no-startup-id rofi -show window
-bindsym $mod+p exec --no-startup-id rofi -width 30 -show ssh
+bindsym $mod+p exec --no-startup-id rofi -width 45 -lines 20 -show lpass:rofi-lpass
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu dmenu_command=rofi -width 25
 
 #####################
@@ -268,10 +268,7 @@ assign [class="Gimp"] $ws9
 ### Autostart applications ###
 ##############################
 
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# Sound system
-# exec --no-startup-id pulseaudio
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Notification
 exec --no-startup-id dunst &
@@ -409,16 +406,6 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
-# set $mode_delete (delete) randomwall.sh
-# bindsym Delete mode "$mode_delete"
-# mode "$mode_delete" {
-#     bindsym Delete exec "/home/thanatchaya/randomwall.sh", mode "default"
-
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
 #######################################
 ### move floating windows with keys ###
 #######################################
@@ -436,21 +423,6 @@ mode "move" {
     bindsym j     move down
     bindsym k     move up
     bindsym l     move right
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-#######################################
-### Mode                           ####
-#######################################
-
-set $application open (1) bluetoothctl (2) sound-manager
-bindsym $mod+F1 mode "$application"
-mode "$application" {
-    bindsym 1 exec $term -e bluetoothctl
-    bindsym 2 exec --no-startup-id pavucontrol, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
