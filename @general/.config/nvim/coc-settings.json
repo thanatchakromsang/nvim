@@ -3,5 +3,17 @@
   "codeLens.enable": true,
   "diagnostic.messageTarget": "echo",
   "diagnostic.format": "[%source%code] [%severity] %message",
-  "coc.preferences.extensionUpdateCheck": "weekly"
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "languageserver": {
+      "terraform": {
+          "command": "terraform-ls",
+          "args": ["serve"],
+          "filetypes": [
+              "terraform",
+              "tf"
+          ],
+          "initializationOptions": {},
+          "settings": {}
+      }
+  }
 }
