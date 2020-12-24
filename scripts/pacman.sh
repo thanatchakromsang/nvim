@@ -5,7 +5,8 @@ localectl --no-convert set-x11-keymap us,th pc104 workman,pat grp:win_space_togg
 
 # Terminal packages
 declare -a pkgs=("curl"
-		             "dhcpcd"
+		             "dhcpcd" # For connect internet
+
                  "htop"
                  "npm"
                  "zsh"
@@ -21,6 +22,9 @@ declare -a pkgs=("curl"
                  "xclip"
                  "terraform"
                  "openssh"
+
+                 "yq"
+                 "jq"
 
                  "docker"
                  "kubectl"
@@ -40,6 +44,8 @@ declare -a pkgs=("curl"
                  "python-neovim"
 
                  "virtualbox"
+
+                 "playerctl"
                  )
 
 # Graphic packages
@@ -55,8 +61,16 @@ declare -a g_pkgs=("dunst"
                    "feh"
                    "arandr"
 
+                   # Sound
+                   "pavucontrol"
+                   "pulseaudio-bluetooth"
+                   "pulseaudio"
+
                    # Fonts
                    "ttf-dejavu"
+
+                   "polkit"
+                   "polkit-gnome"
                    )
 
 declare -a aur_pkgs=("zsh-plugin-wd-git"
@@ -70,6 +84,9 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
 
                      # Fonts
                      "fonts-tlwg"
+                     "nerd-fonts-hack"
+
+                     "terraform-ls"
                     )
 
 #if [[ $(program_is_installed X) -eq 1 ]]; then
