@@ -91,10 +91,7 @@ fd() {
 }
 
 pw() {
-  INF=$(lpass ls $1 | fzf +m)
-  ID=$(echo $INF | awk -F ":" '{print $NF}' | tr -dc '[:digit:]\n')
-
-  echo $INF
+  ID=$(lpass ls --format "%/as%ag - %an (%au) [%ai]" 2>&1 | fzf +m | grep -oE '\[[0-9]+\]$' | tr -d '[]')
 
   USER=$(lpass show $ID --username)
   if [[ ! -z "$USER" ]]
@@ -118,3 +115,9 @@ if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/path.zsh.inc' ]; then s
 if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/thanatchaya/google-cloud-sdk/path.zsh.inc' ]; then . '/home/thanatchaya/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/thanatchaya/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/thanatchaya/google-cloud-sdk/completion.zsh.inc'; fi
