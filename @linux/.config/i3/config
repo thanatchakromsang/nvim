@@ -252,7 +252,9 @@ assign [class="Chromium" instance="crx_jdbojlaicachcbjoddbcbnhomkmkcfld"] $ws9
 # Line
 assign [class="Chromium" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] $ws7
 # Notion
-assign [class="Chromium" instance="crx_embbmhlnkmaglgimmfegjljognpbfehi"] $ws5
+## Daily
+assign [class="Chromium" instance="crx_jbbcegdcdlhebdnnkcpmplmkeomoaafn"] $ws5
+## Command Center
 assign [class="Chromium" instance="crx_nllgpaolceofdaoocgnfnegieeclgamh"] $ws5
 
 for_window [class="Chromium"] border pixel 1
