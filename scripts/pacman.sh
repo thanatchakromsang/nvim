@@ -5,7 +5,8 @@ localectl --no-convert set-x11-keymap us,th pc104 workman,pat grp:win_space_togg
 
 # Terminal packages
 declare -a pkgs=("curl"
-		             "dhcpcd" # For connect internet
+                 "networkmanager"
+                 "xautolock"
 
                  "htop"
                  "npm"
@@ -16,9 +17,10 @@ declare -a pkgs=("curl"
                  "rustup"
                  "stow"
                  "w3m"
+                 "fzf"
+                 "lastpass-cli"
                  "ripgrep"
                  "watchman"
-                 "xautolock"
                  "xclip"
                  "terraform"
                  "openssh"
@@ -59,7 +61,12 @@ declare -a g_pkgs=("dunst"
                    "chromium"
                    "simplescreenrecorder"
                    "feh"
+
+                   # XServer
+                   "xorg-server"
+                   "xorg-xinit"
                    "arandr"
+                   "i3-gaps"
 
                    # Sound
                    "pavucontrol"
@@ -92,12 +99,12 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
 #if [[ $(program_is_installed X) -eq 1 ]]; then
   for i in "${g_pkgs[@]}"
   do
-    sudo pacman -S "$i"
+    sudo pacman -S "$i" --noconfirm
   done
 
   for i in "${pkgs[@]}"
   do
-    sudo pacman -S "$i"
+    sudo pacman -S "$i" --noconfirm
   done
 
   for i in "${aur_pkgs[@]}"
@@ -115,5 +122,3 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
 #done
 
 npm config set prefix $HOME/.local
-
-sudo pacman -S ttf-fira-code
