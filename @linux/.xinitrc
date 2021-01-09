@@ -4,5 +4,5 @@
 
 TZ='Asia/Bangkok'; export TZ
 
-exec ~/.fehbg &
+# exec ~/.fehbg &
 exec i3
