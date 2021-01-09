@@ -33,7 +33,6 @@ case "$OS" in
   ;;
 esac
 
-# source $DOTFILES/spaceship_config.sh
 source $ZSH/oh-my-zsh.sh
 
 # source useful script
