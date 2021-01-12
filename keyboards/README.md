@@ -70,3 +70,9 @@ Atreus Keyboard Layout
 
 ### Troubleshoot Atreus
 
+Problem arise while trying to flash Atreus booloader and stuck at writing phase
+
+```bash
+sudo chmod a+rw /dev/ttyACM0
+```
+
