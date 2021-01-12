@@ -48,7 +48,7 @@ enum user_layers {
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │ A/⇧ │ S/^ │ D/⌥ │ F/⌘ │  G  │   │  H  │ J/⌘ │ K/⌥ │ L/^ │ ;/⇧ │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  '  │
+   *     │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    */
 
@@ -58,7 +58,7 @@ enum user_layers {
 
 #define _________________QWERTY_R1_________________ KC_Y, KC_U,         KC_I,         KC_O,         KC_P
 #define _________________QWERTY_R2_________________ KC_H, LGUI_T(KC_J), LALT_T(KC_K), LCTL_T(KC_L), LSFT_T(KC_SCLN)
-#define _________________QWERTY_R3_________________ KC_N, KC_M,         KC_COMM,      KC_DOT,       KC_QUOT
+#define _________________QWERTY_R3_________________ KC_N, KC_M,         KC_COMM,      KC_DOT,       KC_SLSH
 
   /* ---------------------------------------------------------------------
    *
@@ -69,7 +69,7 @@ enum user_layers {
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
    *     │ A/⇧ │ S/^ │ H/⌥ │ T/⌘ │  G  │   │  Y  │ N/⌘ │ E/⌥ │ O/^ │ I/⇧ │
    *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-   *     │  Z  │  X  │  M  │  C  │  V  │   │  K  │  L  │  ,  │  .  │  '  │
+   *     │  Z  │  X  │  M  │  C  │  V  │   │  K  │  L  │  ,  │  .  │  /  │
    *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
    */
 
@@ -79,13 +79,13 @@ enum user_layers {
 
 #define _________________WORKMAN_R1________________ KC_J, KC_F,         KC_U,         KC_P,         KC_SCLN
 #define _________________WORKMAN_R2________________ KC_Y, LGUI_T(KC_N), LALT_T(KC_E), LCTL_T(KC_O), LSFT_T(KC_I)
-#define _________________WORKMAN_R3________________ KC_K, KC_L,         KC_COMM,      KC_DOT,       KC_QUOT
+#define _________________WORKMAN_R3________________ KC_K, KC_L,         KC_COMM,      KC_DOT,       KC_SLSH
 
   /* ---------------------------------------------------------------------
    *
    *   Modifier on base layer
    *                 ┌─────┬─────┬─────┐   ┌─────┬─────┬─────┐
-   *                 │ Esc │BSpc │ Tab │   │Enter│ Spc │  /  │
+   *                 │ Esc │BSpc │ Tab │   │Enter│ Spc │  '  │
    *                 └─────┴─────┴─────┘   └─────┴─────┴─────┘
    *                    |     |     |         |     |     |
    *                    V     |     |         V     |     |
@@ -103,7 +103,7 @@ enum user_layers {
 #define _______MODIFIER_L________ _MODL1_, ______MODL2_____
 
 #define ______MODR2_____ LT(SYMBOL_LAYER, KC_ENT), LT(NUMBER_LAYER, KC_SPC)
-#define _MODR1_ LT(FUNCTION_LAYER, KC_SLSH)
+#define _MODR1_ LT(FUNCTION_LAYER, KC_QUOT)
 #define _______MODIFIER_R________ ______MODR2_____, _MODR1_
 
   /* ---------------------------------------------------------------------
