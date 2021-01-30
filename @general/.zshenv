@@ -32,6 +32,8 @@ export PATH="$HOME/.dotfiles/scripts/bin:$PATH"
 export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Program specific
 export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 

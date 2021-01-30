@@ -75,6 +75,7 @@ declare -a g_pkgs=("dunst"
 
                    # Fonts
                    "ttf-dejavu"
+                   "noto-fonts-emoji"
 
                    "polkit"
                    "polkit-gnome"

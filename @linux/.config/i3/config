@@ -42,7 +42,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 
 # focus on mouse
-focus_follows_mouse on
+focus_follows_mouse yes
 
 # smart popup
 popup_during_fullscreen smart
