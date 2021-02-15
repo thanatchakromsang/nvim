@@ -15,7 +15,6 @@ if exists nvim; then
 else
   export VISUAL=vim
 fi
-
 export EDITOR=$VISUAL
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -37,8 +36,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # Program specific
 export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 
-export NVM_DIR="$HOME/.nvm"
-
 if exists fzf; then
   export FZF_DEFAULT_OPTS='--height 40% --border --reverse'
   export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{node_modules,.git}"'
@@ -48,8 +45,8 @@ if exists fzf; then
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#d5c4a1,bg:#282828,hl:#fbf1c7 --color=fg+:#d5c4a1,bg+:#7c6f64,hl+:#d79921 --color=info:#928374,prompt:#d79921,pointer:#d79921 --color=marker:#d79921,spinner:#cc241d,header:#458588'
 fi
 
-if exists snap; then
-  export PATH="$HOME/.local/bin/:/snap/bin/:$PATH"
+if exists nnn; then
+  export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 fi
 
 # OS Specific
