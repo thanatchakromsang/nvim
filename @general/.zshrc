@@ -110,9 +110,6 @@ fw() {
   [[ -n "$files" ]] && ${EDITOR:-vim} +$(echo ${files[@]} | awk '{split($0,a,":"); print a[2] }') $(echo ${files[@]} | awk '{split($0,a,":"); print a[1] }')
 }
 
-if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f '/Users/thanatchaya.K/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
