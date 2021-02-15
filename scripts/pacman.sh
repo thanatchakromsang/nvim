@@ -1,27 +1,23 @@
 #!/bin/bash
 
-# Add us workman and th pattachote as keyboard layout
-localectl --no-convert set-x11-keymap us,th pc104 workman,pat grp:win_space_toggle
-
 # Terminal packages
 declare -a pkgs=("curl"
                  "networkmanager"
-                 "xautolock"
+                 "pacman-contrib"
 
                  "htop"
-                 "npm"
+                 "yarn"
                  "zsh"
+
                  "tig"
                  "bat"
                  "exa"
-                 "rustup"
+                 "nnn"
                  "stow"
-                 "w3m"
                  "fzf"
                  "lastpass-cli"
                  "ripgrep"
-                 "watchman"
-                 "xclip"
+                 "wl-clipboard"
                  "terraform"
                  "openssh"
 
@@ -37,6 +33,11 @@ declare -a pkgs=("curl"
                  "bluez"
                  "bluez-utils"
 
+                 "rustup"
+
+                 # Network Utility
+                 "bind"
+
                  "go"
                  "gcc"
                  "make"
@@ -51,22 +52,27 @@ declare -a pkgs=("curl"
                  )
 
 # Graphic packages
-declare -a g_pkgs=("dunst"
-                   "rofi"
+declare -a g_pkgs=(
                    "zathura"
                    "zathura-pdf-mupdf"
                    "ranger"
-                   "maim"
                    "kitty"
                    "chromium"
-                   "simplescreenrecorder"
-                   "feh"
+                   "pipewire"
+                   "libpipewire02" # Remove when Chromium support pipewire 0.3
+                   "xdg-desktop-portal-wlr"
 
-                   # XServer
-                   "xorg-server"
-                   "xorg-xinit"
-                   "arandr"
-                   "i3-gaps"
+                   "grim"
+                   "slurp"
+
+                   "sway"
+                   "swaybg"
+                   "waybar"
+                   "wf-recorder"
+                   "swayidle"
+                   "swaylock"
+
+                   "mako" # Notification daemon
 
                    # Sound
                    "pavucontrol"
@@ -84,42 +90,17 @@ declare -a g_pkgs=("dunst"
 declare -a aur_pkgs=("zsh-plugin-wd-git"
                      "lazydocker"
                      "lazygit"
-                     "polybar"
-                     "networkmanager-dmenu-git"
                      "pet-bin"
+                     "rofi-lbonn-wayland-git"
+                     "grimshot"
 
-                     "rofi-bluetooth-git"
+                     "wdisplays"
 
                      # Fonts
                      "fonts-tlwg"
                      "nerd-fonts-hack"
-
-                     "terraform-ls"
                     )
 
-#if [[ $(program_is_installed X) -eq 1 ]]; then
-  for i in "${g_pkgs[@]}"
-  do
-    sudo pacman -S "$i" --noconfirm
-  done
-
-  for i in "${pkgs[@]}"
-  do
-    sudo pacman -S "$i" --noconfirm
-  done
-
-  for i in "${aur_pkgs[@]}"
-  do
-    yay -S --noconfirm "$i"
-  done
-#fi
-
-## pip
-#declare -a pip=("pipenv" "jedi")
-#
-#for i in "${pip[@]}"
-#do
-#   pip install -S "$i"
-#done
-
-npm config set prefix $HOME/.local
+# sudo pacman -S ${pkgs[@]} --noconfirm
+# sudo pacman -S ${g_pkgs[@]} --noconfirm
+yay -Syu ${pkgs[@]} ${g_pkgs[@]} ${aur_pkgs[@]} --noconfirm
