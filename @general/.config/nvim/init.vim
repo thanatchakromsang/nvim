@@ -925,12 +925,11 @@ endif
 
   let g:which_key_map_leader['t'] = {
       \ 'name' : '+terminal' ,
-      \ 'r' : [':FloatermNew ranger'           , 'ranger'    ],
       \ 't' : [':FloatermToggle'               , 'toggle'    ],
-      \ 'n' : [':FloatermNew'                  , 'new'       ],
       \ 'h' : [':FloatermNew htop'             , 'htop'      ],
       \ 'd' : [':FloatermNew lazydocker'       , 'lazydocker'],
       \ 'g' : [':FloatermNew lazygit'          , 'lazygit'   ],
+      \ 'f' : [':FloatermNew nnn'              , 'nnn'       ],
       \ }
 
  let g:which_key_map_leader['l'] = {
