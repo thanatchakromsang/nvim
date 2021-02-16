@@ -23,6 +23,7 @@ if [ -f "$STATE" ]; then
       ;;
     *Linux*)
       stow -v -D -t "$HOME" @linux --adopt
+      sudo cp $DOTFILES/@linux/.config/pacman.conf /etc/pacman.conf
       ;;
   esac
 

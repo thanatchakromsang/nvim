@@ -2,8 +2,10 @@
 
 # Terminal packages
 declare -a pkgs=("curl"
+                 "sudo"
                  "networkmanager"
                  "pacman-contrib"
+                 "inetutils"
 
                  "htop"
                  "yarn"
@@ -61,6 +63,9 @@ declare -a g_pkgs=(
                    "pipewire"
                    "libpipewire02" # Remove when Chromium support pipewire 0.3
                    "xdg-desktop-portal-wlr"
+                   "telegram-desktop"
+
+                   "light"
 
                    "grim"
                    "slurp"
@@ -93,6 +98,7 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
                      "pet-bin"
                      "rofi-lbonn-wayland-git"
                      "grimshot"
+                     "networkmanager-dmenu-git"
 
                      "wdisplays"
 
@@ -101,6 +107,4 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
                      "nerd-fonts-hack"
                     )
 
-# sudo pacman -S ${pkgs[@]} --noconfirm
-# sudo pacman -S ${g_pkgs[@]} --noconfirm
 yay -Syu ${pkgs[@]} ${g_pkgs[@]} ${aur_pkgs[@]} --noconfirm

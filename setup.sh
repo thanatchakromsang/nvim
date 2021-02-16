@@ -29,15 +29,13 @@ case "$OS" in
     echo "Restart macOS after installation"
     ;;
   *arch*)
-	  pacman --needed git base-devel
+	  sudo pacman -S git base-devel --noconfirm
 	  git clone https://aur.archlinux.org/yay.git $HOME/.yay
 	  cd $HOME/.yay
 	  makepkg -si
     source $DOTFILES/scripts/pacman.sh
     source $DOTFILES/scripts/systemctl.sh
-    ;;
-  *Ubuntu|Debian*)
-    source $DOTFILES/scripts/apt.sh
+    source $DOTFILES/scripts/arch-usergroups.sh
     ;;
 esac
 
