@@ -7,7 +7,7 @@ print-account-list() {
 }
 
 copy-account-field() {
-  lpass show --clip "--${2}" "$1" >/dev/null 2>/dev/null
+  lpass show "--${2}" "$1" | wl-copy >/dev/null 2>/dev/null
 }
 
 open-account-url() {
