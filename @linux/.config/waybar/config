@@ -18,8 +18,10 @@
         "temperature",
         "custom/separator",
         "backlight",
-        "sway/language",
+        "custom/separator",
         "battery",
+        "custom/separator",
+        "sway/language",
         "clock",
         "idle_inhibitor"
         ],
