@@ -99,6 +99,7 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
                      "rofi-lbonn-wayland-git"
                      "grimshot"
                      "networkmanager-dmenu-git"
+                     "rofi-bluetooth-git"
 
                      "wdisplays"
 
