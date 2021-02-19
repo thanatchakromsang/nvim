@@ -6,6 +6,7 @@ declare -a pkgs=("curl"
                  "networkmanager"
                  "pacman-contrib"
                  "inetutils"
+                 "unzip"
 
                  "htop"
                  "yarn"
