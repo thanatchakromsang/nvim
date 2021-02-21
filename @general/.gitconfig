@@ -21,3 +21,7 @@
 	whitespace = red reverse
 [pull]
 	rebase = true
+[includeIf "gitdir:~/Developers/sertis"]
+    [user]
+        name = Thanatchaya Kromsaeng
+        email = tkrom@sertiscorp.com
