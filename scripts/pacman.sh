@@ -30,7 +30,6 @@ declare -a pkgs=("curl"
                  "docker"
                  "kubectl"
                  "helm"
-                 "minikube"
 
                  # Bluetooth related packages
                  "bluez"
@@ -103,6 +102,7 @@ declare -a aur_pkgs=("zsh-plugin-wd-git"
                      "rofi-bluetooth-git"
 
                      "wdisplays"
+                     "kind-bin"
 
                      # Fonts
                      "fonts-tlwg"
