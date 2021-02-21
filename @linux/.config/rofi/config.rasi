@@ -1,0 +1,20 @@
+configuration {
+	modi: "run,drun";
+	width: 30;
+	lines: 10;
+	columns: 1;
+	font: "MesloLGM Nerd Font Mono 11";
+	bw: 3;
+	padding: 20;
+	terminal: "kitty";
+	eh: 1;
+	separator-style: "none";
+	hide-scrollbar: true;
+	color-normal: "#32302f, #a89984, #32302f, #32302f, #ebdbb2";
+	color-urgent: "#32302f, #a89984, #32302f, #32302f, #ebdbb2";
+	color-active: "#32302f, #a89984, #32302f, #32302f, #ebdbb2";
+	color-window: "#32302f, #32302f, #282c34";
+	display-run: "execute";
+	display-ssh: "connect to server";
+	display-drun: "search";
+}
