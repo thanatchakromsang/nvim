@@ -22,6 +22,7 @@
 enum user_layers {
   QWERTY_LAYER,
   WORKMAN_LAYER,
+  TYPE_LAYER, // No modifier
   NUMBER_LAYER,
   SYMBOL_LAYER,
   FUNCTION_LAYER,
@@ -41,7 +42,7 @@ enum user_layers {
 
   /* ---------------------------------------------------------------------
    *
-   *   Qwerty Layout (Switched Quote and Slash)
+   *   Qwerty Layout
    *
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
    *     │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │
@@ -62,7 +63,7 @@ enum user_layers {
 
   /* ---------------------------------------------------------------------
    *
-   *   Workman Layout (Switched Quote and Slash)
+   *   Workman Layout
    *
    *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
    *     │  Q  │  D  │  R  │  W  │  B  │   │  J  │  F  │  U  │  P  │  ;  │
@@ -213,11 +214,11 @@ enum user_layers {
    *
    *   Layer Switcher
    *     ┌─────┬─────┬─────┬─────┬─────┐
-   *     │LANG │QWRTY│     │     │WKMN │
+   *     │LANG │QWRTY│TYPE │     │WKMN │
    *     └─────┴─────┴─────┴─────┴─────┘
    */
 
-#define _________________LANGUAGE_SWITCHER_________ LGUI(KC_SPC),    TO(QWERTY_LAYER),   XXXXXXX,     XXXXXXX,     TO(WORKMAN_LAYER)
+#define _________________LANGUAGE_SWITCHER_________ LGUI(KC_SPC),    TO(QWERTY_LAYER),   TO(TYPE_LAYER),     XXXXXXX,     TO(WORKMAN_LAYER)
 
   /* ---------------------------------------------------------------------
    *
@@ -321,3 +322,24 @@ enum user_layers {
 #define ______MEDR2_____ KC_MSTP, KC_MPLY
 #define _MEDR1_ _______
 #define _______MEDIA_R4__________ ______MEDL2_____, _MEDL1_
+
+  /* ---------------------------------------------------------------------
+   *
+   *   Type Layer
+   *
+   *     ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
+   *     │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │
+   *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
+   *     │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │
+   *     ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
+   *     │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │
+   *     └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
+   */
+
+#define _________________TYPE___L1_________________ KC_Q, KC_W, KC_E, KC_R, KC_T
+#define _________________TYPE___L2_________________ KC_A, KC_S, KC_D, KC_F, KC_G
+#define _________________TYPE___L3_________________ KC_Z, KC_X, KC_C, KC_V, KC_B
+
+#define _________________TYPE___R1_________________ KC_Y, KC_U, KC_I,    KC_O,   KC_P
+#define _________________TYPE___R2_________________ KC_H, KC_J, KC_K,    KC_L,   KC_SCLN
+#define _________________TYPE___R3_________________ KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH
