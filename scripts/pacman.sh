@@ -23,6 +23,7 @@ declare -a pkgs=(
   "ripgrep"
   "wl-clipboard"
   "terraform"
+  "terrform-ls-bin"
   "openssh"
 
   "yq"
@@ -52,6 +53,7 @@ declare -a pkgs=(
 
 # Graphic packages
 declare -a g_pkgs=(
+<<<<<<< Updated upstream
   "zathura"
   "zathura-pdf-mupdf"
   "ranger"
