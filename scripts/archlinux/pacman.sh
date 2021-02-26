@@ -24,7 +24,7 @@ declare -a pkgs=(
   "ripgrep"
   "wl-clipboard"
   "terraform"
-  "terrform-ls-bin"
+  "terraform-ls"
   "openssh"
 
   "yq"
