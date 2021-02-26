@@ -36,7 +36,7 @@ esac
 source $ZSH/oh-my-zsh.sh
 
 # source useful script
-source $DOTFILES/scripts/exists.sh
+source $DOTFILES/scripts/bin/exists.sh
 
 source $DOTFILES/@general/.aliases
 source $DOTFILES/@general/.zshenv

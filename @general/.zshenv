@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source $HOME/.dotfiles/scripts/exists.sh
+source $HOME/.dotfiles/scripts/bin/exists.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
