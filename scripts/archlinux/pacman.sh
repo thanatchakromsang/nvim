@@ -121,4 +121,4 @@ declare -a kube_pkgs=(
   "flux-bin"
 )
 
-yay -Syu ${pkgs[@]} ${g_pkgs[@]} ${aur_pkgs[@]} ${kube_pkgs[@]} --noconfirm
+yay -Syu ${pkgs[@]} ${g_pkgs[@]} ${aur_pkgs[@]} ${kube_pkgs[@]} --noconfirm --needed
