@@ -6,3 +6,10 @@ keyboards/qmk
 @general/.config/nvim/session
 @general/.config/nvim/.netrwhist
 @general/.config/nvim/.cache/
+
+# git secret
+.gitsecret/keys/random_seed
+!*.secret
+@general/.config/pet/snippet.toml
+@general/.gitconfig
+@general/.warprc
