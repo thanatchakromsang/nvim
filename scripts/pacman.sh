@@ -53,7 +53,6 @@ declare -a pkgs=(
 
 # Graphic packages
 declare -a g_pkgs=(
-<<<<<<< Updated upstream
   "zathura"
   "zathura-pdf-mupdf"
   "ranger"
