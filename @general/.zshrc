@@ -81,30 +81,17 @@ f() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-# fd - Find any directory and cd to selected directory
-fd() {
+# d - Find any directory and cd to selected directory
+d() {
  local dir
- dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
-      -print 2> /dev/null | fzf +m) &&
+
+ dir=$(fd --type d --hidden --follow --exclude .git 2> /dev/null | fzf +m) &&
  cd "$dir"
 }
 
-pw() {
-  ID=$(lpass ls --format "%/as%ag - %an (%au) [%ai]" 2>&1 | fzf +m | grep -oE '\[[0-9]+\]$' | tr -d '[]')
+w() {
+  IFS=$'\n' files=($(rg --trim --line-number --hidden "$1" | fzf --delimiter=: --preview '([[ -f {1} ]] && (bat --style=numbers --line-range {2}: --highlight-line {2} --color=always {1} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'))
 
-  USER=$(lpass show $ID --username)
-  if [[ ! -z "$USER" ]]
-  then
-    echo "username: $(lpass show $ID --username)"
-    lpass show -cp $ID
-    echo "password: *copied to clipboard*"
-  else
-    lpass show $ID
-  fi
-}
-
-fw() {
-  IFS=$'\n' files=($(rg --trim --line-number "$1" | fzf --delimiter=: --preview '([[ -f {1} ]] && (bat --style=numbers --line-range {2}: --highlight-line {2} --color=always {1} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'))
 
   # Open files with specific lines
   [[ -n "$files" ]] && ${EDITOR:-vim} +$(echo ${files[@]} | awk '{split($0,a,":"); print a[2] }') $(echo ${files[@]} | awk '{split($0,a,":"); print a[1] }')
