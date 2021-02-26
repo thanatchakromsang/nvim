@@ -38,7 +38,7 @@ export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 
 if exists fzf; then
   export FZF_DEFAULT_OPTS='--height 40% --border --reverse'
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{node_modules,.git}"'
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
   # fzf color
