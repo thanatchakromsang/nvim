@@ -20,9 +20,9 @@ else
   alias ls='ls -Fh'
 fi
 
-# if exists rg; then
-#   alias grep='rg'
-# fi
+if exists rg; then
+  alias grep='rg'
+fi
 
 # bat instead of cat
 if exists bat; then
@@ -38,15 +38,6 @@ fi
 if exists nvim; then
   alias vim=nvim
   alias tmp='vim ~/.tmp.md'
-fi
-
-alias c=clear
-
-# other
-if exists ranger; then
-  # source current ranger dir
-  alias ranger='. ranger'
-  alias r='ranger'
 fi
 
 if exists nnn; then
@@ -90,7 +81,11 @@ if exists wl-copy; then
   alias pbpaste='wl-copy'
 fi
 
-# scripts
-alias gitall='ls -D | xargs -P10 -I{} git -C {}'
+if exists lazygit; then
+  alias g=lazygit
+fi
+
+alias c=clear
+
 
 $*
