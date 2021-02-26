@@ -1,12 +1,9 @@
 # Dotfiles
 
-My universal dotfiles for every unix machine (Linux, macOS)
+My unix dotfiles for Archlinux
 
-- neovim
-- tmux configs
-- zsh config + alias
-- i3wm configs (polybar, dunst, compton, xresources)
-- etc.
+- neovim, kitty and zsh
+- sway (mako, waybar, swaylock, rofi)
 
 ## __Installation__
 
