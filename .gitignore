@@ -1,6 +1,8 @@
-*gtk-3.0
-*Code
-*nvim
-!*nvim/init.vim
+keyboards/qmk
 
-@linux/.config/polybar/redshift-env.sh
+# NVIM
+@general/.config/nvim/plugged/
+@general/.config/nvim/autoload
+@general/.config/nvim/session
+@general/.config/nvim/.netrwhist
+@general/.config/nvim/.cache/
