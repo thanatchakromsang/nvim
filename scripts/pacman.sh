@@ -14,6 +14,7 @@ declare -a pkgs=(
   "zsh"
 
   "tig"
+  "fd"
   "bat"
   "exa"
   "nnn"
