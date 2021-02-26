@@ -2,45 +2,46 @@
 " Author: Thanatchaya Kromsaeng "
 "==============================="
 
-" Setup dein  ---------------------------------------------------------------{{{
+" Setup Plug  ---------------------------------------------------------------{{{
 
-  if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
-      call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-      call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
-	endif
+  if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 
-set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
-if dein#load_state(('~/.config/nvim'))
-  call dein#begin(expand('~/.config/nvim'))
+  " Run PlugInstall if there are missing plugins
+  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+  \| endif
 
-" Plugin Manager {{{
-  call dein#add('Shougo/dein.vim')
-" }}}
+  call plug#begin('~/.config/nvim/plugged')
 
 " Sensible {{{
-  call dein#add('wellle/targets.vim')
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-unimpaired')
-  call dein#add('tpope/vim-commentary')
-	call dein#add('tpope/vim-abolish')
-  call dein#add('justinmk/vim-sneak')
-  call dein#add('sgur/vim-editorconfig')
-  call dein#add('sheerun/vim-polyglot')
-  call dein#add('mhinz/vim-startify')
-  call dein#add('voldikss/vim-floaterm')
-  call dein#add('liuchengxu/vim-which-key')
-  call dein#add('pedrohdz/vim-yaml-folds')
+  Plug 'wellle/targets.vim'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-abolish'
+  Plug 'justinmk/vim-sneak'
+  Plug 'sgur/vim-editorconfig'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'mhinz/vim-startify'
+  Plug 'voldikss/vim-floaterm'
+  Plug 'liuchengxu/vim-which-key'
+  Plug 'pedrohdz/vim-yaml-folds'
+  Plug 'tpope/vim-vinegar'
 " }}}
 
 " COC {{{
-  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
-  call dein#add('antoinemadec/coc-fzf', {'merged':0, 'rev': 'release'})
-	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-	call dein#add('junegunn/fzf.vim')
-	call dein#add('airblade/vim-rooter')
-  call dein#add('liuchengxu/vista.vim')
-  call dein#add('honza/vim-snippets')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+	Plug 'junegunn/fzf', { 'do': './install --all'}
+	Plug 'junegunn/fzf.vim', { 'do': 'g:fzf_install' }
+	Plug 'airblade/vim-rooter'
+  Plug 'liuchengxu/vista.vim'
+  Plug 'honza/vim-snippets'
 	let g:coc_global_extensions = [
 				\		'coc-json',
 				\		'coc-go',
@@ -59,50 +60,38 @@ if dein#load_state(('~/.config/nvim'))
 " }}}
 
 " Fast Motion {{{
-  call dein#add('haya14busa/incsearch.vim')
-  call dein#add('unblevable/quick-scope')
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'unblevable/quick-scope'
 " }}}
 
 " Colorscheme {{{
-  call dein#add('morhetz/gruvbox')
+  Plug 'morhetz/gruvbox'
 " }}}
 
 " Appearance {{{
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('Yggdroot/indentLine')
-" }}}
-
-" Terminal {{{
-  call dein#add('Shougo/deol.nvim')
-  " call dein#add('christoomey/vim-tmux-navigator')
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'Yggdroot/indentLine'
 " }}}
 
 " Git {{{
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rhubarb')
-  call dein#add('airblade/vim-gitgutter')
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'airblade/vim-gitgutter'
 " }}}
 
 " Linter {{{
-  call dein#add('w0rp/ale')
+  Plug 'w0rp/ale'
 " }}}
 
 " Misc plugin {{{
-  call dein#add('Konfekt/FastFold')
-  " call dein#add('chakrit/vim-thai-keys')
-  call dein#add('Shougo/context_filetype.vim')
-  call dein#add('mhinz/vim-sayonara')
+  Plug 'Konfekt/FastFold'
+  Plug 'Shougo/context_filetype.vim'
+  Plug 'mhinz/vim-sayonara'
 " }}}
 
-  if dein#check_install()
-    call dein#install()
-    let pluginsExist=1
-  endif
-
-  call dein#end()
-  call dein#save_state()
-endif
+  " Initialize plugin system
+  call plug#end()
 
 " }}}
 
@@ -883,7 +872,7 @@ endif
   autocmd  FileType which_key set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
-  let g:which_key_map_leader['u'] = [ ':call dein#update()',  'dein update'           ]
+  let g:which_key_map_leader['u'] = [ ':PlugUpdate'        ,  'vim-plug update'       ]
   let g:which_key_map_leader['r'] = [ ':call Rg_input()'   ,  'text ripgrep'          ]
   let g:which_key_map_leader['R'] = [ ':call RG_input()'   ,  'text advanced ripgrep' ]
   let g:which_key_map_leader['c'] = [ ':close'             ,  'close floatint window' ]
