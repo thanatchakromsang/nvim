@@ -101,6 +101,8 @@ declare -a aur_pkgs=(
   "networkmanager-dmenu-git"
   "rofi-bluetooth-git"
 
+  "git-secret"
+
   "wdisplays"
 
   # Fonts

@@ -27,6 +27,7 @@ case "$OS" in
     source $DOTFILES/scripts/archlinux/pacman.sh
     source $DOTFILES/scripts/archlinux/systemctl.sh
     source $DOTFILES/scripts/archlinux/arch-usergroups.sh
+    source $DOTFILES/scripts/install-krew.sh
     ;;
 esac
 
