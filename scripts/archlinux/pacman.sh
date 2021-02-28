@@ -17,7 +17,7 @@ declare -a pkgs=(
   "fd"
   "bat"
   "exa"
-  "nnn"
+  "ranger"
   "stow"
   "fzf"
   "lastpass-cli"

@@ -26,12 +26,18 @@
   Plug 'tpope/vim-abolish'
   Plug 'justinmk/vim-sneak'
   Plug 'sgur/vim-editorconfig'
-  Plug 'sheerun/vim-polyglot'
   Plug 'mhinz/vim-startify'
   Plug 'voldikss/vim-floaterm'
   Plug 'liuchengxu/vim-which-key'
   Plug 'pedrohdz/vim-yaml-folds'
   Plug 'tpope/vim-vinegar'
+" }}}
+
+
+" Highlight {{{
+  " XXX: Required nvim 0.5
+  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'sheerun/vim-polyglot'
 " }}}
 
 " COC {{{
@@ -918,7 +924,7 @@
       \ 'h' : [':FloatermNew htop'             , 'htop'      ],
       \ 'd' : [':FloatermNew lazydocker'       , 'lazydocker'],
       \ 'g' : [':FloatermNew lazygit'          , 'lazygit'   ],
-      \ 'f' : [':FloatermNew nnn'              , 'nnn'       ],
+      \ 'r' : [':FloatermNew ranger'           , 'ranger'    ],
       \ }
 
  let g:which_key_map_leader['l'] = {
