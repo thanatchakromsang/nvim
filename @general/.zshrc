@@ -85,7 +85,7 @@ f() {
 d() {
  local dir
 
- dir=$(fd --type d --hidden --follow --exclude .git 2> /dev/null | fzf +m) &&
+ dir=$(fd --type d --hidden --follow --exclude .git 2> /dev/null | fzf +m --query="$1") &&
  cd "$dir"
 }
 
