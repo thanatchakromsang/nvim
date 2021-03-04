@@ -1,6 +1,6 @@
-#!/bin/bash
+##!/bin/bash
 
-echo "encrypting files"
-git secret hide
-git add .gitsecret/paths/mapping.cfg
-git add **/*.secret
+#echo "encrypting files"
+#git secret hide
+#git add .gitsecret/paths/mapping.cfg
+#git add **/*.secret
