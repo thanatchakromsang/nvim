@@ -118,7 +118,7 @@ declare -a kube_pkgs=(
   "helm"
   "krew-bin"
   "kind-bin"
-  "kubeseal-bin"
+  "kubeseal"
   "kubefwd-bin"
   "flux-bin"
 )
