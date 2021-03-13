@@ -58,7 +58,6 @@ declare -a g_pkgs=(
   "zathura-pdf-mupdf"
   "ranger"
   "kitty"
-  "chromium"
   "pipewire"
   "libpipewire02" # Remove when Chromium support pipewire 0.3
   "xdg-desktop-portal-wlr"
@@ -104,6 +103,8 @@ declare -a aur_pkgs=(
   "git-secret"
 
   "wdisplays"
+
+  "google-chrome"
 
   # Fonts
   "fonts-tlwg"
