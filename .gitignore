@@ -13,3 +13,4 @@ keyboards/qmk
 @general/.config/pet/snippet.toml
 @general/.gitconfig
 @general/.warprc
+@linux/.config/gammastep/config.ini

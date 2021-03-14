@@ -64,6 +64,7 @@ declare -a g_pkgs=(
   "telegram-desktop"
 
   "light"
+  "gammastep"
 
   "grim"
   "slurp"
