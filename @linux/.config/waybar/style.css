@@ -101,6 +101,7 @@ window#waybar.solo {
 #language,
 #idle_inhibitor,
 #custom-pacman,
+#custom-gammastep,
 #mpd {
     padding: 0 4px;
     margin: 0 0px;
