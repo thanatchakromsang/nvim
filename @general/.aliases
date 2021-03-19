@@ -58,7 +58,7 @@ if exists lazygit; then
 fi
 
 if exists ranger; then
-  alias r=ranger
+  alias r='. ranger'
 fi
 
 alias c=clear
