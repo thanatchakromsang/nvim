@@ -100,6 +100,7 @@ declare -a aur_pkgs=(
   "grimshot"
   "networkmanager-dmenu-git"
   "rofi-bluetooth-git"
+  "bitwarden-rofi-git"
 
   "git-secret"
 
