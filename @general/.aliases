@@ -12,6 +12,7 @@ if exists exa; then
   alias ll.='exa -dlg .*'
   alias l1='exa -1'
   alias ll='exa -glh --group-directories-first --git'
+  alias tree='exa --tree'
 else
   alias la='ls -A'
   alias l='ls -CF'
@@ -46,11 +47,18 @@ fi
 
 if exists wl-copy; then
   alias pbcopy='wl-copy'
-  alias pbpaste='wl-copy'
+fi
+
+if exists wl-paste; then
+  alias pbpaste='wl-paste'
 fi
 
 if exists lazygit; then
   alias g=lazygit
+fi
+
+if exists ranger; then
+  alias r=ranger
 fi
 
 alias c=clear
