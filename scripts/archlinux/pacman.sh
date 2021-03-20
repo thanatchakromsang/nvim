@@ -43,7 +43,6 @@ declare -a pkgs=(
   "gcc"
   "make"
 
-  "neovim"
   "python-pip"
   "python-neovim"
 
@@ -107,6 +106,8 @@ declare -a aur_pkgs=(
   "wdisplays"
 
   "google-chrome"
+
+  "neovim-git"
 
   # Fonts
   "fonts-tlwg"
