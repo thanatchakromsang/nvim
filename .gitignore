@@ -6,6 +6,7 @@ keyboards/qmk
 @general/.config/nvim/session
 @general/.config/nvim/.netrwhist
 @general/.config/nvim/.cache/
+@general/.config/nvim/plugin/
 
 # git secret
 .gitsecret/keys/random_seed
