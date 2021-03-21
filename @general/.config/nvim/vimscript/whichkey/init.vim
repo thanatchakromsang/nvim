@@ -55,6 +55,8 @@ let g:which_key_map_leader['S'] = {
 let g:which_key_map_leader[' '] = [ 'za', 'fold toggle']
 let g:which_key_map_leader['r'] = [ ':RnvimrToggle' , 'ranger']
 let g:which_key_map_leader['u'] = [ ':PackerUpdate' , 'Plugin update']
+let g:which_key_map_leader['c'] = [ ':close' , 'close window']
+let g:which_key_map_leader['Y'] = [ ':Yanks' , 'Clipboard History']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Which Key "," Mapping

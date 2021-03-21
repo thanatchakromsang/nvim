@@ -19,6 +19,7 @@ vim.o.updatetime=300                     -- Faster completion
 vim.o.clipboard="unnamedplus"            -- Copy paste between vim and everything else
 vim.o.autoread=true                      -- Detect and update file have been changed outside vim
 vim.o.timeoutlen=500                     -- Default is 1000, Need for faster Whichkey
+vim.o.backspace="indent,eol,start"       -- Fix backsoace indentation
 vim.cmd('set ts=4')                      -- Insert 2 spaces for a tab
 vim.cmd('set sw=4')                      -- Change the number of space characters inserted for indentation
 
@@ -31,61 +32,11 @@ vim.o.ignorecase=true                    -- Lowercase will be insensitive when s
 vim.o.smartcase=true                     -- Uppercase will be sensitive when search
 
 -- Window scoped options
-vim.wo.wrap=false                        -- Display long lines as just one line
+vim.wo.wrap=false                        -- Word wrapping, but only line breaks inserted when explicitly press enter
+vim.wo.linebreak=false
+vim.wo.list=true
 vim.wo.numberwidth=1                     -- Width of gutter
 vim.wo.signcolumn="yes"                  -- Always show the signcolumn, otherwise it would shift the text each time
-vim.wo.cursorline=true                	 -- Highlight current line
-vim.wo.number=true                    	 -- Show number line
+vim.wo.cursorline=true                   -- Highlight current line
+vim.wo.number=true                       -- Show number line
 vim.wo.relativenumber=true               -- Show relative to current line number instead
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

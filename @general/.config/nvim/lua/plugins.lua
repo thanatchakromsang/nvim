@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Explorer
-    use 'kyazdani42/nvim-tree.lua'
+    use 'kevinhwang91/rnvimr'
 
     -- Appearance
     use 'morhetz/gruvbox'
@@ -92,7 +92,6 @@ return require('packer').startup(function(use)
     use 'kevinhwang91/nvim-bqf'
     use 'unblevable/quick-scope'
     use 'airblade/vim-rooter'
-    use 'kevinhwang91/rnvimr'
     use 'mhinz/vim-startify'
     use 'metakirby5/codi.vim'
     use 'psliwka/vim-smoothie'
@@ -102,7 +101,7 @@ return require('packer').startup(function(use)
     use 'voldikss/vim-floaterm'
     use 'liuchengxu/vista.vim'
     use 'terrortylor/nvim-comment'
-    use 'bfredl/nvim-miniyank'
+    use 'svermeulen/vim-yoink'
     use 'junegunn/goyo.vim'
     use 'andymass/vim-matchup'
     use 'phaazon/hop.nvim'
