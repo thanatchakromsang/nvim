@@ -32,6 +32,7 @@ case "$OS" in
 esac
 
 source $DOTFILES/scripts/oh-my-zsh.sh
+source $DOTFILES/scripts/yarn.sh
 
 # Remove default zshrc
 rm -f $HOME/.zshrc

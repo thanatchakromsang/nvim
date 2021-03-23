@@ -97,8 +97,6 @@ w() {
   [[ -n "$files" ]] && ${EDITOR:-vim} +$(echo ${files[@]} | awk '{split($0,a,":"); print a[2] }') $(echo ${files[@]} | awk '{split($0,a,":"); print a[1] }')
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/thanatchaya/google-cloud-sdk/path.zsh.inc' ]; then . '/home/thanatchaya/google-cloud-sdk/path.zsh.inc'; fi
 

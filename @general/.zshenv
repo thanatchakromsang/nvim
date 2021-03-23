@@ -36,6 +36,8 @@ export PATH="$HOME/.local/bin:$PATH"
 # Program specific
 export CLOUDSDK_HOME=$CLOUDSDK_ROOT_DIR
 
+export PATH="$(yarn global bin):$PATH"
+
 if exists fzf; then
   export FZF_DEFAULT_OPTS='--height 40% --border --reverse'
   export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'

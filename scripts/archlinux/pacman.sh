@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TODO: reclassify pkgs
 # Terminal packages
 declare -a pkgs=(
   "curl"
@@ -17,22 +18,20 @@ declare -a pkgs=(
   "fd"
   "bat"
   "exa"
-  "ranger"
+  "ranger" "ueberzug"
   "stow"
   "fzf"
   "lastpass-cli"
   "ripgrep"
   "wl-clipboard"
   "terraform"
-  "terraform-ls"
   "openssh"
 
   "yq"
   "jq"
 
   # Bluetooth related packages
-  "bluez"
-  "bluez-utils"
+  "bluez" "bluez-utils"
 
   "rustup"
 
@@ -49,6 +48,11 @@ declare -a pkgs=(
   "virtualbox"
 
   "playerctl"
+
+  "lua-language-server" # aur
+  "rust-analyzer"
+  "terraform-ls"
+  "gopls"
 )
 
 # Graphic packages
@@ -58,7 +62,7 @@ declare -a g_pkgs=(
   "ranger"
   "kitty"
   "pipewire"
-  "libpipewire02" # Remove when Chromium support pipewire 0.3
+  "libpipewire02" # TODO: Remove when Chromium support pipewire 0.3
   "xdg-desktop-portal-wlr"
   "telegram-desktop"
 

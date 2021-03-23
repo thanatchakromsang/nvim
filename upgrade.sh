@@ -4,6 +4,8 @@ case "$OS" in
   *Darwin*)
     ;;
   *arch*)
-    yay
+    yay -Syu
     ;;
 esac
+
+yarn global upgrade
