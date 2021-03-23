@@ -103,7 +103,6 @@ return require('packer').startup(function(use)
     use 'liuchengxu/vim-which-key' -- i can't remember hotkey
     use 'voldikss/vim-floaterm' -- floating terminal
     use 'liuchengxu/vista.vim'
-    use 'svermeulen/vim-yoink' -- sane clipboard history
     use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
     use 'phaazon/hop.nvim' -- easymotion written in lua

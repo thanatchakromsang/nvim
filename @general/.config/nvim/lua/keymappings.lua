@@ -54,16 +54,3 @@ keymap('n', '<Down>', 'v:count == 0 ? "gj" : "j"', {noremap = true, expr = true}
 
 -- no need for ex mode
 keymap('n', 'Q', '<nop>', {noremap = true, silent = true})
-
--- vim-yoink clipboard history
-keymap('', 'Y', 'y$', {noremap = true})
-vim.cmd([[
-  nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-  nmap <c-p> <plug>(YoinkPostPasteSwapForward)
-
-  nmap p <plug>(YoinkPaste_p)
-  nmap P <plug>(YoinkPaste_P)
-
-  nmap y <plug>(YoinkYankPreserveCursorPosition)
-  xmap y <plug>(YoinkYankPreserveCursorPosition)
-]])
