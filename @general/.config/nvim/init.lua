@@ -18,10 +18,12 @@ require('plugin-bufferline')
 require('plugin-lspkind')
 require('plugin-treesitter')
 require('plugin-hop')
+require('plugin-telescope')
 
 -- LSP
 require('lsp')
 require('lsp/lsp-saga')
+require('lsp/dap') -- debugger
 
 
 -- Vimscript settings

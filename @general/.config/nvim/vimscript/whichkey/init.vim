@@ -32,17 +32,16 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_map_leader[' '] = ['za', 'fold toggle']
 let g:which_key_map_leader['r'] = [':FloatermNew ranger', 'ranger']
 let g:which_key_map_leader['u'] = [':PackerUpdate', 'plugin update']
-let g:which_key_map_leader['?'] = [':map', 'show-keybindings']
 let g:which_key_map_leader['e'] = [':NvimTreeToggle', 'explorer']
 
-let g:which_key_map_leader.c = {
+let g:which_key_map_leader['c'] = {
     \ 'name' : '+close',
     \ 'w' : [':close', 'close window'],
     \ 'b' : [':bdelete', 'close buffer'],
     \ }
 
 " F is for fold
-let g:which_key_map_leader.F = {
+let g:which_key_map_leader['F'] = {
     \ 'name': '+fold',
     \ 'O' : [':set foldlevel=20', 'open all'],
     \ 'C' : [':set foldlevel=0', 'close all'],
@@ -56,7 +55,7 @@ let g:which_key_map_leader.F = {
     \ '6' : [':set foldlevel=6', 'level6']
     \ }
 
-let g:which_key_map_leader.S = {
+let g:which_key_map_leader['S'] = {
     \ 'name' : '+startify',
     \ 's' : [':SSave'        , 'save session'                 ],
     \ 'l' : [':SLoad'        , 'load session'                 ],
@@ -67,16 +66,47 @@ let g:which_key_map_leader.S = {
 
 let g:which_key_map_leader['g'] = {
     \ 'name': '+git',
-    \ 'p': "go to prev hunk",
-    \ 'n': "go to next hunk",
-    \ 's': "stage hunk",
-    \ 'u': "undo stage hunk",
-    \ 'r': "reset hunk",
-    \ 'R': "reset buffer",
-    \ 'P': "preview hunk",
-    \ 'b': "git blame line",
+    \ 'd': [':Gdiffsplit', 'git diff'],
+    \ 'p': 'go to prev hunk',
+    \ 'n': 'go to next hunk',
+    \ 's': 'stage hunk',
+    \ 'u': 'undo stage hunk',
+    \ 'r': 'reset hunk',
+    \ 'R': 'reset buffer',
+    \ 'P': 'preview hunk',
+    \ 'b': 'git blame line',
+    \ 'g': [':FloatermNew lazygit', 'git'],
     \ 'B': [':Git blame', 'git blame buffer']
     \ }
+
+" f is for find powered by telescope
+let g:which_key_map_leader['f'] = {
+      \ 'name' : '+find' ,
+      \ '.' : [':Telescope filetypes'                   , 'filetypes'],
+      \ 'B' : [':Telescope git_branches'                , 'git branches'],
+      \ 'd' : [':Telescope lsp_document_diagnostics'    , 'document_diagnostics'],
+      \ 'D' : [':Telescope lsp_workspace_diagnostics'   , 'workspace_diagnostics'],
+      \ 'f' : [':Telescope find_files'                  , 'files'],
+      \ 'h' : [':Telescope command_history'             , 'history'],
+      \ 'i' : [':Telescope media_files'                 , 'media files'],
+      \ 'm' : [':Telescope marks'                       , 'marks'],
+      \ 'M' : [':Telescope man_pages'                   , 'man_pages'],
+      \ 'o' : [':Telescope vim_options'                 , 'vim_options'],
+      \ 't' : [':Telescope live_grep'                   , 'text'],
+      \ 'r' : [':Telescope registers'                   , 'registers'],
+      \ 'w' : [':Telescope file_browser'                , 'buf_fuz_find'],
+      \ }
+
+" t is for terminal
+let g:which_key_map_leader['t'] = {
+      \ 'name' : '+terminal' ,
+      \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
+      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
+      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
+      \ 't' : [':FloatermToggle'                                , 'toggle'],
+      \ 'r' : [':FloatermNew ranger'                            , 'ytop'],
+      \ 'h' : [':FloatermNew htop'                              , 'ytop'],
+      \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Which Key "," Mapping
@@ -99,3 +129,4 @@ let g:which_key_map_localleader['c'] = [':let @+= expand("%")', 'copy current di
 
 call which_key#register('<Space>', "g:which_key_map_leader")
 call which_key#register(',', "g:which_key_map_localleader")
+
