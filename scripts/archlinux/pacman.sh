@@ -63,6 +63,7 @@ declare -a g_pkgs=(
   "kitty"
   "pipewire"
   "libpipewire02" # TODO: Remove when Chromium support pipewire 0.3
+  "pipewire-media-session" # FIX: Normoally not needed but pacman not provide dependencies https://github.com/emersion/xdg-desktop-portal-wlr/issues/97
   "xdg-desktop-portal-wlr"
   "telegram-desktop"
 
