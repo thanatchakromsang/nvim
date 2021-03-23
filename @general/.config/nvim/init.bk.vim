@@ -32,6 +32,7 @@
   Plug 'pedrohdz/vim-yaml-folds'
   Plug 'tpope/vim-vinegar'
 " }}}
+k
 
 
 " Highlight {{{
@@ -962,6 +963,18 @@
 
   let g:which_key_map_leader['b'] = {
       \ 'name' : '+buffer' ,
+      \ 'd' : ['bd'        , 'delete-buffer'   ],
+      \ 'f' : ['bfirst'    , 'first-buffer'    ],
+      \ 'h' : ['Startify'  , 'home-buffer'     ],
+      \ 'l' : ['blast'     , 'last-buffer'     ],
+      \ 'n' : ['bnext'     , 'next-buffer'     ],
+      \ 'p' : ['bprevious' , 'previous-buffer' ],
+      \ '?' : ['Buffers'   , 'fzf-buffer'      ],
+      \ }
+
+
+  let g:which_key_map_leader['t'] = {
+      \ 'name' : '+terminal' ,
       \ 'd' : ['bd'        , 'delete-buffer'   ],
       \ 'f' : ['bfirst'    , 'first-buffer'    ],
       \ 'h' : ['Startify'  , 'home-buffer'     ],

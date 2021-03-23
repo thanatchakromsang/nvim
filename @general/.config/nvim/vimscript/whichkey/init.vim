@@ -1,7 +1,8 @@
 " Leader Key Maps
 
 " By default timeoutlen is 1000 ms
-set timeoutlen=100
+" If set low to 100 vim surround wouldn't work
+set timeoutlen=600
 
 " Timeout
 let g:which_key_timeout = 100
@@ -19,7 +20,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" Which Key "<Space>" Mapping
+" Which Key Normal "<Space>" Mapping
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:which_key_map_leader = {}
@@ -27,6 +28,18 @@ let g:which_key_map_leader = {}
 " Map leader to which_key
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
+let g:which_key_map_leader[' '] = ['za', 'fold toggle']
+let g:which_key_map_leader['r'] = [':FloatermNew ranger', 'ranger']
+let g:which_key_map_leader['u'] = [':PackerUpdate', 'plugin update']
+let g:which_key_map_leader['?'] = [':map', 'show-keybindings']
+let g:which_key_map_leader['e'] = [':NvimTreeToggle', 'explorer']
+
+let g:which_key_map_leader.c = {
+    \ 'name' : '+close',
+    \ 'w' : [':close', 'close window'],
+    \ 'b' : [':bdelete', 'close buffer'],
+    \ }
 
 " F is for fold
 let g:which_key_map_leader.F = {
@@ -43,20 +56,27 @@ let g:which_key_map_leader.F = {
     \ '6' : [':set foldlevel=6', 'level6']
     \ }
 
-let g:which_key_map_leader['S'] = {
-  \ 'name' : '+startify',
-  \ 's' : [':SSave'        , 'save session'                 ],
-  \ 'l' : [':SLoad'        , 'load session'                 ],
-  \ 'd' : [':SDelete'      , 'delete session'               ],
-  \ 'c' : [':SClose'       , 'close session'                ],
-  \ 'h' : [':Startify'     , 'startify home'                ],
-  \ }
+let g:which_key_map_leader.S = {
+    \ 'name' : '+startify',
+    \ 's' : [':SSave'        , 'save session'                 ],
+    \ 'l' : [':SLoad'        , 'load session'                 ],
+    \ 'd' : [':SDelete'      , 'delete session'               ],
+    \ 'c' : [':SClose'       , 'close session'                ],
+    \ 'h' : [':Startify'     , 'startify home'                ],
+    \ }
 
-let g:which_key_map_leader[' '] = [ 'za', 'fold toggle']
-let g:which_key_map_leader['r'] = [ ':RnvimrToggle' , 'ranger']
-let g:which_key_map_leader['u'] = [ ':PackerUpdate' , 'Plugin update']
-let g:which_key_map_leader['c'] = [ ':close' , 'close window']
-let g:which_key_map_leader['Y'] = [ ':Yanks' , 'Clipboard History']
+let g:which_key_map_leader['g'] = {
+    \ 'name': '+git',
+    \ 'p': "go to prev hunk",
+    \ 'n': "go to next hunk",
+    \ 's': "stage hunk",
+    \ 'u': "undo stage hunk",
+    \ 'r': "reset hunk",
+    \ 'R': "reset buffer",
+    \ 'P': "preview hunk",
+    \ 'b': "git blame line",
+    \ 'B': [':Git blame', 'git blame buffer']
+    \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Which Key "," Mapping
@@ -68,21 +88,10 @@ let g:which_key_map_localleader = {}
 nnoremap <silent> <localleader> :silent <c-u> :silent WhichKey ','<CR>
 vnoremap <silent> <localleader> :silent <c-u> :silent WhichKeyVisual ','<CR>
 
-let g:which_key_map_localleader.g = {
-    \ 'name': '+git',
-    \ 'P' : ['<Plug>(GitGutterPreviewHunk)', 'Preview Hunk'],
-    \ 's' : ['<Plug>(GitGutterStageHunk)', 'Stage Hunk'],
-    \ 'u' : ['<Plug>(GitGutterUndoHunk)', 'Undo Hunk'],
-    \ 'p' : [':GitGutterPrevHunk', 'Go to Previous Hunk'],
-    \ 'n' : [':GitGutterNextHunk', 'Go to Next Hunk'],
-    \ 't' : [':GitGutterToggle', 'Toggle GitGutter'],
-    \ 'b' : [':GitBlameToggle', 'Toggle GitBlame']
-    \ }
-
-let g:which_key_map_localleader['.'] = [ ':lcd %:p:h'          ,  'set working dir'               ]
-let g:which_key_map_localleader['c'] = [ ':let @+= expand("%")',  'copy current dir to clipboard' ]
-let g:which_key_map_localleader['b'] = [ ':split'         ,  'horizontal split'              ]
-let g:which_key_map_localleader['v'] = [ ':vsplit'        ,  'vertical split'                ]
+let g:which_key_map_localleader['.'] = [':lcd %:p:h', 'set working dir']
+let g:which_key_map_localleader['b'] = [':split', 'horizontal split']
+let g:which_key_map_localleader['v'] = [':vsplit', 'vertical split']
+let g:which_key_map_localleader['c'] = [':let @+= expand("%")', 'copy current dir to clipboard']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Register Which Key Mapping
@@ -90,7 +99,3 @@ let g:which_key_map_localleader['v'] = [ ':vsplit'        ,  'vertical split'   
 
 call which_key#register('<Space>', "g:which_key_map_leader")
 call which_key#register(',', "g:which_key_map_localleader")
-
-
-
-

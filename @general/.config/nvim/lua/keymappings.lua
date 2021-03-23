@@ -25,8 +25,8 @@ keymap('n', '<C-k>', '<C-w>k', {silent = true})
 keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
 -- PageUp PageDown movement up/down 5 lines
-keymap('', '<PageUp>', '5<C-U>', {silent = true})
-keymap('', '<PageDown>', '5<C-D>', {silent = true})
+keymap('', '<PageUp>', '10<C-U>', {silent = true})
+keymap('', '<PageDown>', '10<C-D>', {silent = true})
 
 -- Move around in normal mode
 keymap('', 'H', '^', {noremap = true})

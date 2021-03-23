@@ -48,20 +48,24 @@ return require('packer').startup(function(use)
     -- use 'SirVer/ultisnips'
     -- use 'norcalli/snippets.nvim'
 
-    -- Treesitter
+    -- Syntax Highlight
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'nvim-treesitter/playground'
     use 'p00f/nvim-ts-rainbow'
+    use 'sheerun/vim-polyglot'
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
     use 'ryanoasis/vim-devicons'
 
     -- Status Line and Bufferline
-    use 'glepnir/galaxyline.nvim'
-    -- use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
-    use {'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    use {
+	'glepnir/galaxyline.nvim',
+	branch = main,
+	requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+    use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 
     -- Telescope
     use 'nvim-lua/popup.nvim'
@@ -70,7 +74,7 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Explorer
-    use 'kevinhwang91/rnvimr'
+    use 'kyazdani42/nvim-tree.lua'
 
     -- Appearance
     use 'morhetz/gruvbox'
@@ -78,9 +82,7 @@ return require('packer').startup(function(use)
     use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'} -- TODO: Switch to master branch once neovim 0.5 officially release
 
     -- Git
-    use 'TimUntersberger/neogit'
-    use 'airblade/vim-gitgutter'
-    use 'f-person/git-blame.nvim'
+    use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
 
@@ -90,26 +92,26 @@ return require('packer').startup(function(use)
     -- General Plugins
     use 'windwp/nvim-autopairs'
     use 'kevinhwang91/nvim-bqf'
-    use 'unblevable/quick-scope'
+    use 'unblevable/quick-scope' -- find and to keyword on steroid
     use 'airblade/vim-rooter'
     use 'mhinz/vim-startify'
-    use 'metakirby5/codi.vim'
-    use 'psliwka/vim-smoothie'
+    use 'metakirby5/codi.vim' -- REPL support in vim
+    -- use 'psliwka/vim-smoothie' -- smooth scrolling
     use 'moll/vim-bbye'
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
-    use 'liuchengxu/vim-which-key'
-    use 'voldikss/vim-floaterm'
-    use 'liuchengxu/vista.vim'
     use 'terrortylor/nvim-comment'
-    use 'svermeulen/vim-yoink'
-    use 'junegunn/goyo.vim'
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
+    use 'liuchengxu/vim-which-key' -- i can't remember hotkey
+    use 'voldikss/vim-floaterm' -- floating terminal
+    use 'liuchengxu/vista.vim'
+    use 'svermeulen/vim-yoink' -- sane clipboard history
+    use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
-    use 'phaazon/hop.nvim'
+    use 'phaazon/hop.nvim' -- easymotion written in lua
     use 'tpope/vim-sleuth'
     use 'sgur/vim-editorconfig'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
-    use 'wellle/targets.vim'
+    use 'wellle/targets.vim' -- vim text object on steroid
 
 	-- TODO put this back when stable for indent lines
 -- 	vim.g.indent_blankline_space_char = ' '
