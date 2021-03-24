@@ -41,12 +41,6 @@ return require('packer').startup(function(use)
     use 'dsznajder/vscode-es7-javascript-react-snippets'
     use 'golang/vscode-go'
     use 'rust-lang/vscode-rust'
-    -- use 'hrsh7th/vim-vsnip-integ'
-    -- use 'honza/vim-snippets'
-    -- use 'epilande/vim-react-snippets'
-    -- use 'ylcnfrht/vscode-python-snippet-pack'
-    -- use 'SirVer/ultisnips'
-    -- use 'norcalli/snippets.nvim'
 
     -- Syntax Highlight
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

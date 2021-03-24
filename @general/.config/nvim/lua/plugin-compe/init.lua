@@ -1,3 +1,4 @@
+-- TODO: Move to LSP dir
 require'compe'.setup {
     enabled = true,
     autocomplete = true,
@@ -13,17 +14,17 @@ require'compe'.setup {
     documentation = true,
 
     source = {
-        path = {kind = "  "},
-        buffer = {kind = "  "},
-        calc = {kind = "  "},
-        vsnip = {kind = "  "},
-        nvim_lsp = {kind = "  "},
-        nvim_lua = {kind = "  "},
-        spell = {kind = "  "},
-        tags = false,
-        snippets_nvim = {kind = "  "},
-        treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ "}
+        path          = {kind = ""},
+        buffer        = {kind = ""},
+        calc          = {kind = ""},
+        vsnip         = {kind = ""},
+        nvim_lsp      = true,
+        nvim_lua      = {kind = ""},
+        spell         = {kind = ""},
+        tags          = false,
+        snippets_nvim = {kind = ""},
+        treesitter    = {kind = ""},
+        emoji         = true
         -- for emoji press : (idk if that in compe tho)
     }
 }

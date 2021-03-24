@@ -18,7 +18,6 @@ vim.o.writebackup=false                  -- Disable backup
 vim.o.updatetime=300                     -- Faster completion
 vim.o.clipboard="unnamedplus"            -- Copy paste between vim and everything else
 vim.o.autoread=true                      -- Detect and update file have been changed outside vim
-vim.o.timeoutlen=100                     -- Default is 1000, Need for faster Whichkey
 vim.o.backspace="indent,eol,start"       -- Fix backsoace indentation
 vim.o.completeopt="menuone,noselect"     -- Enable completion
 vim.o.scrolloff=999                      -- Cursor always be at center
