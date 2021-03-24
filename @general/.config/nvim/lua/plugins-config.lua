@@ -12,13 +12,13 @@ vim.g.floaterm_keymap_new    = '<F7>'
 vim.g.floaterm_keymap_prev   = '<F8>'
 vim.g.floaterm_keymap_next   = '<F9>'
 vim.g.floaterm_keymap_toggle = '<F12>'
-vim.g.floaterm_title=''
+vim.g.floaterm_title         =''
 
-vim.g.floaterm_autoinsert=1
-vim.g.floaterm_width=0.7
-vim.g.floaterm_height=0.7
-vim.g.floaterm_wintitle=0
-vim.g.floaterm_autoclose=1
+vim.g.floaterm_autoinsert    =1
+vim.g.floaterm_width         =0.7
+vim.g.floaterm_height        =0.7
+vim.g.floaterm_wintitle      =0
+vim.g.floaterm_autoclose     =1
 
 -- peekup
 vim.g.peekup_paste_after = '""'
@@ -43,3 +43,6 @@ require('nvim_comment').setup(
 vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
 vim.g.qs_max_chars=150
 vim.g.qs_buftype_blacklist = {'terminal', 'nofile'}
+
+-- Match up
+vim.g.matchup_matchparen_offscreen = {method='popup'}

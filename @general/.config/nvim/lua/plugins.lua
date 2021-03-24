@@ -25,10 +25,8 @@ return require('packer').startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
     use 'onsails/lspkind-nvim'
     use 'kosayoda/nvim-lightbulb'
-    use 'mfussenegger/nvim-jdtls'
 
     -- Debugging
     use 'mfussenegger/nvim-dap'
@@ -99,9 +97,8 @@ return require('packer').startup(function(use)
     use 'liuchengxu/vista.vim'
     use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
-    use 'phaazon/hop.nvim' -- easymotion written in lua
+    use 'justinmk/vim-sneak' -- movement
     use 'tpope/vim-sleuth'
-    use 'sgur/vim-editorconfig'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
     use 'wellle/targets.vim' -- vim text object on steroid

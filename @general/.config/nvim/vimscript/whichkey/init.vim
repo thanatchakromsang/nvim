@@ -31,8 +31,16 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map_leader[' '] = ['za', 'fold toggle']
 let g:which_key_map_leader['r'] = [':FloatermNew ranger', 'ranger']
-let g:which_key_map_leader['u'] = [':PackerUpdate', 'plugin update']
 let g:which_key_map_leader['e'] = [':NvimTreeToggle', 'explorer']
+let g:which_key_map_leader['v'] = [':Vista!!', 'vista']
+let g:which_key_map_leader['p'] = {
+    \ 'name': '+packer',
+    \ 'u' : [':PackerUpdate', 'update'],
+    \ 'i' : [':PackerInstall', 'install'],
+    \ 'c' : [':PackerCompile', 'compile'],
+    \ 'C' : [':PackerClean', 'clean'],
+    \ 's' : [':PackerSync', 'sync'],
+    \ }
 
 let g:which_key_map_leader['c'] = {
     \ 'name' : '+close',
@@ -96,6 +104,7 @@ let g:which_key_map_leader['f'] = {
       \ 't' : [':Telescope live_grep'                   , 'text'],
       \ 'r' : [':Telescope registers'                   , 'registers'],
       \ 'w' : [':Telescope file_browser'                , 'buf_fuz_find'],
+      \ 'b' : [':Telescope buffers'                     , 'buffers'],
       \ }
 
 " t is for terminal

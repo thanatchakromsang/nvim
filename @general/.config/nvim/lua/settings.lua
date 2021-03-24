@@ -15,14 +15,19 @@ vim.o.showtabline=2                      -- Always show tabs
 vim.o.showmode=false                     -- We don't need to see things like -- INSERT -- anymore
 vim.o.backup=false                       -- Disable backup
 vim.o.writebackup=false                  -- Disable backup
-vim.o.updatetime=300                     -- Faster completion
+vim.o.swapfile=false                     -- Disable because save time is huge
+vim.o.updatetime=100                     -- Faster completion
 vim.o.clipboard="unnamedplus"            -- Copy paste between vim and everything else
 vim.o.autoread=true                      -- Detect and update file have been changed outside vim
 vim.o.backspace="indent,eol,start"       -- Fix backsoace indentation
 vim.o.completeopt="menuone,noselect"     -- Enable completion
 vim.o.scrolloff=999                      -- Cursor always be at center
-vim.cmd('set ts=4')                      -- Insert 2 spaces for a tab
-vim.cmd('set sw=4')                      -- Change the number of space characters inserted for indentation
+vim.o.sidescrolloff=5                    -- Cursor move sideway by 5
+vim.o.showbreak="↳"
+vim.o.wildignorecase=true
+vim.o.wildignore=".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**";
+vim.o.listchars="tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
+vim.o.backspace="indent,eol,start"
 
 -- Buffer scoped options
 vim.bo.expandtab=true                    -- Converts tabs to spaces
@@ -41,3 +46,7 @@ vim.wo.signcolumn="yes"                  -- Always show the signcolumn, otherwis
 vim.wo.cursorline=false                  -- Highlight current line
 vim.wo.number=true                       -- Show number line
 vim.wo.relativenumber=true               -- Show relative to current line number instead
+
+vim.cmd('set ts=2')                      -- Insert 2 spaces for a tab
+vim.cmd('set sw=2')                      -- Change the number of space characters inserted for indentation
+vim.cmd('set colorcolumn=80')            -- Column line

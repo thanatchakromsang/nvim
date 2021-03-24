@@ -18,7 +18,6 @@ require('plugin-telescope')
 
 -- LSP
 require('lsp')
-require('lsp/lsp-saga')
 require('lsp/dap') -- debugger
 
 

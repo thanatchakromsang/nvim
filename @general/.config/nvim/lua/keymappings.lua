@@ -55,6 +55,5 @@ keymap('n', '<Down>', 'v:count == 0 ? "gj" : "j"', {noremap = true, expr = true}
 -- no need for ex mode
 keymap('n', 'Q', '<nop>', {noremap = true, silent = true})
 
--- Hop
-keymap('n', 's', ":HopChar2<cr>", {silent = true})
-keymap('n', 'S', ":HopPattern<cr>", {silent = true})
+-- Bufferline
+keymap('n', 'gb', ':BufferLinePick<CR>', {noremap = true, silent = true})

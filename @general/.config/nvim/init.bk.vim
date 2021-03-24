@@ -32,8 +32,6 @@
   Plug 'pedrohdz/vim-yaml-folds'
   Plug 'tpope/vim-vinegar'
 " }}}
-k
-
 
 " Highlight {{{
   " XXX: Required nvim 0.5
