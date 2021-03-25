@@ -6,8 +6,8 @@ require "bufferline".setup {
         close_icon = "",
         left_trunc_marker = "",
         right_trunc_marker = "",
-        max_name_length = 14,
-        max_prefix_length = 13,
+        max_name_length = 18,
+        max_prefix_length = 15,
         tab_size = 16,
         enforce_regular_tabs = true,
         view = "multiwindow",
@@ -16,7 +16,7 @@ require "bufferline".setup {
         separator_style = "thin",
         sort_by = 'directory',
 
-        -- TODO: Add diagnostic status indicator in bufferline?
+        diagnostic = false,
 
         -- TODO: Update colorscheme to gruvbox
         highlights = {

@@ -7,7 +7,6 @@ require('colorscheme')
 -- Plugins settings
 require('plugins-config')
 require('plugin-galaxyline')
-require('plugin-gitsigns')
 require('plugin-nvim-tree')
 require('plugin-autopairs')
 require('plugin-compe')

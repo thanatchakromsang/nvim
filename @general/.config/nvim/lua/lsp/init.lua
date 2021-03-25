@@ -24,6 +24,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
+  -- TODO: update lsp mapping to lsp
   -- Mappings.
   local opts = {noremap = true, silent = true}
   buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -55,6 +56,8 @@ local on_attach = function(client, bufnr)
       augroup END
     ]], false)
   end
+
+  print("'" .. client.name .. "' server attached")
 end
 
 -- {{{

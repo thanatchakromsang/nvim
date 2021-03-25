@@ -22,6 +22,7 @@ vim.o.autoread=true                      -- Detect and update file have been cha
 vim.o.backspace="indent,eol,start"       -- Fix backsoace indentation
 vim.o.completeopt="menuone,noselect"     -- Enable completion
 vim.o.scrolloff=999                      -- Cursor always be at center
+-- vim.o.scrolloff=15                       -- Cursor move offset
 vim.o.sidescrolloff=5                    -- Cursor move sideway by 5
 vim.o.showbreak="↳"
 vim.o.wildignorecase=true

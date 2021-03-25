@@ -75,6 +75,7 @@ let g:which_key_map_leader['S'] = {
 let g:which_key_map_leader['g'] = {
     \ 'name': '+git',
     \ 'd': [':Gdiffsplit', 'git diff'],
+    \ 'g': [':FloatermNew lazygit', 'lazygit'],
     \ 'p': 'go to prev hunk',
     \ 'n': 'go to next hunk',
     \ 's': 'stage hunk',
@@ -82,9 +83,12 @@ let g:which_key_map_leader['g'] = {
     \ 'r': 'reset hunk',
     \ 'R': 'reset buffer',
     \ 'P': 'preview hunk',
-    \ 'b': 'git blame line',
-    \ 'g': [':FloatermNew lazygit', 'git'],
-    \ 'B': [':Git blame', 'git blame buffer']
+    \ 'B': 'browse',
+    \ 'b' : {
+      \ 'name': '+blame',
+      \ 'l' : 'line',
+      \ 'b' : [':Git blame' , 'buffer'] ,
+      \ },
     \ }
 
 " f is for find powered by telescope
@@ -138,5 +142,6 @@ let g:which_key_map_localleader['c'] = [':let @+= expand("%")', 'copy current di
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 call which_key#register('<Space>', "g:which_key_map_leader")
+call which_key#register('<VisualBindings>', "g:which_key_map_leader_visual")
 call which_key#register(',', "g:which_key_map_localleader")
 

@@ -54,7 +54,7 @@ return require('packer').startup(function(use)
     -- Status Line and Bufferline
     use {
 	'glepnir/galaxyline.nvim',
-	branch = main,
+	branch = 'main',
 	requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
@@ -69,7 +69,7 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-tree.lua'
 
     -- Appearance
-    use 'morhetz/gruvbox'
+    use 'gruvbox-community/gruvbox'
     -- use {'RRethy/vim-hexokinase', run = 'make hexokinase'} -- XXX: Enable when work more with colors
     use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'} -- TODO: Switch to master branch once neovim 0.5 officially release
 
@@ -77,6 +77,7 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
+    use 'shumphrey/fugitive-gitlab.vim'
 
     -- Registers
     use 'gennaro-tedesco/nvim-peekup'

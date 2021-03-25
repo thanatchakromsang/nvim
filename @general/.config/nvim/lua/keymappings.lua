@@ -57,3 +57,16 @@ keymap('n', 'Q', '<nop>', {noremap = true, silent = true})
 
 -- Bufferline
 keymap('n', 'gb', ':BufferLinePick<CR>', {noremap = true, silent = true})
+
+-- Fugitive
+keymap('', '<leader>gB', ':Gbrowse<CR>', {noremap = true, silent = true})
+
+-- Gitsigns 
+keymap('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
+keymap('', '<leader>gu', ':lua require"gitsigns".undo_stage_hunk()<CR>', {noremap = true, silent = true})
+keymap('', '<leader>gr', ':lua require"gitsigns".reset_hunk()<CR>', {noremap = true, silent = true})
+keymap('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
+keymap('n', '<leader>gP', ':lua require"gitsigns".preview_hunk()<CR>', {noremap = true, silent = true})
+keymap('n', '<leader>gn', ':lua require"gitsigns".next_hunk()<CR>', {noremap = true, silent = true})
+keymap('n', '<leader>gp', ':lua require"gitsigns".prev_hunk()<CR>', {noremap = true, silent = true})
+keymap('n', '<leader>gbl', ':lua require"gitsigns".blame_line()<CR>', {noremap = true, silent = true})

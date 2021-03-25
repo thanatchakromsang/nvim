@@ -23,7 +23,8 @@ require'compe'.setup {
         spell         = {kind = ""},
         tags          = false,
         snippets_nvim = {kind = ""},
-        treesitter    = {kind = ""},
+        -- treesitter    = {kind = ""},
+        treesitter    = false,
         emoji         = true
         -- for emoji press : (idk if that in compe tho)
     }
