@@ -10,14 +10,24 @@ function _G.open_lsp_log()
   vim.cmd("edit " .. path)
 end
 
+vim.cmd('command! -nargs=0 LspLog call v:lua.open_lsp_log()')
+vim.cmd('command! -nargs=0 LspRestart call v:lua.reload_lsp()')
+
 vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = ""})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = ""})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = ""})
 vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = ""})
 
-vim.cmd('command! -nargs=0 LspLog call v:lua.open_lsp_log()')
-vim.cmd('command! -nargs=0 LspRestart call v:lua.reload_lsp()')
-vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle')
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = true,
+    virtual_text = true,
+    signs = true,
+    update_in_insert = false
+  }
+)
 
 -- Add LSP Snippets capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -39,7 +49,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
   buf_set_keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opts)
   buf_set_keymap("n", "gs", ":Lspsaga signature_help<CR>", opts)
-  buf_set_keymap("n", "ca", ":Lspsaga code_action<CR>", opts)
+  buf_set_keymap("n", "<localleader>ca", ":Lspsaga code_action<CR>", opts)
+  buf_set_keymap("v", "<localleader>ca", ":<C-U>Lspsaga range_code_action<CR>", opts)
   buf_set_keymap("n", "<C-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
   buf_set_keymap("n", "<C-b>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
   buf_set_keymap("n", "gnd", ":Lspsaga diagnostic_jump_next<CR>", opts)
@@ -50,7 +61,7 @@ local on_attach = function(client, bufnr)
   end
 
   if client.resolved_capabilities.rename then
-    buf_set_keymap("n", "rn", ":Lspsaga rename<CR>", opts)
+    buf_set_keymap("n", "<localleader>rn", ":Lspsaga rename<CR>", opts)
   end
 
   -- Set autocommands conditional on server_capabilities

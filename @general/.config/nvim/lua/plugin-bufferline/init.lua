@@ -8,7 +8,7 @@ require "bufferline".setup {
         right_trunc_marker = "",
         max_name_length = 18,
         max_prefix_length = 15,
-        tab_size = 16,
+        tab_size = 18,
         enforce_regular_tabs = true,
         view = "multiwindow",
         show_close_icon = false,
@@ -17,42 +17,5 @@ require "bufferline".setup {
         sort_by = 'directory',
 
         diagnostic = false,
-
-        -- TODO: Update colorscheme to gruvbox
-        highlights = {
-            background = {
-                guifg = comment_fg,
-                guibg = "#7c6f64"
-            },
-            fill = {
-                guifg = comment_fg,
-                guibg = "#7c6f64"
-            },
-            buffer_selected = {
-                guifg = normal_fg,
-                guibg = "#3A3E44",
-                gui = "bold"
-            },
-            separator_visible = {
-                guifg = "#282828",
-                guibg = "#282828"
-            },
-            separator_selected = {
-                guifg = "#282828",
-                guibg = "#282828"
-            },
-            separator = {
-                guifg = "#282828",
-                guibg = "#282828"
-            },
-            indicator_selected = {
-                guifg = "#282828",
-                guibg = "#282828"
-            },
-            modified_selected = {
-                guifg = string_fg,
-                guibg = "#3A3E44"
-            }
-        }
     },
 }
