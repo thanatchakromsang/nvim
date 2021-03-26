@@ -32,7 +32,7 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_map_leader[' '] = ['za', 'fold toggle']
 let g:which_key_map_leader['r'] = [':FloatermNew ranger', 'ranger']
 let g:which_key_map_leader['e'] = [':NvimTreeToggle', 'explorer']
-let g:which_key_map_leader['v'] = [':Vista!!', 'vista']
+let g:which_key_map_leader['v'] = [':Vista!!', 'outline']
 let g:which_key_map_leader['p'] = {
     \ 'name': '+packer',
     \ 'u' : [':PackerUpdate', 'update'],
@@ -118,9 +118,16 @@ let g:which_key_map_leader['t'] = {
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'r' : [':FloatermNew ranger'                            , 'ytop'],
-      \ 'h' : [':FloatermNew htop'                              , 'ytop'],
+      \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
+      \ 'h' : [':FloatermNew htop'                              , 'htop'],
       \ }
+
+" " TODO: Add Lsp mapping
+" let g:which_key_map_leader['l'] = {
+"       \ 'name' : '+lsp' ,
+"       \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
+"       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
+"       \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Which Key "," Mapping
