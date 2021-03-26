@@ -30,16 +30,25 @@ gls.left[1] = {
     ViMode = {
         provider = function()
             local mode_color = {
-                n = colors.fg3,
-                i = colors.light_blue,
-                c = colors.light_purple,
-                V = colors.light_orange,
+                n      = colors.fg3,
+                i      = colors.light_blue,
+                c      = colors.light_purple,
+                V      = colors.light_orange,
                 [""] = colors.light_orange,
-                v = colors.light_orange,
-                R = colors.light_aqua,
-                Rv = colors.light_aqua,
-                t = colors.green,
-                ['!'] = colors.red
+                v      = colors.light_orange,
+                R      = colors.light_aqua,
+                Rv     = colors.light_aqua,
+                t      = colors.green,
+                no     = colors.blue,
+                s      = colors.orange,
+                S      = colors.orange,
+                ic     = colors.yellow,
+                cv     = colors.blue,
+                ce     = colors.blue,
+                r      = colors.fg3,
+                rm     = colors.fg3,
+                ['!']  = colors.red,
+                ['r?'] = colors.fg3,
             }
             local alias = {
                 n      = "  N ",
@@ -51,7 +60,17 @@ gls.left[1] = {
                 R      = "  R ",
                 Rv     = "  R ",
                 t      = "  T ",
-                ['!']  = "  S "
+                ['!']  = "  S ",
+                no     = "  N ",
+                s      = "  S ",
+                S      = "  S ",
+                [''] = "  S ",
+                ic     = "  I ",
+                cv     = "  C ",
+                ce     = "  C ",
+                r      = "  R ",
+                rm     = "  R ",
+                ['r?'] = "  R "
             }
             vim.api.nvim_command('hi GalaxyViMode guibg='..mode_color[vim.fn.mode()])
             return alias[vim.fn.mode()]
@@ -171,7 +190,7 @@ gls.right[4] = {
     DiagnosticInfo = {
         provider = 'DiagnosticInfo',
         icon = '  ',
-        highlight = {colors.light_green, colors.bg}
+        highlight = {colors.light_green, colors.bg},
     }
 }
 
