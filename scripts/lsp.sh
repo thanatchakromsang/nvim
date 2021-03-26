@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm config set prefix ~/.local
+
 npm install -g bash-language-server
 npm install -g pyright
 npm install -g dockerfile-language-server-nodejs
