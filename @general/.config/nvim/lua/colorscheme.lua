@@ -32,3 +32,14 @@ vim.api.nvim_exec([[
     hi link WhichKeyGroup GruvboxRedBold
     hi link WhichKeyDesc GruvboxGreen
 ]], false)
+
+-- Lsp
+vim.api.nvim_exec([[
+    hi link LspDiagnosticsSignError GruvboxRedSign
+    hi link LspDiagnosticsSignWarning GruvboxYellowSign
+    hi link LspDiagnosticsSignInformation GruvboxGreenSign
+    hi link LspDiagnosticsSignHint GruvboxBlueSign
+]], false)
+
+-- Lspsaga
+-- TODO: Gruvboximized Lspsaga

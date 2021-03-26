@@ -11,8 +11,14 @@ function _G.open_lsp_log()
   vim.cmd("edit " .. path)
 end
 
+vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = ""})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = ""})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = ""})
+vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint", text = ""})
+
 vim.cmd('command! -nargs=0 LspLog call v:lua.open_lsp_log()')
 vim.cmd('command! -nargs=0 LspRestart call v:lua.reload_lsp()')
+vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle')
 
 -- Add LSP Snippets capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -27,21 +33,26 @@ local on_attach = function(client, bufnr)
   -- TODO: update lsp mapping to lsp
   -- Mappings.
   local opts = {noremap = true, silent = true}
-  buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-  buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  -- buf_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-  buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-  buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-  buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+  buf_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+  buf_set_keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
+  buf_set_keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opts)
+  buf_set_keymap("n", "gs", ":Lspsaga signature_help<CR>", opts)
+  buf_set_keymap("n", "ca", ":Lspsaga code_action<CR>", opts)
+  buf_set_keymap("n", "<C-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
+  buf_set_keymap("n", "<C-b>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
+  buf_set_keymap("n", "gnd", ":Lspsaga diagnostic_jump_next<CR>", opts)
+  buf_set_keymap("n", "gpd", ":Lspsaga diagnostic_jump_prev<CR>", opts)
+
+  if client.resolved_capabilities.implementation then
+    buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  end
+
+  if client.resolved_capabilities.rename then
+    buf_set_keymap("n", "rn", ":Lspsaga rename<CR>", opts)
+  end
 
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
@@ -123,11 +134,14 @@ lspconfig.yamlls.setup {
   }
 }
 
+lspconfig.dockerls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 -- }}}
 
--- FIX: dockerls not working
 local servers = {
-  'dockerls',
   'bashls',
   'rust_analyzer',
   'pyright',
