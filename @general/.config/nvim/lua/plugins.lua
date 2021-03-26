@@ -49,7 +49,6 @@ return require('packer').startup(function(use)
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
-    use 'ryanoasis/vim-devicons'
 
     -- Status Line and Bufferline
     use {
