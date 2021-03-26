@@ -1,11 +1,11 @@
 #!/bin/bash
 
-yarn global add bash-language-server
-yarn global add pyright
-yarn global add dockerfile-language-server-nodejs
-yarn global add graphql-language-service-cli
-yarn global add typescript typescript-language-server
-yarn global add vscode-json-languageserver
-yarn global add vim-language-server
-yarn global add yaml-language-server
-yarn global add markdownlint --save-dev
+npm install -g bash-language-server
+npm install -g pyright
+npm install -g dockerfile-language-server-nodejs
+npm install -g graphql-language-service-cli
+npm install -g typescript typescript-language-server
+npm install -g vscode-json-languageserver
+npm install -g vim-language-server
+npm install -g yaml-language-server
+npm install -g markdownlint --save-dev
