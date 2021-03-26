@@ -75,16 +75,21 @@ gls.left[1] = {
             vim.api.nvim_command('hi GalaxyViMode guibg='..mode_color[vim.fn.mode()])
             return alias[vim.fn.mode()]
         end,
-        separator = ' ',
-        separator_highlight = {'NONE', colors.bg3},
         highlight = {colors.bg, colors.fg},
     }
 }
-print(vim.fn.getbufvar(0,'ts'))
-vim.fn.getbufvar(0,'ts')
 
+gls.left[2] = {
+    Space = {
+        provider = function()
+            return " "
+        end,
+        condition = condition.buffer_not_empty,
+        highlight = {'NONE', colors.bg3},
+    }
+}
 
-gls.left[2] ={
+gls.left[3] ={
   FileIcon = {
     provider = {'FileIcon'},
     condition = condition.buffer_not_empty,
@@ -92,7 +97,7 @@ gls.left[2] ={
   }
 }
 
-gls.left[3] = {
+gls.left[4] = {
   FileName = {
     provider = {'FileName'},
     condition = condition.buffer_not_empty,
@@ -102,10 +107,19 @@ gls.left[3] = {
   }
 }
 
-gls.left[4] = {
+gls.left[5] = {
+    SpaceGit = {
+        provider = function()
+            return " "
+        end,
+        highlight = {'NONE', colors.bg},
+    }
+}
+
+gls.left[6] = {
     GitIcon = {
         provider = function()
-            return ' '
+            return ''
         end,
         condition = condition.check_git_workspace,
         separator = ' ',
@@ -114,7 +128,7 @@ gls.left[4] = {
     }
 }
 
-gls.left[5] = {
+gls.left[7] = {
     GitBranch = {
         provider = 'GitBranch',
         condition = condition.check_git_workspace,
@@ -125,16 +139,16 @@ gls.left[5] = {
 }
 
 
-gls.left[6] = {
+gls.left[8] = {
     DiffAdd = {
-        provider = 'DiffAdd',
+        provider = {'DiffAdd'},
         condition = condition.hide_in_width,
         icon = '+',
         highlight = {colors.light_green, colors.bg}
     }
 }
 
-gls.left[7] = {
+gls.left[9] = {
     DiffModified = {
         provider = 'DiffModified',
         condition = condition.hide_in_width,
@@ -143,7 +157,7 @@ gls.left[7] = {
     }
 }
 
-gls.left[8] = {
+gls.left[10] = {
     DiffRemove = {
         provider = 'DiffRemove',
         condition = condition.hide_in_width,
@@ -152,14 +166,15 @@ gls.left[8] = {
     }
 }
 
--- -- TODO: Add Vista in statusbar
--- gls.left[9] = {
---     Vista = {
---         provider = 'VistaPlugin',
---         condition = condition.hide_in_width,
---         highlight = {colors.light_red, colors.bg}
---     }
--- }
+-- TODO: Fix coloring and add symbol
+gls.left[11] = {
+    VistaPlugin = {
+        provider = function()
+            return vim.b.vista_nearest_method_or_function
+        end,
+        highlight = {colors.fg, colors.bg}
+    }
+}
 
 ---------------------------------------------------------------------------------------------
 
@@ -210,7 +225,18 @@ gls.right[7] = {
     }
 }
 
+-------------------------------------------------------
+
 gls.short_line_left[1] = {
+    SpaceShort = {
+        provider = function()
+            return ' '
+        end,
+        highlight = {'NONE', colors.fg3},
+    }
+}
+
+gls.short_line_left[2] = {
   BufferType = {
     provider = 'FileTypeName',
     separator = '',

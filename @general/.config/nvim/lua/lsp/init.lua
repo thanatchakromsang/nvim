@@ -1,5 +1,4 @@
 local lspconfig = require'lspconfig'
-local util = require 'lspconfig/util'
 
 function _G.reload_lsp()
   vim.lsp.stop_client(vim.lsp.get_active_clients())
@@ -87,22 +86,16 @@ lspconfig.gopls.setup {
 -- {{{ Lua LSP
 
 lspconfig.sumneko_lua.setup {
-    cmd = {
-        "/usr/bin/lua-language-server", "-E",
-        "/usr/share/lua-language-server/main.lua"
-    },
+    cmd = {"lua-language-server"},
     on_attach = on_attach,
     capabilities = capabilities,
-    root_dir = function(fname)
-        return util.find_git_ancestor(fname) or util.path.dirname(fname)
-    end,
     settings = {
         Lua = {
             runtime = {
                 version = 'LuaJIT',
+                path = vim.split(package.path, ';'),
             },
             diagnostics = {
-                enable = true,
                 globals = {'vim', 'packer_plugins'}
             },
             workspace = {
@@ -110,6 +103,9 @@ lspconfig.sumneko_lua.setup {
                     [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                     [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
                 }
+            },
+            telemetry = {
+              enable = false
             }
         }
     }
