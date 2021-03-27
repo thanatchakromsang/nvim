@@ -8,4 +8,4 @@ case "$OS" in
 		;;
 esac
 
-yarn global upgrade
+npm -g update
