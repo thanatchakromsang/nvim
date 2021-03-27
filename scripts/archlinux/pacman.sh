@@ -49,10 +49,13 @@ declare -a pkgs=(
 
   "playerctl"
 
-  "lua-language-server" # aur
+  # LSP related
+  "lua-language-server" "lua-format" # aur
+  "efm-langserver"
   "rust-analyzer"
   "terraform-ls"
   "gopls"
+  "shfmt" # shell fmt
 )
 
 # Graphic packages
