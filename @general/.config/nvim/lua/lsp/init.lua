@@ -99,7 +99,8 @@ local on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
         vim.api.nvim_exec([[
           augroup LspFormat
-            autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
+            " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
+            autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()
           augroup END
         ]], false)
     end
@@ -239,7 +240,6 @@ local languages = {
 }
 
 lspconfig.efm.setup {
-    root_dir = lspconfig.util.root_pattern("yarn.lock", "lerna.json", ".git"),
     on_attach = on_attach,
     root_dir = function()
       return vim.fn.getcwd()
