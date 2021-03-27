@@ -14,21 +14,21 @@ OS="$(uname -a)"
 DOTFILES=$HOME/.dotfiles
 
 case "$OS" in
-  *Darwin*)
-    source $DOTFILES/scripts/macos/brew.sh
-    source $DOTFILES/scripts/macos/macos-setting.sh
-    echo "Restart macOS after installation"
-    ;;
-  *arch*)
-	  sudo pacman -S git base-devel --noconfirm
-	  git clone https://aur.archlinux.org/yay.git $HOME/.yay
-	  cd $HOME/.yay
-	  makepkg -si
-    source $DOTFILES/scripts/archlinux/pacman.sh
-    source $DOTFILES/scripts/archlinux/systemctl.sh
-    source $DOTFILES/scripts/archlinux/arch-usergroups.sh
-    source $DOTFILES/scripts/install-krew.sh
-    ;;
+	*Darwin*)
+		source $DOTFILES/scripts/macos/brew.sh
+		source $DOTFILES/scripts/macos/macos-setting.sh
+		echo "Restart macOS after installation"
+		;;
+	*arch*)
+		sudo pacman -S git base-devel --noconfirm
+		git clone https://aur.archlinux.org/yay.git $HOME/.yay
+		cd $HOME/.yay
+		makepkg -si
+		source $DOTFILES/scripts/archlinux/pacman.sh
+		source $DOTFILES/scripts/archlinux/systemctl.sh
+		source $DOTFILES/scripts/archlinux/arch-usergroups.sh
+		source $DOTFILES/scripts/install-krew.sh
+		;;
 esac
 
 source $DOTFILES/scripts/oh-my-zsh.sh
