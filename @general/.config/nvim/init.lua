@@ -18,7 +18,7 @@ require('plugin-telescope')
 -- LSP
 require('lsp')
 require('lsp/dap') -- debugger
-require('lsp/lsp-saga') -- debugger
+require('lsp/saga')
 
 
 -- Vimscript settings

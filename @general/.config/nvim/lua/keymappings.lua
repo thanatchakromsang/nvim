@@ -1,6 +1,6 @@
-local keymap = vim.api.nvim_set_keymap
+local map = vim.api.nvim_set_keymap
 
-keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
+map('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ","
 
@@ -19,54 +19,54 @@ vim.cmd([[
 ]])
 
 -- better window movement
-keymap('n', '<c-h>', '<c-w>h', {silent = true})
-keymap('n', '<c-j>', '<c-w>j', {silent = true})
-keymap('n', '<C-k>', '<C-w>k', {silent = true})
-keymap('n', '<C-l>', '<C-w>l', {silent = true})
+map('n', '<c-h>', '<c-w>h', {silent = true})
+map('n', '<c-j>', '<c-w>j', {silent = true})
+map('n', '<C-k>', '<C-w>k', {silent = true})
+map('n', '<C-l>', '<C-w>l', {silent = true})
 
 -- PageUp PageDown movement up/down 5 lines
-keymap('', '<PageUp>', '10<C-U>', {silent = true})
-keymap('', '<PageDown>', '10<C-D>', {silent = true})
+map('', '<PageUp>', '10<C-U>', {silent = true})
+map('', '<PageDown>', '10<C-D>', {silent = true})
 
 -- Move around in normal mode
-keymap('', 'H', '^', {noremap = true})
-keymap('', 'L', '$', {noremap = true})
+map('', 'H', '^', {noremap = true})
+map('', 'L', '$', {noremap = true})
 
 -- Move selected line / block of text in visual mode
-keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
-keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
+map('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
+map('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
 
 -- better indenting
-keymap('v', '<', '<gv', {noremap = true, silent = true})
-keymap('v', '>', '>gv', {noremap = true, silent = true})
+map('v', '<', '<gv', {noremap = true, silent = true})
+map('v', '>', '>gv', {noremap = true, silent = true})
 
 -- tab switch buffer
-keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
+map('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
+map('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
 
-keymap('n', '<ESC>', ':noh<CR>', {noremap = true, silent = true}) -- Remove search highlight after esc
+map('n', '<ESC>', ':noh<CR>', {noremap = true, silent = true}) -- Remove search highlight after esc
 
 -- navigate between display lines
-keymap('n', 'k', 'v:count == 0 ? "gk" : "k"', {noremap = true, expr = true})
-keymap('n', 'j', 'v:count == 0 ? "gj" : "j"', {noremap = true, expr = true})
-keymap('n', '<Up>', 'v:count == 0 ? "gk" : "k"', {noremap = true, expr = true})
-keymap('n', '<Down>', 'v:count == 0 ? "gj" : "j"', {noremap = true, expr = true})
+map('n', 'k', 'v:count == 0 ? "gk" : "k"', {noremap = true, expr = true})
+map('n', 'j', 'v:count == 0 ? "gj" : "j"', {noremap = true, expr = true})
+map('n', '<Up>', 'v:count == 0 ? "gk" : "k"', {noremap = true, expr = true})
+map('n', '<Down>', 'v:count == 0 ? "gj" : "j"', {noremap = true, expr = true})
 
 -- no need for ex mode
-keymap('n', 'Q', '<nop>', {noremap = true, silent = true})
+map('n', 'Q', '<nop>', {noremap = true, silent = true})
 
 -- Bufferline
-keymap('n', 'gb', ':BufferLinePick<CR>', {noremap = true, silent = true})
+map('n', 'gb', ':BufferLinePick<CR>', {noremap = true, silent = true})
 
 -- Fugitive
-keymap('', '<leader>gB', ':Gbrowse<CR>', {noremap = true, silent = true})
+map('', '<leader>gB', ':Gbrowse<CR>', {noremap = true, silent = true})
 
 -- Gitsigns
-keymap('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
-keymap('', '<leader>gu', ':lua require"gitsigns".undo_stage_hunk()<CR>', {noremap = true, silent = true})
-keymap('', '<leader>gr', ':lua require"gitsigns".reset_hunk()<CR>', {noremap = true, silent = true})
-keymap('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
-keymap('n', '<leader>gP', ':lua require"gitsigns".preview_hunk()<CR>', {noremap = true, silent = true})
-keymap('n', '<leader>gn', ':lua require"gitsigns".next_hunk()<CR>', {noremap = true, silent = true})
-keymap('n', '<leader>gp', ':lua require"gitsigns".prev_hunk()<CR>', {noremap = true, silent = true})
-keymap('n', '<leader>gbl', ':lua require"gitsigns".blame_line()<CR>', {noremap = true, silent = true})
+map('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
+map('', '<leader>gu', ':lua require"gitsigns".undo_stage_hunk()<CR>', {noremap = true, silent = true})
+map('', '<leader>gr', ':lua require"gitsigns".reset_hunk()<CR>', {noremap = true, silent = true})
+map('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
+map('n', '<leader>gP', ':lua require"gitsigns".preview_hunk()<CR>', {noremap = true, silent = true})
+map('n', '<leader>gn', ':lua require"gitsigns".next_hunk()<CR>', {noremap = true, silent = true})
+map('n', '<leader>gp', ':lua require"gitsigns".prev_hunk()<CR>', {noremap = true, silent = true})
+map('n', '<leader>gbl', ':lua require"gitsigns".blame_line()<CR>', {noremap = true, silent = true})
