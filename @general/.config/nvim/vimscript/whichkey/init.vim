@@ -42,6 +42,12 @@ let g:which_key_map_leader['p'] = {
     \ 's' : [':PackerSync', 'sync'],
     \ }
 
+let g:which_key_map_leader['a'] = {
+    \ 'name': '+action',
+    \ 'u' : [':Codi', 'repl'],
+    \ 'g' : [':Goyo', 'zen mode'],
+    \ }
+
 let g:which_key_map_leader['c'] = {
     \ 'name' : '+close',
     \ 'w' : [':close', 'close window'],
@@ -63,7 +69,7 @@ let g:which_key_map_leader['F'] = {
     \ '6' : [':set foldlevel=6', 'level6']
     \ }
 
-let g:which_key_map_leader['S'] = {
+let g:which_key_map_leader['s'] = {
     \ 'name' : '+startify',
     \ 's' : [':SSave'        , 'save session'                 ],
     \ 'l' : [':SLoad'        , 'load session'                 ],
@@ -76,6 +82,7 @@ let g:which_key_map_leader['g'] = {
     \ 'name': '+git',
     \ 'd': [':Gdiffsplit', 'git diff'],
     \ 'g': [':FloatermNew lazygit', 'lazygit'],
+    \ 't' : [':FloatermNew tig %', 'tig current file'],
     \ 'p': 'go to prev hunk',
     \ 'n': 'go to next hunk',
     \ 's': 'stage hunk',
@@ -96,18 +103,16 @@ let g:which_key_map_leader['f'] = {
       \ 'name' : '+find' ,
       \ '.' : [':Telescope filetypes'                   , 'filetypes'],
       \ 'B' : [':Telescope git_branches'                , 'git branches'],
-      \ 'd' : [':Telescope lsp_document_diagnostics'    , 'document_diagnostics'],
-      \ 'D' : [':Telescope lsp_workspace_diagnostics'   , 'workspace_diagnostics'],
+      \ 's' : [':Telescope lsp_document_symbols'        , 'document diagnostics'],
+      \ 'd' : [':Telescope lsp_document_diagnostics'    , 'document diagnostics'],
+      \ 'D' : [':Telescope lsp_workspace_diagnostics'   , 'workspace diagnostics'],
       \ 'f' : [':Telescope find_files'                  , 'find files'],
       \ 'g' : [':Telescope git_files'                   , 'find git files'],
       \ 'h' : [':Telescope command_history'             , 'history'],
       \ 'i' : [':Telescope media_files'                 , 'media files'],
       \ 'm' : [':Telescope marks'                       , 'marks'],
-      \ 'M' : [':Telescope man_pages'                   , 'man_pages'],
-      \ 'o' : [':Telescope vim_options'                 , 'vim_options'],
+      \ 'o' : [':Telescope vim_options'                 , 'vim options'],
       \ 't' : [':Telescope live_grep'                   , 'text'],
-      \ 'r' : [':Telescope registers'                   , 'registers'],
-      \ 'w' : [':Telescope file_browser'                , 'buf_fuz_find'],
       \ 'b' : [':Telescope buffers'                     , 'buffers'],
       \ }
 
@@ -121,13 +126,6 @@ let g:which_key_map_leader['t'] = {
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 'h' : [':FloatermNew htop'                              , 'htop'],
       \ }
-
-" " TODO: Add Lsp mapping
-" let g:which_key_map_leader['l'] = {
-"       \ 'name' : '+lsp' ,
-"       \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
-"       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-"       \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Which Key "," Mapping
