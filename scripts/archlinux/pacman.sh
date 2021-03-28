@@ -3,136 +3,140 @@
 # TODO: reclassify pkgs
 # Terminal packages
 declare -a pkgs=(
-  "curl"
-  "sudo"
-  "networkmanager"
-  "pacman-contrib"
-  "inetutils"
-  "unzip"
+	"curl"
+	"sudo"
+	"networkmanager"
+	"pacman-contrib"
+	"inetutils"
+	"unzip"
 
-  "htop"
-  "yarn"
-  "zsh"
+	"htop"
+	"yarn"
+	"zsh"
 
-  "tig"
-  "fd"
-  "bat"
-  "exa"
-  "ranger" "ueberzug"
-  "stow"
-  "fzf"
-  "lastpass-cli"
-  "ripgrep"
-  "wl-clipboard"
-  "terraform"
-  "openssh"
+	"tig"
+	"fd"
+	"bat"
+	"exa"
+	"ranger" "ueberzug"
+	"stow"
+	"fzf"
+	"lastpass-cli"
+	"ripgrep"
+	"wl-clipboard"
+	"terraform"
+	"openssh"
 
-  "yq"
-  "jq"
+	"yq"
+	"jq"
 
-  # Bluetooth related packages
-  "bluez" "bluez-utils"
+	# Bluetooth related packages
+	"bluez" "bluez-utils"
 
-  "rustup"
+	"rustup"
 
-  # Network Utility
-  "bind"
+	# Network Utility
+	"bind"
 
-  "go"
-  "gcc"
-  "make"
+	"go"
+	"gcc"
+	"make"
 
-  "python-pip"
-  "python-neovim"
+	"python-pip"
+	"python-neovim"
 
-  "virtualbox"
+	"virtualbox"
 
-  "playerctl"
+	"playerctl"
 
-  # LSP related
-  "lua-language-server" "lua-format" # aur
-  "efm-langserver"
-  "rust-analyzer"
-  "terraform-ls"
-  "gopls"
-  "shfmt" # shell fmt
+	# LSP related
+	"lua-language-server" "lua-format" # aur
+	"efm-langserver"
+	"rust-analyzer"
+	"terraform-ls"
+	"gopls"
+	"shfmt" # shell fmt
 )
 
 # Graphic packages
 declare -a g_pkgs=(
-  "zathura"
-  "zathura-pdf-mupdf"
-  "ranger"
-  "kitty"
-  "pipewire"
-  "libpipewire02" # TODO: Remove when Chromium support pipewire 0.3
-  "pipewire-media-session" # FIX: Normoally not needed but pacman not provide dependencies https://github.com/emersion/xdg-desktop-portal-wlr/issues/97
-  "xdg-desktop-portal-wlr"
-  "telegram-desktop"
+	"zathura"
+	"zathura-pdf-mupdf"
+	"ranger"
+	"kitty"
+	"pipewire"
+	"libpipewire02"          # TODO: Remove when Chromium support pipewire 0.3
+	"pipewire-media-session" # FIX: Normoally not needed but pacman not provide dependencies https://github.com/emersion/xdg-desktop-portal-wlr/issues/97
+	"xdg-desktop-portal-wlr"
+	"telegram-desktop"
 
-  "light"
-  "gammastep"
+	"firefox"
 
-  "grim"
-  "slurp"
+	"light"
+	"gammastep"
 
-  "sway"
-  "swaybg"
-  "waybar"
-  "wf-recorder"
-  "swayidle"
-  "swaylock"
+	"grim"
+	"slurp"
 
-  "mako" # Notification daemon
+	"sway"
+	"swaybg"
+	"waybar"
+	"wf-recorder"
+	"swayidle"
+	"swaylock"
 
-  # Sound
-  "pavucontrol"
-  "pulseaudio-bluetooth"
-  "pulseaudio"
+	"mako" # Notification daemon
 
-  # Fonts
-  "ttf-dejavu"
-  "noto-fonts-emoji"
+	# Sound
+	"pavucontrol"
+	"pulseaudio-bluetooth"
+	"pulseaudio"
 
-  "polkit"
-  "polkit-gnome"
+	# Fonts
+	"ttf-dejavu"
+	"noto-fonts-emoji"
+
+	"polkit"
+	"polkit-gnome"
 )
 
 declare -a aur_pkgs=(
-  "zsh-plugin-wd-git"
-  "lazydocker"
-  "lazygit"
-  "pet-bin"
-  "rofi-lbonn-wayland-git"
-  "grimshot"
-  "networkmanager-dmenu-git"
-  "rofi-bluetooth-git"
-  "bitwarden-rofi-git"
+	"zsh-plugin-wd-git"
+	"lazydocker"
+	"lazygit"
+	"pet-bin"
+	"rofi-lbonn-wayland-git"
+	"grimshot"
+	"networkmanager-dmenu-git"
+	"rofi-bluetooth-git"
+	"bitwarden-rofi-git"
 
-  "git-secret"
+	"git-secret"
 
-  "wdisplays"
+	"wdisplays"
 
-  "google-chrome"
+	"google-chrome"
 
-  "neovim-git"
+	"neovim-git"
 
-  # Fonts
-  "fonts-tlwg"
-  "nerd-fonts-hack"
+	"downgrade"
+
+	# Fonts
+	"fonts-tlwg"
+	"nerd-fonts-hack"
 )
 
 declare -a kube_pkgs=(
-  "docker"
-  "docker-compose"
+	"docker"
+	"docker-compose"
 
-  "kubectl"
-  "helm"
-  "krew-bin"
-  "kind-bin"
-  "kubeseal"
-  "kubefwd-bin"
-  "flux-bin"
+	"kubectl"
+	"helm"
+	"krew-bin"
+	"kind-bin"
+	"kubeseal"
+	"kubefwd-bin"
+	"flux-bin"
 )
 
 yay -Syu ${pkgs[@]} ${g_pkgs[@]} ${aur_pkgs[@]} ${kube_pkgs[@]} --noconfirm --needed
