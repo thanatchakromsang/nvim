@@ -1,18 +1,5 @@
 local lspconfig = require 'lspconfig'
 
-function _G.reload_lsp()
-    vim.lsp.stop_client(vim.lsp.get_active_clients())
-    vim.cmd [[edit]]
-end
-
-function _G.open_lsp_log()
-    local path = vim.lsp.get_log_path()
-    vim.cmd("edit " .. path)
-end
-
-vim.cmd('command! -nargs=0 LspRestart call v:lua.reload_lsp()')
-vim.cmd('command! -nargs=0 LspLog call v:lua.open_lsp_log()')
-
 vim.fn.sign_define("LspDiagnosticsSignError", {texthl = "LspDiagnosticsSignError", text = ""})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = ""})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {texthl = "LspDiagnosticsSignInformation", text = ""})
@@ -22,24 +9,16 @@ vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint",
 -- Handler overrides
 -----------------------------------------------------
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false
-})
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+                                                                   {underline = true, virtual_text = true, signs = true, update_in_insert = false})
 
 vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
-    if err ~= nil or result == nil then
-        return
-    end
+    if err ~= nil or result == nil then return end
     if not vim.api.nvim_buf_get_option(bufnr, "modified") then
         local view = vim.fn.winsaveview()
         vim.lsp.util.apply_text_edits(result, bufnr)
         vim.fn.winrestview(view)
-        if bufnr == vim.api.nvim_get_current_buf() then
-            vim.cmd [[noautocmd :update]]
-        end
+        if bufnr == vim.api.nvim_get_current_buf() then vim.cmd [[noautocmd :update]] end
     end
 end
 
@@ -51,24 +30,23 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-    end
+-- Got this from tjdevries/config_manager
+local custom_init = function(client)
+    client.config.flags = client.config.flags or {}
+    client.config.flags.allow_incremental_sync = true
+end
+
+local custom_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     local opts = {noremap = true, silent = true}
-    buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    buf_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+    buf_set_keymap("n", "gd", ":Telescope lsp_definitions<CR>", opts)
+    buf_set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
     buf_set_keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
     buf_set_keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opts)
-    buf_set_keymap("n", "gs", ":Lspsaga signature_help<CR>", opts)
     buf_set_keymap("n", "<localleader>ca", ":Lspsaga code_action<CR>", opts)
     buf_set_keymap("v", "<localleader>ca", ":<C-U>Lspsaga range_code_action<CR>", opts)
     buf_set_keymap("n", "<C-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
@@ -76,11 +54,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "gn", ":Lspsaga diagnostic_jump_next<CR>", opts)
     buf_set_keymap("n", "gp", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 
-    if client.resolved_capabilities.implementation then
-        buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    end
-
+    if client.resolved_capabilities.implementation then buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) end
+    if client.resolved_capabilities.find_references then buf_set_keymap("n", "gr", ":Telescope lsp_references<CR>", opts) end
+    if client.resolved_capabilities.type_definition then buf_set_keymap("n", "gt", ":lua vim.lsp.buf.type_definition()<CR>", opts) end
     if client.resolved_capabilities.rename then buf_set_keymap("n", "gR", ":Lspsaga rename<CR>", opts) end
+    if client.resolved_capabilities.signature_help then buf_set_keymap("n", "gs", ":Lspsaga signature_help<CR>", opts) end
 
     -- Set autocommands conditional on server_capabilities
     if client.resolved_capabilities.document_highlight then
@@ -97,12 +75,8 @@ local on_attach = function(client, bufnr)
     end
 
     if client.resolved_capabilities.document_formatting then
-        vim.api.nvim_exec([[
-          augroup LspFormat
-            " autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
-            autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()
-          augroup END
-        ]], false)
+        vim.api.nvim_command [[command! -buffer Format lua vim.lsp.buf.formatting_sync(nil, 1000)]]
+        vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 300)]]
     end
 
     print("'" .. client.name .. "' server attached")
@@ -116,7 +90,7 @@ lspconfig.gopls.setup {
     cmd = {"gopls", "--remote=auto"},
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
-        on_attach(client)
+        custom_attach(client)
     end,
     capabilities = capabilities,
     init_options = {usePlaceholders = true, completeUnimported = true}
@@ -128,15 +102,13 @@ lspconfig.gopls.setup {
 
 lspconfig.sumneko_lua.setup {
     cmd = {"/usr/bin/lua-language-server", "-E", "/usr/share/lua-language-server/main.lua"},
-    on_attach = on_attach,
+    on_attach = custom_attach,
     capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {version = 'LuaJIT', path = vim.split(package.path, ';')},
             diagnostics = {globals = {'vim', 'packer_plugins'}},
-            workspace = {
-                library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
-            },
+            workspace = {library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}},
             telemetry = {enable = false}
         }
     }
@@ -147,7 +119,7 @@ lspconfig.sumneko_lua.setup {
 -----------------------------------------------------
 
 lspconfig.yamlls.setup {
-    on_attach = on_attach,
+    on_attach = custom_attach,
     capabilities = capabilities,
     settings = {
         yaml = {
@@ -167,7 +139,7 @@ lspconfig.tsserver.setup {
     on_attach = function(client)
         -- Disable tsserver formatting, use prettier in efm lsp instead
         client.resolved_capabilities.document_formatting = false
-        on_attach(client)
+        custom_attach(client)
     end,
     capabilities = capabilities,
     filetypes = {"javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"}
@@ -177,10 +149,7 @@ lspconfig.tsserver.setup {
 -- efm LSP
 -----------------------------------------------------
 
-local luafmt = {
-    formatCommand = "luafmt ${-i:tabWidth} --stdin",
-    formatStdin = true
-}
+local luafmt = {formatCommand = "lua-format -i --column-limit=150", formatStdin = true}
 
 local isort = {formatCommand = "isort --quiet -", formatStdin = true}
 local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
@@ -196,29 +165,18 @@ local eslint = {
 
 local shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
 
-local golint = {
-    lintCommand = "golint",
-    lintIgnoreExitCode = true,
-    lintFormats = {"%f:%l:%c: %m"}
-}
+local golint = {lintCommand = "golint", lintIgnoreExitCode = true, lintFormats = {"%f:%l:%c: %m"}}
 
-local goimports = {
-    formatCommand = "goimports",
-    formatStdin = true
-}
+local goimports = {formatCommand = "goimports", formatStdin = true}
 
-local misspell = {
-    lintCommand = "misspell",
-    lintIgnoreExitCode = true,
-    lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"}
-}
+-- local misspell = {
+--     lintCommand = "misspell",
+--     lintIgnoreExitCode = true,
+--     lintStdin = true,
+--     lintFormats = {"%f:%l:%c: %m"}
+-- }
 
-local markdownlint = {
-    lintCommand = 'markdownlint -s',
-    lintStdin = true,
-    lintFormats = {'%f:%l %m', '%f:%l:%c %m', '%f: %l: %m'}
-}
+local markdownlint = {lintCommand = 'markdownlint -s', lintStdin = true, lintFormats = {'%f:%l %m', '%f:%l:%c %m', '%f: %l: %m'}}
 
 local languages = {
     lua = {luafmt},
@@ -234,31 +192,23 @@ local languages = {
     html = {prettier},
     scss = {prettier},
     css = {prettier},
-    markdown = {prettier},
+    markdown = {markdownlint},
     python = {isort, yapf},
     sh = {shfmt}
 }
 
 lspconfig.efm.setup {
-    on_attach = on_attach,
-    root_dir = function()
-      return vim.fn.getcwd()
-    end,
+    on_attach = custom_attach,
+    root_dir = function() return vim.fn.getcwd() end,
     init_options = {documentFormatting = true},
     filetypes = vim.tbl_keys(languages),
-    settings = {
-        rootMarkers = { "package.json", ".git" },
-        languages = languages,
-        lintDebounce = 500,
-    }
+    settings = {rootMarkers = {"package.json", ".git"}, languages = languages, lintDebounce = 500}
 }
 
 -----------------------------------------------------
 -- general LSP
 -----------------------------------------------------
 
-local servers = {
-    'bashls', 'dockerls', 'rust_analyzer', 'pyright', 'vimls', 'jsonls', 'graphql', 'terraformls'
-}
+local servers = {'bashls', 'dockerls', 'rust_analyzer', 'pyright', 'vimls', 'jsonls', 'graphql', 'terraformls'}
 
-for _, server in ipairs(servers) do lspconfig[server].setup {on_attach = on_attach, capabilities = capabilities} end
+for _, server in ipairs(servers) do lspconfig[server].setup {on_init = custom_init, on_attach = custom_attach, capabilities = capabilities} end
