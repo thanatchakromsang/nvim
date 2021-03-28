@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'nvim-treesitter/playground'
     use 'p00f/nvim-ts-rainbow'
+    use 'JoosepAlviste/nvim-ts-context-commentstring' -- dynamically set commentstring based on treesitter
     use 'sheerun/vim-polyglot'
 
     -- Icons
@@ -54,8 +55,8 @@ return require('packer').startup(function(use)
     -- Status Line and Bufferline
     use {
 	'glepnir/galaxyline.nvim',
-	branch = 'main',
-	requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        branch = 'main',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 
@@ -95,7 +96,7 @@ return require('packer').startup(function(use)
     use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
     use 'liuchengxu/vim-which-key' -- i can't remember hotkey
     use 'voldikss/vim-floaterm' -- floating terminal
-    use 'liuchengxu/vista.vim'
+    use 'liuchengxu/vista.vim' -- lsp outline 
     use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
     use 'justinmk/vim-sneak' -- movement
@@ -104,13 +105,6 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'wellle/targets.vim' -- vim text object on steroid
 
-	-- TODO put this back when stable for indent lines
--- 	vim.g.indent_blankline_space_char = ' '
--- 	vim.g.indent_blankline_buftype_exclude = {'terminal'}
--- 	vim.g.indent_blankline_filetype_exclude = {'help', 'startify'}
--- 	vim.g.indent_blankline_char = '▏'
--- 	vim.g.indent_blankline_use_treesitter=true
-    -- use 'alvan/vim-closetag'
     -- use 'RRethy/vim-illuminate'
     -- use 'b3nj5m1n/kommentary'
     -- use {

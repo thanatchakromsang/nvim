@@ -4,8 +4,6 @@ vim.cmd('syntax on')
 
 vim.o.termguicolors=true
 
--- vim.g.gruvbox_sign_column='bg0' -- disable highlight sign column
-
 vim.cmd('hi TelescopeBorder         guifg=#665c54')
 vim.cmd('hi TelescopePromptBorder   guifg=#665c54')
 vim.cmd('hi TelescopeResultsBorder  guifg=#665c54')
@@ -40,6 +38,9 @@ vim.api.nvim_exec([[
     hi link LspDiagnosticsSignInformation GruvboxGreenSign
     hi link LspDiagnosticsSignHint GruvboxBlueSign
 ]], false)
+
+-- Indent Blankline
+vim.cmd('hi link IndentBlanklineContextChar GruvboxGray')
 
 -- Lspsaga
 -- TODO: Gruvboximized Lspsaga

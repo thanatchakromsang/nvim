@@ -50,4 +50,4 @@ vim.wo.relativenumber=true               -- Show relative to current line number
 
 vim.cmd('set ts=2')                      -- Insert 2 spaces for a tab
 vim.cmd('set sw=2')                      -- Change the number of space characters inserted for indentation
-vim.cmd('set colorcolumn=80')            -- Column line
+vim.cmd('set colorcolumn=150')            -- Column line

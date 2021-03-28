@@ -10,6 +10,9 @@ require'nvim-treesitter.configs'.setup {
         persist_queries = false -- Whether the query persists across vim sessions
     },
     autotag = {enable = true},
-    rainbow = {enable = false}
-    -- refactor = {highlight_definitions = {enable = true}}
+    rainbow = {enable = false},
+
+    context_commentstring = {
+        enable = true
+    }
 }
