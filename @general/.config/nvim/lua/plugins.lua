@@ -1,5 +1,4 @@
 -- vim.cmd [[packadd packer.nvim]]
-
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -9,7 +8,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
     execute 'packadd packer.nvim'
 end
-
 
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
@@ -53,11 +51,7 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
 
     -- Status Line and Bufferline
-    use {
-	'glepnir/galaxyline.nvim',
-        branch = 'main',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
+    use {'glepnir/galaxyline.nvim', branch = 'main', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 
     -- Telescope
@@ -84,6 +78,7 @@ return require('packer').startup(function(use)
     use 'gennaro-tedesco/nvim-peekup'
 
     -- General Plugins
+    use 'editorconfig/editorconfig-vim'
     use 'windwp/nvim-autopairs'
     use 'kevinhwang91/nvim-bqf'
     use 'unblevable/quick-scope' -- find and to keyword on steroid
@@ -96,7 +91,7 @@ return require('packer').startup(function(use)
     use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
     use 'liuchengxu/vim-which-key' -- i can't remember hotkey
     use 'voldikss/vim-floaterm' -- floating terminal
-    use 'liuchengxu/vista.vim' -- lsp outline 
+    use 'liuchengxu/vista.vim' -- lsp outline
     use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
     use 'justinmk/vim-sneak' -- movement
