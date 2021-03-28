@@ -1,0 +1,2 @@
+pull:
+  mode: 'rebase' # one of 'merge' | 'rebase' | 'ff-only'
