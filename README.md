@@ -26,7 +26,8 @@ gpg import private.gpg
 
 ### Reveal Secret
 
-Some configuration needed to be encrypted because personal information. In that case we need to decrypt secret using following
+Some configuration needed to be encrypted because personal information. In that
+case we need to decrypt secret using following
 
 ```bash
 git secret reveal
@@ -34,7 +35,8 @@ git secret reveal
 
 ### Hide Secret
 
-Hide secret after some changes. Usually we don't need to do this because git-hooks will take care of precommit hide secret after installation
+Hide secret after some changes. Usually we don't need to do this because git-hooks
+will take care of precommit hide secret after installation
 
 ```bash
 git secret hide
@@ -47,6 +49,7 @@ git secret hide
 ```
 
 ## Upgrade Packages
+
 ```bash
 ~/.dotfiles/upgrade.sh
 ```
