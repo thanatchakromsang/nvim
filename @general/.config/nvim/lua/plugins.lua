@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'glepnir/lspsaga.nvim'
     use 'onsails/lspkind-nvim'
-    use 'kosayoda/nvim-lightbulb'
+    -- use 'kosayoda/nvim-lightbulb'
 
     -- Debugging
     use 'mfussenegger/nvim-dap'
@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
+    -- Snippets
     use 'xabikos/vscode-javascript'
     use 'cstrap/python-snippets'
     use 'dsznajder/vscode-es7-javascript-react-snippets'
