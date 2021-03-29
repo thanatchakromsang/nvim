@@ -10,7 +10,10 @@ vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint",
 -----------------------------------------------------
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-                                                                   {underline = true, virtual_text = true, signs = true, update_in_insert = false})
+                                                                   {underline = true, virtual_text = false, signs = true, update_in_insert = false})
+
+vim.api.nvim_command [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+vim.api.nvim_command [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
 
 vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then return end
@@ -45,20 +48,17 @@ local custom_attach = function(client, bufnr)
     local opts = {noremap = true, silent = true}
     buf_set_keymap("n", "gd", ":Telescope lsp_definitions<CR>", opts)
     buf_set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
-    buf_set_keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
-    buf_set_keymap("n", "gh", ":Lspsaga lsp_finder<CR>", opts)
-    buf_set_keymap("n", "<localleader>ca", ":Lspsaga code_action<CR>", opts)
-    buf_set_keymap("v", "<localleader>ca", ":<C-U>Lspsaga range_code_action<CR>", opts)
-    buf_set_keymap("n", "<C-f>", ":lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
-    buf_set_keymap("n", "<C-b>", ":lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
-    buf_set_keymap("n", "gn", ":Lspsaga diagnostic_jump_next<CR>", opts)
-    buf_set_keymap("n", "gp", ":Lspsaga diagnostic_jump_prev<CR>", opts)
+    buf_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
+    buf_set_keymap("n", "<localleader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
+    buf_set_keymap("v", "<localleader>ca", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
+    buf_set_keymap("n", "gn", ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+    buf_set_keymap("n", "gp", ":lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 
-    if client.resolved_capabilities.implementation then buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) end
+    if client.resolved_capabilities.implementation then buf_set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts) end
     if client.resolved_capabilities.find_references then buf_set_keymap("n", "gr", ":Telescope lsp_references<CR>", opts) end
     if client.resolved_capabilities.type_definition then buf_set_keymap("n", "gt", ":lua vim.lsp.buf.type_definition()<CR>", opts) end
-    if client.resolved_capabilities.rename then buf_set_keymap("n", "gR", ":Lspsaga rename<CR>", opts) end
-    if client.resolved_capabilities.signature_help then buf_set_keymap("n", "gs", ":Lspsaga signature_help<CR>", opts) end
+    if client.resolved_capabilities.rename then buf_set_keymap("n", "gR", ":lua vim.lsp.buf.rename()<CR>", opts) end
+    if client.resolved_capabilities.signature_help then buf_set_keymap("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", opts) end
 
     -- Set autocommands conditional on server_capabilities
     if client.resolved_capabilities.document_highlight then
@@ -74,9 +74,16 @@ local custom_attach = function(client, bufnr)
     ]], false)
     end
 
+    -- -- autoformat after save
+    -- if client.resolved_capabilities.document_formatting then
+    --     vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 300)]]
+    -- end
+
+    -- Set some keybinds conditional on server capabilities
     if client.resolved_capabilities.document_formatting then
-        vim.api.nvim_command [[command! -buffer Format lua vim.lsp.buf.formatting_sync(nil, 1000)]]
-        vim.api.nvim_command [[autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 300)]]
+        buf_set_keymap("n", "<localleader>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
+    elseif client.resolved_capabilities.document_range_formatting then
+        buf_set_keymap("n", "<localleader>f", ":lua vim.lsp.buf.range_formatting()<CR>", opts)
     end
 
     print("'" .. client.name .. "' server attached")

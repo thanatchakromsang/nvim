@@ -114,6 +114,8 @@ let g:which_key_map_leader['f'] = {
       \ 'o' : [':Telescope vim_options'                 , 'vim options'],
       \ 't' : [':Telescope live_grep'                   , 'text'],
       \ 'b' : [':Telescope buffers'                     , 'buffers'],
+      \ 'q' : [':Telescope quickfix'                    , 'quickfix'],
+      \ 'l' : [':Telescope loclist'                     , 'loclist'],
       \ }
 
 " t is for terminal
