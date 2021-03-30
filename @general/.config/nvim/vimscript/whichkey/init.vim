@@ -44,8 +44,8 @@ let g:which_key_map_leader['p'] = {
 
 let g:which_key_map_leader['a'] = {
     \ 'name': '+action',
-    \ 'u' : [':Codi', 'repl'],
-    \ 'g' : [':Goyo', 'zen mode'],
+    \ 'c' : [':Codi', 'codi repl'],
+    \ 'g' : [':Goyo', 'goyo mode'],
     \ }
 
 let g:which_key_map_leader['c'] = {
@@ -81,8 +81,8 @@ let g:which_key_map_leader['s'] = {
 let g:which_key_map_leader['g'] = {
     \ 'name': '+git',
     \ 'd': [':Gdiffsplit', 'git diff'],
-    \ 'g': [':FloatermNew lazygit', 'lazygit'],
-    \ 't' : [':FloatermNew tig %', 'tig current file'],
+    \ 'g': [':FloatermNew --height=0.9 --width=0.9 lazygit', 'lazygit'],
+    \ 't': [':FloatermNew --height=0.9 --width=0.9 tig %', 'tig current file'],
     \ 'p': 'go to prev hunk',
     \ 'n': 'go to next hunk',
     \ 's': 'stage hunk',
@@ -114,13 +114,15 @@ let g:which_key_map_leader['f'] = {
       \ 'o' : [':Telescope vim_options'                 , 'vim options'],
       \ 't' : [':Telescope live_grep'                   , 'text'],
       \ 'b' : [':Telescope buffers'                     , 'buffers'],
+      \ 'q' : [':Telescope quickfix'                    , 'quickfix'],
+      \ 'l' : [':Telescope loclist'                     , 'loclist'],
       \ }
 
 " t is for terminal
 let g:which_key_map_leader['t'] = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
-      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
+      \ 'g' : [':FloatermNew --height=0.9 --width=0.9 lazygit'  , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],

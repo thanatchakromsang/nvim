@@ -93,7 +93,8 @@ gls.left[3] ={
   FileIcon = {
     provider = {'FileIcon'},
     condition = condition.buffer_not_empty,
-    highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color, colors.bg3 },
+    -- highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color, colors.bg3 },
+    highlight = { colors.fg, colors.bg3 },
   }
 }
 
@@ -219,9 +220,9 @@ gls.right[6] = {
 gls.right[7] = {
     Percent = {
         provider = 'LinePercent',
+        highlight = {colors.bg, colors.fg3},
         separator = ' ',
-        separator_highlight = {colors.bg, colors.bg},
-        highlight = {colors.bg, colors.fg3}
+        separator_highlight = {colors.bg3, colors.bg}
     }
 }
 
@@ -239,10 +240,19 @@ gls.short_line_left[1] = {
 gls.short_line_left[2] = {
   BufferType = {
     provider = 'FileTypeName',
-    separator = '',
-    separator_highlight = {colors.fg3, 'NONE'},
     highlight = {colors.bg,colors.fg3}
   }
+}
+
+gls.short_line_left[3] = {
+    SpaceShort2 = {
+        provider = function()
+            return ' '
+        end,
+        separator = '',
+        separator_highlight = {colors.fg3, 'NONE'},
+        highlight = {'NONE', colors.fg3},
+    }
 }
 
 gls.short_line_right[1] = {
