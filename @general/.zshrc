@@ -5,7 +5,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # if [[ $(tput cols) -gt 90 && $(tput lines) -gt 19 ]]; then
 #   source $DOTFILES/zsh/startup.sh
 # fi
-#
 
 ZSH_THEME="robbyrussell"
 
@@ -24,6 +23,7 @@ plugins=(
   fzf
   helm
   rust
+  ssh-agent
 )
 
 OS="$(uname -a)"
