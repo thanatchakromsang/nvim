@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
     use 'gennaro-tedesco/nvim-peekup'
 
     -- General Plugins
-    use 'editorconfig/editorconfig-vim'
+    -- use 'editorconfig/editorconfig-vim'
     use 'windwp/nvim-autopairs'
     use 'kevinhwang91/nvim-bqf'
     use 'unblevable/quick-scope' -- find and to keyword on steroid
