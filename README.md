@@ -53,3 +53,7 @@ git secret hide
 ```bash
 ~/.dotfiles/upgrade.sh
 ```
+
+## Google Chrome Desktop Application on wayland
+
+- After add desktop application need to modify it a bit in `~/.local/share/applications`
