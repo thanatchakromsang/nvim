@@ -41,8 +41,8 @@ map('v', '<', '<gv', {noremap = true, silent = true})
 map('v', '>', '>gv', {noremap = true, silent = true})
 
 -- tab switch buffer
-map('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-map('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
+map('n', '<TAB>', ':BufferLineCycleNext<CR>', {noremap = true, silent = true})
+map('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', {noremap = true, silent = true})
 
 map('n', '<ESC>', ':noh<CR>', {noremap = true, silent = true}) -- Remove search highlight after esc
 
@@ -65,7 +65,6 @@ map('', '<leader>gB', ':Gbrowse<CR>', {noremap = true, silent = true})
 map('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
 map('', '<leader>gu', ':lua require"gitsigns".undo_stage_hunk()<CR>', {noremap = true, silent = true})
 map('', '<leader>gr', ':lua require"gitsigns".reset_hunk()<CR>', {noremap = true, silent = true})
-map('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gP', ':lua require"gitsigns".preview_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gn', ':lua require"gitsigns".next_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gp', ':lua require"gitsigns".prev_hunk()<CR>', {noremap = true, silent = true})

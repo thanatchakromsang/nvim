@@ -2,7 +2,7 @@ local gl = require("galaxyline")
 local gls = gl.section
 local condition = require('galaxyline.condition')
 
-gl.short_line_list = {'NvimTree', 'vista', 'packer'}
+gl.short_line_list = {'nerdtree', 'vista', 'packer'}
 
 local colors = {
     bg = "#282828",
@@ -233,6 +233,7 @@ gls.short_line_left[1] = {
         provider = function()
             return ' '
         end,
+        condition = condition.buffer_not_empty,
         highlight = {'NONE', colors.fg3},
     }
 }
@@ -240,6 +241,7 @@ gls.short_line_left[1] = {
 gls.short_line_left[2] = {
   BufferType = {
     provider = 'FileTypeName',
+    condition = condition.buffer_not_empty,
     highlight = {colors.bg,colors.fg3}
   }
 }
@@ -250,6 +252,7 @@ gls.short_line_left[3] = {
             return ' '
         end,
         separator = '',
+        condition = condition.buffer_not_empty,
         separator_highlight = {colors.fg3, 'NONE'},
         highlight = {'NONE', colors.fg3},
     }
@@ -258,6 +261,7 @@ gls.short_line_left[3] = {
 gls.short_line_right[1] = {
   BufferIcon = {
     provider= 'BufferIcon',
+    condition = condition.buffer_not_empty,
     separator = ' ',
     separator_highlight = {colors.fg3, 'NONE'},
     highlight = {colors.bg, colors.fg3}

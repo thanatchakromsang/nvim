@@ -17,10 +17,6 @@ vim.api.nvim_exec([[
     augroup END
 ]], false)
 
-vim.cmd('hi link NvimTreeIndentMarker GruvboxBg4')
-vim.cmd('hi link NvimTreeFolderIcon GruvboxFg4')
-vim.cmd('hi link NvimTreeRootFolder GruvboxPurpleBold')
-
 vim.cmd('hi link QuickScopePrimary IncSearch')
 vim.cmd('hi link QuickScopeSecondary Search')
 
@@ -41,6 +37,3 @@ vim.api.nvim_exec([[
 
 -- Indent Blankline
 vim.cmd('hi link IndentBlanklineContextChar GruvboxGray')
-
--- Lspsaga
--- TODO: Gruvboximized Lspsaga
