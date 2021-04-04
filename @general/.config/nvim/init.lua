@@ -7,7 +7,6 @@ require('colorscheme')
 -- Plugins settings
 require('plugins-config')
 require('plugin-galaxyline')
-require('plugin-nvim-tree')
 require('plugin-autopairs')
 require('plugin-compe')
 require('plugin-bufferline')
@@ -22,6 +21,7 @@ require('lsp/saga')
 
 
 -- Vimscript settings
-vim.cmd('source ~/.config/nvim/vimscript/whichkey/init.vim')
+vim.cmd('source ~/.config/nvim/vimscript/whichkey.vim')
+vim.cmd('source ~/.config/nvim/vimscript/nerdtree.vim')
 
 -- TODO: Fix ctrl-l for kitty clear screen to another key

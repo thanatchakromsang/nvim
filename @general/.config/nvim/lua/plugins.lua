@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
     use 'sheerun/vim-polyglot'
 
     -- Icons
+    use 'ryanoasis/vim-devicons'
     use 'kyazdani42/nvim-web-devicons'
 
     -- Status Line and Bufferline
@@ -62,7 +63,8 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Explorer
-    use 'kyazdani42/nvim-tree.lua'
+    use 'preservim/nerdtree'
+    use 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     -- Appearance
     use 'gruvbox-community/gruvbox'
@@ -79,7 +81,7 @@ return require('packer').startup(function(use)
     use 'gennaro-tedesco/nvim-peekup'
 
     -- General Plugins
-    -- use 'editorconfig/editorconfig-vim'
+    use 'editorconfig/editorconfig-vim'
     use 'windwp/nvim-autopairs'
     use 'kevinhwang91/nvim-bqf'
     use 'unblevable/quick-scope' -- find and to keyword on steroid

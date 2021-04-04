@@ -31,7 +31,7 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map_leader[' '] = ['za', 'fold toggle']
 let g:which_key_map_leader['r'] = [':FloatermNew ranger', 'ranger']
-let g:which_key_map_leader['e'] = [':NvimTreeToggle', 'explorer']
+let g:which_key_map_leader['e'] = [':NERDTreeToggle', 'explorer']
 let g:which_key_map_leader['v'] = [':Vista!!', 'outline']
 let g:which_key_map_leader['p'] = {
     \ 'name': '+packer',
@@ -41,6 +41,14 @@ let g:which_key_map_leader['p'] = {
     \ 'C' : [':PackerClean', 'clean'],
     \ 's' : [':PackerSync', 'sync'],
     \ }
+
+" n is for NERDTree
+let g:which_key_map_leader['n'] = {
+      \ 'name' : '+nerdtree' ,
+      \ 'n' : [':NERDTreeToggle' , 'toggle'],
+      \ 'f' : [':NERDTreeFind' , 'find current file'],
+      \ 'c' : [':NERDTreeCWD' , 'find current work dirs'],
+      \ }
 
 let g:which_key_map_leader['a'] = {
     \ 'name': '+action',
