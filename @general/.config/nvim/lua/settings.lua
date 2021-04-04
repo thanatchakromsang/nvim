@@ -27,7 +27,7 @@ vim.o.showbreak = "↳"
 vim.o.wildignorecase = true
 vim.o.wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**";
 vim.o.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
-vim.o.backspace = "indent,eol,start"
+vim.o.shell = "/bin/bash" -- enable this if zsh slow down vim
 
 -- Buffer scoped options
 vim.bo.expandtab = true -- Converts tabs to spaces
@@ -49,4 +49,4 @@ vim.wo.relativenumber = true -- Show relative to current line number instead
 
 vim.cmd('set ts=2') -- Insert 2 spaces for a tab
 vim.cmd('set sw=2') -- Change the number of space characters inserted for indentation
-vim.cmd('set colorcolumn=150') -- Column line
+vim.cmd('set colorcolumn=80,120') -- Column line
