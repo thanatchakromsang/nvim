@@ -69,3 +69,6 @@ map('n', '<leader>gP', ':lua require"gitsigns".preview_hunk()<CR>', {noremap = t
 map('n', '<leader>gn', ':lua require"gitsigns".next_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gp', ':lua require"gitsigns".prev_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gbl', ':lua require"gitsigns".blame_line()<CR>', {noremap = true, silent = true})
+
+-- Shell
+map('n', '<localleader>sh', ':FloatermNew --wintype=normal --height=8 zsh<CR>', {noremap = true, silent = true})

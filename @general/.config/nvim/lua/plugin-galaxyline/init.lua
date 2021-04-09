@@ -6,6 +6,7 @@ gl.short_line_list = {'nerdtree', 'vista', 'packer'}
 
 local colors = {
     bg = "#282828",
+    bg1 = "#3c3836",
     bg3 = "#665c54",
     fg = "#ebdbb2",
     fg3 = "#bdae93",
@@ -82,7 +83,7 @@ gls.left[1] = {
 gls.left[2] = {
     Space = {
         provider = function()
-            return " "
+            return ' '
         end,
         condition = condition.buffer_not_empty,
         highlight = {'NONE', colors.bg3},
@@ -104,16 +105,16 @@ gls.left[4] = {
     condition = condition.buffer_not_empty,
     highlight = { colors.fg, colors.bg3 },
     separator = '',
-    separator_highlight = {colors.bg3, 'NONE'},
+    separator_highlight = {colors.bg3, colors.bg1},
   }
 }
 
 gls.left[5] = {
     SpaceGit = {
         provider = function()
-            return " "
+            return ' '
         end,
-        highlight = {'NONE', colors.bg},
+        highlight = {'NONE', colors.bg1},
     }
 }
 
@@ -124,8 +125,8 @@ gls.left[6] = {
         end,
         condition = condition.check_git_workspace,
         separator = ' ',
-        separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.light_red, colors.bg}
+        separator_highlight = {'NONE', colors.bg1},
+        highlight = {colors.light_red, colors.bg1}
     }
 }
 
@@ -133,9 +134,9 @@ gls.left[7] = {
     GitBranch = {
         provider = 'GitBranch',
         condition = condition.check_git_workspace,
-        separator = '',
-        separator_highlight = {colors.bg, colors.bg},
-        highlight = {colors.fg, colors.bg}
+        separator = ' ',
+        separator_highlight = {colors.bg, colors.bg1},
+        highlight = {colors.fg, colors.bg1}
     }
 }
 
@@ -145,7 +146,7 @@ gls.left[8] = {
         provider = {'DiffAdd'},
         condition = condition.hide_in_width,
         icon = '+',
-        highlight = {colors.light_green, colors.bg}
+        highlight = {colors.light_green, colors.bg1}
     }
 }
 
@@ -154,7 +155,7 @@ gls.left[9] = {
         provider = 'DiffModified',
         condition = condition.hide_in_width,
         icon = '~',
-        highlight = {colors.light_blue, colors.bg}
+        highlight = {colors.light_aqua, colors.bg1}
     }
 }
 
@@ -163,17 +164,17 @@ gls.left[10] = {
         provider = 'DiffRemove',
         condition = condition.hide_in_width,
         icon = '-',
-        highlight = {colors.light_red, colors.bg}
+        highlight = {colors.light_red, colors.bg1}
     }
 }
 
--- TODO: Fix coloring and add symbol
 gls.left[11] = {
-    VistaPlugin = {
+    LeftBackgroundHighlight = {
         provider = function()
-            return vim.b.vista_nearest_method_or_function
+            return ''
         end,
-        highlight = {colors.fg, colors.bg}
+        separator = '',
+        separator_highlight = {'NONE', colors.bg1}
     }
 }
 
@@ -183,14 +184,14 @@ gls.right[1] = {
     DiagnosticError = {
         provider = 'DiagnosticError',
         icon = '  ',
-        highlight = {colors.light_red, colors.bg}
+        highlight = {colors.light_red, colors.bg1}
     }
 }
 gls.right[2] = {
     DiagnosticWarn = {
         provider = 'DiagnosticWarn',
         icon = '  ',
-        highlight = {colors.light_yellow, colors.bg}
+        highlight = {colors.light_yellow, colors.bg1}
     }
 }
 
@@ -198,7 +199,7 @@ gls.right[3] = {
     DiagnosticHint = {
         provider = 'DiagnosticHint',
         icon = '  ',
-        highlight = {colors.light_blue, colors.bg}
+        highlight = {colors.light_blue, colors.bg1}
     }
 }
 
@@ -206,14 +207,14 @@ gls.right[4] = {
     DiagnosticInfo = {
         provider = 'DiagnosticInfo',
         icon = '  ',
-        highlight = {colors.light_green, colors.bg},
+        highlight = {colors.light_green, colors.bg1},
     }
 }
 
 gls.right[6] = {
     LineInfo = {
         provider = 'LineColumn',
-        highlight = {colors.fg, colors.bg}
+        highlight = {colors.fg, colors.bg1}
     }
 }
 
@@ -222,7 +223,7 @@ gls.right[7] = {
         provider = 'LinePercent',
         highlight = {colors.bg, colors.fg3},
         separator = ' ',
-        separator_highlight = {colors.bg3, colors.bg}
+        separator_highlight = {colors.bg3, colors.bg1}
     }
 }
 
@@ -233,7 +234,12 @@ gls.short_line_left[1] = {
         provider = function()
             return ' '
         end,
-        condition = condition.buffer_not_empty,
+        condition = function()
+          if vim.fn.empty(vim.bo.filetype) ~= 1 then
+            return true
+          end
+          return false
+        end,
         highlight = {'NONE', colors.fg3},
     }
 }
@@ -241,20 +247,25 @@ gls.short_line_left[1] = {
 gls.short_line_left[2] = {
   BufferType = {
     provider = 'FileTypeName',
-    condition = condition.buffer_not_empty,
-    highlight = {colors.bg,colors.fg3}
+    condition = function()
+      if vim.fn.empty(vim.bo.filetype) ~= 1 then
+        return true
+      end
+      return false
+    end,
+    highlight = {colors.bg,colors.fg3},
+    separator = ' ',
+    separator_highlight = {'NONE', colors.fg3},
   }
 }
 
 gls.short_line_left[3] = {
-    SpaceShort2 = {
+    ShortLeftBackgroundHighlight = {
         provider = function()
-            return ' '
+            return ''
         end,
-        separator = '',
-        condition = condition.buffer_not_empty,
-        separator_highlight = {colors.fg3, 'NONE'},
-        highlight = {'NONE', colors.fg3},
+        separator = '',
+        separator_highlight = {'NONE', colors.bg1}
     }
 }
 
@@ -262,8 +273,6 @@ gls.short_line_right[1] = {
   BufferIcon = {
     provider= 'BufferIcon',
     condition = condition.buffer_not_empty,
-    separator = ' ',
-    separator_highlight = {colors.fg3, 'NONE'},
     highlight = {colors.bg, colors.fg3}
   }
 }

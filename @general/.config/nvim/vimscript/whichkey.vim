@@ -129,7 +129,7 @@ let g:which_key_map_leader['f'] = {
 " t is for terminal
 let g:which_key_map_leader['t'] = {
       \ 'name' : '+terminal' ,
-      \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
+      \ ';' : [':FloatermNew --wintype=normal --height=8 zsh'   , 'terminal'],
       \ 'g' : [':FloatermNew --height=0.9 --width=0.9 lazygit'  , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
