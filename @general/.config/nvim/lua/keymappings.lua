@@ -70,5 +70,11 @@ map('n', '<leader>gn', ':lua require"gitsigns".next_hunk()<CR>', {noremap = true
 map('n', '<leader>gp', ':lua require"gitsigns".prev_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gbl', ':lua require"gitsigns".blame_line()<CR>', {noremap = true, silent = true})
 
--- Shell
-map('n', '<localleader>sh', ':FloatermNew --wintype=normal --height=8 zsh<CR>', {noremap = true, silent = true})
+-- split
+map('n', '<localleader>b', ':split<CR>', {noremap = true, silent = true})
+map('n', '<localleader>v', ':vsplit<CR>', {noremap = true, silent = true})
+
+-- local leader misc
+map('n', '<localleader>c', ':bdelete<CR>', {noremap = true, silent = true})
+map('n', '<localleader>w', ':close<CR>', {noremap = true, silent = true})
+map('n', '<localleader>.', ':lcd %:p:h<CR>', {noremap = true, silent = true}) -- set working dir
