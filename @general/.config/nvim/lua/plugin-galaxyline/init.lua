@@ -2,7 +2,7 @@ local gl = require("galaxyline")
 local gls = gl.section
 local condition = require('galaxyline.condition')
 
-gl.short_line_list = {'nerdtree', 'vista', 'packer'}
+gl.short_line_list = {'nerdtree', 'vista', 'packer', 'NvimTree', 'dbui'}
 
 local colors = {
     bg = "#282828",

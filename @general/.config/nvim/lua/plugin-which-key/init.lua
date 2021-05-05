@@ -38,6 +38,7 @@ wk.register({
     ["<leader>"] = {
         name = "leader",
         [" "] = {"za", "fold toggle"},
+        e = "explorer toggle",
         r = {":FloatermNew --height=0.8 --width=0.8 --name=ranger --wintype=float ranger<CR>", "ranger"},
         v = {":Vista!!<CR>", "outline"},
         p = {

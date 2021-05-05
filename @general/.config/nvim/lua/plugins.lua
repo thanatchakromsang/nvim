@@ -64,8 +64,7 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Explorer
-    -- use 'preservim/nerdtree'
-    -- use 'tiagofumo/vim-nerdtree-syntax-highlight'
+    use 'kyazdani42/nvim-tree.lua'
 
     -- Appearance
     use 'gruvbox-community/gruvbox'

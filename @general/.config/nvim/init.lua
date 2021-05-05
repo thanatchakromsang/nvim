@@ -14,6 +14,7 @@ require('plugin-lspkind')
 require('plugin-treesitter')
 require('plugin-telescope')
 require('plugin-which-key')
+require('plugin-nvimtree')
 
 -- LSP
 require('lsp')

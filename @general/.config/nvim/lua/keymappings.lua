@@ -91,3 +91,6 @@ map("n", "<leader>ld", ":LspTroubleToggle lsp_document_diagnostics<CR>", {silent
 map("n", "<leader>ll", ":LspTroubleToggle loclist<CR>", {silent = true, noremap = true})
 map("n", "<leader>lq", ":LspTroubleToggle quickfix<CR>", {silent = true, noremap = true})
 map("n", "gR", ":LspTrouble lsp_references<CR>", {silent = true, noremap = true})
+
+-- NvimTree
+map("n", "<leader>e", ":NvimTreeToggle<CR>", {silent = true, noremap = true})
