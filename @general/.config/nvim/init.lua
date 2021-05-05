@@ -13,15 +13,9 @@ require('plugin-bufferline')
 require('plugin-lspkind')
 require('plugin-treesitter')
 require('plugin-telescope')
+require('plugin-which-key')
 
 -- LSP
 require('lsp')
 require('lsp/dap') -- debugger
 require('lsp/saga')
-
-
--- Vimscript settings
-vim.cmd('source ~/.config/nvim/vimscript/whichkey.vim')
-vim.cmd('source ~/.config/nvim/vimscript/nerdtree.vim')
-
--- TODO: Fix ctrl-l for kitty clear screen to another key

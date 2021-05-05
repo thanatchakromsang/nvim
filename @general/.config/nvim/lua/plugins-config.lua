@@ -14,17 +14,12 @@ vim.g.floaterm_keymap_next = '<F9>'
 vim.g.floaterm_keymap_toggle = '<F12>'
 vim.g.floaterm_title = ''
 
-vim.g.floaterm_autoinsert = 1
-vim.g.floaterm_width = 0.7
-vim.g.floaterm_height = 0.7
-vim.g.floaterm_wintitle = 0
+vim.g.floaterm_shell = 'zsh'
 vim.g.floaterm_autoclose = 1
-
--- peekup
-vim.g.peekup_paste_after = '""'
-
-require('nvim-peekup.config').on_keystroke["delay"] = ''
-require('nvim-peekup.config').on_keystroke["paste_reg"] = '"'
+vim.g.floaterm_autoinsert = 1
+vim.g.floaterm_height = 13
+vim.g.floaterm_width = 0.7
+vim.g.floaterm_wintype = 'split'
 
 -- nvim-comment
 require('nvim_comment').setup({
@@ -100,3 +95,41 @@ vim.g.startify_custom_header = {
 vim.g.webdevicons_enable_startify = 1
 vim.g.startify_session_dir = os.getenv('HOME') .. '/.config/nvim/sessions'
 vim.g.startify_session_delete_buffers = 1
+
+-- folke/lsp-trouble.nvim
+require("trouble").setup {
+    height = 10, -- height of the trouble list
+    icons = true, -- use devicons for filenames
+    mode = "lsp_workspace_diagnostics", -- "lsp_workspace_diagnostics", "lsp_document_diagnostics", "quickfix", "lsp_references", "loclist"
+    fold_open = "", -- icon used for open folds
+    fold_closed = "", -- icon used for closed folds
+    action_keys = { -- key mappings for actions in the trouble list
+        close = "q", -- close the list
+        cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
+        refresh = "r", -- manually refresh
+        jump = {"<cr>", "<tab>"}, -- jump to the diagnostic or open / close folds
+        jump_close = {"o"}, -- jump to the diagnostic and close the list
+        toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
+        toggle_preview = "P", -- toggle auto_preview
+        hover = "K", -- opens a small poup with the full multiline message
+        preview = "p", -- preview the diagnostic location
+        close_folds = {"zM", "zm"}, -- close all folds
+        open_folds = {"zR", "zr"}, -- open all folds
+        toggle_fold = {"zA", "za"}, -- toggle fold of current file
+        previous = "k", -- preview item
+        next = "j" -- next item
+    },
+    indent_lines = true, -- add an indent guide below the fold icons
+    auto_open = false, -- automatically open the list when you have diagnostics
+    auto_close = false, -- automatically close the list when you have no diagnostics
+    auto_preview = true, -- automatyically preview the location of the diagnostic. <esc> to close preview and go back to last window
+    auto_fold = false, -- automatically fold a file trouble list at creation
+    signs = {
+        -- icons / text used for a diagnostic
+        error = "",
+        warning = "",
+        hint = "",
+        information = "",
+    },
+    use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+}

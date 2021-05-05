@@ -1,6 +1,5 @@
 local map = vim.api.nvim_set_keymap
 
-map('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ","
 
@@ -24,6 +23,11 @@ map('n', '<c-j>', '<c-w>j', {silent = true})
 map('n', '<C-k>', '<C-w>k', {silent = true})
 map('n', '<C-l>', '<C-w>l', {silent = true})
 
+map('n', '<c-Left>', '<c-w>h', {silent = true})
+map('n', '<c-Down>', '<c-w>j', {silent = true})
+map('n', '<C-Up>', '<C-w>k', {silent = true})
+map('n', '<C-Right>', '<C-w>l', {silent = true})
+
 -- PageUp PageDown movement up/down 5 lines
 map('', '<PageUp>', '10<C-U>', {silent = true})
 map('', '<PageDown>', '10<C-D>', {silent = true})
@@ -33,7 +37,7 @@ map('', 'H', '^', {noremap = true})
 map('', 'L', '$', {noremap = true})
 
 -- Move selected line / block of text in visual mode
-map('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
+map('x', 'K', ':move \'<-2<CR>gvgv', {noremap = true, silent = true})
 map('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
 
 -- better indenting
@@ -59,12 +63,13 @@ map('n', 'Q', '<nop>', {noremap = true, silent = true})
 map('n', 'gb', ':BufferLinePick<CR>', {noremap = true, silent = true})
 
 -- Fugitive
-map('', '<leader>gB', ':Gbrowse<CR>', {noremap = true, silent = true})
+map('n', '<leader>gB', ':GBrowse<CR>', {noremap = true, silent = true})
+map('v', '<leader>gB', ':GBrowse<CR>', {noremap = true, silent = true})
 
 -- Gitsigns
-map('', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
-map('', '<leader>gu', ':lua require"gitsigns".undo_stage_hunk()<CR>', {noremap = true, silent = true})
-map('', '<leader>gr', ':lua require"gitsigns".reset_hunk()<CR>', {noremap = true, silent = true})
+map('n', '<leader>gs', ':lua require"gitsigns".stage_hunk()<CR>', {noremap = true, silent = true})
+map('n', '<leader>gu', ':lua require"gitsigns".undo_stage_hunk()<CR>', {noremap = true, silent = true})
+map('n', '<leader>gr', ':lua require"gitsigns".reset_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gP', ':lua require"gitsigns".preview_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gn', ':lua require"gitsigns".next_hunk()<CR>', {noremap = true, silent = true})
 map('n', '<leader>gp', ':lua require"gitsigns".prev_hunk()<CR>', {noremap = true, silent = true})
@@ -78,3 +83,11 @@ map('n', '<localleader>v', ':vsplit<CR>', {noremap = true, silent = true})
 map('n', '<localleader>c', ':bdelete<CR>', {noremap = true, silent = true})
 map('n', '<localleader>w', ':close<CR>', {noremap = true, silent = true})
 map('n', '<localleader>.', ':lcd %:p:h<CR>', {noremap = true, silent = true}) -- set working dir
+
+-- Lua
+map("n", "<leader>lt", ":LspTroubleToggle<CR>", {silent = true, noremap = true})
+map("n", "<leader>lw", ":LspTroubleToggle lsp_workspace_diagnostics<CR>", {silent = true, noremap = true})
+map("n", "<leader>ld", ":LspTroubleToggle lsp_document_diagnostics<CR>", {silent = true, noremap = true})
+map("n", "<leader>ll", ":LspTroubleToggle loclist<CR>", {silent = true, noremap = true})
+map("n", "<leader>lq", ":LspTroubleToggle quickfix<CR>", {silent = true, noremap = true})
+map("n", "gR", ":LspTrouble lsp_references<CR>", {silent = true, noremap = true})

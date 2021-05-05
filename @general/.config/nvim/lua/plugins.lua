@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'glepnir/lspsaga.nvim'
     use 'onsails/lspkind-nvim'
+    use 'folke/lsp-trouble.nvim'
     -- use 'kosayoda/nvim-lightbulb'
 
     -- Debugging
@@ -63,8 +64,8 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-media-files.nvim'
 
     -- Explorer
-    use 'preservim/nerdtree'
-    use 'tiagofumo/vim-nerdtree-syntax-highlight'
+    -- use 'preservim/nerdtree'
+    -- use 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     -- Appearance
     use 'gruvbox-community/gruvbox'
@@ -76,9 +77,6 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use 'shumphrey/fugitive-gitlab.vim'
-
-    -- Registers
-    use 'gennaro-tedesco/nvim-peekup'
 
     -- General Plugins
     use 'editorconfig/editorconfig-vim'
@@ -92,7 +90,7 @@ return require('packer').startup(function(use)
     use 'moll/vim-bbye'
     use 'terrortylor/nvim-comment'
     use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
-    use 'liuchengxu/vim-which-key' -- i can't remember hotkey
+    use 'folke/which-key.nvim' -- i can't remember hotkey
     use 'voldikss/vim-floaterm' -- floating terminal
     use 'liuchengxu/vista.vim' -- lsp outline
     use 'junegunn/goyo.vim' -- distraction free writing

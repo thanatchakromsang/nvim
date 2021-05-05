@@ -37,3 +37,13 @@ vim.api.nvim_exec([[
 
 -- Indent Blankline
 vim.cmd('hi link IndentBlanklineContextChar GruvboxGray')
+
+-- folke/lsp-trouble.nvim
+vim.api.nvim_exec([[
+    hi link LspTroubleSignWarning LspDiagnosticsDefaultWarning
+    hi link LspTroubleSignError LspDiagnosticsDefaultError
+    hi link LspTroubleSignHint LspDiagnosticsDefaultHint
+    hi link LspTroubleSignInformation LspDiagnosticsDefaultInformation
+    hi link LspTroubleFoldIcon LspDiagnosticsDefaultWarning
+]], false)
+

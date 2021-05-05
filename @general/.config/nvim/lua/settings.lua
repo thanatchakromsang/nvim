@@ -38,7 +38,7 @@ vim.o.ignorecase = true -- Lowercase will be insensitive when search
 vim.o.smartcase = true -- Uppercase will be sensitive when search
 
 -- Window scoped options
-vim.wo.wrap = false -- Word wrapping, but only line breaks inserted when explicitly press enter
+vim.wo.wrap = true -- Word wrapping, but only line breaks inserted when explicitly press enter
 vim.wo.linebreak = false
 vim.wo.list = true
 vim.wo.numberwidth = 1 -- Width of gutter
@@ -50,3 +50,9 @@ vim.wo.relativenumber = true -- Show relative to current line number instead
 vim.cmd('set ts=2') -- Insert 2 spaces for a tab
 vim.cmd('set sw=2') -- Change the number of space characters inserted for indentation
 vim.cmd('set colorcolumn=80,120') -- Column line
+
+vim.api.nvim_command([[
+    augroup TerminalOptions
+        autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
+    augroup END
+]])

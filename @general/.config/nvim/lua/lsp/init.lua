@@ -49,15 +49,15 @@ local custom_attach = function(client, bufnr)
     buf_set_keymap("n", "gd", ":Telescope lsp_definitions<CR>", opts)
     buf_set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
     buf_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
-    buf_set_keymap("n", "<localleader>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
-    buf_set_keymap("v", "<localleader>ca", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
+    buf_set_keymap("n", "<localleader>a", ":lua vim.lsp.buf.code_action()<CR>", opts)
+    buf_set_keymap("v", "<localleader>a", ":lua vim.lsp.buf.range_code_action()<CR>", opts)
     buf_set_keymap("n", "gn", ":lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "gp", ":lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 
     if client.resolved_capabilities.implementation then buf_set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts) end
     if client.resolved_capabilities.find_references then buf_set_keymap("n", "gr", ":Telescope lsp_references<CR>", opts) end
     if client.resolved_capabilities.type_definition then buf_set_keymap("n", "gt", ":lua vim.lsp.buf.type_definition()<CR>", opts) end
-    if client.resolved_capabilities.rename then buf_set_keymap("n", "gR", ":lua vim.lsp.buf.rename()<CR>", opts) end
+    if client.resolved_capabilities.rename then buf_set_keymap("n", "<localleader>r", ":lua vim.lsp.buf.rename()<CR>", opts) end
     if client.resolved_capabilities.signature_help then buf_set_keymap("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", opts) end
 
     -- Set autocommands conditional on server_capabilities
