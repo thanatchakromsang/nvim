@@ -5,7 +5,7 @@ require('settings')
 require('colorscheme')
 
 -- Plugins settings
-require('plugins-config')
+require('plugin-settings')
 require('plugin-galaxyline')
 require('plugin-autopairs')
 require('plugin-compe')
