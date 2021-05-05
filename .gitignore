@@ -15,3 +15,5 @@ keyboards/qmk
 @general/.gitconfig
 @general/.warprc
 @linux/.config/gammastep/config.ini
+
+@general/.config/nvim/sessions/**
