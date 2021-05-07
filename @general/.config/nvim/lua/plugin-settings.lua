@@ -65,8 +65,8 @@ require("gitsigns").setup {
     status_formatter = nil -- Use default
 }
 
--- Sneak
-vim.g['sneak#prompt'] = '  '
+-- -- Sneak
+-- vim.g['sneak#prompt'] = '  '
 
 -- Indent blank line
 vim.g.indent_blankline_buftype_exclude = {'terminal'}

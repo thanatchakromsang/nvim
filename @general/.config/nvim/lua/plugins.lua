@@ -94,7 +94,7 @@ return require('packer').startup(function(use)
     use 'liuchengxu/vista.vim' -- lsp outline
     use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
-    use 'justinmk/vim-sneak' -- movement on steroid
+    -- use 'justinmk/vim-sneak' -- movement on steroid
     use 'tpope/vim-sleuth'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'
