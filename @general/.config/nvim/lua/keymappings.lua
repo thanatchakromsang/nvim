@@ -1,6 +1,6 @@
 local map = vim.api.nvim_set_keymap
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 -- no one is really happy until have this shortcuts
@@ -17,6 +17,8 @@ vim.cmd([[
   cnoreabbrev Qall qall
 ]])
 
+map('n', '<space><space>', 'za', {silent = true})
+
 -- better window movement
 map('n', '<c-h>', '<c-w>h', {silent = true})
 map('n', '<c-j>', '<c-w>j', {silent = true})
@@ -31,10 +33,6 @@ map('n', '<C-Right>', '<C-w>l', {silent = true})
 -- PageUp PageDown movement up/down 5 lines
 map('', '<PageUp>', '10<C-U>', {silent = true})
 map('', '<PageDown>', '10<C-D>', {silent = true})
-
--- Move around in normal mode
-map('', 'H', '^', {noremap = true})
-map('', 'L', '$', {noremap = true})
 
 -- Move selected line / block of text in visual mode
 map('x', 'K', ':move \'<-2<CR>gvgv', {noremap = true, silent = true})
@@ -85,11 +83,12 @@ map('n', '<localleader>w', ':close<CR>', {noremap = true, silent = true})
 map('n', '<localleader>.', ':lcd %:p:h<CR>', {noremap = true, silent = true}) -- set working dir
 
 -- Lua
-map("n", "<leader>lt", ":LspTroubleToggle<CR>", {silent = true, noremap = true})
-map("n", "<leader>lw", ":LspTroubleToggle lsp_workspace_diagnostics<CR>", {silent = true, noremap = true})
-map("n", "<leader>ld", ":LspTroubleToggle lsp_document_diagnostics<CR>", {silent = true, noremap = true})
-map("n", "<leader>ll", ":LspTroubleToggle loclist<CR>", {silent = true, noremap = true})
-map("n", "<leader>lq", ":LspTroubleToggle quickfix<CR>", {silent = true, noremap = true})
+map("n", "<F11>", ":LspTroubleToggle<CR>", {silent = true, noremap = true})
+map("n", "<leader>Tt", ":LspTroubleToggle<CR>", {silent = true, noremap = true})
+map("n", "<leader>Tw", ":LspTroubleToggle lsp_workspace_diagnostics<CR>", {silent = true, noremap = true})
+map("n", "<leader>Td", ":LspTroubleToggle lsp_document_diagnostics<CR>", {silent = true, noremap = true})
+map("n", "<leader>Tl", ":LspTroubleToggle loclist<CR>", {silent = true, noremap = true})
+map("n", "<leader>Tq", ":LspTroubleToggle quickfix<CR>", {silent = true, noremap = true})
 map("n", "gR", ":LspTrouble lsp_references<CR>", {silent = true, noremap = true})
 
 -- NvimTree
