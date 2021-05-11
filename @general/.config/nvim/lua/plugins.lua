@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
+    -- use 'glepnir/lspsaga.nvim'
     use 'onsails/lspkind-nvim'
     use 'folke/lsp-trouble.nvim'
     -- use 'kosayoda/nvim-lightbulb'
@@ -95,6 +95,7 @@ return require('packer').startup(function(use)
     use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
     -- use 'justinmk/vim-sneak' -- movement on steroid
+    -- use 'phaazon/hop.nvim' -- better easymotion
     use 'tpope/vim-sleuth'
     use 'tpope/vim-repeat'
     use 'tpope/vim-surround'

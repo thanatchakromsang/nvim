@@ -19,4 +19,3 @@ require('plugin-nvimtree')
 -- LSP
 require('lsp')
 require('lsp/dap') -- debugger
-require('lsp/saga')
