@@ -37,7 +37,7 @@ local wk = require("which-key")
 wk.register({
     ["<leader>"] = {
         name = "leader",
-        [" "] = {"za", "fold toggle"},
+        [" "] = {"fold toggle"},
         e = "explorer toggle",
         r = {":FloatermNew --height=0.8 --width=0.8 --name=ranger --wintype=float ranger<CR>", "ranger"},
         v = {":Vista!!<CR>", "outline"},
@@ -98,8 +98,8 @@ wk.register({
             h = {":FloatermNew --height=0.8 --width=0.8 --wintype=float --name=htop htop<CR>", "htop"},
             t = {":FloatermToggle<CR>", "toggle"}
         },
-        l = {
-            name = "+lsptrouble",
+        T = {
+            name = "+trouble",
             t = "toggle",
             w = "workspace diagnostics",
             d = "document diagnostics",
@@ -142,7 +142,7 @@ wk.register({
     nowait = false -- use `nowait` when creating keymaps
 })
 
-wk.register({["<localleader>"] = {name = "localleader", a = "range code action"}}, {
+wk.register({["<localleader>"] = {name = "localleader", a = "range code action", f = "range code format"}}, {
     mode = "v", -- NORMAL mode
     silent = true, -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps

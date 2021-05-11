@@ -51,3 +51,6 @@ vim.api.nvim_exec([[
 vim.cmd('hi link NvimTreeIndentMarker GruvboxBg4')
 vim.cmd('hi link NvimTreeFolderIcon GruvboxFg4')
 vim.cmd('hi link NvimTreeRootFolder GruvboxPurpleBold')
+
+-- WhichKey
+vim.cmd('hi link WhichKeyFloat Normal')
