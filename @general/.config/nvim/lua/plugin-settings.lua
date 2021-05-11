@@ -70,7 +70,21 @@ require("gitsigns").setup {
 
 -- Indent blank line
 vim.g.indent_blankline_buftype_exclude = {'terminal'}
-vim.g.indent_blankline_filetype_exclude = {'help', 'startify', 'dashboard', 'packer', 'neogitstatus', 'nerdtree'}
+vim.g.indent_blankline_filetype_exclude = {
+    'help',
+    'startify',
+    'dashboard',
+    'packer',
+    'neogitstatus',
+    'man',
+    'sagasignature',
+    'sagahover',
+    'lspsagafinder',
+    'LspSagaCodeAction',
+    'TelescopePrompt',
+    'NvimTree',
+    'LspTrouble'
+}
 vim.g.indent_blankline_char = '▏'
 vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_trailing_blankline_indent = false
@@ -107,15 +121,15 @@ require("trouble").setup {
         close = "q", -- close the list
         cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
         refresh = "r", -- manually refresh
-        jump = {"<cr>", "<tab>"}, -- jump to the diagnostic or open / close folds
-        jump_close = {"o"}, -- jump to the diagnostic and close the list
+        jump = {"<tab>"}, -- jump to the diagnostic or open / close folds
+        jump_close = {}, -- jump to the diagnostic and close the list
         toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
         toggle_preview = "P", -- toggle auto_preview
         hover = "K", -- opens a small poup with the full multiline message
         preview = "p", -- preview the diagnostic location
         close_folds = {"zM", "zm"}, -- close all folds
         open_folds = {"zR", "zr"}, -- open all folds
-        toggle_fold = {"zA", "za"}, -- toggle fold of current file
+        toggle_fold = {"zA", "za", 'o'}, -- toggle fold of current file
         previous = "k", -- preview item
         next = "j" -- next item
     },
@@ -129,7 +143,7 @@ require("trouble").setup {
         error = "",
         warning = "",
         hint = "",
-        information = "",
+        information = ""
     },
     use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 }
