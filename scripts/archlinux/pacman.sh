@@ -56,6 +56,7 @@ declare -a pkgs=(
 	"terraform-ls"
 	"gopls"
 	"shfmt" # shell fmt
+	"shellcheck"
 )
 
 # Graphic packages
