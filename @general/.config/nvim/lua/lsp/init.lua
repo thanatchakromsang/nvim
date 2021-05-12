@@ -13,7 +13,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
                                                                    {underline = true, virtual_text = false, signs = true, update_in_insert = false})
 
 vim.api.nvim_command [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
-vim.api.nvim_command [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
 
 vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then return end
@@ -58,7 +57,10 @@ local custom_attach = function(client, bufnr)
     if client.resolved_capabilities.find_references then buf_set_keymap("n", "gr", ":Telescope lsp_references<CR>", opts) end
     if client.resolved_capabilities.type_definition then buf_set_keymap("n", "gt", ":lua vim.lsp.buf.type_definition()<CR>", opts) end
     if client.resolved_capabilities.rename then buf_set_keymap("n", "<localleader>r", ":lua vim.lsp.buf.rename()<CR>", opts) end
-    if client.resolved_capabilities.signature_help then buf_set_keymap("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", opts) end
+    if client.resolved_capabilities.signature_help then
+        buf_set_keymap("n", "gs", ":lua vim.lsp.buf.signature_help()<CR>", opts)
+        vim.api.nvim_command [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+    end
 
     -- Set autocommands conditional on server_capabilities
     if client.resolved_capabilities.document_highlight then
@@ -83,7 +85,7 @@ local custom_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
         buf_set_keymap("n", "<localleader>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
     elseif client.resolved_capabilities.document_range_formatting then
-        buf_set_keymap("n", "<localleader>f", ":lua vim.lsp.buf.range_formatting()<CR>", opts)
+        buf_set_keymap("v", "<localleader>f", ":lua vim.lsp.buf.range_formatting()<CR>", opts)
     end
 
     print("'" .. client.name .. "' server attached")
@@ -162,12 +164,18 @@ local isort = {formatCommand = "isort --quiet -", formatStdin = true}
 local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
 
 -- JavaScript/React/TypeScript
-local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
+-- local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
+local prettier = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
 local eslint = {
     lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"}
+}
+
+local shellcheck = {
+    LintCommand = 'shellcheck -f gcc -x',
+    lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}
 }
 
 local shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
@@ -201,21 +209,33 @@ local languages = {
     css = {prettier},
     markdown = {markdownlint},
     python = {isort, yapf},
-    sh = {shfmt}
+    sh = {shfmt, shellcheck}
 }
 
 lspconfig.efm.setup {
+    -- root_dir = function() return vim.fn.getcwd() end,
+    -- cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'}, -- debug cmd
     on_attach = custom_attach,
-    root_dir = function() return vim.fn.getcwd() end,
-    init_options = {documentFormatting = true},
+    init_options = {documentFormatting = true, codeAction = false},
     filetypes = vim.tbl_keys(languages),
     settings = {rootMarkers = {"package.json", ".git"}, languages = languages, lintDebounce = 500}
+}
+
+-----------------------------------------------------
+-- Bash LSP
+-----------------------------------------------------
+
+lspconfig.bashls.setup {
+    on_init = custom_init,
+    on_attach = custom_attach,
+    capabilities = capabilities,
+    filetypes = {"sh", "zsh"}
 }
 
 -----------------------------------------------------
 -- general LSP
 -----------------------------------------------------
 
-local servers = {'bashls', 'dockerls', 'rust_analyzer', 'pyright', 'vimls', 'jsonls', 'graphql', 'terraformls'}
+local servers = {'dockerls', 'rust_analyzer', 'pyright', 'vimls', 'jsonls', 'graphql', 'terraformls'}
 
 for _, server in ipairs(servers) do lspconfig[server].setup {on_init = custom_init, on_attach = custom_attach, capabilities = capabilities} end
