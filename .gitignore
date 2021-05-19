@@ -3,7 +3,7 @@ keyboards/qmk
 # NVIM
 @general/.config/nvim/plugged/
 @general/.config/nvim/autoload
-@general/.config/nvim/session
+@general/.config/nvim/session*
 @general/.config/nvim/.netrwhist
 @general/.config/nvim/.cache/
 @general/.config/nvim/plugin/
