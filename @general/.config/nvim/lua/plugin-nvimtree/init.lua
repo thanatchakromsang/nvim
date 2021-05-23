@@ -18,6 +18,7 @@ vim.g.nvim_tree_hijack_netrw = 1 -- 1 by default, prevents netrw from automatica
 vim.g.nvim_tree_add_trailing = 0 -- 0 by default, append a trailing slash to folder names
 vim.g.nvim_tree_group_empty = 0 -- 0 by default, compact folders that only contain a single folder into one node in the file tree
 vim.g.nvim_tree_lsp_diagnostics = 0 -- 0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+vim.g.nvim_tree_disable_window_picker = 1 -- 0 by default, will disable the window picker.
 
 vim.api.nvim_exec([[
     augroup NvimTreeOptions
