@@ -93,3 +93,6 @@ map("n", "gR", ":LspTrouble lsp_references<CR>", {silent = true, noremap = true}
 
 -- NvimTree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", {silent = true, noremap = true})
+
+-- Telescope
+map('n', 'gb', ':Telescope buffers<CR>', {noremap = true, silent = true})
