@@ -80,7 +80,6 @@ return require('packer').startup(function(use)
     -- General Plugins
     use 'editorconfig/editorconfig-vim'
     use 'windwp/nvim-autopairs'
-    use 'kevinhwang91/nvim-bqf'
     use 'unblevable/quick-scope' -- find and to keyword on steroid
     use 'airblade/vim-rooter'
     use 'mhinz/vim-startify'

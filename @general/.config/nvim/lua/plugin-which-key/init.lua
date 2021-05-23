@@ -28,7 +28,7 @@ require("which-key").setup {
     },
     hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
     show_help = true, -- show help message on the command line when the popup is visible
-    triggers = {"<leader>", "<localleader>", "g", "\'", "\"", "<C-r>"} -- automatically setup triggers
+    triggers = {"<leader>", "<localleader>", "g", "\'", "\"", "<C-r>", "z"} -- automatically setup triggers
 }
 
 local wk = require("which-key")
@@ -58,14 +58,16 @@ wk.register({
             D = {":Telescope lsp_workspace_diagnostics<CR>", "workspace diagnostics"},
             f = {":Telescope find_files<CR>", "find files"},
             g = {":Telescope git_files<CR>", "find git files"},
-            h = {":Telescope command_history<CR>", "history"},
+            h = {":Telescope command_history<CR>", "command history"},
             i = {":Telescope media_files<CR>", "media files"},
             m = {":Telescope marks<CR>", "marks"},
             o = {":Telescope vim_options<CR>", "vim options"},
             t = {":Telescope live_grep<CR>", "text"},
             b = {":Telescope buffers<CR>", "buffers"},
             q = {":Telescope quickfix<CR>", "quickfix"},
-            l = {":Telescope loclist<CR>", "loclist"}
+            l = {":Telescope loclist<CR>", "loclist"},
+            c = {":Telescope git_commits<CR>", "git current file history"},
+            C = {":Telescope git_commits<CR>", "git history"},
         },
         s = {
             name = "+startify",
@@ -79,7 +81,9 @@ wk.register({
             name = "+git",
             d = {":Gdiffsplit<CR>", "git diff"},
             g = {":FloatermNew --height=0.9 --width=0.9 --name=git --wintype=float lazygit<CR>", "lazygit"},
-            t = {":FloatermNew --height=0.9 --width=0.9 --name=tig --wintype=float tig %<CR>", "tig current file"},
+            S = {":Telescope git_stash<CR>", "git stash"},
+            c = {":Telescope git_bcommits<CR>", "git current file history"},
+            C = {":Telescope git_commits<CR>", "git history"},
             p = {"go to prev hunk"},
             n = {"go to next hunk"},
             s = {"stage hunk"},
