@@ -90,8 +90,10 @@ declare -a g_pkgs=(
 
 	# Sound
 	"pavucontrol"
-	"pulseaudio-bluetooth"
-	"pulseaudio"
+	# "pulseaudio-bluetooth"
+	# "pulseaudio"
+	"pipewire-pulse"
+	"pipewire-alsa"
 
 	# Fonts
 	"ttf-dejavu"

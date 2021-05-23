@@ -1,0 +1,7 @@
+Change audio stack from pulseaudio to pipewire to simplify stack
+
+```
+sudo pacman -Rs pulseaudio pulseaudio-bluetooth
+
+sudo pacman -S bluez pipewire-alsa pipewire-pulse
+```
