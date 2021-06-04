@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim'
     use 'folke/lsp-trouble.nvim'
     -- use 'kosayoda/nvim-lightbulb'
+    use 'simrat39/symbols-outline.nvim'
 
     -- Debugging
     use 'mfussenegger/nvim-dap'
@@ -90,7 +91,7 @@ return require('packer').startup(function(use)
     use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
     use 'folke/which-key.nvim' -- i can't remember hotkey
     use 'voldikss/vim-floaterm' -- floating terminal
-    use 'liuchengxu/vista.vim' -- lsp outline
+    -- use 'liuchengxu/vista.vim' -- lsp outline
     use 'junegunn/goyo.vim' -- distraction free writing
     use 'andymass/vim-matchup'
     -- use 'justinmk/vim-sneak' -- movement on steroid

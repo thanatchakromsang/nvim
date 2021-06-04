@@ -54,3 +54,6 @@ vim.cmd('hi link NvimTreeRootFolder GruvboxPurpleBold')
 
 -- WhichKey
 vim.cmd('hi link WhichKeyFloat Normal')
+
+-- symbols-outline.nvim
+vim.cmd('hi link FocusedSymbol IncSearch')
