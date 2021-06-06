@@ -233,9 +233,21 @@ lspconfig.bashls.setup {
 }
 
 -----------------------------------------------------
+-- terraform LSP
+-----------------------------------------------------
+
+lspconfig.terraformls.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.signature_help = false
+        custom_attach(client)
+    end,
+    capabilities = capabilities,
+}
+
+-----------------------------------------------------
 -- general LSP
 -----------------------------------------------------
 
-local servers = {'dockerls', 'rust_analyzer', 'pyright', 'vimls', 'jsonls', 'graphql', 'terraformls'}
+local servers = {'dockerls', 'rust_analyzer', 'pyright', 'vimls', 'jsonls', 'graphql'}
 
 for _, server in ipairs(servers) do lspconfig[server].setup {on_init = custom_init, on_attach = custom_attach, capabilities = capabilities} end
