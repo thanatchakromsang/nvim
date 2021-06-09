@@ -9,7 +9,6 @@ vim.o.cmdheight = 1 -- Space for displaying messages
 vim.o.mouse = "a" -- Enable mouse support
 vim.o.splitright = true -- Vertical splits will automatically be to the right
 vim.o.splitbelow = true -- Horizontal splits will automatically be below
-vim.o.t_Co = "256" -- Support 256 colors
 vim.o.conceallevel = 0 -- So that I can see `` in markdown files
 vim.o.showtabline = 2 -- Always show tabs
 vim.o.showmode = false -- We don't need to see things like -- INSERT -- anymore
