@@ -17,3 +17,6 @@ keyboards/qmk
 @linux/.config/gammastep/config.ini
 
 @general/.config/nvim/sessions/**
+
+@linux/.config/lazygit/*
+!@linux/.config/lazygit/config.yml
