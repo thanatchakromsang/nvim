@@ -8,14 +8,4 @@ while pgrep -x waybar >/dev/null; do sleep 1; done
 
 HOSTNAME="$(hostname)"
 
-case "$HOSTNAME" in
-  *sertis*)
-    waybar -c $HOME/.config/waybar/sertis.conf
-    ;;
-  *nuc*)
-    waybar -c $HOME/.config/waybar/nuc.conf
-    ;;
-  *)
-    waybar
-    ;;
-esac
+waybar -c $HOME/.config/waybar/$HOSTNAME.conf

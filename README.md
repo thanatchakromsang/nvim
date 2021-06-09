@@ -20,8 +20,8 @@ git clone https://github.com/thanatchakromsang/dotfiles.git ~/.dotfiles
 Import those 2 for ability to encrypt and decrypt secret files
 
 ```bash
-gpg import public.gpg
-gpg import private.gpg
+gpg --import public.gpg
+gpg --import private.gpg
 ```
 
 ### Reveal Secret

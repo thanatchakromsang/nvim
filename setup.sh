@@ -20,7 +20,7 @@ case "$OS" in
 		echo "Restart macOS after installation"
 		;;
 	*arch*)
-		sudo pacman -S git base-devel --noconfirm
+		sudo pacman -S git base-devel go --noconfirm
 		git clone https://aur.archlinux.org/yay.git $HOME/.yay
 		cd $HOME/.yay
 		makepkg -si
