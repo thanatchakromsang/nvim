@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
     -- use 'glepnir/lspsaga.nvim'
-    use 'onsails/lspkind-nvim'
     use 'folke/lsp-trouble.nvim'
     -- use 'kosayoda/nvim-lightbulb'
     use 'simrat39/symbols-outline.nvim'

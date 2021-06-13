@@ -9,10 +9,14 @@ vim.fn.sign_define("LspDiagnosticsSignHint", {texthl = "LspDiagnosticsSignHint",
 -- Handler overrides
 -----------------------------------------------------
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-                                                                   {underline = true, virtual_text = false, signs = true, update_in_insert = false})
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    virtual_text = {prefix = "", spacing = 0},
+    signs = true,
+    update_in_insert = false
+})
 
-vim.api.nvim_command [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+-- vim.api.nvim_command [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 
 vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then return end
@@ -23,6 +27,16 @@ vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
         if bufnr == vim.api.nvim_get_current_buf() then vim.cmd [[noautocmd :update]] end
     end
 end
+
+-----------------------------------------------------
+-- Symbol overrides
+-----------------------------------------------------
+vim.lsp.protocol.CompletionItemKind = {
+    "   (Text) ", "   (Method)", "   (Function)", "   (Constructor)", " ﴲ  (Field)", "[] (Variable)", "   (Class)",
+    " ﰮ  (Interface)", "   (Module)", " 襁 (Property)", "   (Unit)", "   (Value)", " 練 (Enum)", "   (Keyword)", "   (Snippet)",
+    "   (Color)", "   (File)", "   (Reference)", "   (Folder)", "   (EnumMember)", " ﲀ  (Constant)", " ﳤ  (Struct)",
+    "   (Event)", "   (Operator)", "   (TypeParameter)"
+}
 
 -----------------------------------------------------
 -- Custom on_attach / capabilities
@@ -173,10 +187,7 @@ local eslint = {
     lintFormats = {"%f:%l:%c: %m"}
 }
 
-local shellcheck = {
-    LintCommand = 'shellcheck -f gcc -x',
-    lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}
-}
+local shellcheck = {LintCommand = 'shellcheck -f gcc -x', lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}}
 
 local shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
 
@@ -225,12 +236,7 @@ lspconfig.efm.setup {
 -- Bash LSP
 -----------------------------------------------------
 
-lspconfig.bashls.setup {
-    on_init = custom_init,
-    on_attach = custom_attach,
-    capabilities = capabilities,
-    filetypes = {"sh", "zsh"}
-}
+lspconfig.bashls.setup {on_init = custom_init, on_attach = custom_attach, capabilities = capabilities, filetypes = {"sh", "zsh"}}
 
 -----------------------------------------------------
 -- terraform LSP
@@ -241,7 +247,7 @@ lspconfig.terraformls.setup {
         client.resolved_capabilities.signature_help = false
         custom_attach(client)
     end,
-    capabilities = capabilities,
+    capabilities = capabilities
 }
 
 -----------------------------------------------------
