@@ -118,7 +118,7 @@ declare -a aur_pkgs=(
 
 	"wdisplays"
 
-	"google-chrome"
+	# "google-chrome"
 
 	"neovim-git"
 
@@ -142,4 +142,4 @@ declare -a kube_pkgs=(
 	"flux-bin"
 )
 
-yay -Syu ${pkgs[@]} ${g_pkgs[@]} ${aur_pkgs[@]} ${kube_pkgs[@]} --noconfirm --needed
+yay -Syu "${pkgs[@]}" "${g_pkgs[@]}" "${aur_pkgs[@]}" "${kube_pkgs[@]}" --noconfirm --needed
