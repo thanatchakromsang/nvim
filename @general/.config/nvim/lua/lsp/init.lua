@@ -16,7 +16,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = false
 })
 
--- vim.api.nvim_command [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]]
+-- vim.api.nvim_command [[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=False})]]
 
 vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then return end
