@@ -26,6 +26,7 @@ declare -a pkgs=(
 	"wl-clipboard"
 	"terraform"
 	"openssh"
+	"anki"
 
 	"yq"
 	"jq"
