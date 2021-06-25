@@ -44,6 +44,7 @@ declare -a pkgs=(
 	"make"
 
 	"python-pip"
+	"python-pipenv"
 	"python-neovim"
 
 	"virtualbox"
