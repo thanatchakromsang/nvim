@@ -17,8 +17,12 @@ vim.api.nvim_exec([[
     augroup END
 ]], false)
 
-vim.cmd('hi link QuickScopePrimary IncSearch')
-vim.cmd('hi link QuickScopeSecondary Search')
+-- vim.cmd('hi link QuickScopePrimary IncSearch')
+-- vim.cmd('hi link QuickScopeSecondary Search')
+-- lightspeed
+-- vim.api.nvim_exec([[
+--     hi link LightspeedOneCharMatch IncSearch
+-- ]], false)
 
 -- WhichKey
 vim.api.nvim_exec([[

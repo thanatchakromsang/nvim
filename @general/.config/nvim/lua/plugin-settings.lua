@@ -31,11 +31,32 @@ require('nvim_comment').setup({
     create_mappings = true
 })
 
--- quickscope
--- Trigger a highlight in the appropriate direction when pressing these keys:
-vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
-vim.g.qs_max_chars = 150
-vim.g.qs_buftype_blacklist = {'terminal', 'nofile'}
+-- -- quickscope
+-- -- Trigger a highlight in the appropriate direction when pressing these keys:
+-- vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
+-- vim.g.qs_max_chars = 150
+-- vim.g.qs_buftype_blacklist = {'terminal', 'nofile'}
+
+-- lightspeed
+require'lightspeed'.setup {
+    jump_to_first_match = false,
+    jump_on_partial_input_safety_timeout = 400,
+    highlight_unique_chars = false,
+    grey_out_search_area = false,
+    match_only_the_start_of_same_char_seqs = true,
+    limit_ft_matches = 10,
+    full_inclusive_prefix_key = '<c-x>'
+}
+
+function repeat_ft(reverse)
+    local ls = require 'lightspeed'
+    ls.ft['instant-repeat?'] = true
+    ls.ft:to(reverse, ls.ft['prev-t-like?'])
+end
+vim.api.nvim_set_keymap('n', ';', '<cmd>lua repeat_ft(false)<cr>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', ';', '<cmd>lua repeat_ft(false)<cr>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', ',', '<cmd>lua repeat_ft(true)<cr>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', ',', '<cmd>lua repeat_ft(true)<cr>', {noremap = true, silent = true})
 
 -- Match up
 vim.g.matchup_matchparen_offscreen = {method = 'popup'}
@@ -71,19 +92,8 @@ require("gitsigns").setup {
 -- Indent blank line
 vim.g.indent_blankline_buftype_exclude = {'terminal'}
 vim.g.indent_blankline_filetype_exclude = {
-    'help',
-    'startify',
-    'dashboard',
-    'packer',
-    'neogitstatus',
-    'man',
-    'sagasignature',
-    'sagahover',
-    'lspsagafinder',
-    'LspSagaCodeAction',
-    'TelescopePrompt',
-    'NvimTree',
-    'LspTrouble'
+    'help', 'startify', 'dashboard', 'packer', 'neogitstatus', 'man', 'sagasignature', 'sagahover', 'lspsagafinder', 'LspSagaCodeAction',
+    'TelescopePrompt', 'NvimTree', 'LspTrouble'
 }
 vim.g.indent_blankline_char = '▏'
 vim.g.indent_blankline_use_treesitter = true
@@ -154,13 +164,6 @@ vim.g.symbols_outline = {
     show_guides = true,
     auto_preview = false, -- experimental
     position = 'right',
-    keymaps = {
-        close = "<Esc>",
-        goto_location = "<Cr>",
-        focus_location = "o",
-        hover_symbol = "<C-space>",
-        rename_symbol = "r",
-        code_actions = "a",
-    },
-    lsp_blacklist = {},
+    keymaps = {close = "<Esc>", goto_location = "<Cr>", focus_location = "o", hover_symbol = "<C-space>", rename_symbol = "r", code_actions = "a"},
+    lsp_blacklist = {}
 }
