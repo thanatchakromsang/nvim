@@ -30,6 +30,7 @@ plugins=(
   fzf
   helm
   rust
+  ssh-agent
 )
 
 OS="$(uname -a)"
