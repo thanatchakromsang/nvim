@@ -46,7 +46,7 @@ read_only = " "
 # Rename context using kubectx <new>=<old>
 [kubernetes]
 format = 'k8s:[$context\($namespace\)]($style) '
-style = "bold blue"
+style = "bold cyan"
 disabled = false
 
 [aws]
@@ -58,6 +58,7 @@ symbol = " "
 [gcloud]
 # format = 'gcp:[($account)(@$domain) (\($project/$region\))]($style) '
 format = 'gcp:[($account)@($project\($region\))]($style) '
+style = "bold blue"
 symbol = " "
 
 [conda]
