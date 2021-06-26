@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export DOTFILES=$HOME/.dotfiles
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -6,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 #   source $DOTFILES/zsh/startup.sh
 # fi
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
@@ -33,8 +40,6 @@ case "$OS" in
 esac
 
 source $ZSH/oh-my-zsh.sh
-
-eval "$(starship init zsh)"
 
 # source useful script
 source $DOTFILES/scripts/bin/exists.sh
@@ -66,7 +71,7 @@ function pet-select() {
   zle redisplay
 }
 zle -N pet-select
-stty -ixon
+stty -ixon <$TTY >$TTY
 
 bindkey '^s' pet-select
 
@@ -103,3 +108,6 @@ if [ -f '/home/thanatchaya/google-cloud-sdk/path.zsh.inc' ]; then . '/home/thana
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/thanatchaya/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/thanatchaya/google-cloud-sdk/completion.zsh.inc'; fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

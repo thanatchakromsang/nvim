@@ -9,6 +9,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/custom/plugins/zsh-autosuggestions"
 
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 chsh -s "$(which zsh)"
