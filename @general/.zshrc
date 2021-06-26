@@ -34,6 +34,8 @@ esac
 
 source $ZSH/oh-my-zsh.sh
 
+eval "$(starship init zsh)"
+
 # source useful script
 source $DOTFILES/scripts/bin/exists.sh
 

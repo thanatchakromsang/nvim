@@ -1,7 +1,5 @@
-Change audio stack from pulseaudio to pipewire to simplify stack
+1. Run oh-my-zsh script update to starship
 
-```
-sudo pacman -Rs pulseaudio pulseaudio-bluetooth
+2. and run ./stow.sh
 
-sudo pacman -S bluez pipewire-alsa pipewire-pulse
-```
+3. Update nvim for lightspeed
