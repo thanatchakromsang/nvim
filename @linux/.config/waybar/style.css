@@ -63,7 +63,10 @@ window#waybar.solo {
 }
 
 
-#workspaces button.visible {}
+#workspaces button.visible {
+    background: #b16286;
+    color: #282828;
+}
 
 #workspaces button.persistent {}
 
