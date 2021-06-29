@@ -100,6 +100,8 @@ declare -a g_pkgs=(
 	# Fonts
 	"ttf-dejavu"
 	"noto-fonts-emoji"
+	"otf-font-awesome"
+	"ttf-font-awesome"
 
 	"polkit"
 	"polkit-gnome"
