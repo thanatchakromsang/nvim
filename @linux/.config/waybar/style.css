@@ -37,11 +37,13 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: icons-in-terminal, Dejavu Sans;
+    font-family: 'Font Awesome 5 Free', Hack Nerd Font, Dejavu Sans;
     font-size: 12px;
     min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition-duration: 0s;
 }
-
 window#waybar {
     background: #1d2021;
     color: #fbf1c7;
@@ -61,9 +63,7 @@ window#waybar.solo {
 }
 
 
-#workspaces button.visible {
-    border-top: 3px solid #689d6a;
-}
+#workspaces button.visible {}
 
 #workspaces button.persistent {}
 
@@ -76,7 +76,8 @@ window#waybar.solo {
 }
 
 #workspaces button.focused {
-    border-top: 3px solid #689d6a;
+    background: #689d6a;
+    color: #282828;
 }
 
 #workspaces button.urgent {
@@ -84,10 +85,13 @@ window#waybar.solo {
 }
 
 #mode {
-    border-top: 3px solid #fe8019;
+    background: #fe8019;
+    color: #282828;
+    padding: 0 4px;
 }
 
-#clock,
+#clock {}
+
 #battery,
 #cpu,
 #memory,
@@ -97,14 +101,13 @@ window#waybar.solo {
 #pulseaudio,
 #custom-media,
 #tray,
-#mode,
 #language,
-#idle_inhibitor,
 #custom-pacman,
 #custom-gammastep,
+#idle_inhibitor,
 #mpd {
-    padding: 0 4px;
-    margin: 0 0px;
+    /* padding: 0 4px; */
+    margin: 0 2px;
     color: #fbf1c7;
 }
 
