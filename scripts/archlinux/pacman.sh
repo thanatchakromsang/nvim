@@ -59,6 +59,9 @@ declare -a pkgs=(
 	"gopls"
 	"shfmt" # shell fmt
 	"shellcheck"
+
+	# static-site-generator
+	"hugo"
 )
 
 # Graphic packages
