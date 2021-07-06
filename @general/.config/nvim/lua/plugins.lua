@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
     -- Appearance
     use 'gruvbox-community/gruvbox'
     -- use {'RRethy/vim-hexokinase', run = 'make hexokinase'} -- XXX: Enable when work more with colors
-    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'} -- TODO: Switch to master branch once neovim 0.5 officially release
+    use {'lukas-reineke/indent-blankline.nvim'}
 
     -- Git
     use 'lewis6991/gitsigns.nvim'

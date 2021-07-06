@@ -14,6 +14,7 @@ declare -a pkgs=(
 	"yarn"
 	"zsh"
 
+	"neovim"
 	"tig"
 	"fd"
 	"bat"
@@ -126,8 +127,6 @@ declare -a aur_pkgs=(
 	"wdisplays"
 
 	# "google-chrome"
-
-	"neovim-git"
 
 	"downgrade"
 
